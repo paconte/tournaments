@@ -1,0 +1,9 @@
+{% if tournament_list %}
+    <ul>
+    {% for t in tournament_list %}
+        <li><a href="/tournaments/{{ t.id }}/">{{ t.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No tournaments are available.</p>
+{% endif %}
