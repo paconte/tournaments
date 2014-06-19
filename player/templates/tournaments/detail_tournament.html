@@ -1,0 +1,22 @@
+{% extends "tournaments/index.html" %}
+
+{% block title %}{{tournament.name}}{% endblock %}
+
+
+{% block content %}
+<h1>{{ tournament.name }}</h1>
+<h2>Teams</h2> 
+<ul>
+  {% for team in tournament.teams.all %}
+    <li><a href="{% url 'detail_team' tournament.id team.id %}">{{ team.name }}</a></li>
+  {% endfor %}
+</ul>
+<h2>Games</h2>
+<ul>
+  {% for game in games %}
+    <li>{{game}}</li>
+  {% endfor %}
+</ul>
+{% endblock %}
+
+
