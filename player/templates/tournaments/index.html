@@ -2,20 +2,17 @@
 
 {% block title %}{{tournament.name}}{% endblock %}
 
-{% block sidebar %}
+{% block sidebar_tournaments %}
+<h2>Tournaments:</h2>
 {% if tournament_list %}
-    <ul>
+    <p>
     {% for t in tournament_list %}
         <!-- <li><a href="/tournaments/{{ t.id }}/">{{ t.name }}</a></li> -->
-        <li><a href="{% url 'detail_tournament' t.id %}">{{ t.name }}</a></li>
+        <li><a href="{% url 'detail_tournament' t.id %}">» {{ t.name }}</a></li><br />
     {% endfor %}
-    </ul>
+    </p>
 {% else %}
     <p>No tournaments are available.</p>
 {% endif %}
+    <br />
 {% endblock %}
-
-{% block content %}
-Select your tournament
-{% endblock %}
-

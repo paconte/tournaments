@@ -1,17 +1,56 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <!-- <link rel="stylesheet" href="style.css" /> -->
-    <title>{% block title %}Touch tournaments{% endblock %}</title>
+  
+  {% block css %}
+  <!-- <link rel="stylesheet" href="style.css" /> -->
+  <link rel="stylesheet" type="text/css" href="{% static '0755/autumn05.css' %}"/>
+  {% endblock %}
+
+  <title>{% block title %}Touch tournaments{% endblock %}</title>
 </head>
 
 <body>
-    <div id="sidebar">
-        {% block sidebar %}{% endblock %}
+
+  <div id="container">
+
+    <div id="navarea">
+      <ul id="nav">    
+	<li><a href="{% url 'index' %}">tournaments</a></li>
+	<li><a href="#" title="about">about</a></li>
+	<li><a href="#" title="contact">contact</a></li>
+      </ul>
     </div>
 
-    <div id="content">
-        {% block content %}{% endblock %}
+    <div id="hdr"> 
+      <span id="sitetitle">Touch tournaments</span> <br />
+      <span id="subtitle">The touch rugby tournaments database</span>
     </div>
+
+    <div id="lftcol">
+      <div class="leftcolbox">
+	<div class="leftcolboxtop"></div>
+	{% block sidebar_tournaments %}{% endblock %}	
+      </div>
+    </div>
+
+    <div id="maincol">
+
+      {% block content %}{% endblock %}
+
+    </div>
+
+    <div id="bttmbar"> <span id="copyright"> Copyright &copy; 2014.</span>
+      <ul id="bttmnav">
+	<li><a href="{% url 'index' %}">tournaments</a></li>
+	<li><a href="{% url 'index' %}" title="about">about</a></li>
+	<li><a href="{% url 'index' %}" title="contact">contact</a></li>
+      </ul>
+    </div>
+
+  </div>
+
 </body>
 </html>

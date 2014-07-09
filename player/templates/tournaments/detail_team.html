@@ -1,20 +1,24 @@
 {% extends "tournaments/index.html" %}
 
-{% block title %}{{tournament.name}}{% endblock %}
-
-
 {% block content %}
-<h1>{{team.name}}</h1>
-<h2>Players</h2>
+
+<div class="rule">
+  <h1>{{ team.name }}</h1>
+</div>
+
 <ul>
   {% for player in players %}
-    <li>{{player.number}} {{player}}</li>
+  <li>{{player.number}} {{player}}</li>
   {% endfor %}
 </ul>
-<h2>Games</h2>
+
+<div class="rule">
+  <h1>Games</h1>
+</div>
+
 <ul>
   {% for game in games %}
-    <li>{{game}}</li>
+  <li>{{game}}</li>
   {% endfor %}
 </ul>
 {% endblock %}
