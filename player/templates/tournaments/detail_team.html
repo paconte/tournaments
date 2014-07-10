@@ -6,19 +6,28 @@
   <h1>{{ team.name }}</h1>
 </div>
 
+{% if players %}
 <ul>
   {% for player in players %}
   <li>{{player.number}} {{player}}</li>
   {% endfor %}
 </ul>
+{% else %}
+<p>No players are available.</p>
+{% endif %}
 
 <div class="rule">
   <h1>Games</h1>
 </div>
 
+{% if games %}
 <ul>
   {% for game in games %}
   <li>{{game}}</li>
-  {% endfor %}
+  {% endfor %}  
 </ul>
+{% else %}
+<p>No games are available.</p>
+{% endif %}
+
 {% endblock %}

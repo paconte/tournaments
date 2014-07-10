@@ -16,11 +16,15 @@
   <h1>Games</h1>  
 </div>
 
+{% if games %}
 <ul>
   {% for game in games %}
-    <li>{{game}}</li>
-  {% endfor %}
+  <li>{{game}}</li>
+  {% endfor %}  
 </ul>
+{% else %}
+<p>No games are available.</p>
+{% endif %}
 
 {% endblock %}
 
