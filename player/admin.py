@@ -6,6 +6,7 @@ from player.models import Game
 from player.models import PlayerStadistic
 from player.models import Tournament
 from player.models import Phase
+from player.models import Division
 
 # Custom admin models
 
@@ -28,3 +29,4 @@ admin.site.register(Game, GameAdmin)
 admin.site.register(PlayerStadistic)
 admin.site.register(Tournament)
 admin.site.register(Phase)
+admin.site.register(Division)

@@ -2,19 +2,19 @@ from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 #from geography.models import ZipCode
 
-MIXED_OPEN = 'MX'
-MENS_OPEN = 'MO'
-WOMENS_OPEN = 'WO'
-SENIOR_MIX = 'SMX'
-SENIOR_MENS = 'SMO'
-SENIOR_WOMENS = 'SWO'
+MIXED_OPEN = 'Mixed Open'
+MENS_OPEN = 'Mens Open'
+WOMENS_OPEN = 'Womens Open'
+SENIOR_MIX = 'Senior Mix Open'
+SENIOR_MENS = 'Senior Mens Open'
+SENIOR_WOMENS = 'Senior Womes Open'
 TOUCH_DIVISION_CHOICES = (
-    (MIXED_OPEN, 'Mixed Open'),
-    (MENS_OPEN, 'Mens Open'),
-    (WOMENS_OPEN, 'Womens Open'),
-    (SENIOR_MIX, 'Senior Mix Open'),
-    (SENIOR_MENS, 'Senior Mens Open'),
-    (SENIOR_WOMENS, 'Senior Womes Open'),
+    (MIXED_OPEN, MIXED_OPEN),
+    (MENS_OPEN, MENS_OPEN),
+    (WOMENS_OPEN, WOMENS_OPEN),
+    (SENIOR_MIX, SENIOR_MIX),
+    (SENIOR_MENS, SENIOR_MENS),
+    (SENIOR_WOMENS, SENIOR_WOMENS),
     )
 
 MALE = 'M'
@@ -39,12 +39,17 @@ class Person(models.Model):
         "Returns the person's full name."
         return '%s %s' % (self.first_name, self.last_name)
 
-#class Category(models.Model):
+class Division(models.Model):
+    name = models.CharField(max_length=50, choices=TOUCH_DIVISION_CHOICES)
+
+    def __unicode__(self):  # Python 3: def __str__(self):
+        return unicode(self.name)
+
 
 class Team(models.Model):
     name = models.CharField(max_length=30)
     players = models.ManyToManyField(Person, through='Player')
-    division = models.CharField(max_length=3, choices=TOUCH_DIVISION_CHOICES, default=MIXED_OPEN)    
+    division = models.ForeignKey(Division)
 
     def __unicode__(self):  # Python 3: def __str__(self):
         return self.name
@@ -65,7 +70,7 @@ class Tournament(models.Model):
     address = models.CharField(max_length=100, null=True, blank=True)
     date = models.DateField(null=True, blank=True)
     teams = models.ManyToManyField(Team)
-    division = models.CharField(max_length=3, choices=TOUCH_DIVISION_CHOICES)
+    divisions = models.ManyToManyField(Division)
 
     def __unicode__(self):  # Python 3: def __str__(self):
         return '%s (%s, %s)' % (self.name, self.city, self.country)
