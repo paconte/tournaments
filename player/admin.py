@@ -5,8 +5,7 @@ from player.models import Player
 from player.models import Game
 from player.models import PlayerStadistic
 from player.models import Tournament
-from player.models import Phase
-from player.models import Division
+from player.models import GameRound
 
 # Custom admin models
 
@@ -16,7 +15,7 @@ class GameAdmin(admin.ModelAdmin):
     fieldsets = [
         ('Tournament', {'fields' : ['tournament']}),
         ('Score'     , {'fields' : ['local', 'local_score', 'visitor_score', 'visitor']}),
-#        ('Phase'     , {'fields' : ['round']}),
+        ('Round'     , {'fields' : ['phase']}),
         ]
 
 
@@ -28,5 +27,4 @@ admin.site.register(Game, GameAdmin)
 #admin.site.register(Game)
 admin.site.register(PlayerStadistic)
 admin.site.register(Tournament)
-admin.site.register(Phase)
-admin.site.register(Division)
+admin.site.register(GameRound)

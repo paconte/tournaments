@@ -9,23 +9,23 @@ SENIOR_MIX = 'Senior Mix Open'
 SENIOR_MENS = 'Senior Mens Open'
 SENIOR_WOMENS = 'Senior Womes Open'
 TOUCH_DIVISION_CHOICES = (
-    (MIXED_OPEN, MIXED_OPEN),
-    (MENS_OPEN, MENS_OPEN),
-    (WOMENS_OPEN, WOMENS_OPEN),
-    (SENIOR_MIX, SENIOR_MIX),
-    (SENIOR_MENS, SENIOR_MENS),
-    (SENIOR_WOMENS, SENIOR_WOMENS),
-    )
-
-MALE = 'M'
-FEMALE = 'F'
-GENDER_CHOICES = (
-    (MALE, 'Male'),
-    (FEMALE, 'Female'),
+    ('MXO', MIXED_OPEN),
+    ('MO', MENS_OPEN),
+    ('WO', WOMENS_OPEN),
+    ('SMX', SENIOR_MIX),
+    ('SMO', SENIOR_MENS),
+    ('SWO', SENIOR_WOMENS),
     )
 
 # Create your models here.
 class Person(models.Model):
+    MALE = 'M'
+    FEMALE = 'F'
+    GENDER_CHOICES = (
+        (MALE, 'Male'),
+        (FEMALE, 'Female'),
+        )
+
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     born = models.DateField(null=True, blank=True)
@@ -39,17 +39,10 @@ class Person(models.Model):
         "Returns the person's full name."
         return '%s %s' % (self.first_name, self.last_name)
 
-class Division(models.Model):
-    name = models.CharField(max_length=50, choices=TOUCH_DIVISION_CHOICES)
-
-    def __unicode__(self):  # Python 3: def __str__(self):
-        return unicode(self.name)
-
-
 class Team(models.Model):
     name = models.CharField(max_length=30)
     players = models.ManyToManyField(Person, through='Player')
-    division = models.ForeignKey(Division)
+    division = models.CharField(max_length=3, choices=TOUCH_DIVISION_CHOICES)
 
     def __unicode__(self):  # Python 3: def __str__(self):
         return self.name
@@ -70,19 +63,55 @@ class Tournament(models.Model):
     address = models.CharField(max_length=100, null=True, blank=True)
     date = models.DateField(null=True, blank=True)
     teams = models.ManyToManyField(Team)
-    divisions = models.ManyToManyField(Division)
+    division = models.CharField(max_length=3, choices=TOUCH_DIVISION_CHOICES)
 
     def __unicode__(self):  # Python 3: def __str__(self):
-        return '%s (%s, %s)' % (self.name, self.city, self.country)
+        return '%s - %s (%s, %s)' % (self.division, self.name, self.city, self.country)
 
-class Phase(models.Model):
-    name = models.CharField(default='Pool', max_length=20, null=True, blank=True)
-    phase = models.PositiveIntegerField(default=1, validators=[MinValueValidator(0), MaxValueValidator(10)])
-    teams = models.PositiveIntegerField(default=1, validators=[MinValueValidator(0), MaxValueValidator(20)])
-    clase = models.PositiveIntegerField(default=1, validators=[MinValueValidator(0), MaxValueValidator(10)])
+class GameRound(models.Model):
+    FINAL = 'Final'
+    SEMI = 'Semifinal'    
+    QUARTER = '1/4'    
+    EIGHTH = '1/8'
+    SIXTEENTH = '1/16'
+    POOL = 'Pool'
+    THIRD_PLACE = 'Third position'
+    FOURTH_PLACE = 'Fourth position'
+    FITH_PLACE = 'Fith position'
+    SIXTH_PLACE = 'Sixth position'
+    SEVENTH_PLACE = 'Seventh position'
+    EIGHTH_PLACE = 'Eighth position'
+
+    GAME_ROUND_CHOICES = (
+        (POOL, '0'),
+        (FINAL, '1'),
+        (SEMI, '2'),
+        (QUARTER, '3'),
+        (EIGHTH, '4'),
+        (SIXTEENTH, '5'),
+        (THIRD_PLACE, 'a'),
+        (FITH_PLACE, 'b'),
+        (SIXTH_PLACE, 'c'),
+        (SEVENTH_PLACE, 'd'),
+        (EIGHTH_PLACE, 'e'),
+        )
+    
+    GOLD = 'Gold'
+    SILVER = 'Silver'
+    BRONZE = 'Bronze'
+
+    CATEGORY_ROUND_CHOICES = (
+        (GOLD, '1'),
+        (SILVER, '2'),
+        (BRONZE, '3'),
+        )
+    
+    round = models.CharField(default=POOL, max_length=1, null=False, blank=False, choices=GAME_ROUND_CHOICES)
+    number_teams = models.PositiveIntegerField(default=2, validators=[MinValueValidator(0), MaxValueValidator(20)])
+    category = models.CharField(default=GOLD, max_length=1, null=False, blank=False, choices=CATEGORY_ROUND_CHOICES)
 
     def __unicode__(self):  # Python 3: def __str__(self):
-        return '%s %s %s' % (self.number, self.teams, self.clase)
+        return '%s %s %s' % (self.round, self.number_teams, self.category)
 
 class Game(models.Model):
     local = models.ForeignKey(Team, related_name="local")
@@ -91,7 +120,7 @@ class Game(models.Model):
     visitor_score = models.SmallIntegerField()
     #player_stadistics = models.ManyToManyField(Stadictic)
     tournament = models.ForeignKey(Tournament)
-    phase = models.ForeignKey(Phase)
+    phase = models.ForeignKey(GameRound)
 
     def __unicode__(self):  # Python 3: def __str__(self):
         return '%s %s - %s %s' % (self.local, self.local_score, self.visitor_score, self.visitor)
