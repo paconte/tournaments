@@ -33,7 +33,7 @@ class Person(models.Model):
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES, default = MALE)
 
     def __unicode__(self):  # Python 3: def __str__(self):
-        return '%s %s' % (self.first_name, self.last_name)
+        return '%s - %s %s' % (self.gender, self.first_name, self.last_name)
 
     def _get_full_name(self):
         "Returns the person's full name."
@@ -70,30 +70,35 @@ class Tournament(models.Model):
 
 class GameRound(models.Model):
     FINAL = 'Final'
-    SEMI = 'Semifinal'    
-    QUARTER = '1/4'    
+    SEMI = 'Semifinal'
+    QUARTER = '1/4'
     EIGHTH = '1/8'
     SIXTEENTH = '1/16'
-    POOL = 'Pool'
     THIRD_PLACE = 'Third position'
-    FOURTH_PLACE = 'Fourth position'
     FITH_PLACE = 'Fith position'
     SIXTH_PLACE = 'Sixth position'
     SEVENTH_PLACE = 'Seventh position'
-    EIGHTH_PLACE = 'Eighth position'
+    POOL_A = 'Pool A'
+    POOL_B = 'Pool B'
+    POOL_C = 'Pool C'
+    POOL_D = 'Pool D'
+    LIGA = 'Liga'
 
     GAME_ROUND_CHOICES = (
-        (POOL, '0'),
-        (FINAL, '1'),
-        (SEMI, '2'),
-        (QUARTER, '3'),
-        (EIGHTH, '4'),
-        (SIXTEENTH, '5'),
-        (THIRD_PLACE, 'a'),
-        (FITH_PLACE, 'b'),
-        (SIXTH_PLACE, 'c'),
-        (SEVENTH_PLACE, 'd'),
-        (EIGHTH_PLACE, 'e'),
+        (FINAL, FINAL),
+        (SEMI, SEMI),
+        (QUARTER, QUARTER),
+        (EIGHTH, EIGHTH),
+        (SIXTEENTH, SIXTEENTH),
+        (THIRD_PLACE, THIRD_PLACE),
+        (FITH_PLACE, FITH_PLACE),
+        (SIXTH_PLACE, SIXTH_PLACE),
+        (SEVENTH_PLACE, SEVENTH_PLACE),
+        (POOL_A, POOL_A),
+        (POOL_B, POOL_B),
+        (POOL_C, POOL_C),
+        (POOL_D, POOL_D),
+        (LIGA, LIGA),
         )
     
     GOLD = 'Gold'
@@ -101,14 +106,14 @@ class GameRound(models.Model):
     BRONZE = 'Bronze'
 
     CATEGORY_ROUND_CHOICES = (
-        (GOLD, '1'),
-        (SILVER, '2'),
-        (BRONZE, '3'),
+        (GOLD, GOLD),
+        (SILVER, SILVER),
+        (BRONZE, BRONZE),
         )
     
-    round = models.CharField(default=POOL, max_length=1, null=False, blank=False, choices=GAME_ROUND_CHOICES)
+    round = models.CharField(default=POOL_A, max_length=16, null=False, blank=False, choices=GAME_ROUND_CHOICES)
     number_teams = models.PositiveIntegerField(default=2, validators=[MinValueValidator(0), MaxValueValidator(20)])
-    category = models.CharField(default=GOLD, max_length=1, null=False, blank=False, choices=CATEGORY_ROUND_CHOICES)
+    category = models.CharField(default=GOLD, max_length=6, null=False, blank=False, choices=CATEGORY_ROUND_CHOICES)
 
     def __unicode__(self):  # Python 3: def __str__(self):
         return '%s %s %s' % (self.round, self.number_teams, self.category)
@@ -124,6 +129,8 @@ class Game(models.Model):
 
     def __unicode__(self):  # Python 3: def __str__(self):
         return '%s %s - %s %s' % (self.local, self.local_score, self.visitor_score, self.visitor)
+
+
 
 class PlayerStadistic(models.Model):
     game = models.ForeignKey(Game)

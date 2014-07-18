@@ -16,14 +16,42 @@
   <h1>Games</h1>  
 </div>
 
+
 {% if games %}
 <ul>
   {% for game in games %}
-  <li>{{game}}</li>
+    <li>{{game}}</li>
+    {{game.phase}}  
   {% endfor %}  
 </ul>
 {% else %}
 <p>No games are available.</p>
+{% endif %}
+
+
+{% if pool_games %}
+<div class="rule">
+  <h1>Pool Stage</h1>  
+</div>
+<ul>
+  {% for game in pool_games %}
+    <li>{{game}}</li>
+    {{game.phase}}  
+  {% endfor %}  
+</ul>
+{% endif %}
+
+
+{% if playoffs_games %}
+<div class="rule">
+  <h1>Finals</h1>  
+</div>
+<ul>
+  {% for game in playoffs_games %}
+    <li>{{game}}</li>
+    {{game.phase}}  
+  {% endfor %}  
+</ul>
 {% endif %}
 
 {% endblock %}
