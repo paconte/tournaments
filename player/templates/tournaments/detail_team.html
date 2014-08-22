@@ -2,10 +2,13 @@
 
 {% block content %}
 
-<div class="rule">
+<div class="jumbotron">
   <h1>{{ team.name }}</h1>
 </div>
 
+<div class="page-header">
+  <h1>Players</h1>
+</div>
 {% if players %}
 <ul>
   {% for player in players %}
@@ -16,10 +19,9 @@
 <p>No players are available.</p>
 {% endif %}
 
-<div class="rule">
+<div class="page-header">
   <h1>Games</h1>
 </div>
-
 {% if games %}
 <ul>
   {% for game in games %}

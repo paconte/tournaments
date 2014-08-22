@@ -43,50 +43,26 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tournaments <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
 		{% block sidebar_tournaments %}{% endblock %}
-<!--
-                <li><a href="#">Action</a></li>
+		<!--
+                    <li><a href="#">Action</a></li>
                 <li><a href="#">Another action</a></li>
                 <li><a href="#">Something else here</a></li>
                 <li class="divider"></li>
                 <li class="dropdown-header">Nav header</li>
                 <li><a href="#">Separated link</a></li>
                 <li><a href="#">One more separated link</a></li>
--->
+		-->
               </ul>
             </li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
-
-    {% block content %}{% endblock %}
-
-  </div> <!-- /container -->
     
+    {% block content %}{% endblock %}
+    
+  </div> <!-- /container -->     
 
-  <div id="container">
-
-    <div id="lftcol">
-      <div class="leftcolbox">
-	<div class="leftcolboxtop"></div>
-      </div>
-    </div>
-
-    <div id="maincol">
-
-
-    </div>
-
-<!--
-    <div id="bttmbar"> <span id="copyright"> Copyright &copy; 2014.</span>
-      <ul id="bttmnav">
-	<li><a href="{% url 'index' %}">tournament<s/a></li>
-	<li><a href="{% url 'index' %}" title="about">about</a></li>
-	<li><a href="{% url 'index' %}" title="contact">contact</a></li>
-      </ul>
-    </div>
--->
-  </div>
 
   <!-- Bootstrap core JavaScript -->
   <!-- ================================================== -->
