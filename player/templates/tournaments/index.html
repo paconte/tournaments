@@ -3,12 +3,11 @@
 {% block title %}{{tournament.name}}{% endblock %}
 
 {% block sidebar_tournaments %}
-<h2>Tournaments:</h2>
 {% if tournament_list %}
     <p>
     {% for t in tournament_list %}
         <!-- <li><a href="/tournaments/{{ t.id }}/">{{ t.name }}</a></li> -->
-        <li><a href="{% url 'detail_tournament' t.id %}">» {{ t.name }}</a></li><br />
+        <li><a href="{% url 'detail_tournament' t.id %}"> {{ t.name }}</a></li><br />
     {% endfor %}
     </p>
 {% else %}

@@ -3,54 +3,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
   
   {% block css %}
   <!-- <link rel="stylesheet" href="style.css" /> -->
-  <link rel="stylesheet" type="text/css" href="{% static '0755/autumn05.css' %}"/>
+  <!-- <link rel="stylesheet" type="text/css" href="{% static '0755/autumn05.css' %}"/> -->
+  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-3.2.0-dist/css/bootstrap.min.css' %}"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-3.2.0-dist/css/bootstrap-theme.min.css' %}"/>
   {% endblock %}
 
   <title>{% block title %}Touch tournaments{% endblock %}</title>
 </head>
 
-<body>
+<body role="document">
+
+  <div class="container theme-showcase" role="main">
+
+    <div class="navbar navbar-inverse navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Bootstrap theme</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tournaments <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+		{% block sidebar_tournaments %}{% endblock %}
+<!--
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+-->
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    {% block content %}{% endblock %}
+
+  </div> <!-- /container -->
+    
 
   <div id="container">
-
-    <div id="navarea">
-      <ul id="nav">    
-	<li><a href="{% url 'index' %}">tournaments</a></li>
-	<li><a href="#" title="about">about</a></li>
-	<li><a href="#" title="contact">contact</a></li>
-      </ul>
-    </div>
-
-    <div id="hdr"> 
-      <span id="sitetitle">Touch tournaments</span> <br />
-      <span id="subtitle">The touch rugby tournaments database</span>
-    </div>
 
     <div id="lftcol">
       <div class="leftcolbox">
 	<div class="leftcolboxtop"></div>
-	{% block sidebar_tournaments %}{% endblock %}	
       </div>
     </div>
 
     <div id="maincol">
 
-      {% block content %}{% endblock %}
 
     </div>
 
+<!--
     <div id="bttmbar"> <span id="copyright"> Copyright &copy; 2014.</span>
       <ul id="bttmnav">
-	<li><a href="{% url 'index' %}">tournaments</a></li>
+	<li><a href="{% url 'index' %}">tournament<s/a></li>
 	<li><a href="{% url 'index' %}" title="about">about</a></li>
 	<li><a href="{% url 'index' %}" title="contact">contact</a></li>
       </ul>
     </div>
-
+-->
   </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <!-- ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="{% static 'bootstrap-3.2.0-dist/js/bootstrap.min.js' %}"></script>
+  <!--<script src="{% static 'bootstrap-3.2.0-dist/js/bootstrap.js' %}"></script>-->
 
 </body>
 </html>

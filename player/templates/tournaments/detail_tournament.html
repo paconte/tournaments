@@ -2,8 +2,13 @@
 
 {% block content %}
 
-<div class="rule">
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
   <h1>{{ tournament.name }}</h1>
+</div>
+
+<div class="page-header">
+  <h1>Teams</h1>
 </div>
 
 <ul>
@@ -12,29 +17,13 @@
   {% endfor %}
 </ul>
 
-<div class="rule">
-  <h1>Games</h1>  
-</div>
-
-
-{% if games %}
-<ul>
-  {% for game in games %}
-    <li>{{game}}</li>
-    {{game.phase}}  
-  {% endfor %}  
-</ul>
-{% else %}
-<p>No games are available.</p>
-{% endif %}
-
-
 {% if sorted_pools %}
-<div class="rule">
-  <h1>Pool Stage</h1>  
+<div class="page-header">
+  <h1>Pool Stage</h1>
 </div>
+
 {% for key, list in sorted_pools.items %}
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>{{key}}</th>
@@ -66,6 +55,21 @@
 </table>
 {% endfor %}     
 
+{% endif %}
+
+<div class="page-header">
+  <h1>Games</h1>
+</div>
+
+{% if games %}
+<ul>
+  {% for game in games %}
+    <li>{{game}}</li>
+    {{game.phase}}  
+  {% endfor %}  
+</ul>
+{% else %}
+<p>No games are available.</p>
 {% endif %}
 
 
