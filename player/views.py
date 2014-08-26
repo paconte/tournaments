@@ -13,6 +13,8 @@ from player.models import Player
 
 from operator import attrgetter
 
+import re
+
 # Create your views here.
 def index(request):
     tournament_list = Tournament.objects.all()
@@ -93,7 +95,9 @@ class ClassificationRow:
                 else:
                     return self.points.__cmp__(other.points)
             else:
-                return self.phase.round.__cmp__(other.phase.round)
+                #return re.sub("\W+", "", self.phase.round.lower()).__cmp__(re.sub("\W+", "", other.phase.round))
+                #return cmp(re.sub("\W+", "", self.phase.round.lower()), re.sub("\W+", "", other.phase.round)))
+                return cmp(self.phase.round, other.phase.round)
         else:
             return self.phase.category.__cmp__(other.phase.category)
 
@@ -195,7 +199,7 @@ class Fixtures:
         for item in self.sorted_pools_rows:
             new_pool = item.phase.round
             if (old_pool != new_pool):
-                row_list.clear()                
+                row_list= []
             row_list.append(item)
             self.sorted_pools.update({item.phase.round:row_list})
             old_pool = new_pool
