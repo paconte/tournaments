@@ -23,9 +23,60 @@
 </div>
 
 {% for key, list in sorted_pools.items %}
-<table class="table table-striped">
+<div class="row">
+  <div class="col-md-8">
+    {% if games %}
+      {% for game in games %}
+        {% if game.phase.round == key %}
+          <p>{{game}}</p>
+        {% endif %}
+      {% endfor %}
+    {% else %}
+      <p>No games are available.</p>
+    {% endif %}
+  </div>
+  <div class="col-md-4">
+    <table class="table table-striped table-condensed">
+      <thead>
+	<tr class="success">
+	  <th>{{key}}</th>
+	  <th>P</th>
+	  <th>W</th>
+	  <th>L</th>
+	  <th>D</th>
+	  <th>+</th>
+	  <th>-</th>
+	  <th>+/-</th>
+	  <th>Pts</th>
+	</tr>
+	<tbody>
+	  {% for value in list %}
+	  <tr>
+	    <td>{{value.team}}</td>
+	    <td>{{value.played}}</td>
+	    <td>{{value.won}}</td>
+	    <td>{{value.lost}}</td>
+	    <td>{{value.drawn}}</td>
+	    <td>{{value.plus}}</td>
+	    <td>{{value.minus}}</td>
+	    <td>{{value.plus_minus}}</td>
+	    <td>{{value.points}}</td>
+	  </tr>
+	  {% endfor %}
+	</tbody>
+      </thead>
+    </table>
+  </div>
+</div>
+{% endfor %}
+
+
+
+
+{% for key, list in sorted_pools.items %}
+<table class="table table-striped table-condensed">
   <thead>
-    <tr>
+    <tr class="success">
       <th>{{key}}</th>
       <th>P</th>
       <th>W</th>
@@ -53,7 +104,7 @@
     </tbody>
   </thead>
 </table>
-{% endfor %}     
+{% endfor %}
 
 {% endif %}
 

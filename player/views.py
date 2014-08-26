@@ -45,22 +45,23 @@ def detail_tournament(request, tournament_id):
               or game.phase.round == GameRound.POOL_B        
               or game.phase.round == GameRound.POOL_C
               or game.phase.round == GameRound.POOL_D):
-            pool_games.append(game)
+            pool_games.append(game)        
         else:
             playoffs_games.append(game)
             print playoffs_games       
     
     fixtures = Fixtures(games)
     fixtures.sort_pools()
-    print(games)
-    print(fixtures.pool_rows)    
-    print(fixtures.sorted_pools)
+    print(fixtures.get_games(games, GameRound.POOL_A, []))
+    #print(games)
+    #print(fixtures.pool_rows)    
+    #print(fixtures.sorted_pools)
     #print(fixtures.get_sorted_pools)
     teams = Team.objects.filter(tournament__id=tournament_id)
    
     return render(request, 
                   'tournaments/detail_tournament.html', 
-                  {'tournament_list': tournament_list, 'tournament': tournament, 'games': games, 'liga_games': liga_games, 'sorted_pools': fixtures.sorted_pools, 'playoffs_games': playoffs_games,})
+                  {'tournament_list': tournament_list, 'tournament': tournament, 'games': games, 'liga_games': liga_games, 'sorted_pools': fixtures.sorted_pools, 'pool_games': fixtures.pool_games, 'playoffs_games': playoffs_games, 'fixtures': fixtures, })
 
 
 def detail_team(request, tournament_id, team_id):
@@ -166,7 +167,7 @@ class Fixtures:
                   or game.phase.round == GameRound.POOL_D):
                 self.pool_games.update({game.id:game})
             else:
-                self.playoffs_games.update({game.id:game})
+                self.playoff_games.update({game.id:game})
                 
         for game in self.pool_games.values():
             if (self.pool_rows.has_key(game.local.id)):
@@ -203,15 +204,23 @@ class Fixtures:
             row_list.append(item)
             self.sorted_pools.update({item.phase.round:row_list})
             old_pool = new_pool
+            
+    def get_games(self, games, arg, result):
+        result = []
+        for game in games:
+            if game.phase.round == arg:
+                result.append(game)
+        return result
+        
     
 def WIN_POINTS():
-    return 3
+    return 4
 
 def DRAW_POINTS():
-    return 1
+    return 2
 
 def LOST_POINTS():
-    return 0
+    return 1
 
     
         
