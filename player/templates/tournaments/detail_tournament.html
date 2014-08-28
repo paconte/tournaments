@@ -24,17 +24,7 @@
 
 {% for key, list in sorted_pools.items %}
 <div class="row">
-  <div class="col-md-8">
-    {% if games %}
-      {% for game in games %}
-        {% if game.phase.round == key %}
-          <p>{{game}}</p>
-        {% endif %}
-      {% endfor %}
-    {% else %}
-      <p>No games are available.</p>
-    {% endif %}
-  </div>
+
   <div class="col-md-4">
     <table class="table table-striped table-condensed">
       <thead>
@@ -67,73 +57,65 @@
       </thead>
     </table>
   </div>
+
+  <div class="col-md-6">
+    <table class="table table-striped table-condensed table-bordered">
+      <thead>
+	<tr class="success">
+	  <th colspan="5">{{key}} - Games</th>
+	</tr>
+	<tbody>
+	  {% if games %}
+	    {% for game in games %}
+              {% if game.phase.round == key %}
+	        <tr>
+		  <td>{{game.local}}</td>
+		  <td class="success">{{game.local_score}}</td>
+		  <td>v</td>
+		  <td class="success">{{game.visitor_score}}</td>
+		  <td>{{game.visitor}}</td>
+		</tr>
+              {% endif %}
+	    {% endfor %}
+	  {% else %}
+	  <td>No games are available.</td>
+	  {% endif %}
+	</tbody>
+      </thead>
+    </table>
+  </div>
 </div>
 {% endfor %}
-
-
-
-
-{% for key, list in sorted_pools.items %}
-<table class="table table-striped table-condensed">
-  <thead>
-    <tr class="success">
-      <th>{{key}}</th>
-      <th>P</th>
-      <th>W</th>
-      <th>L</th>
-      <th>D</th>
-      <th>+</th>
-      <th>-</th>
-      <th>+/-</th>
-      <th>Pts</th>
-    </tr>
-    <tbody>
-      {% for value in list %}
-      <tr>
-	<td>{{value.team}}</td>
-	<td>{{value.played}}</td>
-	<td>{{value.won}}</td>
-	<td>{{value.lost}}</td>
-	<td>{{value.drawn}}</td>
-	<td>{{value.plus}}</td>
-	<td>{{value.minus}}</td>
-	<td>{{value.plus_minus}}</td>
-	<td>{{value.points}}</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </thead>
-</table>
-{% endfor %}
-
 {% endif %}
 
+
+{% if finals.items %}
 <div class="page-header">
-  <h1>Games</h1>
+  <h1>Finals</h1>
 </div>
 
-{% if games %}
-<ul>
-  {% for game in games %}
-    <li>{{game}}</li>
-    {{game.phase}}  
-  {% endfor %}  
-</ul>
-{% else %}
-<p>No games are available.</p>
-{% endif %}
+{% for key1, values1  in finals.items %}
 
+  <table class="table table-striped table-condensed table-bordered">
+    <thead>
+      <tr class="success">
+	<th colspan="5">{{key1}}</th>
+      </tr>      
+      <tbody>
+	{% for key2, values2 in values1.items %}
+	  <tr>
+	    <td>{{values2.local}}</td>
+	    <td class="success">{{values2.local_score}}</td>
+	    <td>v</td>
+	    <td class="success">{{values2.visitor_score}}</td>
+	    <td>{{values2.visitor}}</td>	    
+	  </tr>
+	{% endfor %}
+      </tbody>
+    </thead>
+  </table>
+{% endfor %}
 
-{% if playoffs_games %}
-<div class="rule">
-  <h1>Finals</h1>  
-</div>
-<ul>
-  {% for game in playoffs_games %}
-    <li>{{game}}</li>
-    {{game.phase}}  
-  {% endfor %}  
-</ul>
 {% endif %}
 
 {% endblock %}

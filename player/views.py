@@ -35,10 +35,6 @@ def detail_tournament(request, tournament_id):
     playoffs_games = []
 
     for game in games:
-#        print(game)
-#        print(game.phase)
-#        print(game.phase.round)
-#        print(GameRound.LIGA)
         if game.phase.round == GameRound.LIGA:
             liga_games.append(game)
         elif (game.phase.round == GameRound.POOL_A 
@@ -48,20 +44,14 @@ def detail_tournament(request, tournament_id):
             pool_games.append(game)        
         else:
             playoffs_games.append(game)
-            print playoffs_games       
     
     fixtures = Fixtures(games)
     fixtures.sort_pools()
-    print(fixtures.get_games(games, GameRound.POOL_A, []))
-    #print(games)
-    #print(fixtures.pool_rows)    
-    #print(fixtures.sorted_pools)
-    #print(fixtures.get_sorted_pools)
     teams = Team.objects.filter(tournament__id=tournament_id)
-   
+    print(fixtures.get_finals({}))
     return render(request, 
                   'tournaments/detail_tournament.html', 
-                  {'tournament_list': tournament_list, 'tournament': tournament, 'games': games, 'liga_games': liga_games, 'sorted_pools': fixtures.sorted_pools, 'pool_games': fixtures.pool_games, 'playoffs_games': playoffs_games, 'fixtures': fixtures, })
+                  {'tournament_list': tournament_list, 'tournament': tournament, 'games': games, 'liga_games': liga_games, 'sorted_pools': fixtures.sorted_pools, 'pool_games': fixtures.pool_games, 'playoffs_games': playoffs_games, 'fixtures': fixtures, 'finals':fixtures.get_finals({}), })
 
 
 def detail_team(request, tournament_id, team_id):
@@ -153,6 +143,7 @@ class Fixtures:
     liga_clasification = []
     sorted_pools_rows = []
     sorted_pools = {}
+    games = {}
 
     def __init__(self, games):
         self.liga_clasification = []
@@ -168,7 +159,13 @@ class Fixtures:
                 self.pool_games.update({game.id:game})
             else:
                 self.playoff_games.update({game.id:game})
-                
+
+            if self.games.has_key(game.phase):
+                phase_games = self.games.get(game.phase)
+                phase_games.update({game.id:game})
+            else:
+                self.games.update({game.phase:{game.id:game}})
+
         for game in self.pool_games.values():
             if (self.pool_rows.has_key(game.local.id)):
                 row = self.pool_rows.get(game.local.id)
@@ -205,12 +202,13 @@ class Fixtures:
             self.sorted_pools.update({item.phase.round:row_list})
             old_pool = new_pool
             
-    def get_games(self, games, arg, result):
-        result = []
-        for game in games:
-            if game.phase.round == arg:
-                result.append(game)
-        return result
+    def get_finals(self, result):
+        result = {}
+        for key in self.games:
+            if key.round == GameRound.FINAL or key.round == GameRound.SEMI or key.round == GameRound.QUARTER or key.round == GameRound.EIGHTH  or key.round == GameRound.SIXTEENTH:
+                result[key] = self.games[key]
+                #result.update({key:self.games[key]})
+        return result            
         
     
 def WIN_POINTS():
