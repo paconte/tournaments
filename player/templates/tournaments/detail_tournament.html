@@ -11,11 +11,20 @@
   <h1>Teams</h1>
 </div>
 
-<ul>
-  {% for team in tournament.teams.all %}
-    <li><a href="{% url 'detail_team' tournament.id team.id %}">{{ team.name }}</a></li>
-  {% endfor %}
-</ul>
+    <table class="table-condensed">
+      <thead>
+	<tbody>
+	  {% for row in teams_matrix %}
+	  <tr>
+	    {% for team in row %}
+	    <td class="col-sm-2"><a href="{% url 'detail_team' tournament.id team.id %}">{{team.name}}</a></td>
+	    {% endfor %}
+	  </tr>	  
+	  {% endfor %}
+	</tbody>
+      </thead>
+    </table>
+
 
 {% if sorted_pools %}
 <div class="page-header">
@@ -23,8 +32,8 @@
 </div>
 
 {% for key, list in sorted_pools.items %}
+<div class="jumbotron">
 <div class="row">
-
   <div class="col-md-4">
     <table class="table table-striped table-condensed">
       <thead>
@@ -69,11 +78,11 @@
 	    {% for game in games %}
               {% if game.phase.round == key %}
 	        <tr>
-		  <td>{{game.local}}</td>
-		  <td class="success">{{game.local_score}}</td>
-		  <td>v</td>
-		  <td class="success">{{game.visitor_score}}</td>
-		  <td>{{game.visitor}}</td>
+		  <td class="col-sm-5">{{game.local}}</td>
+		  <td class="success text-center">{{game.local_score}}</td>
+		  <td class="text-center">v</td>
+		  <td class="success text-center">{{game.visitor_score}}</td>
+		  <td class="col-sm-5 text-right">{{game.visitor}}</td>
 		</tr>
               {% endif %}
 	    {% endfor %}
@@ -85,6 +94,7 @@
     </table>
   </div>
 </div>
+</div>
 {% endfor %}
 {% endif %}
 
@@ -95,25 +105,52 @@
 </div>
 
 {% for key1, values1  in finals.items %}
-
-  <table class="table table-striped table-condensed table-bordered">
+<div class="container-fluid">  
+  <table class="table table-condensed table-bordered">
     <thead>
-      <tr class="success">
-	<th colspan="5">{{key1}}</th>
+      <tr>
+	{% if key1.category == "Gold" %}
+	<th colspan="5" class="gold">{{key1}}</th>
+	{% elif key1.category == "Silver" %}
+	<th colspan="5" class="silver">{{key1}}</th>
+	{% elif key1.category == "Bronze" %}
+	<th colspan="5" class="bronze">{{key1}}</th>
+	{% elif key1.category == "Wood" %}
+	<th colspan="5" class="wood">{{key1}}</th>
+	{% else %}
+	<th colspan="5" class="success">{{key1}}</th>
+	{% endif %}
       </tr>      
       <tbody>
 	{% for key2, values2 in values1.items %}
 	  <tr>
-	    <td>{{values2.local}}</td>
-	    <td class="success">{{values2.local_score}}</td>
-	    <td>v</td>
-	    <td class="success">{{values2.visitor_score}}</td>
-	    <td>{{values2.visitor}}</td>	    
+	    <td class="col-sm-5">{{values2.local}}</td>
+	    {% if key1.category == "Gold" %}
+	    <td class="gold text-center">{{values2.local_score}}</td>
+	    {% elif key1.category == "Silver" %}
+	    <td class="silver text-center">{{values2.local_score}}</td>
+	    {% elif key1.category == "Bronze" %}
+	    <td class="bronze text-center">{{values2.local_score}}</td>
+	    {% elif key1.category == "Wood" %}
+	    <td class="wood text-center">{{values2.local_score}}</td>	    
+	    {% endif %}
+	    <td class="text-center">v</td>
+	    {% if key1.category == "Gold" %}
+	    <td class="gold text-center">{{values2.visitor_score}}</td>
+	    {% elif key1.category == "Silver" %}
+	    <td class="silver text-center">{{values2.visitor_score}}</td>
+	    {% elif key1.category == "Bronze" %}
+	    <td class="bronze text-center">{{values2.visitor_score}}</td>
+	    {% elif key1.category == "Wood" %}
+	    <td class="wood text-center">{{values2.visitor_score}}</td>	    
+	    {% endif %}
+	    <td class="col-sm-5 text-right">{{values2.visitor}}</td>
 	  </tr>
 	{% endfor %}
       </tbody>
     </thead>
   </table>
+</div>
 {% endfor %}
 
 {% endif %}

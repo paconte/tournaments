@@ -14,6 +14,7 @@ from player.models import Player
 from operator import attrgetter
 
 import re
+import collections
 
 # Create your views here.
 def index(request):
@@ -48,11 +49,22 @@ def detail_tournament(request, tournament_id):
     fixtures = Fixtures(games)
     fixtures.sort_pools()
     teams = Team.objects.filter(tournament__id=tournament_id)
-    print(fixtures.get_finals({}))
+    teams_matrix = TeamsMatrix(3, teams)
+    st_utils = StructuresUtils()
+
     return render(request, 
                   'tournaments/detail_tournament.html', 
-                  {'tournament_list': tournament_list, 'tournament': tournament, 'games': games, 'liga_games': liga_games, 'sorted_pools': fixtures.sorted_pools, 'pool_games': fixtures.pool_games, 'playoffs_games': playoffs_games, 'fixtures': fixtures, 'finals':fixtures.get_finals({}), })
-
+                  {'tournament_list': tournament_list, 
+                   'tournament': tournament, 
+                   'games': games, 
+                   'liga_games': liga_games, 
+                   'sorted_pools': fixtures.sorted_pools, 
+                   'pool_games': fixtures.pool_games, 
+                   'playoffs_games': playoffs_games, 
+                   'fixtures': fixtures, 
+                   'finals':fixtures.get_finals({}), 
+#                   'teams_matrix': teams_matrix.matrix, })
+                   'teams_matrix': st_utils.get_teams_matrix(teams, 4), })
 
 def detail_team(request, tournament_id, team_id):
     tournament_list = Tournament.objects.all()
@@ -60,7 +72,43 @@ def detail_team(request, tournament_id, team_id):
     team = get_object_or_404(Team, pk=team_id)
     games = Game.objects.filter(Q(tournament=tournament_id), Q(local=team_id) | Q(visitor=team_id))
     players = Player.objects.filter(team=team_id)
-    return render(request, 'tournaments/detail_team.html', {'team': team, 'games': games, 'players': players, 'tournament_list': tournament_list,})
+    st_utils = StructuresUtils()    
+
+    return render(request, 'tournaments/detail_team.html', 
+                  {'team': team, 
+                   'games': st_utils.get_team_view_games(games), 
+                   'players': players, 
+                   'tournament_list': tournament_list,})
+
+class StructuresUtils:
+    def get_team_view_games(self, games):
+        result = {}
+        for game in games:
+            if (result.has_key(game.phase)):
+                phase_games = result.get(game.phase)
+            else:
+                phase_games = []
+            phase_games.append(game)
+            result.update({game.phase:phase_games})
+        return result
+
+    def get_teams_matrix(self, teams, columns_number):
+        if not (columns_number > 0):
+            raise ValueError('Argument columns_number must be a positive integer. Received : %s' % (columns_number))
+        column_size = len(teams) / columns_number
+        if (len(teams) % column_size > 0):
+            column_size += 1
+
+#        matrix = [[0 for x in xrange(column_size)] for x in xrange(columns_number)]
+        matrix = []
+        for x in range(column_size):
+            matrix.append([])
+        i = 0
+        for team in teams:
+            matrix[i % column_size].append(team)
+            i += 1
+        return matrix
+            
 
 class ClassificationRow:    
     played = 0
@@ -88,7 +136,10 @@ class ClassificationRow:
             else:
                 #return re.sub("\W+", "", self.phase.round.lower()).__cmp__(re.sub("\W+", "", other.phase.round))
                 #return cmp(re.sub("\W+", "", self.phase.round.lower()), re.sub("\W+", "", other.phase.round)))
+                #print('cmp_round(%s, %s) return %s.' % (self.phase.round, other.phase.round, self.cmp_round(other.phase.round)))
+                #return self.cmp_round(other.phase.round)
                 return cmp(self.phase.round, other.phase.round)
+
         else:
             return self.phase.category.__cmp__(other.phase.category)
 
@@ -98,6 +149,25 @@ class ClassificationRow:
 
     def __eq__(self, other):
         self.team.id == other.team.id
+
+    def cmp_round(self, other):
+        if (self.phase.round == other):
+            return 0
+        elif (self.phase.round == GameRound.POOL_A):
+            return -1
+        elif (other == GameRound.POOL_A):
+            return 1
+        elif (self.phase.round == GameRound.POOL_B):
+            return -1
+        elif (other == GameRound.POOL_B):
+            return 1
+        elif (self.phase.round == GameRound.POOL_C):
+            return -1
+        elif (other == GameRound.POOL_C):
+            return 1
+        else:
+            raise Exception('Game.Round combination (%s, %s) is not allowed.' % (self.phase.round, other))
+
 
     def add_game(self, game):
         if (game.local.id == self.team.id):
@@ -133,21 +203,28 @@ class ClassificationRow:
         else:
             raise Exception('Expected team %s in the game but not found.' % (self.team))
         self.played += 1
-                
+    
+#class colourGame(models.Game):
+#    color
+#    def __init__(self):
+#        if (self.phase.category)
     
 class Fixtures:
     liga_games = {}
     pool_games = {}
     playoff_games = {}
     pool_rows = {}
-    liga_clasification = []
     sorted_pools_rows = []
     sorted_pools = {}
     games = {}
 
     def __init__(self, games):
-        self.liga_clasification = []
+        self.games = {}
+        self.liga_games = {}
         self.pool_rows = {}
+        self.pool_games = {}
+        self.sorted_pools_rows = []
+        self.sorted_pools = {}
 
         for game in games:
             if game.phase.round == GameRound.LIGA:
@@ -165,6 +242,8 @@ class Fixtures:
                 phase_games.update({game.id:game})
             else:
                 self.games.update({game.phase:{game.id:game}})
+
+        #print(self.pool_games.values())
 
         for game in self.pool_games.values():
             if (self.pool_rows.has_key(game.local.id)):
@@ -201,7 +280,8 @@ class Fixtures:
             row_list.append(item)
             self.sorted_pools.update({item.phase.round:row_list})
             old_pool = new_pool
-            
+        self.sorted_pools = collections.OrderedDict(sorted(self.sorted_pools.items()))
+        
     def get_finals(self, result):
         result = {}
         for key in self.games:
@@ -209,7 +289,31 @@ class Fixtures:
                 result[key] = self.games[key]
                 #result.update({key:self.games[key]})
         return result            
-        
+
+class TeamsMatrix:
+
+    matrix = []
+
+    def __init__(self, columns_number, teams):
+
+        if not (columns_number > 0):
+            raise ValueError('Argument columns_number must be a positive integer. Received : %s' % (columns_number))
+
+        #self.teams_matrix[columns_numbers][]
+        self.matrix = []
+        column_size = len(teams) / columns_number
+        column = []
+        i = 0
+
+        for team in teams:
+            column.append(team)
+            if (i == column_size-1):
+                i = 0
+                self.matrix.append(column)
+                column = []
+            else:
+                i += 1
+
     
 def WIN_POINTS():
     return 4

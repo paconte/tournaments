@@ -23,11 +23,27 @@
   <h1>Games</h1>
 </div>
 {% if games %}
-<ul>
-  {% for game in games %}
-  <li>{{game}}</li>
-  {% endfor %}  
-</ul>
+{% for phase, values in games.items %}
+    <table class="table table-striped table-condensed table-bordered">
+      <thead>
+	<tr class="success">
+	  <th colspan="5">{{phase}} - Games</th>
+	</tr>
+	<tbody>
+	  {% for game in values %}
+          <tr>
+	    <td class="col-sm-5">{{game.local}}</td>
+	    <td class="success text-center">{{game.local_score}}</td>
+	    <td class="text-center">v</td>
+	    <td class="success text-center">{{game.visitor_score}}</td>
+	    <td class="col-sm-5 text-right">{{game.visitor}}</td>
+	  </tr>
+	  {% endfor %}
+	</tbody>
+      </thead>
+    </table>
+{% endfor %}
+
 {% else %}
 <p>No games are available.</p>
 {% endif %}
