@@ -118,6 +118,7 @@ class GameRound(models.Model):
     def __unicode__(self):  # Python 3: def __str__(self):
         return '%s %s %s' % (self.round, self.number_teams, self.category)
 
+
 class Game(models.Model):
     local = models.ForeignKey(Team, related_name="local")
     visitor = models.ForeignKey(Team, related_name="visitor")
