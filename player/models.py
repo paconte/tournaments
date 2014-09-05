@@ -33,7 +33,7 @@ class Person(models.Model):
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES, default = MALE)
 
     def __unicode__(self):  # Python 3: def __str__(self):
-        return '%s - %s %s' % (self.gender, self.first_name, self.last_name)
+        return '%s %s - %s' % (self.first_name, self.last_name, self.gender)
 
     def _get_full_name(self):
         "Returns the person's full name."
@@ -104,11 +104,13 @@ class GameRound(models.Model):
     GOLD = 'Gold'
     SILVER = 'Silver'
     BRONZE = 'Bronze'
+    WOOD = 'Wood'
 
     CATEGORY_ROUND_CHOICES = (
         (GOLD, GOLD),
         (SILVER, SILVER),
         (BRONZE, BRONZE),
+        (WOOD, WOOD),
         )
     
     round = models.CharField(default=POOL_A, max_length=16, null=False, blank=False, choices=GAME_ROUND_CHOICES)
