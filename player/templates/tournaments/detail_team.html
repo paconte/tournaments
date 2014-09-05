@@ -10,14 +10,21 @@
   <h1>Players</h1>
 </div>
 {% if players %}
-<ul>
-  {% for player in players %}
-  <li>{{player.number}} {{player}}</li>
-  {% endfor %}
-</ul>
+<table class="table table-striped table-condensed">
+  <tbody>
+    {% for row in players %}    
+    <tr>
+      {% for value in row %}
+      <td>{{value}}</td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% else %}
 <p>No players are available.</p>
 {% endif %}
+
 
 <div class="page-header">
   <h1>Games</h1>
@@ -27,7 +34,7 @@
     <table class="table table-striped table-condensed table-bordered">
       <thead>
 	<tr class="success">
-	  <th colspan="5">{{phase}} - Games</th>
+	  <th colspan="6">{{phase}} - Games</th>
 	</tr>
 	<tbody>
 	  {% for game in values %}
@@ -37,6 +44,7 @@
 	    <td class="text-center">v</td>
 	    <td class="success text-center">{{game.visitor_score}}</td>
 	    <td class="col-sm-5 text-right">{{game.visitor}}</td>
+	    <td class="text-center"><a href="{% url 'detail_game' tournament.id game.id %}">link</a></td>
 	  </tr>
 	  {% endfor %}
 	</tbody>

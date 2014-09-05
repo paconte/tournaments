@@ -71,7 +71,7 @@
     <table class="table table-striped table-condensed table-bordered">
       <thead>
 	<tr class="success">
-	  <th colspan="5">{{key}} - Games</th>
+	  <th colspan="6">{{key}} - Games</th>
 	</tr>
 	<tbody>
 	  {% if games %}
@@ -83,6 +83,7 @@
 		  <td class="text-center">v</td>
 		  <td class="success text-center">{{game.visitor_score}}</td>
 		  <td class="col-sm-5 text-right">{{game.visitor}}</td>
+		  <td class="text-center"><a href="{% url 'detail_game' tournament.id game.id %}">link</a></td>
 		</tr>
               {% endif %}
 	    {% endfor %}

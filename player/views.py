@@ -10,6 +10,7 @@ from player.models import Game
 from player.models import GameRound
 from player.models import Team
 from player.models import Player
+from player.models import PlayerStadistic
 
 from operator import attrgetter
 
@@ -68,17 +69,36 @@ def detail_tournament(request, tournament_id):
 
 def detail_team(request, tournament_id, team_id):
     tournament_list = Tournament.objects.all()
+    tournament = Tournament.objects.get(pk=tournament_id)
     #team = Team.objects.get(pk=team_id)
     team = get_object_or_404(Team, pk=team_id)
-    games = Game.objects.filter(Q(tournament=tournament_id), Q(local=team_id) | Q(visitor=team_id))
+    games = Game.objects.filter(Q(tournament=tournament_id), Q(local=team_id) | Q(visitor=team_id))    
     players = Player.objects.filter(team=team_id)
-    st_utils = StructuresUtils()    
+    stadistics = []
+    for player in players:
+        stadistics.extend(PlayerStadistic.objects.filter(player=player.id))
+    st_utils = StructuresUtils()
 
     return render(request, 'tournaments/detail_team.html', 
                   {'team': team, 
                    'games': st_utils.get_team_view_games(games), 
-                   'players': players, 
-                   'tournament_list': tournament_list,})
+                   'players': st_utils.get_team_details_matrix(stadistics, players), 
+                   'tournament_list': tournament_list,
+                   'tournament': tournament, })
+
+def detail_game(request, tournament_id, game_id):
+    tournament_list = Tournament.objects.all()
+    game = Game.objects.filter(pk=game_id)
+    stadistics = PlayerStadistic.objects.filter(game=game_id)
+    local_players = Player.objects.filter(team=game[0].local)
+    visitor_players = Player.objects.filter(team=game[0].visitor)
+    st_utils = StructuresUtils()
+    st_utils.get_game_details_matrix(stadistics, local_players, visitor_players)
+
+    return render(request, 'tournaments/detail_game.html',
+                  {'game': game[0],
+                   'stadistics': st_utils.get_game_details_matrix(stadistics, local_players, visitor_players),
+                   'tournament_list': tournament_list, })
 
 class StructuresUtils:
     def get_team_view_games(self, games):
@@ -108,7 +128,50 @@ class StructuresUtils:
             matrix[i % column_size].append(team)
             i += 1
         return matrix
-            
+
+    def get_game_details_matrix(self, stadistics, local_players, visitor_players):
+        result = []
+        n_rows = len(local_players) if len(local_players) > len(visitor_players) else len(visitor_players)
+        for i in range(n_rows):
+            if(i < len(local_players)):
+                points = 0
+                number = local_players[i].number if local_players[i].number else ''
+                for st in stadistics:
+                    if(st.player == local_players[i]):
+                        points = st.points
+                        break
+                if(points > 0):
+                    row = [number, local_players[i].person, points]
+                else:
+                    row = [number, local_players[i].person, '-']
+            else:
+                row = ['', '', '']                    
+            if(i < len(visitor_players)):
+                points = 0
+                number = visitor_players[i].number if visitor_players[i].number else ''
+                for st in stadistics:
+                    if(st.player == visitor_players[i]):
+                        points = st.points
+                        break
+                if(points > 0):
+                    row.extend([number, visitor_players[i].person, points])
+                else:
+                    row.extend([number, visitor_players[i].person, '-'])
+            else:
+                row.extend(['', '', ''])
+                
+            result.append(row)
+        return result         
+
+    def get_team_details_matrix(self, stadistics, players):
+        result = []
+        for player in players:
+            points = 0
+            for st in stadistics:
+                if (st.player == player):
+                    points += st.points
+            result.append([player.number, player.person, points])
+        return result
 
 class ClassificationRow:    
     played = 0
@@ -243,7 +306,6 @@ class Fixtures:
             else:
                 self.games.update({game.phase:{game.id:game}})
 
-        #print(self.pool_games.values())
 
         for game in self.pool_games.values():
             if (self.pool_rows.has_key(game.local.id)):
@@ -291,20 +353,15 @@ class Fixtures:
         return result            
 
 class TeamsMatrix:
-
     matrix = []
-
     def __init__(self, columns_number, teams):
-
         if not (columns_number > 0):
             raise ValueError('Argument columns_number must be a positive integer. Received : %s' % (columns_number))
-
         #self.teams_matrix[columns_numbers][]
         self.matrix = []
         column_size = len(teams) / columns_number
         column = []
         i = 0
-
         for team in teams:
             column.append(team)
             if (i == column_size-1):
