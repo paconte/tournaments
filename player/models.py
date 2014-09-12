@@ -53,7 +53,7 @@ class Player(models.Model):
     number = models.PositiveIntegerField(null=True, blank=True)
 
     def __unicode__(self):  # Python 3: def __str__(self):
-        return unicode(self.person)
+        return '%s %s' % (self.number, self.person)
 
 class Tournament(models.Model):
     name = models.CharField(max_length=50)
@@ -142,4 +142,4 @@ class PlayerStadistic(models.Model):
     assistances = models.PositiveIntegerField(null=True, blank=True, default=0)
 
     def __unicode__(self):  # Python 3: def __str__(self):
-        return unicode(self.player)
+        return '%s - %s - touchdowns: %s' % (self.game, self.player, self.points)
