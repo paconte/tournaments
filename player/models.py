@@ -120,6 +120,30 @@ class GameRound(models.Model):
     def __unicode__(self):  # Python 3: def __str__(self):
         return '%s %s %s' % (self.round, self.number_teams, self.category)
 
+    def __cmp__(self, other):
+        if (self.category == other.category):
+            if (self.round == other.round):
+                result = self.number_teams.__cmp__(other.number_teams)
+            else:
+                result = cmp(self.round, other.round)
+        else:
+            if (self.category == self.GOLD):
+                result = 1
+            elif (other.category == self.GOLD):
+                result = -1
+            elif (self.category == self.SILVER):
+                result = 1
+            elif (other.category == self.SILVER):
+                result = -1
+            elif (self.category == self.BRONZE):
+                result = 1
+            elif (other.category == self.BRONZE):
+                result = -1
+            elif (self.category == self.WOOD):
+                result = 1
+            else: 
+                raise Exception('Problem comparing values: %s and  %s' % (self.category, other.category))
+        return result
 
 class Game(models.Model):
     local = models.ForeignKey(Team, related_name="local")
@@ -133,7 +157,8 @@ class Game(models.Model):
     def __unicode__(self):  # Python 3: def __str__(self):
         return '%s %s - %s %s' % (self.local, self.local_score, self.visitor_score, self.visitor)
 
-
+    def __cmp__(self, other):
+        return self.phase.__cmp__(other.phase)
 
 class PlayerStadistic(models.Model):
     game = models.ForeignKey(Game)
