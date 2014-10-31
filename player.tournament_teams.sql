@@ -11,8 +11,6 @@ INSERT INTO "player_tournament_teams" VALUES(2,1,2);
 INSERT INTO "player_tournament_teams" VALUES(3,1,3);
 INSERT INTO "player_tournament_teams" VALUES(4,1,4);
 INSERT INTO "player_tournament_teams" VALUES(5,1,5);
-INSERT INTO "player_tournament_teams" VALUES(22,3,4);
-INSERT INTO "player_tournament_teams" VALUES(23,3,5);
 INSERT INTO "player_tournament_teams" VALUES(24,3,6);
 INSERT INTO "player_tournament_teams" VALUES(25,3,7);
 INSERT INTO "player_tournament_teams" VALUES(26,3,8);
