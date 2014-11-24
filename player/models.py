@@ -145,11 +145,19 @@ class GameRound(models.Model):
                 raise Exception('Problem comparing values: %s and  %s' % (self.category, other.category))
         return result
 
+class GameField(models.Model):
+    round = models.CharField(max_length=50, null=False, blank=False)
+    def __unicode__(self):  # Python 3: def __str__(self):
+        return '%s' % (self.round)
+
+
 class Game(models.Model):
-    local = models.ForeignKey(Team, related_name="local")
-    visitor = models.ForeignKey(Team, related_name="visitor")
-    local_score = models.SmallIntegerField()
-    visitor_score = models.SmallIntegerField()
+    field = models.ForeignKey(GameField, blank=True, null=True)
+    time = models.TimeField(blank=True, null=True)
+    local = models.ForeignKey(Team, related_name="local", null=True, blank=True)
+    visitor = models.ForeignKey(Team, related_name="visitor", null=True, blank=True)
+    local_score = models.SmallIntegerField(null=True, blank=True)
+    visitor_score = models.SmallIntegerField(null=True, blank=True)
     #player_stadistics = models.ManyToManyField(Stadictic)
     tournament = models.ForeignKey(Tournament)
     phase = models.ForeignKey(GameRound)

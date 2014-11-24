@@ -6,14 +6,16 @@ from player.models import Game
 from player.models import PlayerStadistic
 from player.models import Tournament
 from player.models import GameRound
+from player.models import GameField
 
 # Custom admin models
 
 class GameAdmin(admin.ModelAdmin):
-    list_display = ('tournament', 'local', 'local_score', 'visitor_score', 'visitor', 'phase')
+    list_display = ('tournament', 'field', 'time', 'local', 'local_score', 'visitor_score', 'visitor', 'phase')
 
     fieldsets = [
         ('Tournament', {'fields' : ['tournament']}),
+        ('Location'  , {'fields' : ['field', 'time']}),
         ('Score'     , {'fields' : ['local', 'local_score', 'visitor_score', 'visitor']}),
         ('Round'     , {'fields' : ['phase']}),
         ]
@@ -28,3 +30,4 @@ admin.site.register(Game, GameAdmin)
 admin.site.register(PlayerStadistic)
 admin.site.register(Tournament)
 admin.site.register(GameRound)
+admin.site.register(GameField)

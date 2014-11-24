@@ -4,7 +4,7 @@
 
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
-  <h1>{{ tournament.name }}</h1>
+  <h1>{{tournament.name}}</h1>
 </div>
 
 <div class="page-header">
@@ -69,13 +69,15 @@
     <table class="table table-striped table-condensed table-bordered">
       <thead>
 	<tr class="success">
-	  <th colspan="6">{{key}} - Games</th>
+	  <th colspan="8">{{key}} - Games</th>
 	</tr>
 	<tbody>
 	  {% if games %}
 	    {% for game in games %}
               {% if game.phase.round == key %}
 	        <tr>
+		  {% if game.time %}<td class="text-center">{{game.time|date:"H:i"}}</td>{% endif %}
+		  {% if game.field %}<td class="col-sm-2 text-center">{{game.field}}</td>{% endif %}
 		  <td class="col-sm-5">{{game.local}}</td>
 		  <td class="success text-center">{{game.local_score}}</td>
 		  <td class="text-center">v</td>
