@@ -65,7 +65,7 @@
     </table>
   </div>
 
-  <div class="col-md-6">
+  <div class="col-md-8">
     <table class="table table-striped table-condensed table-bordered">
       <thead>
 	<tr class="success">
@@ -112,21 +112,23 @@
     <thead>
       <tr>
 	{% if key1 == "Gold" %}
-	<th colspan="6" class="gold">{{key2}}</th>
+	<th colspan="8" class="gold">{{key2}}</th>
 	{% elif key1 == "Silver" %}
-	<th colspan="6" class="silver">{{key2}}</th>
+	<th colspan="8" class="silver">{{key2}}</th>
 	{% elif key1 == "Bronze" %}
-	<th colspan="6" class="bronze">{{key2}}</th>
+	<th colspan="8" class="bronze">{{key2}}</th>
 	{% elif key1 == "Wood" %}
-	<th colspan="6" class="wood">{{key2}}</th>
+	<th colspan="8" class="wood">{{key2}}</th>
 	{% else %}
-	<th colspan="6" class="success">{{key2}}</th>
+	<th colspan="8" class="success">{{key2}}</th>
 	{% endif %}
       </tr>
       <tbody>
 	{% for key3, values3 in values2.items %}
 	  <tr>
-	    <td class="col-sm-5">{{values3.local}}</td>
+	    {% if values3.time %}<td class="col-sm-1 text-center">{{values3.time|date:"H:i"}}</td>{% endif %}
+	    {% if values3.field %}<td class="col-sm-1 text-center">{{values3.field}}</td>{% endif %}
+	    <td class="col-sm-3">{{values3.local}}</td>
 	    {% if key1 == "Gold" %}
 	    <td class="gold text-center">{{values3.local_score}}</td>
 	    {% elif key1 == "Silver" %}
@@ -146,8 +148,8 @@
 	    {% elif key1 == "Wood" %}
 	    <td class="wood text-center">{{values3.visitor_score}}</td>
 	    {% endif %}
-	    <td class="col-sm-5 text-right">{{values3.visitor}}</td>
-	    <td class="text-center"><a href="{% url 'detail_game' values3.id %}">link</a></td>
+	    <td class="col-sm-3 text-right">{{values3.visitor}}</td>
+	    <td class="text-center col-sm-1"><a href="{% url 'detail_game' values3.id %}">link</a></td>
 	  </tr>
 	{% endfor %}
       </tbody>
