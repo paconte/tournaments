@@ -203,7 +203,6 @@ class Fixtures:
             else:
                 self.games.update({game.phase:{game.id:game}})
 
-
         for game in self.pool_games.values():
             if (self.pool_rows.has_key(game.local.id)):
                 row = self.pool_rows.get(game.local.id)
@@ -244,8 +243,9 @@ class Fixtures:
     def get_finals(self, result):
         result = {}
         for key in self.games:
-            if (key.round == GameRound.FINAL 
-                or key.round == GameRound.SEMI 
+            if (key.round == GameRound.FINAL
+                or key.round == GameRound.THIRD_PLACE
+                or key.round == GameRound.SEMI
                 or key.round == GameRound.QUARTER 
                 or key.round == GameRound.EIGHTH 
                 or key.round == GameRound.SIXTEENTH):
@@ -265,16 +265,18 @@ class Fixtures:
                 variable = {}
                 oldphase = key.category
             variable.update({key:finals[key]})
-            result.update({key.category:variable})
-        if result[GameRound.GOLD]:
-            sorted_result[GameRound.GOLD] = result[GameRound.GOLD]
-        if result[GameRound.SILVER]:
-            sorted_result[GameRound.SILVER] = result[GameRound.SILVER]
-        if result[GameRound.BRONZE]:
-            sorted_result[GameRound.BRONZE] = result[GameRound.BRONZE]
-        if result[GameRound.WOOD]:
-            sorted_result[GameRound.WOOD] = result[GameRound.WOOD]
-#        return collections.OrderedDict(sorted(result))       
+            #result.update({key.category:variable})
+            result.update({key.category:collections.OrderedDict(sorted(variable.items()))})
+        if result:
+            if result.get(GameRound.GOLD):
+                sorted_result[GameRound.GOLD] = result[GameRound.GOLD]
+            if result.get(GameRound.SILVER):
+                sorted_result[GameRound.SILVER] = result[GameRound.SILVER]
+            if result.get(GameRound.BRONZE):
+                sorted_result[GameRound.BRONZE] = result[GameRound.BRONZE]
+            if result.get(GameRound.WOOD):
+                sorted_result[GameRound.WOOD] = result[GameRound.WOOD]
+#        return collections.OrderedDict(sorted(result))
         return sorted_result
 
 class TeamsMatrix:

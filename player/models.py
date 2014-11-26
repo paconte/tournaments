@@ -47,14 +47,6 @@ class Team(models.Model):
     def __unicode__(self):  # Python 3: def __str__(self):
         return self.name
 
-class Player(models.Model):
-    person = models.ForeignKey(Person)
-    team = models.ForeignKey(Team)
-    number = models.PositiveIntegerField(null=True, blank=True)
-
-    def __unicode__(self):  # Python 3: def __str__(self):
-        return '%s %s' % (self.number, self.person)
-
 class Tournament(models.Model):
     name = models.CharField(max_length=50)
     country = models.CharField(max_length=30)
@@ -67,6 +59,15 @@ class Tournament(models.Model):
 
     def __unicode__(self):  # Python 3: def __str__(self):
         return '%s - %s (%s, %s)' % (self.division, self.name, self.city, self.country)
+
+class Player(models.Model):
+    person = models.ForeignKey(Person)
+    team = models.ForeignKey(Team)
+    number = models.PositiveIntegerField(null=True, blank=True)
+#    tournaments_played = models.ManyToManyField(Tournament, null=True, blank=True)
+
+    def __unicode__(self):  # Python 3: def __str__(self):
+        return '%s %s' % (self.number, self.person)
 
 class GameRound(models.Model):
     FINAL = 'Final'
@@ -125,7 +126,28 @@ class GameRound(models.Model):
             if (self.round == other.round):
                 result = self.number_teams.__cmp__(other.number_teams)
             else:
-                result = cmp(self.round, other.round)
+                if (self.round == self.FINAL):
+                    result = 1
+                elif (other.round == self.FINAL):
+                    result = -1
+                elif (self.round == self.THIRD_PLACE):
+                    result = 1
+                elif (other.round == self.THIRD_PLACE):
+                    result = -1
+                elif (self.round == self.SEMI):
+                    result = 1
+                elif (other.round == self.SEMI):
+                    result = -1
+                elif (self.round == self.QUARTER):
+                    result = 1
+                elif (other.round == self.QUARTER):
+                    result = -1
+                elif (self.round == self.SIXTEENTH):
+                    result = 1
+                elif (other.round == self.SIXTEENTH):
+                    result = -1
+                else:
+                    raise Exception('Problem comparing values: %s and  %s' % (self.round, other.round))
         else:
             if (self.category == self.GOLD):
                 result = 1
