@@ -168,9 +168,9 @@ class GameRound(models.Model):
         return result
 
 class GameField(models.Model):
-    round = models.CharField(max_length=50, null=False, blank=False)
+    name = models.CharField(max_length=50, null=False, blank=False)
     def __unicode__(self):  # Python 3: def __str__(self):
-        return '%s' % (self.round)
+        return '%s' % (self.name)
 
 
 class Game(models.Model):
