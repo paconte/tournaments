@@ -64,7 +64,7 @@ class Player(models.Model):
     person = models.ForeignKey(Person)
     team = models.ForeignKey(Team)
     number = models.PositiveIntegerField(null=True, blank=True)
-#    tournaments_played = models.ManyToManyField(Tournament, null=True, blank=True)
+    tournaments_played = models.ManyToManyField(Tournament, null=True, blank=True)
 
     def __unicode__(self):  # Python 3: def __str__(self):
         return '%s %s' % (self.number, self.person)

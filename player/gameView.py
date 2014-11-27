@@ -68,7 +68,7 @@ class TeamView(DetailView):
 
     def get_context_data(self, **kwargs):
         tournament_id = self.kwargs.get('tournament_id')
-        players = Player.objects.filter(team=self.object.id)
+        players = Player.objects.filter(team=self.object.id, tournaments_played__id=tournament_id).distinct()
         games = Game.objects.filter(Q(tournament=tournament_id), 
                                     Q(local=self.object.id) | Q(visitor=self.object.id))
 
