@@ -7,6 +7,8 @@ from player.gameView import GameView, TeamView, TournamentView
 urlpatterns = patterns(
     '',
     url(r'^$', views.index, name='index'),
+    url(r'^about', views.about, name='about'),
+    url(r'^contact', views.contact, name='contact'),
 #    url(r'^(?P<tournament_id>\d+)/$', views.detail_tournament, name='detail_tournament'),
 #    url(r'^(?P<tournament_id>\d+)/team/(?P<team_id>\d+)/$', views.detail_team, name='detail_team'),
 #    url(r'^(?P<tournament_id>\d+)/game/(?P<game_id>\d+)/$', views.detail_game, name='detail_game'),

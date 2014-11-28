@@ -23,6 +23,19 @@ def index(request):
     context  = RequestContext(request, {'tournament_list': tournament_list, })
     return HttpResponse(template.render(context))
 
+def about(request):
+    tournament_list = Tournament.objects.all()
+    template = loader.get_template('tournaments/about.html')
+    context  = RequestContext(request, {'tournament_list': tournament_list, })
+    return HttpResponse(template.render(context))
+
+def contact(request):
+    print('CONTACT')
+    tournament_list = Tournament.objects.all()
+    template = loader.get_template('tournaments/contact.html')
+    context  = RequestContext(request, {'tournament_list': tournament_list, })
+    return HttpResponse(template.render(context))
+
 def detail_tournament(request, tournament_id):
     tournament_list = Tournament.objects.all()
     try:
