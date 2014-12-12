@@ -13,6 +13,7 @@ from player.models import Player
 from player.models import PlayerStadistic
 
 from django.views.generic import DetailView
+from player.forms import ContactForm
 
 from service import *
 
@@ -31,9 +32,29 @@ def about(request):
 
 def contact(request):
     print('CONTACT')
+    success = False
     tournament_list = Tournament.objects.all()
     template = loader.get_template('tournaments/contact.html')
-    context  = RequestContext(request, {'tournament_list': tournament_list, })
+    if request.method == 'POST':
+        print('CONTACT-POST')
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            print('CONTACT-POST-VALID')
+            sucess = True
+            contactEntry = form.save()
+            print(contactEntry)
+#            template = loader.get_template('tournaments/contact.html')
+        else:
+#            form = ContactForm()
+            print('CONTACT-POST-INVALID')
+    else:
+        print('CONTACT-GET')
+        form = ContactForm()
+        
+    context  = RequestContext(request, {'tournament_list': tournament_list,
+                                        'form': form,
+                                        'sucess': success })
+        
     return HttpResponse(template.render(context))
 
 def detail_tournament(request, tournament_id):

@@ -1,4 +1,5 @@
 from django.db import models
+
 from django.core.validators import MinValueValidator, MaxValueValidator
 #from geography.models import ZipCode
 
@@ -198,3 +199,10 @@ class PlayerStadistic(models.Model):
 
     def __unicode__(self):  # Python 3: def __str__(self):
         return '%s - %s - touchdowns: %s' % (self.game, self.player, self.points)
+
+class Contact(models.Model):
+    name = models.CharField(max_length=40, null=False, blank=False)
+    email = models.EmailField(max_length=50, null=False, blank=False)
+    where = models.CharField(max_length=20, null=True, blank=True)
+    message = models.TextField(null=False, blank=False)
+

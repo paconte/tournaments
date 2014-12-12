@@ -6,40 +6,84 @@
 
   <div class="row">
     <div class="col-md-12">
-      <div class="alert alert-success"><strong><span class="glyphicon glyphicon-send"></span> Success! Message sent. (If form ok!)</strong></div>	  
-      <div class="alert alert-danger"><span class="glyphicon glyphicon-alert"></span><strong> Error! Please check the inputs. (If form error!)</strong></div>
-    </div>
-
-    <form role="form" action="" method="post" >
+    <form role="form" action="{% url 'contact' %}" method="post" >
+      {% csrf_token %}
       <div class="col-lg-6">
-	<div class="well well-sm"><strong><i class="glyphicon glyphicon-ok form-control-feedback"></i> Required Field</strong></div>
-	<div class="form-group">
-	  <label for="InputName">Your Name</label>
+	<div class="form-group">	  
+	  {{form.name.label_tag}}
 	  <div class="input-group">
-            <input type="text" class="form-control" name="InputName" id="InputName" placeholder="Enter Name" required>
-            <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+	    {{form.name}}
+            <span class="input-group-addon"/>
+	  </div>
 	</div>
 	<div class="form-group">
-	  <label for="InputEmail">Your Email</label>
+	  {{form.email.label_tag}}
 	  <div class="input-group">
-            <input type="email" class="form-control" id="InputEmail" name="InputEmail" placeholder="Enter Email" required  >
-            <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+	    {{form.email}}
+            <span class="input-group-addon"/>
+	  </div>
+	  {% if form.email.errors %}
+	  {% for error in form.email.errors %}
+	  <div class="alert alert-danger">
+	    <span class="glyphicon glyphicon-alert"></span>
+	    <strong>{{error}}</strong>
+	  </div>
+	  {% endfor %}
+	  {% endif %}
 	</div>
 	<div class="form-group">
-	  <label for="InputMessage">Message</label>
+	  {{form.confirm_email.label_tag}}
 	  <div class="input-group">
-            <textarea name="InputMessage" id="InputMessage" class="form-control" rows="5" required></textarea>
-            <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+	    {{form.confirm_email}}
+            <span class="input-group-addon"/>
+	  </div>
+	  {% if form.confirm_email.errors %}
+	  {% for error in form.confirm_email.errors %}
+	  <div class="alert alert-danger">
+	    <span class="glyphicon glyphicon-alert"></span>
+	    <strong>{{error}}</strong>
+	  </div>
+	  {% endfor %}
+	  {% endif %}
 	</div>
 	<div class="form-group">
-	  <label for="InputReal">What is 4+3? (Simple Spam Checker)</label>
+	  {{form.where.label_tag}}
 	  <div class="input-group">
-            <input type="text" class="form-control" name="InputReal" id="InputReal" required>
-            <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+	    {{form.where}}
+            <span class="input-group-addon"/>
+	  </div>
+	</div>
+	<div class="form-group">
+	  {{form.message.label_tag}}
+	  <div class="input-group">	    
+	    {{form.message}}
+            <span class="input-group-addon"/>
+	  </div>
+	</div>
+	<div class="form-group">
+	  {{form.spamchecker.label_tag}}
+	  <div class="input-group">
+	    {{form.spamchecker}}
+            <span class="input-group-addon"/>
+	  </div>
+	  {% if form.spamchecker.errors %}
+	  {% for error in form.spamchecker.errors %}
+	  <div class="alert alert-danger">
+	    <span class="glyphicon glyphicon-alert"></span>
+	    <strong>{{error}}</strong>
+	  </div>
+	  {% endfor %}
+	  {% endif %}	  
 	</div>
 	<input type="submit" name="submit" id="submit" value="Submit" class="btn btn-info pull-right">
       </div>
     </form>
+
+    {% if sucess %}    
+    <div class="alert alert-success">
+      <strong><span class="glyphicon glyphicon-send"></span>Success! Message sent.</strong>
+    </div>	  
+    {% endif %}
 
     <hr class="featurette-divider hidden-lg">
     <div class="col-lg-5 col-md-push-1">
