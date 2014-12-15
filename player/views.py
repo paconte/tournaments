@@ -31,26 +31,20 @@ def about(request):
     return HttpResponse(template.render(context))
 
 def contact(request):
-    print('CONTACT')
     success = False
     tournament_list = Tournament.objects.all()
     template = loader.get_template('tournaments/contact.html')
     if request.method == 'POST':
-        print('CONTACT-POST')
         form = ContactForm(request.POST)
         if form.is_valid():
-            print('CONTACT-POST-VALID')
-            sucess = True
+            success = True
             contactEntry = form.save()
             print(contactEntry)
-#            template = loader.get_template('tournaments/contact.html')
-        else:
-#            form = ContactForm()
-            print('CONTACT-POST-INVALID')
+            form = ContactForm()
     else:
         print('CONTACT-GET')
         form = ContactForm()
-        
+
     context  = RequestContext(request, {'tournament_list': tournament_list,
                                         'form': form,
                                         'sucess': success })
