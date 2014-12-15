@@ -75,15 +75,16 @@
 	  {% endfor %}
 	  {% endif %}	  
 	</div>
+	{% if sucess %}
+	<div class="form-group">
+	  <div class="alert alert-success">
+	    <strong><span class="glyphicon glyphicon-send"></span> Thank you. Your message has been sent.</strong>
+	  </div>
+	  </div>
+	{% endif %}
 	<input type="submit" name="submit" id="submit" value="Submit" class="btn btn-info pull-right">
       </div>
     </form>
-
-    {% if sucess %}    
-    <div class="alert alert-success">
-      <strong><span class="glyphicon glyphicon-send"></span>Success! Message sent.</strong>
-    </div>	  
-    {% endif %}
 
     <hr class="featurette-divider hidden-lg">
     <div class="col-lg-5 col-md-push-1">
