@@ -16,7 +16,7 @@
 	  {% for row in teams_matrix %}
 	  <tr>
 	    {% for team in row %}
-	    <td class="col-sm-2"><a href="{% url 'detail_team' tournament.id team.id %}">{{team.name}}</a></td>
+	    <td class="col-sm-2"><a href="{% url 'detail_team_tournament' tournament.id team.id %}">{{team.name}}</a></td>
 	    {% endfor %}
 	  </tr>	  
 	  {% endfor %}

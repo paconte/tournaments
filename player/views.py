@@ -128,7 +128,7 @@ def detail_tournament(request, tournament_id):
                    'finals':fixtures.get_finals({}),                     # sorted playoff/finals games
                    'teams_matrix': st_utils.get_teams_matrix(teams, 4),})# tournament teams
 
-def detail_team(request, tournament_id, team_id):    
+def detail_team_tournament(request, tournament_id, team_id):
     """
     Prepare and displays a team view for a specific tournament.
 
@@ -152,7 +152,7 @@ def detail_team(request, tournament_id, team_id):
         stadistics.extend(PlayerStadistic.objects.filter(player=player.id))
     st_utils = StructuresUtils()
 
-    return render(request, 'tournaments/detail_team.html', 
+    return render(request, 'tournaments/detail_team_tournament.html',
                   {'team': team, 
                    'games': st_utils.get_team_view_games(games), 
                    'players': st_utils.get_team_details_matrix(stadistics, players), 

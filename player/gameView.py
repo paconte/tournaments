@@ -75,10 +75,10 @@ class GameView(DetailView):
             result.append(row)
         return result
 
-class TeamView(DetailView):
+class TeamTournamentView(DetailView):
     
     model = Team;
-    template_name = 'tournaments/detail_team.html'
+    template_name = 'tournaments/detail_team_tournament.html'
 
     def get_context_data(self, **kwargs):
         tournament_id = self.kwargs.get('tournament_id')
@@ -87,7 +87,7 @@ class TeamView(DetailView):
         games = Game.objects.filter(Q(tournament=tournament_id), 
                                     Q(local=self.object.id) | Q(visitor=self.object.id))
 
-        context = super(TeamView, self).get_context_data(**kwargs)
+        context = super(TeamTournamentView, self).get_context_data(**kwargs)
         context['team'] = self.object
         context['tournament_list'] = Tournament.objects.all()
         context['games'] = self.sort_games_by_phases(games)
