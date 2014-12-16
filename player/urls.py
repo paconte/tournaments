@@ -1,9 +1,9 @@
 from django.conf.urls import patterns, url
 
 from player import views
-from player.gameView import GameView
-from player.gameView import TeamTournamentView
-from player.gameView import TournamentView
+from player.classViews import GameView
+from player.classViews import TeamTournamentView
+from player.classViews import TournamentView
 
 urlpatterns = patterns(
     '',
