@@ -1,6 +1,12 @@
 from django.views.generic import DetailView
-from player.models import Game, Player, PlayerStadistic, Tournament, Team
 from django.db.models import Q
+
+from player.models import Game
+from player.models import Player
+from player.models import PlayerStadistic
+from player.models import Tournament
+from player.models import Team
+
 from service import *
 
 class GameView(DetailView):
@@ -9,25 +15,34 @@ class GameView(DetailView):
     template_name = 'tournaments/detail_game.html'
 
     def get_context_data(self, **kwargs):
-        local_players = Player.objects.filter(team=self.object.local)
-        visitor_players = Player.objects.filter(team=self.object.visitor)
-        stadistics = PlayerStadistic.objects.filter(game=self.object.id)
+        local_players = Player.objects.filter(team = self.object.local)
+        visitor_players = Player.objects.filter(team = self.object.visitor)
+        stadistics = PlayerStadistic.objects.filter(game = self.object.id)
 
         context = super(GameView, self).get_context_data(**kwargs)
         context['tournament_list'] = Tournament.objects.all()
         context['game'] = self.object
-        context['stadistics'] = self.get_game_details_matrix(stadistics, local_players, visitor_players)
-
+        context['stadistics'] = self.get_game_details_matrix(stadistics,
+                                                             local_players,
+                                                             visitor_players)
         return context
      
-    # Create a matrix for being displayed by template. Each row of the matrix contains the number, person and the
-    # scored tries for a local and visitor players. If any local or visitor team has more players than the other 
-    # team the remaining cells will be empty.
-    #
-    # @param stadistics       The stadistics for the game
-    # @param local_players    The local team players of the game
-    # @param visitor_players  The visitor team players of the game
     def get_game_details_matrix(self, stadistics, local_players, visitor_players):
+        """
+        Create a matrix with the content of the stadistics for all the players of a game. Only the
+        detail_gamem template is designed to display this matrix data.
+
+        Args:
+            stadistics:      The stadistics for the game
+            local_players:   The local team players of the game
+            visitor_players: The visitor team players of the game
+
+        Returns:
+            A matrix with sorted stadistics of a game. Each row of the matrix contains the number,
+            person and the scored tries for a local and visitor players. If any local  or visitor
+            team has more players than the other team the remaining cells will be empty.
+        """
+
         result = []
         n_rows = len(local_players) if len(local_players) > len(visitor_players) else len(visitor_players)
         for i in range(n_rows):
@@ -57,7 +72,6 @@ class GameView(DetailView):
                     row.extend([number, visitor_players[i].person, '-'])
             else:
                 row.extend(['', '', ''])
-                
             result.append(row)
         return result
 
@@ -68,7 +82,8 @@ class TeamView(DetailView):
 
     def get_context_data(self, **kwargs):
         tournament_id = self.kwargs.get('tournament_id')
-        players = Player.objects.filter(team=self.object.id, tournaments_played__id=tournament_id).distinct()
+        players = Player.objects.filter(team=self.object.id,
+                                        tournaments_played__id=tournament_id).distinct()
         games = Game.objects.filter(Q(tournament=tournament_id), 
                                     Q(local=self.object.id) | Q(visitor=self.object.id))
 
@@ -80,11 +95,18 @@ class TeamView(DetailView):
         
         return context
 
-    # Sort a list of games by phases. The result is a dictionary where each element is a list of games of the same
-    # phase of a tournament.
-    #
-    # @param games The list of games to be sorted.
     def sort_games_by_phases(self, games):
+        """
+        Sort a list of games by phases.
+
+        Args:
+            games: The stadistics for the game
+
+        Returns:
+            The result is a dictionary where each element is a list of games of the same phase 
+            of a tournament.
+        """
+
         result = {}
         for game in games:
             if (result.has_key(game.phase)):
@@ -95,10 +117,19 @@ class TeamView(DetailView):
             result.update({game.phase:phase_games})
         return result
 
-    # Given a list of players a list with players and the total amount of points in a tournament is returned.
-    #
-    # @param players The list of players to find out the scored points.
     def get_player_stadistics(self, players, games):
+        """
+        Given a list of players, a list with the same players and their total amount of points in a
+        tournament is returned.
+
+        Args:
+            players: The list of players to find out the scored points.
+
+        Returns:
+            The result is a dictionary where each element is a list of games of the same phase
+            of a tournament.
+        """
+
         result = []
         stadistics = []
 
