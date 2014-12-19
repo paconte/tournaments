@@ -75,6 +75,23 @@ class GameView(DetailView):
             result.append(row)
         return result
 
+class TeamView(DetailView):
+    model = Team
+    template_name = 'tournaments/detail_team.html'
+
+    def get_context_data(self, **kwargs):
+        games = Game.objects.filter(Q(local=self.object.id) | Q(visitor=self.object.id))
+        played_tournaments = Tournament.objects.filter(teams__id=self.object.id)
+
+        context = super(TeamTournamentView, self).get_context_data(**kwargs)
+        context['team'] = self.object
+        context['tournament_list'] = Tournament.objects.all()
+        context['games'] = self.sort_games_by_phases(games)
+        context['players'] = self.get_player_stadistics(players, games)
+        context['played_tournaments'] = played_tournaments
+
+        return context
+
 class TeamTournamentView(DetailView):
     
     model = Team;
@@ -170,4 +187,3 @@ class TournamentView(DetailView):
         context['teams_matrix'] = st_utils.get_teams_matrix(teams, 4)
 
         return context
-
