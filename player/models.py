@@ -122,7 +122,11 @@ class GameRound(models.Model):
     def __unicode__(self):  # Python 3: def __str__(self):
         return '%s %s %s' % (self.round, self.number_teams, self.category)
 
+    def is_pool(self):
+        return self.round == self.POOL_A or self.round == self.POOL_B or self.round == self.POOL_C or self.round == self.POOL_C
+        
     def __cmp__(self, other):
+#        print('self = %s, other = %s' %(self, other))
         if (self.category == other.category):
             if (self.round == other.round):
                 result = self.number_teams.__cmp__(other.number_teams)

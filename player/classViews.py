@@ -2,6 +2,7 @@ from django.views.generic import DetailView
 from django.db.models import Q
 
 from player.models import Game
+from player.models import GameRound
 from player.models import Player
 from player.models import PlayerStadistic
 from player.models import Tournament
@@ -117,21 +118,36 @@ class TeamTournamentView(DetailView):
         Sort a list of games by phases.
 
         Args:
-            games: The stadistics for the game
+            games: A collection of games.
 
         Returns:
-            The result is a dictionary where each element is a list of games of the same phase 
-            of a tournament.
+            The result is an ordered dictionary where each element is a list of games of the same 
+            phase of a tournament. The dictionary is an ordered by the key which is an phase object.
         """
 
-        result = {}
+        d_all = {}
         for game in games:
-            if (result.has_key(game.phase)):
-                phase_games = result.get(game.phase)
+            if (d_all.has_key(game.phase)):
+                phase_games = d_all.get(game.phase)
             else:
                 phase_games = []
             phase_games.append(game)
-            result.update({game.phase:phase_games})
+            d_all.update({game.phase:phase_games})
+
+        d_pools = {}
+        d_finals = {}
+        for k,v in d_all.iteritems():
+            if (GameRound.is_pool(k)):
+                d_pools.update({k:v})
+            else:
+                d_finals.update({k:v})
+
+        result = collections.OrderedDict()
+        for k in (sorted(d_pools)):
+            result.update({k:d_pools.get(k)})
+        for k in (sorted(d_finals)):
+            result.update({k:d_finals.get(k)})
+
         return result
 
     def get_player_stadistics(self, players, games):
