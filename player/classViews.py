@@ -122,7 +122,7 @@ class TeamTournamentView(DetailView):
 
         Returns:
             The result is an ordered dictionary where each element is a list of games of the same 
-            phase of a tournament. The dictionary is an ordered by the key which is an phase object.
+            phase of a tournament. The dictionary is an ordered by the key.round which is an phase object.
         """
 
         d_all = {}
@@ -136,16 +136,18 @@ class TeamTournamentView(DetailView):
 
         d_pools = {}
         d_finals = {}
+        l_finals = []
         for k,v in d_all.iteritems():
             if (GameRound.is_pool(k)):
                 d_pools.update({k:v})
             else:
                 d_finals.update({k:v})
+                l_finals.append(k)
 
         result = collections.OrderedDict()
         for k in (sorted(d_pools)):
             result.update({k:d_pools.get(k)})
-        for k in (sorted(d_finals)):
+        for k in (sorted(l_finals, key=lambda final: GameRound.ordered_rounds.index(final.round), reverse=True)):
             result.update({k:d_finals.get(k)})
 
         return result

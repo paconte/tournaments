@@ -86,6 +86,8 @@ class GameRound(models.Model):
     POOL_D = 'Pool D'
     LIGA = 'Liga'
 
+    ordered_rounds = [FINAL, THIRD_PLACE, SEMI, FITH_PLACE, QUARTER, SIXTH_PLACE, SEVENTH_PLACE, EIGHTH, SIXTEENTH]
+
     GAME_ROUND_CHOICES = (
         (FINAL, FINAL),
         (SEMI, SEMI),
@@ -124,7 +126,7 @@ class GameRound(models.Model):
 
     def is_pool(self):
         return self.round == self.POOL_A or self.round == self.POOL_B or self.round == self.POOL_C or self.round == self.POOL_C
-        
+
     def __cmp__(self, other):
 #        print('self = %s, other = %s' %(self, other))
         if (self.category == other.category):
