@@ -68,7 +68,7 @@ class Player(models.Model):
     tournaments_played = models.ManyToManyField(Tournament, null=True, blank=True)
 
     def __unicode__(self):  # Python 3: def __str__(self):
-        return '%s %s' % (self.number, self.person)
+        return '%s  %s %s' % (self.team, self.number, self.person)
 
 class GameRound(models.Model):
     FINAL = 'Final'
@@ -125,7 +125,7 @@ class GameRound(models.Model):
         return '%s %s %s' % (self.round, self.number_teams, self.category)
 
     def is_pool(self):
-        return self.round == self.POOL_A or self.round == self.POOL_B or self.round == self.POOL_C or self.round == self.POOL_C
+        return self.round == self.POOL_A or self.round == self.POOL_B or self.round == self.POOL_C or self.round == self.POOL_D
 
     def __cmp__(self, other):
 #        print('self = %s, other = %s' %(self, other))
