@@ -178,7 +178,7 @@ class TeamTournamentView(DetailView):
                     points += st.points
             result.append([player.number, player.person, points])
 
-        return result
+        return sorted(result, key=lambda line: line[0])
 
 class TournamentView(DetailView):
     model = Tournament
