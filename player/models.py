@@ -192,7 +192,7 @@ class Game(models.Model):
     phase = models.ForeignKey(GameRound)
 
     def __unicode__(self):  # Python 3: def __str__(self):
-        return '%s - %s %s - %s %s' % (self.tournament, self.local, self.local_score, self.visitor_score, self.visitor)
+        return '%s - %s - %s %s - %s %s' % (self.tournament, self.phase, self.local, self.local_score, self.visitor_score, self.visitor)
 
     def __cmp__(self, other):
         return self.phase.__cmp__(other.phase)
