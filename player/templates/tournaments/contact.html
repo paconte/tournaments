@@ -5,87 +5,95 @@
 <div class="container">
 
   <div class="row">
-    <div class="col-md-12">
-    <form role="form" action="{% url 'contact' %}" method="post" >
-      {% csrf_token %}
-      <div class="col-lg-6">
-	<div class="form-group">	  
-	  {{form.name.label_tag}}
-	  <div class="input-group">
-	    {{form.name}}
-            <span class="input-group-addon"/>
-	  </div>
-	</div>
-	<div class="form-group">
-	  {{form.email.label_tag}}
-	  <div class="input-group">
-	    {{form.email}}
-            <span class="input-group-addon"/>
-	  </div>
-	  {% if form.email.errors %}
-	  {% for error in form.email.errors %}
-	  <div class="alert alert-danger">
-	    <span class="glyphicon glyphicon-alert"></span>
-	    <strong>{{error}}</strong>
-	  </div>
-	  {% endfor %}
-	  {% endif %}
-	</div>
-	<div class="form-group">
-	  {{form.confirm_email.label_tag}}
-	  <div class="input-group">
-	    {{form.confirm_email}}
-            <span class="input-group-addon"/>
-	  </div>
-	  {% if form.confirm_email.errors %}
-	  {% for error in form.confirm_email.errors %}
-	  <div class="alert alert-danger">
-	    <span class="glyphicon glyphicon-alert"></span>
-	    <strong>{{error}}</strong>
-	  </div>
-	  {% endfor %}
-	  {% endif %}
-	</div>
-	<div class="form-group">
-	  {{form.where.label_tag}}
-	  <div class="input-group">
-	    {{form.where}}
-            <span class="input-group-addon"/>
-	  </div>
-	</div>
-	<div class="form-group">
-	  {{form.message.label_tag}}
-	  <div class="input-group">	    
-	    {{form.message}}
-            <span class="input-group-addon"/>
-	  </div>
-	</div>
-	<div class="form-group">
-	  {{form.spamchecker.label_tag}}
-	  <div class="input-group">
-	    {{form.spamchecker}}
-            <span class="input-group-addon"/>
-	  </div>
-	  {% if form.spamchecker.errors %}
-	  {% for error in form.spamchecker.errors %}
-	  <div class="alert alert-danger">
-	    <span class="glyphicon glyphicon-alert"></span>
-	    <strong>{{error}}</strong>
-	  </div>
-	  {% endfor %}
-	  {% endif %}	  
-	</div>
-	{% if sucess %}
-	<div class="form-group">
-	  <div class="alert alert-success">
-	    <strong><span class="glyphicon glyphicon-send"></span> Thank you. Your message has been sent.</strong>
-	  </div>
-	  </div>
-	{% endif %}
-	<input type="submit" name="submit" id="submit" value="Submit" class="btn btn-info pull-right">
-      </div>
-    </form>
 
+    <div class="col-md-12">
+      <form role="form" action="{% url 'contact' %}" method="post" >
+	{% csrf_token %}
+	<div class="col-lg-6">
+
+	  <div class="form-group">	  
+	    {{form.name.label_tag}}
+	    <div class="input-group">
+	      {{form.name}}
+              <span class="input-group-addon"/>
+	    </div>
+	  </div>
+
+	  <div class="form-group">
+	    {{form.email.label_tag}}
+	    <div class="input-group">
+	      {{form.email}}
+              <span class="input-group-addon"/>
+	    </div>
+	    {% if form.email.errors %}
+	    {% for error in form.email.errors %}
+	    <div class="alert alert-danger">
+	      <span class="glyphicon glyphicon-alert"></span>
+	      <strong>{{error}}</strong>
+	    </div>
+	    {% endfor %}
+	    {% endif %}
+	  </div>
+	  
+	  <div class="form-group">
+	    {{form.confirm_email.label_tag}}
+	    <div class="input-group">
+	      {{form.confirm_email}}
+            <span class="input-group-addon"/>
+	    </div>
+	    {% if form.confirm_email.errors %}
+	    {% for error in form.confirm_email.errors %}
+	    <div class="alert alert-danger">
+	      <span class="glyphicon glyphicon-alert"></span>
+	      <strong>{{error}}</strong>
+	    </div>
+	    {% endfor %}
+	    {% endif %}
+	  </div>
+
+	  <div class="form-group">
+	    {{form.where.label_tag}}
+	    <div class="input-group">
+	      {{form.where}}
+              <span class="input-group-addon"/>
+	    </div>
+	  </div>
+	  
+	  <div class="form-group">
+	    {{form.message.label_tag}}
+	    <div class="input-group">	    
+	      {{form.message}}
+              <span class="input-group-addon"/>
+	    </div>
+	  </div>
+	  
+	  <div class="form-group">
+	    {{form.spamchecker.label_tag}}
+	    <div class="input-group">
+	      {{form.spamchecker}}
+              <span class="input-group-addon"/>
+	    </div>
+	    {% if form.spamchecker.errors %}
+	    {% for error in form.spamchecker.errors %}
+	    <div class="alert alert-danger">
+	      <span class="glyphicon glyphicon-alert"></span>
+	      <strong>{{error}}</strong>
+	    </div>
+	    {% endfor %}
+	    {% endif %}	  
+	  </div>
+	  
+	  {% if sucess %}
+	  <div class="form-group">
+	    <div class="alert alert-success">
+	      <strong><span class="glyphicon glyphicon-send"></span> Thank you. Your message has been sent.</strong>
+	    </div>
+	  </div>
+	  {% endif %}
+	  <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-info pull-right">
+	</div> <!-- end col-lg-6 -->
+      </form> <!-- end form -->
+<!--
     <hr class="featurette-divider hidden-lg">
     <div class="col-lg-5 col-md-push-1">
       <address>
@@ -97,8 +105,9 @@
 	  Fax: XXX-XXX-YYYY</p>
       </address>
     </div>
-  </div>
-
+-->
+    </div> <!-- end col-md-12 -->
+  </div> <!-- end row -->
 </div> <!-- end container -->
 
 {% endblock %}
