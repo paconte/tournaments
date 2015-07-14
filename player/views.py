@@ -11,9 +11,12 @@ from player.models import GameRound
 from player.models import Team
 from player.models import Player
 from player.models import PlayerStadistic
+from player.models import Person
 
 from django.views.generic import DetailView
 from player.forms import ContactForm
+from player.forms import TeamSearchForm
+from player.forms import PersonSearchForm
 
 from service import *
 
@@ -60,7 +63,7 @@ def contact(request):
         Otherwise the form will be again rendered with error messages.
     """
 
-    success = False          # true iff form has been saved otherwise false
+    success = False          # true if form has been saved otherwise false
     tournament_list = Tournament.objects.all()
     template = loader.get_template('tournaments/contact.html')
     if request.method == 'POST':
@@ -76,6 +79,51 @@ def contact(request):
                                         'form': form,
                                         'sucess': success })
         
+    return HttpResponse(template.render(context))
+
+def search_team(request):
+    template = loader.get_template('tournaments/search_team.html')
+    success = False
+    teams = None
+    
+    if request.method == 'GET':
+        form = TeamSearchForm(request.GET)
+        if form.is_valid():
+            teams = Team.objects.filter(name__icontains=form.cleaned_data.get('name'))
+            if teams:
+                success = True            
+    else:
+        form = TeamSearchForm()
+
+    context  = RequestContext(request, {'form': form, 'result': teams, 'success': success})
+    
+    return HttpResponse(template.render(context))
+
+def search_person(request):
+    template = loader.get_template('tournaments/search_person.html')
+    success = False
+    persons = None
+
+    if request.method == 'GET':
+        form = PersonSearchForm(request.GET)
+        if form.is_valid():
+            fname = form.cleaned_data.get('first_name')
+            lname = form.cleaned_data.get('last_name')
+            if len(fname) > 0 and len(lname) > 0:
+                persons = Person.objects.filter(Q(first_name__icontains=form.cleaned_data.get('first_name'))
+                                                | Q(last_name__icontains=form.cleaned_data.get('last_name')))
+            elif len(fname) > 0:
+                persons = Person.objects.filter(first_name__icontains=form.cleaned_data.get('first_name'))
+            elif len(lname) > 0:
+                persons = Person.objects.filter(last_name__icontains=form.cleaned_data.get('last_name'))
+                
+            if persons:
+                success = True            
+    else:
+        form = PersonSearchForm()
+
+    context  = RequestContext(request, {'form': form, 'result': persons, 'success': success})
+    
     return HttpResponse(template.render(context))
 
 def detail_tournament(request, tournament_id):
@@ -150,8 +198,8 @@ def detail_team_tournament(request, tournament_id, team_id):
     stadistics = []
     for player in players:
         stadistics.extend(PlayerStadistic.objects.filter(player=player.id))
-    st_utils = StructuresUtils()
-
+    st_utils = StructuresUtils()    
+    
     return render(request, 'tournaments/detail_team_tournament.html',
                   {'team': team, 
                    'games': st_utils.get_team_view_games(games), 

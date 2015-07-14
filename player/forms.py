@@ -2,7 +2,38 @@ from django import forms
 from django.core.exceptions import ValidationError
 
 from player.models import Contact
+from player.models import Team
+from player.models import Person
 
+class PersonSearchForm(forms.ModelForm):
+    first_name = forms.CharField(label='First name',
+                           required=False,
+                           max_length=40,
+                           widget=forms.TextInput(attrs={'class':'form-control',
+                                                         'placeholder':'Enter first name'}))
+    last_name = forms.CharField(label='Last name',
+                           required=False,
+                           max_length=40,
+                           widget=forms.TextInput(attrs={'class':'form-control',
+                                                         'placeholder':'Enter last name'}))
+
+    class Meta:
+        model = Person
+        fields = ['first_name', 'last_name']
+
+
+class TeamSearchForm(forms.ModelForm):
+    name = forms.CharField(label='Team name',
+                           required=True,
+                           max_length=40,
+                           widget=forms.TextInput(attrs={'class':'form-control',
+                                                         'placeholder':'Enter name',
+                                                         'required':'True'}))
+    class Meta:
+        model = Team
+        fields = ['name']
+
+        
 class ContactForm(forms.ModelForm):
     name = forms.CharField(label='Your name',
                            required=True,                           
@@ -43,7 +74,7 @@ class ContactForm(forms.ModelForm):
         fields = ['name', 'email', 'where', 'message']
 
     def clean(self):
-        form_data = super(ContactForm, self).clean()
+#        form_data = super(ContactForm, self).clean()
         print(form_data)
 #        if form_data.get('email') is None:
 #            self._errors['email'] = ['Email is not valid.']

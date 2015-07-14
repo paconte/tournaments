@@ -7,6 +7,7 @@ from player.models import Player
 from player.models import PlayerStadistic
 from player.models import Tournament
 from player.models import Team
+from player.models import Person
 
 from service import *
 
@@ -76,6 +77,21 @@ class GameView(DetailView):
             result.append(row)
         return result
 
+class PersonView(DetailView):
+    model = Person
+    template_name = 'tournaments/detail_person.html'
+
+    def get_context_data(self, **kwargs):
+        games = Game.objects.filter(Q(local=self.object.id) | Q(visitor=self.object.id))
+        played_tournaments = Tournament.objects.filter(teams__id=self.object.id)
+
+        context = super(PersonView, self).get_context_data(**kwargs)
+        context['person'] = self.object
+        context['tournament_list'] = Tournament.objects.all()
+        context['played_tournaments'] = played_tournaments
+
+        return context
+
 class TeamView(DetailView):
     model = Team
     template_name = 'tournaments/detail_team.html'
@@ -84,12 +100,11 @@ class TeamView(DetailView):
         games = Game.objects.filter(Q(local=self.object.id) | Q(visitor=self.object.id))
         played_tournaments = Tournament.objects.filter(teams__id=self.object.id)
 
-        context = super(TeamTournamentView, self).get_context_data(**kwargs)
+        context = super(TeamView, self).get_context_data(**kwargs)
         context['team'] = self.object
         context['tournament_list'] = Tournament.objects.all()
-        context['games'] = self.sort_games_by_phases(games)
-        context['players'] = self.get_player_stadistics(players, games)
         context['played_tournaments'] = played_tournaments
+        context['games'] = games
 
         return context
 

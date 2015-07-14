@@ -1,0 +1,66 @@
+{% extends "tournaments/index.html" %}
+{% block content %}
+
+<div class="jumbotron">
+  <h1>{{ team.name }}</h1>
+</div>
+
+<div class="page-header">
+  <h1>Tournaments</h1>
+</div>
+
+<table class="table-condensed">
+  <thead>
+    <tbody>
+      {% for element in played_tournaments %}
+      <tr>
+	<td class="col-sm-2">
+	  <a href="{% url 'detail_team_tournament' element.id team.id %}">{{element.name}}</a>
+	</td>
+      </tr>	  
+      {% endfor %}
+    </tbody>
+  </thead>
+</table>
+
+<div class="page-header">
+  <h1>Players</h1>
+</div>
+
+<table class="table-condensed">
+  <thead>
+    <tbody>
+      {% for element in team.players.all %}
+      <tr>
+	<td class="col-sm-2">
+	  {{element.first_name}} {{element.last_name}} {{element.gender}} 
+	</td>
+      </tr>	  
+      {% endfor %}
+    </tbody>
+  </thead>
+</table>
+
+<div class="page-header">
+  <h1>Games</h1>
+</div>
+
+<table class="table-condensed">
+  <thead>
+    <tbody>
+      {% for game in games %}
+      <tr>
+	<td class="col-sm-3">{{game.tournament.name}}</td>
+	<td class="col-sm-3">{{game.local}}</td>
+	<td class="col-sm-0 success text-center">{{game.local_score}}</td>
+	<td class="text-center">v</td> 
+	<td class="success text-center">{{game.visitor_score}}</td>
+	<td class="col-sm-3 text-right">{{game.visitor}}</td>	
+	<td class="text-center"><a href="{% url 'detail_game' game.id %}">link</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </thead>
+</table>
+
+{% endblock %}
