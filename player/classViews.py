@@ -17,8 +17,8 @@ class GameView(DetailView):
     template_name = 'tournaments/detail_game.html'
 
     def get_context_data(self, **kwargs):
-        local_players = Player.objects.filter(team = self.object.local)
-        visitor_players = Player.objects.filter(team = self.object.visitor)
+        local_players = Player.objects.filter(team = self.object.local, tournaments_played = self.object.tournament)
+        visitor_players = Player.objects.filter(team = self.object.visitor, tournaments_played = self.object.tournament)
         stadistics = PlayerStadistic.objects.filter(game = self.object.id)
 
         context = super(GameView, self).get_context_data(**kwargs)

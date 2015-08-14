@@ -233,8 +233,8 @@ def detail_game(request, game_id):
     tournament_list = Tournament.objects.all()
     game = Game.objects.filter(pk=game_id)
     stadistics = PlayerStadistic.objects.filter(game=game_id)
-    local_players = Player.objects.filter(team=game[0].local)
-    visitor_players = Player.objects.filter(team=game[0].visitor)
+    local_players = Player.objects.filter(team=game[0].local, tournaments_played=game[0].tournament)
+    visitor_players = Player.objects.filter(team=game[0].visitor, tournaments_played=game[0].tournament)
 
     # Apply algorithms to the games and store it in different data structures. When rendering the
     # view we need the data to be sorted and classified properly because the html code expect it so.
