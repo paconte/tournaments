@@ -244,7 +244,7 @@ class Fixtures:
         result = {}
         for key in self.games:
             if (key.round == GameRound.FINAL
-                or key.round == GameRound.THIRD_PLACE
+                or key.round == GameRound.THIRD_POSITION
                 or key.round == GameRound.SEMI
                 or key.round == GameRound.QUARTER 
                 or key.round == GameRound.EIGHTH 
