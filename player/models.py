@@ -76,17 +76,26 @@ class GameRound(models.Model):
     QUARTER = '1/4'
     EIGHTH = '1/8'
     SIXTEENTH = '1/16'
-    THIRD_PLACE = 'Third position'
-    FITH_PLACE = 'Fith position'
-    SIXTH_PLACE = 'Sixth position'
-    SEVENTH_PLACE = 'Seventh position'
+    THIRD_POSITION = 'Third position'
+    FIFTH_POSITION = 'Fifth position'
+    SIXTH_POSITION = 'Sixth position'
+    SEVENTH_POSITION = 'Seventh position'
+    EIGHTH_POSITION = 'Eighth position'
+    NINTH_POSITION = 'Ninth position'    
+    TENTH_POSITION = 'Tenth position'
+    ELEVENTH_POSITION = 'Eleventh position'
+    TWELFTH_POSITION = 'Twelfth position'
+    THIRTEENTH_POSITION = 'Thirteenth position'
+    FIFTEENTHS_POSITION = 'Fifteenths position'
+    DIVISION = 'Division'
     POOL_A = 'Pool A'
     POOL_B = 'Pool B'
     POOL_C = 'Pool C'
     POOL_D = 'Pool D'
     LIGA = 'Liga'
 
-    ordered_rounds = [FINAL, THIRD_PLACE, SEMI, FITH_PLACE, QUARTER, SIXTH_PLACE, SEVENTH_PLACE, EIGHTH, SIXTEENTH]
+    ordered_rounds = [FINAL, THIRD_POSITION, SEMI, FIFTH_POSITION, QUARTER, SIXTH_POSITION,
+                      SEVENTH_POSITION, EIGHTH_POSITION]
 
     GAME_ROUND_CHOICES = (
         (FINAL, FINAL),
@@ -94,10 +103,18 @@ class GameRound(models.Model):
         (QUARTER, QUARTER),
         (EIGHTH, EIGHTH),
         (SIXTEENTH, SIXTEENTH),
-        (THIRD_PLACE, THIRD_PLACE),
-        (FITH_PLACE, FITH_PLACE),
-        (SIXTH_PLACE, SIXTH_PLACE),
-        (SEVENTH_PLACE, SEVENTH_PLACE),
+        (THIRD_POSITION, THIRD_POSITION),
+        (FIFTH_POSITION, FIFTH_POSITION),
+        (SIXTH_POSITION, SIXTH_POSITION),
+        (SEVENTH_POSITION, SEVENTH_POSITION),
+        (EIGHTH_POSITION, EIGHTH_POSITION),
+        (NINTH_POSITION, NINTH_POSITION),
+        (TENTH_POSITION, TENTH_POSITION),
+        (ELEVENTH_POSITION, ELEVENTH_POSITION),
+        (TWELFTH_POSITION, TWELFTH_POSITION),
+        (THIRTEENTH_POSITION,THIRTEENTH_POSITION),
+        (FIFTEENTHS_POSITION,FIFTEENTHS_POSITION),
+        (DIVISION, DIVISION),
         (POOL_A, POOL_A),
         (POOL_B, POOL_B),
         (POOL_C, POOL_C),
@@ -117,7 +134,7 @@ class GameRound(models.Model):
         (WOOD, WOOD),
         )
     
-    round = models.CharField(default=POOL_A, max_length=16, null=False, blank=False, choices=GAME_ROUND_CHOICES)
+    round = models.CharField(default=POOL_A, max_length=20, null=False, blank=False, choices=GAME_ROUND_CHOICES)
     number_teams = models.PositiveIntegerField(default=2, validators=[MinValueValidator(0), MaxValueValidator(20)])
     category = models.CharField(default=GOLD, max_length=6, null=False, blank=False, choices=CATEGORY_ROUND_CHOICES)
 
@@ -137,9 +154,9 @@ class GameRound(models.Model):
                     result = 1
                 elif (other.round == self.FINAL):
                     result = -1
-                elif (self.round == self.THIRD_PLACE):
+                elif (self.round == self.THIRD_POSITION):
                     result = 1
-                elif (other.round == self.THIRD_PLACE):
+                elif (other.round == self.THIRD_POSITION):
                     result = -1
                 elif (self.round == self.SEMI):
                     result = 1
