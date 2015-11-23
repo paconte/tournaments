@@ -59,7 +59,15 @@ class Tournament(models.Model):
     division = models.CharField(max_length=3, choices=TOUCH_DIVISION_CHOICES)
 
     def __unicode__(self):  # Python 3: def __str__(self):
-        return '%s - %s (%s, %s)' % (self.division, self.name, self.city, self.country)
+        if (self.country and self.city):
+            result = '%s - %s (%s, %s)' % (self.division, self.name, self.city, self.country)
+        elif (self.country):
+            result = '%s - %s (%s)' % (self.division, self.name, self.country)
+        elif (self.city):
+            result = '%s - %s (%s)' % (self.division, self.name, self.city)
+        else:
+            result =  '%s - %s' % (self.division, self.name)
+        return result
 
 class Player(models.Model):
     person = models.ForeignKey(Person)
@@ -86,7 +94,11 @@ class GameRound(models.Model):
     ELEVENTH_POSITION = 'Eleventh position'
     TWELFTH_POSITION = 'Twelfth position'
     THIRTEENTH_POSITION = 'Thirteenth position'
-    FIFTEENTHS_POSITION = 'Fifteenths position'
+    FOURTEENTH_POSITION = 'Fourteenth position'
+    FIFTEENTH_POSITION = 'Fifteenth position'
+    SIXTEENTH_POSITION = 'Sixteenth position'
+    EIGHTEENTH_POSITION = 'Eighteenth position'
+    TWENTIETH_POSITION = 'Nineteenth position'
     DIVISION = 'Division'
     POOL_A = 'Pool A'
     POOL_B = 'Pool B'
@@ -95,7 +107,10 @@ class GameRound(models.Model):
     LIGA = 'Liga'
 
     ordered_rounds = [FINAL, THIRD_POSITION, SEMI, FIFTH_POSITION, QUARTER, SIXTH_POSITION,
-                      SEVENTH_POSITION, EIGHTH_POSITION]
+                      SEVENTH_POSITION, EIGHTH_POSITION, NINTH_POSITION, TENTH_POSITION,
+                      ELEVENTH_POSITION, TWELFTH_POSITION, THIRTEENTH_POSITION, FOURTEENTH_POSITION,
+                      FIFTEENTH_POSITION, SIXTEENTH_POSITION, EIGHTEENTH_POSITION,
+                      TWENTIETH_POSITION]
 
     GAME_ROUND_CHOICES = (
         (FINAL, FINAL),
@@ -113,7 +128,10 @@ class GameRound(models.Model):
         (ELEVENTH_POSITION, ELEVENTH_POSITION),
         (TWELFTH_POSITION, TWELFTH_POSITION),
         (THIRTEENTH_POSITION,THIRTEENTH_POSITION),
-        (FIFTEENTHS_POSITION,FIFTEENTHS_POSITION),
+        (FIFTEENTH_POSITION,FIFTEENTH_POSITION),
+        (SIXTEENTH_POSITION,SIXTEENTH_POSITION),
+        (EIGHTEENTH_POSITION,EIGHTEENTH_POSITION),
+        (TWENTIETH_POSITION,TWENTIETH_POSITION),        
         (DIVISION, DIVISION),
         (POOL_A, POOL_A),
         (POOL_B, POOL_B),
