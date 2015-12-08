@@ -4,7 +4,6 @@ from django.http import HttpResponse
 from django.template import RequestContext, loader
 from django.db.models import Q
 from django.shortcuts import get_object_or_404
-
 from player.models import Tournament
 from player.models import Game
 from player.models import GameRound
@@ -12,13 +11,16 @@ from player.models import Team
 from player.models import Player
 from player.models import PlayerStadistic
 from player.models import Person
-
 from django.views.generic import DetailView
 from player.forms import ContactForm
 from player.forms import TeamSearchForm
 from player.forms import PersonSearchForm
 
-from service import *
+from player.service import Fixtures
+from player.service import TeamsMatrix
+from player.service import StructuresUtils
+
+
 
 # Create your views here.
 
@@ -33,8 +35,9 @@ def index(request):
     """
     tournament_list = Tournament.objects.all()
     template = loader.get_template('tournaments/index.html')
-    context  = RequestContext(request, {'tournament_list': tournament_list, })
+    context = RequestContext(request, {'tournament_list': tournament_list, })
     return HttpResponse(template.render(context))
+
 
 def about(request):
     """
@@ -48,8 +51,9 @@ def about(request):
 
     tournament_list = Tournament.objects.all()
     template = loader.get_template('tournaments/about.html')
-    context  = RequestContext(request, {'tournament_list': tournament_list, })
+    context = RequestContext(request, {'tournament_list': tournament_list, })
     return HttpResponse(template.render(context))
+
 
 def contact(request):
     """
@@ -63,7 +67,7 @@ def contact(request):
         Otherwise the form will be again rendered with error messages.
     """
 
-    success = False          # true if form has been saved otherwise false
+    success = False  # true if form has been saved otherwise false
     tournament_list = Tournament.objects.all()
     template = loader.get_template('tournaments/contact.html')
     if request.method == 'POST':
@@ -75,29 +79,31 @@ def contact(request):
     else:
         form = ContactForm()
 
-    context  = RequestContext(request, {'tournament_list': tournament_list,
-                                        'form': form,
-                                        'sucess': success })
-        
+    context = RequestContext(request, {'tournament_list': tournament_list,
+                                       'form': form,
+                                       'sucess': success})
+
     return HttpResponse(template.render(context))
+
 
 def search_team(request):
     template = loader.get_template('tournaments/search_team.html')
     success = False
     teams = None
-    
+
     if request.method == 'GET':
         form = TeamSearchForm(request.GET)
         if form.is_valid():
             teams = Team.objects.filter(name__icontains=form.cleaned_data.get('name'))
             if teams:
-                success = True            
+                success = True
     else:
         form = TeamSearchForm()
 
-    context  = RequestContext(request, {'form': form, 'result': teams, 'success': success})
-    
+    context = RequestContext(request, {'form': form, 'result': teams, 'success': success})
+
     return HttpResponse(template.render(context))
+
 
 def search_person(request):
     template = loader.get_template('tournaments/search_person.html')
@@ -116,15 +122,16 @@ def search_person(request):
                 persons = Person.objects.filter(first_name__icontains=form.cleaned_data.get('first_name'))
             elif len(lname) > 0:
                 persons = Person.objects.filter(last_name__icontains=form.cleaned_data.get('last_name'))
-                
+
             if persons:
-                success = True            
+                success = True
     else:
         form = PersonSearchForm()
 
-    context  = RequestContext(request, {'form': form, 'result': persons, 'success': success})
-    
+    context = RequestContext(request, {'form': form, 'result': persons, 'success': success})
+
     return HttpResponse(template.render(context))
+
 
 def detail_tournament(request, tournament_id):
     """
@@ -144,7 +151,7 @@ def detail_tournament(request, tournament_id):
     teams = Team.objects.filter(tournament__id=tournament_id)
 
     # Data to save the different tournament games
-    liga_games = [] 
+    liga_games = []
     pool_games = []
     playoffs_games = []
 
@@ -152,11 +159,11 @@ def detail_tournament(request, tournament_id):
     for game in games:
         if game.phase.round == GameRound.LIGA:
             liga_games.append(game)
-        elif (game.phase.round == GameRound.POOL_A 
-              or game.phase.round == GameRound.POOL_B        
+        elif (game.phase.round == GameRound.POOL_A
+              or game.phase.round == GameRound.POOL_B
               or game.phase.round == GameRound.POOL_C
               or game.phase.round == GameRound.POOL_D):
-            pool_games.append(game)        
+            pool_games.append(game)
         else:
             playoffs_games.append(game)
 
@@ -167,14 +174,15 @@ def detail_tournament(request, tournament_id):
     teams_matrix = TeamsMatrix(3, teams)
     st_utils = StructuresUtils()
 
-    return render(request, 
-                  'tournaments/detail_tournament.html', 
-                  {'tournament_list': tournament_list, 
-                   'tournament': tournament,                             # tournament info
-                   'games': games,                                       # all tournament games
-                   'sorted_pools': fixtures.sorted_pools,                # sorted pool games
-                   'finals':fixtures.get_finals({}),                     # sorted playoff/finals games
-                   'teams_matrix': st_utils.get_teams_matrix(teams, 4),})# tournament teams
+    return render(request,
+                  'tournaments/detail_tournament.html',
+                  {'tournament_list': tournament_list,
+                   'tournament': tournament,  # tournament info
+                   'games': games,  # all tournament games
+                   'sorted_pools': fixtures.sorted_pools,  # sorted pool games
+                   'finals': fixtures.get_finals({}),  # sorted playoff/finals games
+                   'teams_matrix': st_utils.get_teams_matrix(teams, 4), })  # tournament teams
+
 
 def detail_team_tournament(request, tournament_id, team_id):
     """
@@ -193,19 +201,20 @@ def detail_team_tournament(request, tournament_id, team_id):
     tournament_list = Tournament.objects.all()
     tournament = get_object_or_404(Tournament, pk=tournament_id)
     team = get_object_or_404(Team, pk=team_id)
-    games = Game.objects.filter(Q(tournament=tournament_id), Q(local=team_id) | Q(visitor=team_id))    
+    games = Game.objects.filter(Q(tournament=tournament_id), Q(local=team_id) | Q(visitor=team_id))
     players = Player.objects.filter(team=team_id)
     stadistics = []
     for player in players:
         stadistics.extend(PlayerStadistic.objects.filter(player=player.id))
-    st_utils = StructuresUtils()    
-    
+    st_utils = StructuresUtils()
+
     return render(request, 'tournaments/detail_team_tournament.html',
-                  {'team': team, 
-                   'games': st_utils.get_team_view_games(games), 
-                   'players': st_utils.get_team_details_matrix(stadistics, players), 
+                  {'team': team,
+                   'games': st_utils.get_team_view_games(games),
+                   'players': st_utils.get_team_details_matrix(stadistics, players),
                    'tournament_list': tournament_list,
                    'tournament': tournament, })
+
 
 """
 def detail_team_all(request, team_id):
@@ -218,6 +227,8 @@ def detail_team_all(request, team_id):
     return render(request, 'tournaments/detaul_team_all.html',
                   {'team': team, 'games': games, 'players': players})        
 """
+
+
 def detail_game(request, game_id):
     """
     Prepare and displays a game view.
