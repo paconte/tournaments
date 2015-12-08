@@ -9,7 +9,8 @@ from player.models import Tournament
 from player.models import Team
 from player.models import Person
 
-from service import *
+from player.service import Fixtures
+from player.service import StructuresUtils
 
 class GameView(DetailView):
 
