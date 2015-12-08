@@ -1,0 +1,3462 @@
+<!doctype html>
+<html lang="en">
+<head>
+ 
+<script type="text/javascript">
+//<![CDATA[
+try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/dok3v=1613a3a185/"},atok:"e754b065ad7a139fd4a4e1e96fa587a9",petok:"d7e6aaeacb09c31ad31101a04607314efb46fd77-1447696694-3600",zone:"internationaltouch.org",rocket:"0",apps:{"trumpet":{"message":null},"abetterbrowser":{"ie":"10"},"ga_key":{"ua":"UA-41246443-1","ga_bs":"2"}},sha2test:0}];!function(a,b){a=document.createElement("script"),b=document.getElementsByTagName("script")[0],a.async=!0,a.src="//ajax.cloudflare.com/cdn-cgi/nexp/dok3v=247a80cdfa/cloudflare.min.js",b.parentNode.insertBefore(a,b)}()}}catch(e){};
+//]]>
+</script>
+<script>
+var _prum = [['id', '54fece93abe53dba5a1004a5'],
+             ['mark', 'firstbyte', (new Date()).getTime()]];
+(function() {
+    var s = document.getElementsByTagName('script')[0]
+      , p = document.createElement('script');
+    p.async = 'async';
+    p.src = '//rum-static.pingdom.net/prum.min.js';
+    s.parentNode.insertBefore(p, s);
+})();
+</script>
+ 
+<meta charset="UTF-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({QJf3ax:[function(e,n){function t(e){function n(n,t,a){e&&e(n,t,a),a||(a={});for(var u=c(n),f=u.length,s=i(a,o,r),p=0;f>p;p++)u[p].apply(s,t);return s}function a(e,n){f[e]=c(e).concat(n)}function c(e){return f[e]||[]}function u(){return t(n)}var f={};return{on:a,emit:n,create:u,listeners:c,_events:f}}function r(){return{}}var o="nr@context",i=e("gos");n.exports=t()},{gos:"7eSDFh"}],ee:[function(e,n){n.exports=e("QJf3ax")},{}],3:[function(e,n){function t(e){return function(){r(e,[(new Date).getTime()].concat(i(arguments)))}}var r=e("handle"),o=e(1),i=e(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(e,n){window.NREUM[n]=t("api-"+n)}),n.exports=window.NREUM},{1:12,2:13,handle:"D5DuLP"}],gos:[function(e,n){n.exports=e("7eSDFh")},{}],"7eSDFh":[function(e,n){function t(e,n,t){if(r.call(e,n))return e[n];var o=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return e[n]=o,o}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],D5DuLP:[function(e,n){function t(e,n,t){return r.listeners(e).length?r.emit(e,n,t):void(r.q&&(r.q[e]||(r.q[e]=[]),r.q[e].push(n)))}var r=e("ee").create();n.exports=t,t.ee=r,r.q={}},{ee:"QJf3ax"}],handle:[function(e,n){n.exports=e("D5DuLP")},{}],XL7HBI:[function(e,n){function t(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:i(e,o,function(){return r++})}var r=1,o="nr@id",i=e("gos");n.exports=t},{gos:"7eSDFh"}],id:[function(e,n){n.exports=e("XL7HBI")},{}],G9z0Bl:[function(e,n){function t(){var e=d.info=NREUM.info,n=f.getElementsByTagName("script")[0];if(e&&e.licenseKey&&e.applicationID&&n){c(p,function(n,t){n in e||(e[n]=t)});var t="https"===s.split(":")[0]||e.sslForHttp;d.proto=t?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=d.proto+e.agent,n.parentNode.insertBefore(r,n)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=e("handle"),c=e(1),u=window,f=u.document;e(2);var s=(""+location).split("?")[0],p={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-768.min.js"},d=n.exports={offset:i(),origin:s,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),u.addEventListener("load",t,!1)):(f.attachEvent("onreadystatechange",r),u.attachEvent("onload",t)),a("mark",["firstbyte",i()])},{1:12,2:3,handle:"D5DuLP"}],loader:[function(e,n){n.exports=e("G9z0Bl")},{}],12:[function(e,n){function t(e,n){var t=[],o="",i=0;for(o in e)r.call(e,o)&&(t[i]=n(o,e[o]),i+=1);return t}var r=Object.prototype.hasOwnProperty;n.exports=t},{}],13:[function(e,n){function t(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(0>o?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=t},{}]},{},["G9z0Bl"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","queueTime":0,"licenseKey":"e415c1713e","agent":"js-agent.newrelic.com/nr-768.min.js","transactionName":"YQBXZ0FXD0ZWVkxcDFhKc0ZdVRVcWFsXQQxDF1tSXlMPQVRaVkERWQkbUFxbEVBDXExcDFhLRlpHUxIPdFpVRQZCDEFaXFgyXENQFlEKQAxGWlxY","applicationID":"2315260","errorBeacon":"bam.nr-data.net","applicationTime":1289}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Federation of International Touch - World Cup - 2015 - Mens</title>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/static/css/all.css">
+<!--[if lte IE 8]><link rel="stylesheet" href="/static/css/ie.css"><![endif]-->
+<script type="text/javascript">
+/* <![CDATA[ */
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-41246443-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+(function(b){(function(a){"__CF"in b&&"DJS"in b.__CF?b.__CF.DJS.push(a):"addEventListener"in b?b.addEventListener("load",a,!1):b.attachEvent("onload",a)})(function(){"FB"in b&&"Event"in FB&&"subscribe"in FB.Event&&(FB.Event.subscribe("edge.create",function(a){_gaq.push(["_trackSocial","facebook","like",a])}),FB.Event.subscribe("edge.remove",function(a){_gaq.push(["_trackSocial","facebook","unlike",a])}),FB.Event.subscribe("message.send",function(a){_gaq.push(["_trackSocial","facebook","send",a])}));"twttr"in b&&"events"in twttr&&"bind"in twttr.events&&twttr.events.bind("tweet",function(a){if(a){var b;if(a.target&&a.target.nodeName=="IFRAME")a:{if(a=a.target.src){a=a.split("#")[0].match(/[^?=&]+=([^&]*)?/g);b=0;for(var c;c=a[b];++b)if(c.indexOf("url")===0){b=unescape(c.split("=")[1]);break a}}b=void 0}_gaq.push(["_trackSocial","twitter","tweet",b])}})})})(window);
+/* ]]> */
+</script>
+</head>
+<body class="default competitions">
+<div id="wrapper">
+<div class="w1">
+<header id="header">
+<div class="bar">
+<a href="/"><img src="/static/images/header.png" alt="banner"></a>
+</div>
+<nav id="nav">
+<a href="#" class="opener">menu</a>
+<ul class="navigation"><li id="node28" class="page first has_children "><a href="/what-is-touch/">What&#39;s Touch?</a></li><li id="node2" class="page has_children "><a href="/about-fit/">About FIT</a></li><li id="node1" class="placeholder "><a href="/news/">News</a></li><li id="node71" class="placeholder has_children "><a href="/events/">Events</a></li><li id="node7" class="page has_children "><a href="/resources/">Resources</a></li><li id="node74" class="page has_children "><a href="/almanac/">Almanac</a></li><li id="node69" class="page last has_children "><a href="/contact-us/">Contact Us</a></li></ul>
+</nav>
+</header>
+<nav class="breadcrumbs">
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/events/">Events</a></li>
+<li><a href=""></a></li>
+<li><a href="/events/world-cup/">World Cup</a></li>
+<li><a href="/events/world-cup/2015/">2015</a></li>
+<li><a href="/events/world-cup/2015/mens/">Mens</a></li>
+</ul>
+</nav>
+<div id="main">
+<article id="content">
+<div class="detail-section">
+<ul class="category-list">
+<li><a href="/events/world-cup/2015/mens/" class="active">Mens</a></li>
+<li><a href="/events/world-cup/2015/womens/">Womens</a></li>
+<li><a href="/events/world-cup/2015/mixed/">Mixed</a></li>
+<li><a href="/events/world-cup/2015/womens-27/">Womens 27</a></li>
+<li><a href="/events/world-cup/2015/mens-30/">Mens 30</a></li>
+<li><a href="/events/world-cup/2015/mens-35/">Mens 35</a></li>
+<li><a href="/events/world-cup/2015/mens-40/">Mens 40</a></li>
+<li><a href="/events/world-cup/2015/mens-50/">Mens 50</a></li>
+<li><a href="/events/world-cup/2015/mixed-30/">Mixed 30</a></li>
+</ul>
+<form action="#" class="mobile-categories">
+<fieldset>
+<select>
+<option value="/events/world-cup/2015/mens/" selected>MENS</option>
+<option value="/events/world-cup/2015/womens/">WOMENS</option>
+<option value="/events/world-cup/2015/mixed/">MIXED</option>
+<option value="/events/world-cup/2015/womens-27/">WOMENS 27</option>
+<option value="/events/world-cup/2015/mens-30/">MENS 30</option>
+<option value="/events/world-cup/2015/mens-35/">MENS 35</option>
+<option value="/events/world-cup/2015/mens-40/">MENS 40</option>
+<option value="/events/world-cup/2015/mens-50/">MENS 50</option>
+<option value="/events/world-cup/2015/mixed-30/">MIXED 30</option>
+</select>
+</fieldset>
+</form>
+<div class="content-block">
+<h1>World Cup - 2015 <a class="calendar" title="Calendar" href="webcal://www.internationaltouch.org/events/world-cup/2015/mens.ics"><i class="fa fa-calendar fa-sml"></i></a></h1>
+<h2>Mens</h2>
+<div class="tab-content">
+<div>
+<ul class="style-tabset tabset">
+<li><a href="#i-tab-138">Stage 1</a></li>
+<li><a href="#i-tab-148" class="active">Stage 2</a></li>
+</ul>
+<div class="tab" id="i-tab-138">
+<strong class="mobile-heading">Stage 1</strong>
+<table class="info-table">
+<tbody>
+<tr>
+<th>Pool A</th>
+<th>P</th>
+<th>W</th>
+<th>L</th>
+<th>D</th>
+<th>B</th>
+<th>FW</th>
+<th>FL</th>
+<th>+</th>
+<th>-</th>
+<th>+/-</th>
+<th class="percent">%</th>
+<th class="pts">Pts</th>
+</tr>
+<tr>
+<td class="team flag AUS">
+<a href="/events/world-cup/2015/mens/australia/">
+<span>Australia</span>
+<em>AUS</em>
+</a>
+</td>
+<td>3</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>63</td>
+<td>0</td>
+<td>63.000</td>
+<td class="percent">&#8734;</td>
+<td class="pts">9.000</td>
+</tr>
+<tr>
+<td class="team flag FRA">
+<a href="/events/world-cup/2015/mens/france/">
+<span>France</span>
+<em>FRA</em>
+</a>
+</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>11</td>
+<td>24</td>
+<td>-13.000</td>
+<td class="percent">45.83</td>
+<td class="pts">7.000</td>
+</tr>
+<tr>
+<td class="team flag WAL">
+<a href="/events/world-cup/2015/mens/wales/">
+<span>Wales</span>
+<em>WAL</em>
+</a>
+</td>
+<td>3</td>
+<td>1</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>8</td>
+<td>28</td>
+<td>-20.000</td>
+<td class="percent">28.57</td>
+<td class="pts">5.000</td>
+</tr>
+<tr>
+<td class="team flag MYS">
+<a href="/events/world-cup/2015/mens/malaysia/">
+<span>Malaysia</span>
+<em>MYS</em>
+</a>
+</td>
+<td>3</td>
+<td>0</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>8</td>
+<td>38</td>
+<td>-30.000</td>
+<td class="percent">21.05</td>
+<td class="pts">3.000</td>
+</tr>
+</tbody>
+</table>
+<table class="info-table">
+<tbody>
+<tr>
+<th>Pool B</th>
+<th>P</th>
+<th>W</th>
+<th>L</th>
+<th>D</th>
+<th>B</th>
+<th>FW</th>
+<th>FL</th>
+<th>+</th>
+<th>-</th>
+<th>+/-</th>
+<th class="percent">%</th>
+<th class="pts">Pts</th>
+</tr>
+<tr>
+<td class="team flag NZL">
+<a href="/events/world-cup/2015/mens/new-zealand/">
+<span>New Zealand</span>
+<em>NZL</em>
+</a>
+</td>
+<td>3</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>39</td>
+<td>6</td>
+<td>33.000</td>
+<td class="percent">650.00</td>
+<td class="pts">9.000</td>
+</tr>
+<tr>
+<td class="team flag PNG">
+<a href="/events/world-cup/2015/mens/papua-new-guinea/">
+<span>Papua New Guinea</span>
+<em>PNG</em>
+</a>
+</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>18</td>
+<td>21</td>
+<td>-3.000</td>
+<td class="percent">85.71</td>
+<td class="pts">7.000</td>
+</tr>
+<tr>
+<td class="team flag ENG">
+<a href="/events/world-cup/2015/mens/england/">
+<span>England</span>
+<em>ENG</em>
+</a>
+</td>
+<td>3</td>
+<td>0</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>8</td>
+<td>18</td>
+<td>-10.000</td>
+<td class="percent">44.44</td>
+<td class="pts">4.000</td>
+</tr>
+<tr>
+<td class="team flag USA">
+<a href="/events/world-cup/2015/mens/united-states/">
+<span>United States</span>
+<em>USA</em>
+</a>
+</td>
+<td>3</td>
+<td>0</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>12</td>
+<td>32</td>
+<td>-20.000</td>
+<td class="percent">37.50</td>
+<td class="pts">4.000</td>
+</tr>
+</tbody>
+</table>
+<table class="info-table">
+<tbody>
+<tr>
+<th>Pool C</th>
+<th>P</th>
+<th>W</th>
+<th>L</th>
+<th>D</th>
+<th>B</th>
+<th>FW</th>
+<th>FL</th>
+<th>+</th>
+<th>-</th>
+<th>+/-</th>
+<th class="percent">%</th>
+<th class="pts">Pts</th>
+</tr>
+<tr>
+<td class="team flag ZAF">
+<a href="/events/world-cup/2015/mens/south-africa/">
+<span>South Africa</span>
+<em>ZAF</em>
+</a>
+</td>
+<td>3</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>34</td>
+<td>7</td>
+<td>27.000</td>
+<td class="percent">485.71</td>
+<td class="pts">9.000</td>
+</tr>
+<tr>
+<td class="team flag WSM">
+<a href="/events/world-cup/2015/mens/samoa/">
+<span>Samoa</span>
+<em>WSM</em>
+</a>
+</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>16</td>
+<td>13</td>
+<td>3.000</td>
+<td class="percent">123.08</td>
+<td class="pts">7.000</td>
+</tr>
+<tr>
+<td class="team flag SCO">
+<a href="/events/world-cup/2015/mens/scotland/">
+<span>Scotland</span>
+<em>SCO</em>
+</a>
+</td>
+<td>3</td>
+<td>1</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>15</td>
+<td>26</td>
+<td>-11.000</td>
+<td class="percent">57.69</td>
+<td class="pts">5.000</td>
+</tr>
+<tr>
+<td class="team flag IRL">
+<a href="/events/world-cup/2015/mens/ireland/">
+<span>Ireland</span>
+<em>IRL</em>
+</a>
+</td>
+<td>3</td>
+<td>0</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>9</td>
+<td>28</td>
+<td>-19.000</td>
+<td class="percent">32.14</td>
+<td class="pts">3.000</td>
+</tr>
+</tbody>
+</table>
+<table class="info-table">
+<tbody>
+<tr>
+<th>Pool D</th>
+<th>P</th>
+<th>W</th>
+<th>L</th>
+<th>D</th>
+<th>B</th>
+<th>FW</th>
+<th>FL</th>
+<th>+</th>
+<th>-</th>
+<th>+/-</th>
+<th class="percent">%</th>
+<th class="pts">Pts</th>
+</tr>
+<tr>
+<td class="team flag FJI">
+<a href="/events/world-cup/2015/mens/fiji/">
+<span>Fiji</span>
+<em>FJI</em>
+</a>
+</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>29</td>
+<td>19</td>
+<td>10.000</td>
+<td class="percent">152.63</td>
+<td class="pts">7.000</td>
+</tr>
+<tr>
+<td class="team flag JPN">
+<a href="/events/world-cup/2015/mens/japan/">
+<span>Japan</span>
+<em>JPN</em>
+</a>
+</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>22</td>
+<td>14</td>
+<td>8.000</td>
+<td class="percent">157.14</td>
+<td class="pts">7.000</td>
+</tr>
+<tr>
+<td class="team flag COK">
+<a href="/events/world-cup/2015/mens/cook-islands/">
+<span>Cook Islands</span>
+<em>COK</em>
+</a>
+</td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>23</td>
+<td>15</td>
+<td>8.000</td>
+<td class="percent">153.33</td>
+<td class="pts">7.000</td>
+</tr>
+<tr>
+<td class="team flag SGP">
+<a href="/events/world-cup/2015/mens/singapore/">
+<span>Singapore</span>
+<em>SGP</em>
+</a>
+</td>
+<td>3</td>
+<td>0</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>12</td>
+<td>38</td>
+<td>-26.000</td>
+<td class="percent">31.58</td>
+<td class="pts">3.000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tab" id="i-tab-148">
+<strong class="mobile-heading">Stage 2</strong>
+<table class="info-table">
+<tbody>
+<tr>
+<th>Division 1</th>
+<th>P</th>
+<th>W</th>
+<th>L</th>
+<th>D</th>
+<th>B</th>
+<th>FW</th>
+<th>FL</th>
+<th>+</th>
+<th>-</th>
+<th>+/-</th>
+<th class="percent">%</th>
+<th class="pts">Pts</th>
+</tr>
+<tr>
+<td class="team flag AUS">
+<a href="/events/world-cup/2015/mens/australia/">
+<span>Australia</span>
+<em>AUS</em>
+</a>
+</td>
+<td>7</td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>75</td>
+<td>5</td>
+<td>70.000</td>
+<td class="percent">1500.00</td>
+<td class="pts">21.000</td>
+</tr>
+<tr>
+<td class="team flag NZL">
+<a href="/events/world-cup/2015/mens/new-zealand/">
+<span>New Zealand</span>
+<em>NZL</em>
+</a>
+</td>
+<td>7</td>
+<td>6</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>57</td>
+<td>15</td>
+<td>42.000</td>
+<td class="percent">380.00</td>
+<td class="pts">19.000</td>
+</tr>
+<tr>
+<td class="team flag ZAF">
+<a href="/events/world-cup/2015/mens/south-africa/">
+<span>South Africa</span>
+<em>ZAF</em>
+</a>
+</td>
+<td>7</td>
+<td>5</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>37</td>
+<td>39</td>
+<td>-2.000</td>
+<td class="percent">94.87</td>
+<td class="pts">17.000</td>
+</tr>
+<tr>
+<td class="team flag PNG">
+<a href="/events/world-cup/2015/mens/papua-new-guinea/">
+<span>Papua New Guinea</span>
+<em>PNG</em>
+</a>
+</td>
+<td>7</td>
+<td>4</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>27</td>
+<td>28</td>
+<td>-1.000</td>
+<td class="percent">96.43</td>
+<td class="pts">15.000</td>
+</tr>
+<tr>
+<td class="team flag JPN">
+<a href="/events/world-cup/2015/mens/japan/">
+<span>Japan</span>
+<em>JPN</em>
+</a>
+</td>
+<td>7</td>
+<td>3</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>26</td>
+<td>38</td>
+<td>-12.000</td>
+<td class="percent">68.42</td>
+<td class="pts">13.000</td>
+</tr>
+<tr>
+<td class="team flag FJI">
+<a href="/events/world-cup/2015/mens/fiji/">
+<span>Fiji</span>
+<em>FJI</em>
+</a>
+</td>
+<td>7</td>
+<td>2</td>
+<td>5</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>27</td>
+<td>37</td>
+<td>-10.000</td>
+<td class="percent">72.97</td>
+<td class="pts">11.000</td>
+</tr>
+<tr>
+<td class="team flag WSM">
+<a href="/events/world-cup/2015/mens/samoa/">
+<span>Samoa</span>
+<em>WSM</em>
+</a>
+</td>
+<td>7</td>
+<td>0</td>
+<td>6</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>15</td>
+<td>51</td>
+<td>-36.000</td>
+<td class="percent">29.41</td>
+<td class="pts">8.000</td>
+</tr>
+<tr>
+<td class="team flag FRA">
+<a href="/events/world-cup/2015/mens/france/">
+<span>France</span>
+<em>FRA</em>
+</a>
+</td>
+<td>7</td>
+<td>0</td>
+<td>6</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>3</td>
+<td>54</td>
+<td>-51.000</td>
+<td class="percent">5.56</td>
+<td class="pts">8.000</td>
+</tr>
+</tbody>
+</table>
+<table class="info-table">
+<tbody>
+<tr>
+<th>Division 2</th>
+<th>P</th>
+<th>W</th>
+<th>L</th>
+<th>D</th>
+<th>B</th>
+<th>FW</th>
+<th>FL</th>
+<th>+</th>
+<th>-</th>
+<th>+/-</th>
+<th class="percent">%</th>
+<th class="pts">Pts</th>
+</tr>
+<tr>
+<td class="team flag COK">
+<a href="/events/world-cup/2015/mens/cook-islands/">
+<span>Cook Islands</span>
+<em>COK</em>
+</a>
+</td>
+<td>7</td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>61</td>
+<td>19</td>
+<td>42.000</td>
+<td class="percent">321.05</td>
+<td class="pts">21.000</td>
+</tr>
+<tr>
+<td class="team flag ENG">
+<a href="/events/world-cup/2015/mens/england/">
+<span>England</span>
+<em>ENG</em>
+</a>
+</td>
+<td>7</td>
+<td>6</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>36</td>
+<td>14</td>
+<td>22.000</td>
+<td class="percent">257.14</td>
+<td class="pts">19.000</td>
+</tr>
+<tr>
+<td class="team flag USA">
+<a href="/events/world-cup/2015/mens/united-states/">
+<span>United States</span>
+<em>USA</em>
+</a>
+</td>
+<td>7</td>
+<td>5</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>40</td>
+<td>27</td>
+<td>13.000</td>
+<td class="percent">148.15</td>
+<td class="pts">17.000</td>
+</tr>
+<tr>
+<td class="team flag SGP">
+<a href="/events/world-cup/2015/mens/singapore/">
+<span>Singapore</span>
+<em>SGP</em>
+</a>
+</td>
+<td>7</td>
+<td>4</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>35</td>
+<td>30</td>
+<td>5.000</td>
+<td class="percent">116.67</td>
+<td class="pts">15.000</td>
+</tr>
+<tr>
+<td class="team flag WAL">
+<a href="/events/world-cup/2015/mens/wales/">
+<span>Wales</span>
+<em>WAL</em>
+</a>
+</td>
+<td>7</td>
+<td>3</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>27</td>
+<td>39</td>
+<td>-12.000</td>
+<td class="percent">69.23</td>
+<td class="pts">13.000</td>
+</tr>
+<tr>
+<td class="team flag SCO">
+<a href="/events/world-cup/2015/mens/scotland/">
+<span>Scotland</span>
+<em>SCO</em>
+</a>
+</td>
+<td>7</td>
+<td>1</td>
+<td>5</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>21</td>
+<td>34</td>
+<td>-13.000</td>
+<td class="percent">61.76</td>
+<td class="pts">10.000</td>
+</tr>
+<tr>
+<td class="team flag IRL">
+<a href="/events/world-cup/2015/mens/ireland/">
+<span>Ireland</span>
+<em>IRL</em>
+</a>
+</td>
+<td>7</td>
+<td>1</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>14</td>
+<td>40</td>
+<td>-26.000</td>
+<td class="percent">35.00</td>
+<td class="pts">9.000</td>
+</tr>
+<tr>
+<td class="team flag MYS">
+<a href="/events/world-cup/2015/mens/malaysia/">
+<span>Malaysia</span>
+<em>MYS</em>
+</a>
+</td>
+<td>7</td>
+<td>0</td>
+<td>6</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>16</td>
+<td>47</td>
+<td>-31.000</td>
+<td class="percent">34.04</td>
+<td class="pts">8.000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h3>Stage 1</h3>
+<h4 class="title">29 Apr 2015</h4>
+<table class="round-table">
+<tr>
+<td class="label">
+<strong class="round">
+Round 1
+</strong>
+</td>
+<td class="time">
+<span>11:30 a.m.</span>
+<em>11:30</em>
+</td>
+<td class="field">
+<span>Field 2</span>
+<em>F2</em>
+</td>
+<td class="home team flag FRA">
+<a href="/events/world-cup/2015/mens/france/">
+<span>France</span>
+<em>FRA</em>
+</a>
+</td>
+<td class="score">8</td>
+<td class="versus">vs</td>
+<td class="score">5</td>
+<td class="away team flag MYS">
+<a href="/events/world-cup/2015/mens/malaysia/">
+<span>Malaysia</span>
+<em>MYS</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>11:30 a.m.</span>
+<em>11:30</em>
+</td>
+<td class="field">
+<span>Field 4</span>
+<em>F4</em>
+</td>
+<td class="home team flag NZL">
+<a href="/events/world-cup/2015/mens/new-zealand/">
+<span>New Zealand</span>
+<em>NZL</em>
+</a>
+</td>
+<td class="score">19</td>
+<td class="versus">vs</td>
+<td class="score">2</td>
+<td class="away team flag USA">
+<a href="/events/world-cup/2015/mens/united-states/">
+<span>United States</span>
+<em>USA</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>11:30 a.m.</span>
+<em>11:30</em>
+</td>
+<td class="field">
+<span>Field 5</span>
+<em>F5</em>
+</td>
+<td class="home team flag JPN">
+<a href="/events/world-cup/2015/mens/japan/">
+<span>Japan</span>
+<em>JPN</em>
+</a>
+</td>
+<td class="score">11</td>
+<td class="versus">vs</td>
+<td class="score">2</td>
+<td class="away team flag SGP">
+<a href="/events/world-cup/2015/mens/singapore/">
+<span>Singapore</span>
+<em>SGP</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>11:30 a.m.</span>
+<em>11:30</em>
+</td>
+<td class="field">
+<span>Field 7</span>
+<em>F7</em>
+</td>
+<td class="home team flag SCO">
+<a href="/events/world-cup/2015/mens/scotland/">
+<span>Scotland</span>
+<em>SCO</em>
+</a>
+</td>
+<td class="score">4</td>
+<td class="versus">vs</td>
+<td class="score">5</td>
+<td class="away team flag WSM">
+<a href="/events/world-cup/2015/mens/samoa/">
+<span>Samoa</span>
+<em>WSM</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>11:30 a.m.</span>
+<em>11:30</em>
+</td>
+<td class="field">
+<span>Field 8</span>
+<em>F8</em>
+</td>
+<td class="home team flag AUS">
+<a href="/events/world-cup/2015/mens/australia/">
+<span>Australia</span>
+<em>AUS</em>
+</a>
+</td>
+<td class="score">22</td>
+<td class="versus">vs</td>
+<td class="score">0</td>
+<td class="away team flag WAL">
+<a href="/events/world-cup/2015/mens/wales/">
+<span>Wales</span>
+<em>WAL</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>11:30 a.m.</span>
+<em>11:30</em>
+</td>
+<td class="field">
+<span>Field 9</span>
+<em>F9</em>
+</td>
+<td class="home team flag ENG">
+<a href="/events/world-cup/2015/mens/england/">
+<span>England</span>
+<em>ENG</em>
+</a>
+</td>
+<td class="score">4</td>
+<td class="versus">vs</td>
+<td class="score">5</td>
+<td class="away team flag PNG">
+<a href="/events/world-cup/2015/mens/papua-new-guinea/">
+<span>Papua New Guinea</span>
+<em>PNG</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>11:30 a.m.</span>
+<em>11:30</em>
+</td>
+<td class="field">
+<span>Field 10</span>
+<em>F10</em>
+</td>
+<td class="home team flag ZAF">
+<a href="/events/world-cup/2015/mens/south-africa/">
+<span>South Africa</span>
+<em>ZAF</em>
+</a>
+</td>
+<td class="score">11</td>
+<td class="versus">vs</td>
+<td class="score">2</td>
+<td class="away team flag IRL">
+<a href="/events/world-cup/2015/mens/ireland/">
+<span>Ireland</span>
+<em>IRL</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>11:30 a.m.</span>
+<em>11:30</em>
+</td>
+<td class="field">
+<span>Field 12</span>
+<em>F12</em>
+</td>
+<td class="home team flag COK">
+<a href="/events/world-cup/2015/mens/cook-islands/">
+<span>Cook Islands</span>
+<em>COK</em>
+</a>
+</td>
+<td class="score">7</td>
+<td class="versus">vs</td>
+<td class="score">6</td>
+<td class="away team flag FJI">
+<a href="/events/world-cup/2015/mens/fiji/">
+<span>Fiji</span>
+<em>FJI</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+<strong class="round">
+Round 2
+</strong>
+</td>
+<td class="time">
+<span>2:50 p.m.</span>
+<em>14:50</em>
+</td>
+<td class="field">
+<span>Field 2</span>
+<em>F2</em>
+</td>
+<td class="home team flag JPN">
+<a href="/events/world-cup/2015/mens/japan/">
+<span>Japan</span>
+<em>JPN</em>
+</a>
+</td>
+<td class="score">5</td>
+<td class="versus">vs</td>
+<td class="score">4</td>
+<td class="away team flag COK">
+<a href="/events/world-cup/2015/mens/cook-islands/">
+<span>Cook Islands</span>
+<em>COK</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>2:50 p.m.</span>
+<em>14:50</em>
+</td>
+<td class="field">
+<span>Field 3</span>
+<em>F3</em>
+</td>
+<td class="home team flag WAL">
+<a href="/events/world-cup/2015/mens/wales/">
+<span>Wales</span>
+<em>WAL</em>
+</a>
+</td>
+<td class="score">7</td>
+<td class="versus">vs</td>
+<td class="score">3</td>
+<td class="away team flag MYS">
+<a href="/events/world-cup/2015/mens/malaysia/">
+<span>Malaysia</span>
+<em>MYS</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>2:50 p.m.</span>
+<em>14:50</em>
+</td>
+<td class="field">
+<span>Field 5</span>
+<em>F5</em>
+</td>
+<td class="home team flag USA">
+<a href="/events/world-cup/2015/mens/united-states/">
+<span>United States</span>
+<em>USA</em>
+</a>
+</td>
+<td class="score">8</td>
+<td class="versus">vs</td>
+<td class="score">11</td>
+<td class="away team flag PNG">
+<a href="/events/world-cup/2015/mens/papua-new-guinea/">
+<span>Papua New Guinea</span>
+<em>PNG</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>2:50 p.m.</span>
+<em>14:50</em>
+</td>
+<td class="field">
+<span>Field 6</span>
+<em>F6</em>
+</td>
+<td class="home team flag ZAF">
+<a href="/events/world-cup/2015/mens/south-africa/">
+<span>South Africa</span>
+<em>ZAF</em>
+</a>
+</td>
+<td class="score">17</td>
+<td class="versus">vs</td>
+<td class="score">4</td>
+<td class="away team flag SCO">
+<a href="/events/world-cup/2015/mens/scotland/">
+<span>Scotland</span>
+<em>SCO</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>2:50 p.m.</span>
+<em>14:50</em>
+</td>
+<td class="field">
+<span>Field 8</span>
+<em>F8</em>
+</td>
+<td class="home team flag AUS">
+<a href="/events/world-cup/2015/mens/australia/">
+<span>Australia</span>
+<em>AUS</em>
+</a>
+</td>
+<td class="score">18</td>
+<td class="versus">vs</td>
+<td class="score">0</td>
+<td class="away team flag FRA">
+<a href="/events/world-cup/2015/mens/france/">
+<span>France</span>
+<em>FRA</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>2:50 p.m.</span>
+<em>14:50</em>
+</td>
+<td class="field">
+<span>Field 9</span>
+<em>F9</em>
+</td>
+<td class="home team flag IRL">
+<a href="/events/world-cup/2015/mens/ireland/">
+<span>Ireland</span>
+<em>IRL</em>
+</a>
+</td>
+<td class="score">3</td>
+<td class="versus">vs</td>
+<td class="score">10</td>
+<td class="away team flag WSM">
+<a href="/events/world-cup/2015/mens/samoa/">
+<span>Samoa</span>
+<em>WSM</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>2:50 p.m.</span>
+<em>14:50</em>
+</td>
+<td class="field">
+<span>Field 10</span>
+<em>F10</em>
+</td>
+<td class="home team flag NZL">
+<a href="/events/world-cup/2015/mens/new-zealand/">
+<span>New Zealand</span>
+<em>NZL</em>
+</a>
+</td>
+<td class="score">11</td>
+<td class="versus">vs</td>
+<td class="score">2</td>
+<td class="away team flag ENG">
+<a href="/events/world-cup/2015/mens/england/">
+<span>England</span>
+<em>ENG</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>2:50 p.m.</span>
+<em>14:50</em>
+</td>
+<td class="field">
+<span>Field 11</span>
+<em>F11</em>
+</td>
+<td class="home team flag SGP">
+<a href="/events/world-cup/2015/mens/singapore/">
+<span>Singapore</span>
+<em>SGP</em>
+</a>
+</td>
+<td class="score">6</td>
+<td class="versus">vs</td>
+<td class="score">15</td>
+<td class="away team flag FJI">
+<a href="/events/world-cup/2015/mens/fiji/">
+<span>Fiji</span>
+<em>FJI</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+<strong class="round">
+Round 3
+</strong>
+</td>
+<td class="time">
+<span>6:10 p.m.</span>
+<em>18:10</em>
+</td>
+<td class="field">
+<span>Field 1</span>
+<em>F1</em>
+</td>
+<td class="home team flag FRA">
+<a href="/events/world-cup/2015/mens/france/">
+<span>France</span>
+<em>FRA</em>
+</a>
+</td>
+<td class="score">3</td>
+<td class="versus">vs</td>
+<td class="score">1</td>
+<td class="away team flag WAL">
+<a href="/events/world-cup/2015/mens/wales/">
+<span>Wales</span>
+<em>WAL</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>6:10 p.m.</span>
+<em>18:10</em>
+</td>
+<td class="field">
+<span>Field 2</span>
+<em>F2</em>
+</td>
+<td class="home team flag SCO">
+<a href="/events/world-cup/2015/mens/scotland/">
+<span>Scotland</span>
+<em>SCO</em>
+</a>
+</td>
+<td class="score">7</td>
+<td class="versus">vs</td>
+<td class="score">4</td>
+<td class="away team flag IRL">
+<a href="/events/world-cup/2015/mens/ireland/">
+<span>Ireland</span>
+<em>IRL</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>6:10 p.m.</span>
+<em>18:10</em>
+</td>
+<td class="field">
+<span>Field 5</span>
+<em>F5</em>
+</td>
+<td class="home team flag ZAF">
+<a href="/events/world-cup/2015/mens/south-africa/">
+<span>South Africa</span>
+<em>ZAF</em>
+</a>
+</td>
+<td class="score">6</td>
+<td class="versus">vs</td>
+<td class="score">1</td>
+<td class="away team flag WSM">
+<a href="/events/world-cup/2015/mens/samoa/">
+<span>Samoa</span>
+<em>WSM</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>6:10 p.m.</span>
+<em>18:10</em>
+</td>
+<td class="field">
+<span>Field 7</span>
+<em>F7</em>
+</td>
+<td class="home team flag JPN">
+<a href="/events/world-cup/2015/mens/japan/">
+<span>Japan</span>
+<em>JPN</em>
+</a>
+</td>
+<td class="score">6</td>
+<td class="versus">vs</td>
+<td class="score">8</td>
+<td class="away team flag FJI">
+<a href="/events/world-cup/2015/mens/fiji/">
+<span>Fiji</span>
+<em>FJI</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>6:10 p.m.</span>
+<em>18:10</em>
+</td>
+<td class="field">
+<span>Field 8</span>
+<em>F8</em>
+</td>
+<td class="home team flag AUS">
+<a href="/events/world-cup/2015/mens/australia/">
+<span>Australia</span>
+<em>AUS</em>
+</a>
+</td>
+<td class="score">23</td>
+<td class="versus">vs</td>
+<td class="score">0</td>
+<td class="away team flag MYS">
+<a href="/events/world-cup/2015/mens/malaysia/">
+<span>Malaysia</span>
+<em>MYS</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>6:10 p.m.</span>
+<em>18:10</em>
+</td>
+<td class="field">
+<span>Field 10</span>
+<em>F10</em>
+</td>
+<td class="home team flag COK">
+<a href="/events/world-cup/2015/mens/cook-islands/">
+<span>Cook Islands</span>
+<em>COK</em>
+</a>
+</td>
+<td class="score">12</td>
+<td class="versus">vs</td>
+<td class="score">4</td>
+<td class="away team flag SGP">
+<a href="/events/world-cup/2015/mens/singapore/">
+<span>Singapore</span>
+<em>SGP</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>7:00 p.m.</span>
+<em>19:00</em>
+</td>
+<td class="field">
+<span>Field 5</span>
+<em>F5</em>
+</td>
+<td class="home team flag NZL">
+<a href="/events/world-cup/2015/mens/new-zealand/">
+<span>New Zealand</span>
+<em>NZL</em>
+</a>
+</td>
+<td class="score">9</td>
+<td class="versus">vs</td>
+<td class="score">2</td>
+<td class="away team flag PNG">
+<a href="/events/world-cup/2015/mens/papua-new-guinea/">
+<span>Papua New Guinea</span>
+<em>PNG</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>7:00 p.m.</span>
+<em>19:00</em>
+</td>
+<td class="field">
+<span>Field 8</span>
+<em>F8</em>
+</td>
+<td class="home team flag ENG">
+<a href="/events/world-cup/2015/mens/england/">
+<span>England</span>
+<em>ENG</em>
+</a>
+</td>
+<td class="score">2</td>
+<td class="versus">vs</td>
+<td class="score">2</td>
+<td class="away team flag USA">
+<a href="/events/world-cup/2015/mens/united-states/">
+<span>United States</span>
+<em>USA</em>
+</a>
+</td>
+</tr>
+</table>
+<h3>Stage 2</h3>
+<h4 class="title">30 Apr 2015</h4>
+<table class="round-table">
+<tr>
+<td class="label">
+<strong class="round">
+Round 1
+</strong>
+</td>
+<td class="time">
+<span>9:00 a.m.</span>
+<em>9:00</em>
+</td>
+<td class="field">
+<span>Field 2</span>
+<em>F2</em>
+</td>
+<td class="home team flag FJI">
+<a href="/events/world-cup/2015/mens/fiji/">
+<span>Fiji</span>
+<em>FJI</em>
+</a>
+</td>
+<td class="score">5</td>
+<td class="versus">vs</td>
+<td class="score">8</td>
+<td class="away team flag JPN">
+<a href="/events/world-cup/2015/mens/japan/">
+<span>Japan</span>
+<em>JPN</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>9:00 a.m.</span>
+<em>9:00</em>
+</td>
+<td class="field">
+<span>Field 5</span>
+<em>F5</em>
+</td>
+<td class="home team flag AUS">
+<a href="/events/world-cup/2015/mens/australia/">
+<span>Australia</span>
+<em>AUS</em>
+</a>
+</td>
+<td class="score">22</td>
+<td class="versus">vs</td>
+<td class="score">0</td>
+<td class="away team flag FRA">
+<a href="/events/world-cup/2015/mens/france/">
+<span>France</span>
+<em>FRA</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>9:00 a.m.</span>
+<em>9:00</em>
+</td>
+<td class="field">
+<span>Field 13</span>
+<em>F13</em>
+</td>
+<td class="home team flag COK">
+<a href="/events/world-cup/2015/mens/cook-islands/">
+<span>Cook Islands</span>
+<em>COK</em>
+</a>
+</td>
+<td class="score">13</td>
+<td class="versus">vs</td>
+<td class="score">1</td>
+<td class="away team flag MYS">
+<a href="/events/world-cup/2015/mens/malaysia/">
+<span>Malaysia</span>
+<em>MYS</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>9:00 a.m.</span>
+<em>9:00</em>
+</td>
+<td class="field">
+<span>Field 14</span>
+<em>F14</em>
+</td>
+<td class="home team flag ENG">
+<a href="/events/world-cup/2015/mens/england/">
+<span>England</span>
+<em>ENG</em>
+</a>
+</td>
+<td class="score">7</td>
+<td class="versus">vs</td>
+<td class="score">1</td>
+<td class="away team flag IRL">
+<a href="/events/world-cup/2015/mens/ireland/">
+<span>Ireland</span>
+<em>IRL</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>9:50 a.m.</span>
+<em>9:50</em>
+</td>
+<td class="field">
+<span>Field 5</span>
+<em>F5</em>
+</td>
+<td class="home team flag ZAF">
+<a href="/events/world-cup/2015/mens/south-africa/">
+<span>South Africa</span>
+<em>ZAF</em>
+</a>
+</td>
+<td class="score">11</td>
+<td class="versus">vs</td>
+<td class="score">7</td>
+<td class="away team flag WSM">
+<a href="/events/world-cup/2015/mens/samoa/">
+<span>Samoa</span>
+<em>WSM</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>9:50 a.m.</span>
+<em>9:50</em>
+</td>
+<td class="field">
+<span>Field 13</span>
+<em>F13</em>
+</td>
+<td class="home team flag NZL">
+<a href="/events/world-cup/2015/mens/new-zealand/">
+<span>New Zealand</span>
+<em>NZL</em>
+</a>
+</td>
+<td class="score">10</td>
+<td class="versus">vs</td>
+<td class="score">3</td>
+<td class="away team flag PNG">
+<a href="/events/world-cup/2015/mens/papua-new-guinea/">
+<span>Papua New Guinea</span>
+<em>PNG</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>9:50 a.m.</span>
+<em>9:50</em>
+</td>
+<td class="field">
+<span>Field 17</span>
+<em>F17</em>
+</td>
+<td class="home team flag WAL">
+<a href="/events/world-cup/2015/mens/wales/">
+<span>Wales</span>
+<em>WAL</em>
+</a>
+</td>
+<td class="score">5</td>
+<td class="versus">vs</td>
+<td class="score">9</td>
+<td class="away team flag USA">
+<a href="/events/world-cup/2015/mens/united-states/">
+<span>United States</span>
+<em>USA</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>10:40 a.m.</span>
+<em>10:40</em>
+</td>
+<td class="field">
+<span>Field 16</span>
+<em>F16</em>
+</td>
+<td class="home team flag SCO">
+<a href="/events/world-cup/2015/mens/scotland/">
+<span>Scotland</span>
+<em>SCO</em>
+</a>
+</td>
+<td class="score">3</td>
+<td class="versus">vs</td>
+<td class="score">6</td>
+<td class="away team flag SGP">
+<a href="/events/world-cup/2015/mens/singapore/">
+<span>Singapore</span>
+<em>SGP</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+<strong class="round">
+Round 2
+</strong>
+</td>
+<td class="time">
+<span>11:30 a.m.</span>
+<em>11:30</em>
+</td>
+<td class="field">
+<span>Field 3</span>
+<em>F3</em>
+</td>
+<td class="home team flag COK">
+<a href="/events/world-cup/2015/mens/cook-islands/">
+<span>Cook Islands</span>
+<em>COK</em>
+</a>
+</td>
+<td class="score">8</td>
+<td class="versus">vs</td>
+<td class="score">1</td>
+<td class="away team flag IRL">
+<a href="/events/world-cup/2015/mens/ireland/">
+<span>Ireland</span>
+<em>IRL</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>12:20 p.m.</span>
+<em>12:20</em>
+</td>
+<td class="field">
+<span>Field 13</span>
+<em>F13</em>
+</td>
+<td class="home team flag NZL">
+<a href="/events/world-cup/2015/mens/new-zealand/">
+<span>New Zealand</span>
+<em>NZL</em>
+</a>
+</td>
+<td class="score">9</td>
+<td class="versus">vs</td>
+<td class="score">1</td>
+<td class="away team flag JPN">
+<a href="/events/world-cup/2015/mens/japan/">
+<span>Japan</span>
+<em>JPN</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>12:20 p.m.</span>
+<em>12:20</em>
+</td>
+<td class="field">
+<span>Field 14</span>
+<em>F14</em>
+</td>
+<td class="home team flag PNG">
+<a href="/events/world-cup/2015/mens/papua-new-guinea/">
+<span>Papua New Guinea</span>
+<em>PNG</em>
+</a>
+</td>
+<td class="score">6</td>
+<td class="versus">vs</td>
+<td class="score">0</td>
+<td class="away team flag FRA">
+<a href="/events/world-cup/2015/mens/france/">
+<span>France</span>
+<em>FRA</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>12:20 p.m.</span>
+<em>12:20</em>
+</td>
+<td class="field">
+<span>Field 15</span>
+<em>F15</em>
+</td>
+<td class="home team flag ENG">
+<a href="/events/world-cup/2015/mens/england/">
+<span>England</span>
+<em>ENG</em>
+</a>
+</td>
+<td class="score">8</td>
+<td class="versus">vs</td>
+<td class="score">3</td>
+<td class="away team flag WAL">
+<a href="/events/world-cup/2015/mens/wales/">
+<span>Wales</span>
+<em>WAL</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>12:20 p.m.</span>
+<em>12:20</em>
+</td>
+<td class="field">
+<span>Field 17</span>
+<em>F17</em>
+</td>
+<td class="home team flag ZAF">
+<a href="/events/world-cup/2015/mens/south-africa/">
+<span>South Africa</span>
+<em>ZAF</em>
+</a>
+</td>
+<td class="score">7</td>
+<td class="versus">vs</td>
+<td class="score">3</td>
+<td class="away team flag FJI">
+<a href="/events/world-cup/2015/mens/fiji/">
+<span>Fiji</span>
+<em>FJI</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>1:10 p.m.</span>
+<em>13:10</em>
+</td>
+<td class="field">
+<span>Field 14</span>
+<em>F14</em>
+</td>
+<td class="home team flag AUS">
+<a href="/events/world-cup/2015/mens/australia/">
+<span>Australia</span>
+<em>AUS</em>
+</a>
+</td>
+<td class="score">15</td>
+<td class="versus">vs</td>
+<td class="score">0</td>
+<td class="away team flag WSM">
+<a href="/events/world-cup/2015/mens/samoa/">
+<span>Samoa</span>
+<em>WSM</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>1:10 p.m.</span>
+<em>13:10</em>
+</td>
+<td class="field">
+<span>Field 16</span>
+<em>F16</em>
+</td>
+<td class="home team flag SCO">
+<a href="/events/world-cup/2015/mens/scotland/">
+<span>Scotland</span>
+<em>SCO</em>
+</a>
+</td>
+<td class="score">6</td>
+<td class="versus">vs</td>
+<td class="score">9</td>
+<td class="away team flag USA">
+<a href="/events/world-cup/2015/mens/united-states/">
+<span>United States</span>
+<em>USA</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>1:10 p.m.</span>
+<em>13:10</em>
+</td>
+<td class="field">
+<span>Field 17</span>
+<em>F17</em>
+</td>
+<td class="home team flag SGP">
+<a href="/events/world-cup/2015/mens/singapore/">
+<span>Singapore</span>
+<em>SGP</em>
+</a>
+</td>
+<td class="score">11</td>
+<td class="versus">vs</td>
+<td class="score">5</td>
+<td class="away team flag MYS">
+<a href="/events/world-cup/2015/mens/malaysia/">
+<span>Malaysia</span>
+<em>MYS</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+<strong class="round">
+Round 3
+</strong>
+</td>
+<td class="time">
+<span>3:40 p.m.</span>
+<em>15:40</em>
+</td>
+<td class="field">
+<span>Field 2</span>
+<em>F2</em>
+</td>
+<td class="home team flag NZL">
+<a href="/events/world-cup/2015/mens/new-zealand/">
+<span>New Zealand</span>
+<em>NZL</em>
+</a>
+</td>
+<td class="score">14</td>
+<td class="versus">vs</td>
+<td class="score">2</td>
+<td class="away team flag ZAF">
+<a href="/events/world-cup/2015/mens/south-africa/">
+<span>South Africa</span>
+<em>ZAF</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>3:40 p.m.</span>
+<em>15:40</em>
+</td>
+<td class="field">
+<span>Field 4</span>
+<em>F4</em>
+</td>
+<td class="home team flag IRL">
+<a href="/events/world-cup/2015/mens/ireland/">
+<span>Ireland</span>
+<em>IRL</em>
+</a>
+</td>
+<td class="score">6</td>
+<td class="versus">vs</td>
+<td class="score">4</td>
+<td class="away team flag MYS">
+<a href="/events/world-cup/2015/mens/malaysia/">
+<span>Malaysia</span>
+<em>MYS</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>3:40 p.m.</span>
+<em>15:40</em>
+</td>
+<td class="field">
+<span>Field 15</span>
+<em>F15</em>
+</td>
+<td class="home team flag COK">
+<a href="/events/world-cup/2015/mens/cook-islands/">
+<span>Cook Islands</span>
+<em>COK</em>
+</a>
+</td>
+<td class="score">12</td>
+<td class="versus">vs</td>
+<td class="score">8</td>
+<td class="away team flag WAL">
+<a href="/events/world-cup/2015/mens/wales/">
+<span>Wales</span>
+<em>WAL</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>3:40 p.m.</span>
+<em>15:40</em>
+</td>
+<td class="field">
+<span>Field 17</span>
+<em>F17</em>
+</td>
+<td class="home team flag AUS">
+<a href="/events/world-cup/2015/mens/australia/">
+<span>Australia</span>
+<em>AUS</em>
+</a>
+</td>
+<td class="score">6</td>
+<td class="versus">vs</td>
+<td class="score">2</td>
+<td class="away team flag FJI">
+<a href="/events/world-cup/2015/mens/fiji/">
+<span>Fiji</span>
+<em>FJI</em>
+</a>
+</td>
+</tr>
+</table>
+<h4 class="title">1 May 2015</h4>
+<table class="round-table">
+<tr>
+<td class="label">
+<strong class="round">
+Round 3
+</strong>
+</td>
+<td class="time">
+<span>9:00 a.m.</span>
+<em>9:00</em>
+</td>
+<td class="field">
+<span>Field 5</span>
+<em>F5</em>
+</td>
+<td class="home team flag JPN">
+<a href="/events/world-cup/2015/mens/japan/">
+<span>Japan</span>
+<em>JPN</em>
+</a>
+</td>
+<td class="score">2</td>
+<td class="versus">vs</td>
+<td class="score">3</td>
+<td class="away team flag PNG">
+<a href="/events/world-cup/2015/mens/papua-new-guinea/">
+<span>Papua New Guinea</span>
+<em>PNG</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>9:00 a.m.</span>
+<em>9:00</em>
+</td>
+<td class="field">
+<span>Field 9</span>
+<em>F9</em>
+</td>
+<td class="home team flag USA">
+<a href="/events/world-cup/2015/mens/united-states/">
+<span>United States</span>
+<em>USA</em>
+</a>
+</td>
+<td class="score">5</td>
+<td class="versus">vs</td>
+<td class="score">2</td>
+<td class="away team flag SGP">
+<a href="/events/world-cup/2015/mens/singapore/">
+<span>Singapore</span>
+<em>SGP</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>9:00 a.m.</span>
+<em>9:00</em>
+</td>
+<td class="field">
+<span>Field 12</span>
+<em>F12</em>
+</td>
+<td class="home team flag WSM">
+<a href="/events/world-cup/2015/mens/samoa/">
+<span>Samoa</span>
+<em>WSM</em>
+</a>
+</td>
+<td class="score">1</td>
+<td class="versus">vs</td>
+<td class="score">1</td>
+<td class="away team flag FRA">
+<a href="/events/world-cup/2015/mens/france/">
+<span>France</span>
+<em>FRA</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>9:00 a.m.</span>
+<em>9:00</em>
+</td>
+<td class="field">
+<span>Field 15</span>
+<em>F15</em>
+</td>
+<td class="home team flag SCO">
+<a href="/events/world-cup/2015/mens/scotland/">
+<span>Scotland</span>
+<em>SCO</em>
+</a>
+</td>
+<td class="score">0</td>
+<td class="versus">vs</td>
+<td class="score">5</td>
+<td class="away team flag ENG">
+<a href="/events/world-cup/2015/mens/england/">
+<span>England</span>
+<em>ENG</em>
+</a>
+</td>
+</tr>
+</table>
+<h4 class="title">2 May 2015</h4>
+<table class="round-table">
+<tr>
+<td class="label">
+<strong class="round">
+Round 4
+</strong>
+</td>
+<td class="time">
+<span>10:00 a.m.</span>
+<em>10:00</em>
+<a class="video" href="/events/world-cup/2015/mens/match:2796/video/"><i class="fa fa-video-camera"></i></a>
+</td>
+<td class="field">
+<span>Field 1</span>
+<em>F1</em>
+</td>
+<td class="home team flag AUS">
+<a href="/events/world-cup/2015/mens/australia/">
+<span>Australia</span>
+<em>AUS</em>
+</a>
+</td>
+<td class="score">6</td>
+<td class="versus">vs</td>
+<td class="score">2</td>
+<td class="away team flag NZL">
+<a href="/events/world-cup/2015/mens/new-zealand/">
+<span>New Zealand</span>
+<em>NZL</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>10:00 a.m.</span>
+<em>10:00</em>
+</td>
+<td class="field">
+<span>Field 4</span>
+<em>F4</em>
+</td>
+<td class="home team flag ZAF">
+<a href="/events/world-cup/2015/mens/south-africa/">
+<span>South Africa</span>
+<em>ZAF</em>
+</a>
+</td>
+<td class="score">4</td>
+<td class="versus">vs</td>
+<td class="score">3</td>
+<td class="away team flag PNG">
+<a href="/events/world-cup/2015/mens/papua-new-guinea/">
+<span>Papua New Guinea</span>
+<em>PNG</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>10:00 a.m.</span>
+<em>10:00</em>
+</td>
+<td class="field">
+<span>Field 5</span>
+<em>F5</em>
+</td>
+<td class="home team flag JPN">
+<a href="/events/world-cup/2015/mens/japan/">
+<span>Japan</span>
+<em>JPN</em>
+</a>
+</td>
+<td class="score">6</td>
+<td class="versus">vs</td>
+<td class="score">1</td>
+<td class="away team flag FRA">
+<a href="/events/world-cup/2015/mens/france/">
+<span>France</span>
+<em>FRA</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>10:00 a.m.</span>
+<em>10:00</em>
+</td>
+<td class="field">
+<span>Field 6</span>
+<em>F6</em>
+</td>
+<td class="home team flag FJI">
+<a href="/events/world-cup/2015/mens/fiji/">
+<span>Fiji</span>
+<em>FJI</em>
+</a>
+</td>
+<td class="score">6</td>
+<td class="versus">vs</td>
+<td class="score">2</td>
+<td class="away team flag WSM">
+<a href="/events/world-cup/2015/mens/samoa/">
+<span>Samoa</span>
+<em>WSM</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>10:30 a.m.</span>
+<em>10:30</em>
+</td>
+<td class="field">
+<span>Field 4</span>
+<em>F4</em>
+</td>
+<td class="home team flag COK">
+<a href="/events/world-cup/2015/mens/cook-islands/">
+<span>Cook Islands</span>
+<em>COK</em>
+</a>
+</td>
+<td class="score">8</td>
+<td class="versus">vs</td>
+<td class="score">1</td>
+<td class="away team flag SCO">
+<a href="/events/world-cup/2015/mens/scotland/">
+<span>Scotland</span>
+<em>SCO</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>10:30 a.m.</span>
+<em>10:30</em>
+</td>
+<td class="field">
+<span>Field 5</span>
+<em>F5</em>
+</td>
+<td class="home team flag USA">
+<a href="/events/world-cup/2015/mens/united-states/">
+<span>United States</span>
+<em>USA</em>
+</a>
+</td>
+<td class="score">5</td>
+<td class="versus">vs</td>
+<td class="score">1</td>
+<td class="away team flag MYS">
+<a href="/events/world-cup/2015/mens/malaysia/">
+<span>Malaysia</span>
+<em>MYS</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>10:30 a.m.</span>
+<em>10:30</em>
+</td>
+<td class="field">
+<span>Field 6</span>
+<em>F6</em>
+</td>
+<td class="home team flag ENG">
+<a href="/events/world-cup/2015/mens/england/">
+<span>England</span>
+<em>ENG</em>
+</a>
+</td>
+<td class="score">4</td>
+<td class="versus">vs</td>
+<td class="score">3</td>
+<td class="away team flag SGP">
+<a href="/events/world-cup/2015/mens/singapore/">
+<span>Singapore</span>
+<em>SGP</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>10:30 a.m.</span>
+<em>10:30</em>
+</td>
+<td class="field">
+<span>Field 17</span>
+<em>F17</em>
+</td>
+<td class="home team flag WAL">
+<a href="/events/world-cup/2015/mens/wales/">
+<span>Wales</span>
+<em>WAL</em>
+</a>
+</td>
+<td class="score">2</td>
+<td class="versus">vs</td>
+<td class="score">1</td>
+<td class="away team flag IRL">
+<a href="/events/world-cup/2015/mens/ireland/">
+<span>Ireland</span>
+<em>IRL</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+<strong class="round">
+Round 5
+</strong>
+</td>
+<td class="time">
+<span>12:00 p.m.</span>
+<em>12:00</em>
+</td>
+<td class="field">
+<span>Field 3</span>
+<em>F3</em>
+</td>
+<td class="home team flag AUS">
+<a href="/events/world-cup/2015/mens/australia/">
+<span>Australia</span>
+<em>AUS</em>
+</a>
+</td>
+<td class="score">6</td>
+<td class="versus">vs</td>
+<td class="score">1</td>
+<td class="away team flag PNG">
+<a href="/events/world-cup/2015/mens/papua-new-guinea/">
+<span>Papua New Guinea</span>
+<em>PNG</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>12:00 p.m.</span>
+<em>12:00</em>
+</td>
+<td class="field">
+<span>Field 5</span>
+<em>F5</em>
+</td>
+<td class="home team flag ZAF">
+<a href="/events/world-cup/2015/mens/south-africa/">
+<span>South Africa</span>
+<em>ZAF</em>
+</a>
+</td>
+<td class="score">7</td>
+<td class="versus">vs</td>
+<td class="score">3</td>
+<td class="away team flag JPN">
+<a href="/events/world-cup/2015/mens/japan/">
+<span>Japan</span>
+<em>JPN</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>12:00 p.m.</span>
+<em>12:00</em>
+</td>
+<td class="field">
+<span>Field 11</span>
+<em>F11</em>
+</td>
+<td class="home team flag NZL">
+<a href="/events/world-cup/2015/mens/new-zealand/">
+<span>New Zealand</span>
+<em>NZL</em>
+</a>
+</td>
+<td class="score">6</td>
+<td class="versus">vs</td>
+<td class="score">2</td>
+<td class="away team flag WSM">
+<a href="/events/world-cup/2015/mens/samoa/">
+<span>Samoa</span>
+<em>WSM</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>12:00 p.m.</span>
+<em>12:00</em>
+</td>
+<td class="field">
+<span>Field 16</span>
+<em>F16</em>
+</td>
+<td class="home team flag FJI">
+<a href="/events/world-cup/2015/mens/fiji/">
+<span>Fiji</span>
+<em>FJI</em>
+</a>
+</td>
+<td class="score">6</td>
+<td class="versus">vs</td>
+<td class="score">0</td>
+<td class="away team flag FRA">
+<a href="/events/world-cup/2015/mens/france/">
+<span>France</span>
+<em>FRA</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>12:30 p.m.</span>
+<em>12:30</em>
+</td>
+<td class="field">
+<span>Field 4</span>
+<em>F4</em>
+</td>
+<td class="home team flag WAL">
+<a href="/events/world-cup/2015/mens/wales/">
+<span>Wales</span>
+<em>WAL</em>
+</a>
+</td>
+<td class="score">4</td>
+<td class="versus">vs</td>
+<td class="score">3</td>
+<td class="away team flag MYS">
+<a href="/events/world-cup/2015/mens/malaysia/">
+<span>Malaysia</span>
+<em>MYS</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>12:30 p.m.</span>
+<em>12:30</em>
+</td>
+<td class="field">
+<span>Field 9</span>
+<em>F9</em>
+</td>
+<td class="home team flag COK">
+<a href="/events/world-cup/2015/mens/cook-islands/">
+<span>Cook Islands</span>
+<em>COK</em>
+</a>
+</td>
+<td class="score">8</td>
+<td class="versus">vs</td>
+<td class="score">2</td>
+<td class="away team flag SGP">
+<a href="/events/world-cup/2015/mens/singapore/">
+<span>Singapore</span>
+<em>SGP</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>12:30 p.m.</span>
+<em>12:30</em>
+</td>
+<td class="field">
+<span>Field 12</span>
+<em>F12</em>
+</td>
+<td class="home team flag SCO">
+<a href="/events/world-cup/2015/mens/scotland/">
+<span>Scotland</span>
+<em>SCO</em>
+</a>
+</td>
+<td class="score">8</td>
+<td class="versus">vs</td>
+<td class="score">1</td>
+<td class="away team flag IRL">
+<a href="/events/world-cup/2015/mens/ireland/">
+<span>Ireland</span>
+<em>IRL</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>12:30 p.m.</span>
+<em>12:30</em>
+</td>
+<td class="field">
+<span>Field 13</span>
+<em>F13</em>
+</td>
+<td class="home team flag ENG">
+<a href="/events/world-cup/2015/mens/england/">
+<span>England</span>
+<em>ENG</em>
+</a>
+</td>
+<td class="score">5</td>
+<td class="versus">vs</td>
+<td class="score">2</td>
+<td class="away team flag USA">
+<a href="/events/world-cup/2015/mens/united-states/">
+<span>United States</span>
+<em>USA</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+<strong class="round">
+Round 6
+</strong>
+</td>
+<td class="time">
+<span>2:00 p.m.</span>
+<em>14:00</em>
+</td>
+<td class="field">
+<span>Field 3</span>
+<em>F3</em>
+</td>
+<td class="home team flag NZL">
+<a href="/events/world-cup/2015/mens/new-zealand/">
+<span>New Zealand</span>
+<em>NZL</em>
+</a>
+</td>
+<td class="score">9</td>
+<td class="versus">vs</td>
+<td class="score">1</td>
+<td class="away team flag FJI">
+<a href="/events/world-cup/2015/mens/fiji/">
+<span>Fiji</span>
+<em>FJI</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>2:00 p.m.</span>
+<em>14:00</em>
+</td>
+<td class="field">
+<span>Field 4</span>
+<em>F4</em>
+</td>
+<td class="home team flag WSM">
+<a href="/events/world-cup/2015/mens/samoa/">
+<span>Samoa</span>
+<em>WSM</em>
+</a>
+</td>
+<td class="score">2</td>
+<td class="versus">vs</td>
+<td class="score">6</td>
+<td class="away team flag PNG">
+<a href="/events/world-cup/2015/mens/papua-new-guinea/">
+<span>Papua New Guinea</span>
+<em>PNG</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>2:00 p.m.</span>
+<em>14:00</em>
+</td>
+<td class="field">
+<span>Field 11</span>
+<em>F11</em>
+</td>
+<td class="home team flag ZAF">
+<a href="/events/world-cup/2015/mens/south-africa/">
+<span>South Africa</span>
+<em>ZAF</em>
+</a>
+</td>
+<td class="score">6</td>
+<td class="versus">vs</td>
+<td class="score">1</td>
+<td class="away team flag FRA">
+<a href="/events/world-cup/2015/mens/france/">
+<span>France</span>
+<em>FRA</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>2:00 p.m.</span>
+<em>14:00</em>
+</td>
+<td class="field">
+<span>Field 13</span>
+<em>F13</em>
+</td>
+<td class="home team flag AUS">
+<a href="/events/world-cup/2015/mens/australia/">
+<span>Australia</span>
+<em>AUS</em>
+</a>
+</td>
+<td class="score">12</td>
+<td class="versus">vs</td>
+<td class="score">0</td>
+<td class="away team flag JPN">
+<a href="/events/world-cup/2015/mens/japan/">
+<span>Japan</span>
+<em>JPN</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>4:30 p.m.</span>
+<em>16:30</em>
+</td>
+<td class="field">
+<span>Field 3</span>
+<em>F3</em>
+</td>
+<td class="home team flag SCO">
+<a href="/events/world-cup/2015/mens/scotland/">
+<span>Scotland</span>
+<em>SCO</em>
+</a>
+</td>
+<td class="score">1</td>
+<td class="versus">vs</td>
+<td class="score">3</td>
+<td class="away team flag WAL">
+<a href="/events/world-cup/2015/mens/wales/">
+<span>Wales</span>
+<em>WAL</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>4:30 p.m.</span>
+<em>16:30</em>
+</td>
+<td class="field">
+<span>Field 4</span>
+<em>F4</em>
+</td>
+<td class="home team flag ENG">
+<a href="/events/world-cup/2015/mens/england/">
+<span>England</span>
+<em>ENG</em>
+</a>
+</td>
+<td class="score">6</td>
+<td class="versus">vs</td>
+<td class="score">0</td>
+<td class="away team flag MYS">
+<a href="/events/world-cup/2015/mens/malaysia/">
+<span>Malaysia</span>
+<em>MYS</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>4:30 p.m.</span>
+<em>16:30</em>
+</td>
+<td class="field">
+<span>Field 15</span>
+<em>F15</em>
+</td>
+<td class="home team flag IRL">
+<a href="/events/world-cup/2015/mens/ireland/">
+<span>Ireland</span>
+<em>IRL</em>
+</a>
+</td>
+<td class="score">3</td>
+<td class="versus">vs</td>
+<td class="score">6</td>
+<td class="away team flag SGP">
+<a href="/events/world-cup/2015/mens/singapore/">
+<span>Singapore</span>
+<em>SGP</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>4:30 p.m.</span>
+<em>16:30</em>
+</td>
+<td class="field">
+<span>Field 16</span>
+<em>F16</em>
+</td>
+<td class="home team flag COK">
+<a href="/events/world-cup/2015/mens/cook-islands/">
+<span>Cook Islands</span>
+<em>COK</em>
+</a>
+</td>
+<td class="score">7</td>
+<td class="versus">vs</td>
+<td class="score">5</td>
+<td class="away team flag USA">
+<a href="/events/world-cup/2015/mens/united-states/">
+<span>United States</span>
+<em>USA</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+<strong class="round">
+Round 7
+</strong>
+</td>
+<td class="time">
+<span>5:00 p.m.</span>
+<em>17:00</em>
+</td>
+<td class="field">
+<span>Field 2</span>
+<em>F2</em>
+</td>
+<td class="home team flag FJI">
+<a href="/events/world-cup/2015/mens/fiji/">
+<span>Fiji</span>
+<em>FJI</em>
+</a>
+</td>
+<td class="score">4</td>
+<td class="versus">vs</td>
+<td class="score">5</td>
+<td class="away team flag PNG">
+<a href="/events/world-cup/2015/mens/papua-new-guinea/">
+<span>Papua New Guinea</span>
+<em>PNG</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>5:00 p.m.</span>
+<em>17:00</em>
+</td>
+<td class="field">
+<span>Field 5</span>
+<em>F5</em>
+</td>
+<td class="home team flag AUS">
+<a href="/events/world-cup/2015/mens/australia/">
+<span>Australia</span>
+<em>AUS</em>
+</a>
+</td>
+<td class="score">8</td>
+<td class="versus">vs</td>
+<td class="score">0</td>
+<td class="away team flag ZAF">
+<a href="/events/world-cup/2015/mens/south-africa/">
+<span>South Africa</span>
+<em>ZAF</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>5:00 p.m.</span>
+<em>17:00</em>
+</td>
+<td class="field">
+<span>Field 10</span>
+<em>F10</em>
+</td>
+<td class="home team flag NZL">
+<a href="/events/world-cup/2015/mens/new-zealand/">
+<span>New Zealand</span>
+<em>NZL</em>
+</a>
+</td>
+<td class="score">7</td>
+<td class="versus">vs</td>
+<td class="score">0</td>
+<td class="away team flag FRA">
+<a href="/events/world-cup/2015/mens/france/">
+<span>France</span>
+<em>FRA</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>5:00 p.m.</span>
+<em>17:00</em>
+</td>
+<td class="field">
+<span>Field 11</span>
+<em>F11</em>
+</td>
+<td class="home team flag JPN">
+<a href="/events/world-cup/2015/mens/japan/">
+<span>Japan</span>
+<em>JPN</em>
+</a>
+</td>
+<td class="score">6</td>
+<td class="versus">vs</td>
+<td class="score">1</td>
+<td class="away team flag WSM">
+<a href="/events/world-cup/2015/mens/samoa/">
+<span>Samoa</span>
+<em>WSM</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>6:30 p.m.</span>
+<em>18:30</em>
+</td>
+<td class="field">
+<span>Field 5</span>
+<em>F5</em>
+</td>
+<td class="home team flag COK">
+<a href="/events/world-cup/2015/mens/cook-islands/">
+<span>Cook Islands</span>
+<em>COK</em>
+</a>
+</td>
+<td class="score">5</td>
+<td class="versus">vs</td>
+<td class="score">1</td>
+<td class="away team flag ENG">
+<a href="/events/world-cup/2015/mens/england/">
+<span>England</span>
+<em>ENG</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>6:30 p.m.</span>
+<em>18:30</em>
+</td>
+<td class="field">
+<span>Field 6</span>
+<em>F6</em>
+</td>
+<td class="home team flag WAL">
+<a href="/events/world-cup/2015/mens/wales/">
+<span>Wales</span>
+<em>WAL</em>
+</a>
+</td>
+<td class="score">2</td>
+<td class="versus">vs</td>
+<td class="score">5</td>
+<td class="away team flag SGP">
+<a href="/events/world-cup/2015/mens/singapore/">
+<span>Singapore</span>
+<em>SGP</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>6:30 p.m.</span>
+<em>18:30</em>
+</td>
+<td class="field">
+<span>Field 8</span>
+<em>F8</em>
+</td>
+<td class="home team flag USA">
+<a href="/events/world-cup/2015/mens/united-states/">
+<span>United States</span>
+<em>USA</em>
+</a>
+</td>
+<td class="score">5</td>
+<td class="versus">vs</td>
+<td class="score">1</td>
+<td class="away team flag IRL">
+<a href="/events/world-cup/2015/mens/ireland/">
+<span>Ireland</span>
+<em>IRL</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+</td>
+<td class="time">
+<span>6:30 p.m.</span>
+<em>18:30</em>
+</td>
+<td class="field">
+<span>Field 9</span>
+<em>F9</em>
+</td>
+<td class="home team flag SCO">
+<a href="/events/world-cup/2015/mens/scotland/">
+<span>Scotland</span>
+<em>SCO</em>
+</a>
+</td>
+<td class="score">2</td>
+<td class="versus">vs</td>
+<td class="score">2</td>
+<td class="away team flag MYS">
+<a href="/events/world-cup/2015/mens/malaysia/">
+<span>Malaysia</span>
+<em>MYS</em>
+</a>
+</td>
+</tr>
+</table>
+<h3>Finals</h3>
+<h4 class="title">3 May 2015</h4>
+<table class="round-table">
+<tr>
+<td class="label">
+<strong class="round">
+Playoff 13th/14th
+</strong>
+</td>
+<td class="time">
+<span>8:00 a.m.</span>
+<em>8:00</em>
+</td>
+<td class="field">
+<span>Field 6</span>
+<em>F6</em>
+</td>
+<td class="home team flag WAL">
+<a href="/events/world-cup/2015/mens/wales/">
+<span>Wales</span>
+<em>WAL</em>
+</a>
+</td>
+<td class="score">4</td>
+<td class="versus">vs</td>
+<td class="score">8</td>
+<td class="away team flag SCO">
+<a href="/events/world-cup/2015/mens/scotland/">
+<span>Scotland</span>
+<em>SCO</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+<strong class="round">
+Playoff 15th/16th
+</strong>
+</td>
+<td class="time">
+<span>8:00 a.m.</span>
+<em>8:00</em>
+</td>
+<td class="field">
+<span>Field 14</span>
+<em>F14</em>
+</td>
+<td class="home team flag IRL">
+<a href="/events/world-cup/2015/mens/ireland/">
+<span>Ireland</span>
+<em>IRL</em>
+</a>
+</td>
+<td class="score">5</td>
+<td class="versus">vs</td>
+<td class="score">3</td>
+<td class="away team flag MYS">
+<a href="/events/world-cup/2015/mens/malaysia/">
+<span>Malaysia</span>
+<em>MYS</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+<strong class="round">
+Playoff 7th/8th
+</strong>
+</td>
+<td class="time">
+<span>8:00 a.m.</span>
+<em>8:00</em>
+</td>
+<td class="field">
+<span>Field 15</span>
+<em>F15</em>
+</td>
+<td class="home team flag WSM">
+<a href="/events/world-cup/2015/mens/samoa/">
+<span>Samoa</span>
+<em>WSM</em>
+</a>
+</td>
+<td class="score">7</td>
+<td class="versus">vs</td>
+<td class="score">6</td>
+<td class="away team flag FRA">
+<a href="/events/world-cup/2015/mens/france/">
+<span>France</span>
+<em>FRA</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+<strong class="round">
+Playoff 5th/6th
+</strong>
+</td>
+<td class="time">
+<span>12:30 p.m.</span>
+<em>12:30</em>
+</td>
+<td class="field">
+<span>Field 3</span>
+<em>F3</em>
+</td>
+<td class="home team flag JPN">
+<a href="/events/world-cup/2015/mens/japan/">
+<span>Japan</span>
+<em>JPN</em>
+</a>
+</td>
+<td class="score">5</td>
+<td class="versus">vs</td>
+<td class="score">3</td>
+<td class="away team flag FJI">
+<a href="/events/world-cup/2015/mens/fiji/">
+<span>Fiji</span>
+<em>FJI</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+<strong class="round">
+Playoff 11th/12th
+</strong>
+</td>
+<td class="time">
+<span>12:30 p.m.</span>
+<em>12:30</em>
+</td>
+<td class="field">
+<span>Field 4</span>
+<em>F4</em>
+</td>
+<td class="home team flag USA">
+<a href="/events/world-cup/2015/mens/united-states/">
+<span>United States</span>
+<em>USA</em>
+</a>
+</td>
+<td class="score">9</td>
+<td class="versus">vs</td>
+<td class="score">7</td>
+<td class="away team flag SGP">
+<a href="/events/world-cup/2015/mens/singapore/">
+<span>Singapore</span>
+<em>SGP</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+<strong class="round">
+Playoff 9th/10th
+</strong>
+</td>
+<td class="time">
+<span>1:40 p.m.</span>
+<em>13:40</em>
+</td>
+<td class="field">
+<span>Field 3</span>
+<em>F3</em>
+</td>
+<td class="home team flag COK">
+<a href="/events/world-cup/2015/mens/cook-islands/">
+<span>Cook Islands</span>
+<em>COK</em>
+</a>
+</td>
+<td class="score">6</td>
+<td class="versus">vs</td>
+<td class="score">4</td>
+<td class="away team flag ENG">
+<a href="/events/world-cup/2015/mens/england/">
+<span>England</span>
+<em>ENG</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+<strong class="round">
+Bronze
+</strong>
+</td>
+<td class="time">
+<span>2:50 p.m.</span>
+<em>14:50</em>
+</td>
+<td class="field">
+<span>Field 2</span>
+<em>F2</em>
+</td>
+<td class="home team flag ZAF">
+<a href="/events/world-cup/2015/mens/south-africa/">
+<span>South Africa</span>
+<em>ZAF</em>
+</a>
+</td>
+<td class="score">7</td>
+<td class="versus">vs</td>
+<td class="score">8</td>
+<td class="away team flag PNG">
+<a href="/events/world-cup/2015/mens/papua-new-guinea/">
+<span>Papua New Guinea</span>
+<em>PNG</em>
+</a>
+</td>
+</tr>
+<tr>
+<td class="label">
+<strong class="round">
+Grand Final
+</strong>
+</td>
+<td class="time">
+<span>6:40 p.m.</span>
+<em>18:40</em>
+<a class="video" href="/events/world-cup/2015/mens/match:2953/video/"><i class="fa fa-video-camera"></i></a>
+</td>
+<td class="field">
+<span>Field 1</span>
+<em>F1</em>
+</td>
+<td class="home team flag AUS">
+<a href="/events/world-cup/2015/mens/australia/">
+<span>Australia</span>
+<em>AUS</em>
+</a>
+</td>
+<td class="score">11</td>
+<td class="versus">vs</td>
+<td class="score">2</td>
+<td class="away team flag NZL">
+<a href="/events/world-cup/2015/mens/new-zealand/">
+<span>New Zealand</span>
+<em>NZL</em>
+</a>
+</td>
+</tr>
+</table>
+<h4 class="hashtag">#twc2015 #mo</h4>
+</div>
+</div>
+</article>
+<aside id="sidebar">
+<nav class="nav-bar">
+<ul>
+<li class="active">
+<a href="/events/world-cup/">World Cup</a>
+<ul>
+<li class="active">
+<a href="/events/world-cup/2015/">2015</a>
+</li>
+<li>
+<a href="/events/world-cup/2011/">2011</a>
+</li>
+<li>
+<a href="/events/world-cup/2007/">2007</a>
+</li>
+<li>
+<a href="/events/world-cup/2003/">2003</a>
+</li>
+<li>
+<a href="/events/world-cup/1999/">1999</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="/events/euros/">Euros</a>
+<ul>
+<li>
+<a href="/events/euros/2014/">2014</a>
+</li>
+<li>
+<a href="/events/euros/2012/">2012</a>
+</li>
+<li>
+<a href="/events/euros/2010/">2010</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="/events/home-nations/">Home Nations</a>
+<ul>
+<li>
+<a href="/events/home-nations/2013/">2013</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="/events/mainland-cup/">Mainland Cup</a>
+<ul>
+<li>
+<a href="/events/mainland-cup/2013/">2013</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="/events/junior-touch-championships/">Junior Touch Champs</a>
+<ul>
+<li>
+<a href="/events/junior-touch-championships/2014/">2014</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="/events/pacific-games/">Pacific Games</a>
+<ul>
+<li>
+<a href="/events/pacific-games/2015/">2015</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="/events/test-matches/">Test Matches</a>
+<ul>
+<li>
+<a href="/events/test-matches/2015-youth-trans-tasman/">2015 - Youth Trans Tasman</a>
+</li>
+<li>
+<a href="/events/test-matches/2014-15-china-vs-hong-kong/">2014-15 - China vs Hong Kong</a>
+</li>
+<li>
+<a href="/events/test-matches/2014-trans-tasman/">2014 - Trans Tasman</a>
+</li>
+<li>
+<a href="/events/test-matches/2013-super-trans-tasman/">2013 - Super Trans Tasman</a>
+</li>
+<li>
+<a href="/events/test-matches/2012-trans-tasman/">2012 - Trans Tasman</a>
+</li>
+<li>
+<a href="/events/test-matches/2010-singapore-vs-scotland/">2010 - Singapore vs Scotland</a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</aside>
+</div>
+<footer id="footer">
+<nav class="nav">
+<h3>NAVIGATION</h3>
+<ul class="navigation"><li id="node28" class="page first has_children "><a href="/what-is-touch/">What&#39;s Touch?</a></li><li id="node2" class="page has_children "><a href="/about-fit/">About FIT</a></li><li id="node1" class="placeholder "><a href="/news/">News</a></li><li id="node71" class="placeholder has_children "><a href="/events/">Events</a></li><li id="node7" class="page has_children "><a href="/resources/">Resources</a></li><li id="node74" class="page has_children "><a href="/almanac/">Almanac</a></li><li id="node69" class="page last has_children "><a href="/contact-us/">Contact Us</a></li></ul>
+</nav>
+<div class="social-block">
+<h3>CONNECT WITH US</h3>
+<ul class="social-networks">
+<li><a class="facebook" href="https://www.facebook.com/internationaltouch.org" target="_blank" title="Facebook">Facebook</a></li>
+<li><a class="twitter" href="https://twitter.com/intltouchorg" target="_blank" title="Twitter">Twitter</a></li>
+<li><a class="youtube" href="https://www.youtube.com/user/intltouch" target="_blank" title="Youtube">YouTube</a></li>
+<li><a class="instagram" href="http://instagram.com/internationaltouch" target="_blank">Instagram</a></li>
+</ul>
+</div>
+<div class="copy-block">
+<div class="logo-2"><a href="#">Federation of International Touch</a></div>
+<div class="frame">
+<span>
+Federation of<br>
+International Touch<br>
+&copy; 2008-2015<br>
+<a href="#">Privacy</a> | <a href="#">Terms</a>
+</span>
+</div>
+</div>
+</footer>
+</div>
+</div>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">window.jQuery || document.write('<script src="/static/js/jquery-1.8.3.min.js"><\/script>')</script>
+<script type="text/javascript" src="/static/js/jquery.main.js"></script>
+<script type="text/javascript" src="//use.typekit.net/acv3zyw.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<!--[if IE]><script type="text/javascript" src="/static/js/ie.js"></script><![endif]-->
+<script type="text/javascript">
+		/* When there is a change to the division drop-down, load that division page. */
+		$(function() {
+			$('.mobile-categories select').bind('change', function(ev) {
+				document.location = ev.target.value;
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+Pool A;Gold;4
+Pool B;Gold;4
+Pool C;Gold;4
+Pool C;Gold;3
+Pool D;Gold;4
+Pool D;Gold;3
+Pool E;Gold;3
+Pool F;Gold;3
+;;
+;;
+Division;Gold;8
+Division;Gold;7
+;;
+;;
+Twentieth position;Gold;2
+Eighteenth position;Gold;2
+Sixteenth position;Gold;2
+Fifteenth position;Gold;2
+Thirteenth position;Gold;2
+Twelfth position;Gold;2
+Eleventh position;Gold;2
+Tenth position;Gold;2
+Ninth position;Gold;2
+Eighth position;Gold;2
+Seventh position;Gold;2
+Fifth position;Gold;2
+Third position;Gold;2
+;;
+¼;Gold;2
+Semifinal;Gold;2
+Final;Gold;2
+;;
+Division;Silver;8
+Division;Silver;7
+;;
+;;
+Semifinal;Silver;2
+Final;Silver;2
+;;
+¼;Bronze;2
+Semifinal;Bronze;2
+Final;Bronze;2
+;;
+;;
+Semifinal;Wood;2
+Final;Wood;2
