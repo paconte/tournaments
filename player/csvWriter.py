@@ -216,6 +216,15 @@ class CsvWriter:
 
 
 logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
-a = CsvWriter('WC', 'MO', 2015)
-#a.download_raw_file()
-a.create_csv_file()
+mo_writer = CsvWriter('WC', 'MO', 2015)
+wo_writer = CsvWriter('WC', 'WO', 2015)
+mxo_writer = CsvWriter('WC', 'MXO', 2015)
+
+#mo_writer.download_raw_file()
+#mo_writer.create_csv_file()
+
+#wo_writer.download_raw_file()
+#wo_writer.create_csv_file()
+
+#mxo_writer.download_raw_file()
+#mxo_writer.create_csv_file()
