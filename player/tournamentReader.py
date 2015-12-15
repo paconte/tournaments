@@ -1,7 +1,8 @@
 import csv
 import os.path
+import logging
+
 from player import csvdata
-from player.models import *
 from player.models import Game
 from player.models import GameField
 from player.models import GameRound
@@ -10,9 +11,9 @@ from player.models import Player
 from player.models import PlayerStadistic
 from player.models import Team
 from player.models import Tournament
+
 from django.core.exceptions import MultipleObjectsReturned
 from django.core.exceptions import ObjectDoesNotExist
-from django.db.models import TimeField
 from urllib.request import urlopen
 
 # PHASES_INDEXES
@@ -51,17 +52,24 @@ TG_LOCAL_TEAM_SCORE_INDEX = 10
 TG_VISITOR_TEAM_SCORE_INDEX = 11
 TG_VISITOR_TEAM_INDEX = 12
 
+# Get an instance of a logger
+logger = logging.getLogger(__name__)
+
 
 class DjangoSimpleFetcher:
     @staticmethod
     def print_fetch_result(obj, created=False):
         if created:
             print('Created {:s}:\n'.format(type(obj).__name__) + str(obj))
+            logger.debug('Created {:s}:\n'.format(type(obj).__name__) + str(obj))
+
         else:
             if obj is None:
                 print('Neither object found or created {:s}:\n')
+                logger.debug('Neither object found or created {:s}:\n')
             else:
                 print('Found {:s}:\n'.format(type(obj).__name__) + str(obj))
+                logger.debug('Found {:s}:\n'.format(type(obj).__name__) + str(obj))
 
     @staticmethod
     def get_or_create_tournament(tournament_name, tournament_division):
@@ -128,7 +136,7 @@ class DjangoSimpleFetcher:
 
     @staticmethod
     def create_game(tournament, phase, field, time, local_team, visitor_team, local_score, visitor_score):
-        game = Game.objects.create(
+        result = Game.objects.get_or_create(
             tournament=tournament,
             local=local_team,
             visitor=visitor_team,
@@ -137,7 +145,7 @@ class DjangoSimpleFetcher:
             phase=phase,
             field=field,
             time=time)
-        return game
+        return result
 
     @staticmethod
     def get_or_create_game_phase(category, round, number, create):
@@ -207,9 +215,10 @@ class DjangoCsvFetcher:
         if created:
             add_team_to_tournament(tournament, visitor_team)
 
-        game = DjangoSimpleFetcher.create_game(
+        game, created = DjangoSimpleFetcher.create_game(
             tournament, phase, field, time, local_team, visitor_team, csv_game.local_score, csv_game.visitor_score)
-        DjangoSimpleFetcher.print_fetch_result(game, True)
+        DjangoSimpleFetcher.print_fetch_result(game, created)
+        assert created, "The game already exists"
 
     @staticmethod
     def create_or_fetch_person(row):
@@ -626,10 +635,10 @@ class CsvReader:
 
 # reader = CsvReader("phase")
 # reader.read_file('./player/data_files/csv/TPhases.csv', csvdata.CsvPhase)
-# reader = CsvReader("tournament")
-# reader.read_file('./player/data_files/csv/TGames_WC2015_MO_RAW.csv', csvdata.CsvPhase)
-reader = CsvReader(CsvReader.NTS_STADISTIC)
-reader.read_file('./player/NTS-player-stadistics.csv', csvdata.CsvNTSStadistic)
+reader = CsvReader(CsvReader.TOURNAMENT)
+reader.read_file('./player/data_files/csv/TGames_WC2015_MO_RAW.csv', csvdata.CsvPhase)
+#reader = CsvReader(CsvReader.NTS_STADISTIC)
+#reader.read_file('./player/NTS-player-stadistics.csv', csvdata.CsvNTSStadistic)
 
 DATA_PATH = './player/data_files/'
 CSV_PATH = DATA_PATH + 'csv/'
@@ -646,9 +655,9 @@ exit(0)
 if os.path.isfile(fname):
     if (fname == WC2015_MO_CSV or fname == WC2015_WO_CSV or fname == WC2015_MXO_CSV):
         read_tournament_games(fname)
-    elif (fname == './player/TPhases.csv'):
+    elif (fname == './player/data_files/csv/TPhases.csv'):
         readPhases(fname)
-    elif (fname == './player/test.csv'):
+    elif (fname == './player/data_files/csv/test.csv'):
         readTournamentStadistic(fname)
 else:
     print('ERROR: {:s} is not a file'.format(fname))
