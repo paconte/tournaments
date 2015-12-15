@@ -1,6 +1,8 @@
 from django.views.generic import DetailView
 from django.db.models import Q
 
+from collections import OrderedDict
+
 from player.models import Game
 from player.models import GameRound
 from player.models import Player
@@ -12,15 +14,20 @@ from player.models import Person
 from player.service import Fixtures
 from player.service import StructuresUtils
 
-class GameView(DetailView):
+import logging
 
+# Get an instance of a logger
+logger = logging.getLogger(__name__)
+
+
+class GameView(DetailView):
     model = Game
     template_name = 'tournaments/detail_game.html'
 
     def get_context_data(self, **kwargs):
-        local_players = Player.objects.filter(team = self.object.local, tournaments_played = self.object.tournament)
-        visitor_players = Player.objects.filter(team = self.object.visitor, tournaments_played = self.object.tournament)
-        stadistics = PlayerStadistic.objects.filter(game = self.object.id)
+        local_players = Player.objects.filter(team=self.object.local, tournaments_played=self.object.tournament)
+        visitor_players = Player.objects.filter(team=self.object.visitor, tournaments_played=self.object.tournament)
+        stadistics = PlayerStadistic.objects.filter(game=self.object.id)
 
         context = super(GameView, self).get_context_data(**kwargs)
         context['tournament_list'] = Tournament.objects.all()
@@ -29,7 +36,7 @@ class GameView(DetailView):
                                                              local_players,
                                                              visitor_players)
         return context
-     
+
     def get_game_details_matrix(self, stadistics, local_players, visitor_players):
         """
         Create a matrix with the content of the stadistics for all the players of a game. Only the
@@ -49,27 +56,27 @@ class GameView(DetailView):
         result = []
         n_rows = len(local_players) if len(local_players) > len(visitor_players) else len(visitor_players)
         for i in range(n_rows):
-            if(i < len(local_players)):
+            if i < len(local_players):
                 points = 0
                 number = local_players[i].number if local_players[i].number else ''
                 for st in stadistics:
-                    if(st.player == local_players[i]):
+                    if (st.player == local_players[i]):
                         points = st.points
                         break
-                if(points > 0):
+                if (points > 0):
                     row = [number, local_players[i].person, points]
                 else:
                     row = [number, local_players[i].person, '-']
             else:
-                row = ['', '', '']                    
-            if(i < len(visitor_players)):
+                row = ['', '', '']
+            if i < len(visitor_players):
                 points = 0
                 number = visitor_players[i].number if visitor_players[i].number else ''
                 for st in stadistics:
-                    if(st.player == visitor_players[i]):
+                    if st.player == visitor_players[i]:
                         points = st.points
                         break
-                if(points > 0):
+                if points > 0:
                     row.extend([number, visitor_players[i].person, points])
                 else:
                     row.extend([number, visitor_players[i].person, '-'])
@@ -77,6 +84,7 @@ class GameView(DetailView):
                 row.extend(['', '', ''])
             result.append(row)
         return result
+
 
 class PersonView(DetailView):
     model = Person
@@ -92,6 +100,7 @@ class PersonView(DetailView):
         context['played_tournaments'] = played_tournaments
 
         return context
+
 
 class TeamView(DetailView):
     model = Team
@@ -109,8 +118,8 @@ class TeamView(DetailView):
 
         return context
 
+
 class TeamTournamentView(DetailView):
-    
     model = Team;
     template_name = 'tournaments/detail_team_tournament.html'
 
@@ -118,7 +127,7 @@ class TeamTournamentView(DetailView):
         tournament_id = self.kwargs.get('tournament_id')
         players = Player.objects.filter(team=self.object.id,
                                         tournaments_played__id=tournament_id).distinct()
-        games = Game.objects.filter(Q(tournament=tournament_id), 
+        games = Game.objects.filter(Q(tournament=tournament_id),
                                     Q(local=self.object.id) | Q(visitor=self.object.id))
 
         context = super(TeamTournamentView, self).get_context_data(**kwargs)
@@ -126,7 +135,7 @@ class TeamTournamentView(DetailView):
         context['tournament_list'] = Tournament.objects.all()
         context['games'] = self.sort_games_by_phases(games)
         context['players'] = self.get_player_stadistics(players, games)
-        
+
         return context
 
     def sort_games_by_phases(self, games):
@@ -143,28 +152,28 @@ class TeamTournamentView(DetailView):
 
         d_all = {}
         for game in games:
-            if (d_all.has_key(game.phase)):
+            if d_all.has_key(game.phase):
                 phase_games = d_all.get(game.phase)
             else:
                 phase_games = []
             phase_games.append(game)
-            d_all.update({game.phase:phase_games})
+            d_all.update({game.phase: phase_games})
 
         d_pools = {}
         d_finals = {}
         l_finals = []
-        for k,v in d_all.iteritems():
-            if (GameRound.is_pool(k)):
-                d_pools.update({k:v})
+        for k, v in d_all.iteritems():
+            if GameRound.is_pool(k):
+                d_pools.update({k: v})
             else:
-                d_finals.update({k:v})
+                d_finals.update({k: v})
                 l_finals.append(k)
 
-        result = collections.OrderedDict()
+        result = OrderedDict()
         for k in (sorted(d_pools)):
-            result.update({k:d_pools.get(k)})
+            result.update({k: d_pools.get(k)})
         for k in (sorted(l_finals, key=lambda final: GameRound.ordered_rounds.index(final.round), reverse=True)):
-            result.update({k:d_finals.get(k)})
+            result.update({k: d_finals.get(k)})
 
         return result
 
@@ -190,11 +199,12 @@ class TeamTournamentView(DetailView):
         for player in players:
             points = 0
             for st in stadistics:
-                if (st.player == player):
+                if st.player == player:
                     points += st.points
             result.append([player.number, player.person, points])
 
         return sorted(result, key=lambda line: line[0])
+
 
 class TournamentView(DetailView):
     model = Tournament
@@ -203,14 +213,14 @@ class TournamentView(DetailView):
     def get_context_data(self, **kwargs):
         games = Game.objects.filter(tournament=self.object.id)
         teams = Team.objects.filter(tournament__id=self.object.id)
-        
+
         fixtures = Fixtures(games)
         fixtures.sort_pools()
         pool_games = fixtures.sorted_pools
         finals_games = fixtures.get_phased_finals({})
         st_utils = StructuresUtils()
 
-        context = super(TournamentView, self).get_context_data(**kwargs)        
+        context = super(TournamentView, self).get_context_data(**kwargs)
         context['tournament'] = self.object
         context['tournament_list'] = Tournament.objects.all()
         context['games'] = games
