@@ -1,5 +1,4 @@
-from datetime import datetime
-import time
+from time import strftime
 
 # PHASES_INDEXES
 PH_PHASE_ROUND_INDEX = 0
@@ -292,8 +291,8 @@ class FitGame:
             self._round = game[0]
             self._finals = game[2]
             self._nteams = game[1]
-            self._date = time.strftime("%m/%d/%y", game[3])
-            self._time = time.strftime("%H:%M", game[3])
+            self._date = strftime("%m/%d/%y", game[3])
+            self._time = strftime("%H:%M", game[3])
             self._timedate = game[3]
             self._field = game[4]
             self._local = game[5]
@@ -409,7 +408,7 @@ class CsvGame(FitGame):
 
     def __init__(self, row, game, tournament_name, division):
         if row is None:
-            super(FitGame, self).__init__(None, game.round, game.finals, game.nteams, game.date, game.time, game.field,
+            super().__init__(None, game.round, game.finals, game.nteams, game.date, game.time, game.field,
                                           game.local, game.local_score, game.visitor_score, game.visitor)
 
             self._tournament_name = tournament_name
