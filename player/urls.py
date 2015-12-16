@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, url
 
 from player import views
+from player.service import Fixtures
 from player.classViews import GameView
 from player.classViews import TeamTournamentView
 from player.classViews import TournamentView
