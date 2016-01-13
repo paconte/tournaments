@@ -4,18 +4,18 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 DATA_FILES = './data_files/'
 
 MIXED_OPEN = 'Mixed Open'
-MENS_OPEN = 'Mens Open'
-WOMENS_OPEN = 'Womens Open'
+MEN_OPEN = 'Mens Open'
+WOMEN_OPEN = 'Womens Open'
 SENIOR_MIX = 'Senior Mix Open'
-SENIOR_MENS = 'Senior Mens Open'
-SENIOR_WOMENS = 'Senior Womes Open'
+SENIOR_MEN = 'Senior Mens Open'
+SENIOR_WOMEN = 'Senior Womes Open'
 TOUCH_DIVISION_CHOICES = (
     ('MXO', MIXED_OPEN),
-    ('MO', MENS_OPEN),
-    ('WO', WOMENS_OPEN),
+    ('MO', MEN_OPEN),
+    ('WO', WOMEN_OPEN),
     ('SMX', SENIOR_MIX),
-    ('SMO', SENIOR_MENS),
-    ('SWO', SENIOR_WOMENS),
+    ('SMO', SENIOR_MEN),
+    ('SWO', SENIOR_WOMEN),
 )
 
 
@@ -72,6 +72,22 @@ class Tournament(models.Model):
             result = '{:s} - {:s}'.format(self.division, self.name)
         return result
 
+    def get_division_name(self):
+        for x in TOUCH_DIVISION_CHOICES:
+            if self.division == x[0]:
+                if 'MO' == x[0]:
+                    return MEN_OPEN
+                elif 'WO' == x[0]:
+                    return WOMEN_OPEN
+                elif 'MXO' == x[0]:
+                    return MIXED_OPEN
+                elif 'SMO' == x[0]:
+                    return SENIOR_MEN
+                elif 'SWO' == x[0]:
+                    return SENIOR_WOMEN
+                elif 'SMX' == x[0]:
+                    return SENIOR_MIX
+        assert "A name for the division: %s could not be found." % self.division
 
 class Player(models.Model):
     person = models.ForeignKey(Person)
@@ -114,8 +130,7 @@ class GameRound(models.Model):
     ordered_rounds = [FINAL, THIRD_POSITION, SEMI, FIFTH_POSITION, QUARTER, SIXTH_POSITION,
                       SEVENTH_POSITION, EIGHTH_POSITION, NINTH_POSITION, TENTH_POSITION,
                       ELEVENTH_POSITION, TWELFTH_POSITION, THIRTEENTH_POSITION, FOURTEENTH_POSITION,
-                      FIFTEENTH_POSITION, SIXTEENTH_POSITION, EIGHTEENTH_POSITION,
-                      TWENTIETH_POSITION]
+                      FIFTEENTH_POSITION, SIXTEENTH_POSITION, EIGHTEENTH_POSITION, TWENTIETH_POSITION]
 
     GAME_ROUND_CHOICES = (
         (FINAL, FINAL),
@@ -185,9 +200,49 @@ class GameRound(models.Model):
                     result = False
                 elif other.round == self.SEMI:
                     result = True
+                elif self.round == self.FIFTH_POSITION:
+                    result = False
+                elif other.round == self.FIFTH_POSITION:
+                    result = True
+                elif self.round == self.SIXTH_POSITION:
+                    result = False
+                elif other.round == self.SIXTH_POSITION:
+                    result = True
+                elif self.round == self.SEVENTH_POSITION:
+                    result = False
+                elif other.round == self.SEVENTH_POSITION:
+                    result = True
                 elif self.round == self.QUARTER:
                     result = False
                 elif other.round == self.QUARTER:
+                    result = True
+                elif self.round == self.NINTH_POSITION:
+                    result = False
+                elif other.round == self.NINTH_POSITION:
+                    result = True
+                elif self.round == self.TENTH_POSITION:
+                    result = False
+                elif other.round == self.TENTH_POSITION:
+                    result = True
+                elif self.round == self.ELEVENTH_POSITION:
+                    result = False
+                elif other.round == self.ELEVENTH_POSITION:
+                    result = True
+                elif self.round == self.TWELFTH_POSITION:
+                    result = False
+                elif other.round == self.TWELFTH_POSITION:
+                    result = True
+                elif self.round == self.THIRTEENTH_POSITION:
+                    result = False
+                elif other.round == self.THIRTEENTH_POSITION:
+                    result = True
+                elif self.round == self.FIFTEENTH_POSITION:
+                    result = False
+                elif other.round == self.FIFTEENTH_POSITION:
+                    result = True
+                elif self.round == self.SIXTEENTH_POSITION:
+                    result = False
+                elif other.round == self.SIXTEENTH_POSITION:
                     result = True
                 elif self.round == self.SIXTEENTH:
                     result = False
@@ -232,13 +287,61 @@ class GameRound(models.Model):
                     result = 1
                 elif other.round == self.SEMI:
                     result = -1
+                elif self.round == self.FIFTH_POSITION:
+                    result = 1
+                elif other.round == self.FIFTH_POSITION:
+                    result = -1
+                elif self.round == self.SIXTH_POSITION:
+                    result = 1
+                elif other.round == self.SIXTH_POSITION:
+                    result = -1
+                elif self.round == self.SEVENTH_POSITION:
+                    result = 1
+                elif other.round == self.SEVENTH_POSITION:
+                    result = -1
                 elif self.round == self.QUARTER:
                     result = 1
                 elif other.round == self.QUARTER:
                     result = -1
+                elif self.round == self.NINTH_POSITION:
+                    result = 1
+                elif other.round == self.NINTH_POSITION:
+                    result = -1
+                elif self.round == self.TENTH_POSITION:
+                    result = 1
+                elif other.round == self.TENTH_POSITION:
+                    result = -1
+                elif self.round == self.ELEVENTH_POSITION:
+                    result = 1
+                elif other.round == self.ELEVENTH_POSITION:
+                    result = -1
+                elif self.round == self.TWELFTH_POSITION:
+                    result = 1
+                elif other.round == self.TWELFTH_POSITION:
+                    result = -1
+                elif self.round == self.THIRTEENTH_POSITION:
+                    result = 1
+                elif other.round == self.THIRTEENTH_POSITION:
+                    result = -1
+                elif self.round == self.FIFTEENTH_POSITION:
+                    result = 1
+                elif other.round == self.FIFTEENTH_POSITION:
+                    result = -1
+                elif self.round == self.SIXTEENTH_POSITION:
+                    result = 1
+                elif other.round == self.SIXTEENTH_POSITION:
+                    result = -1
                 elif self.round == self.SIXTEENTH:
                     result = 1
                 elif other.round == self.SIXTEENTH:
+                    result = -1
+                elif self.round == self.EIGHTEENTH_POSITION:
+                    result = 1
+                elif other.round == self.EIGHTEENTH_POSITION:
+                    result = -1
+                elif self.round == self.TWENTIETH_POSITION:
+                    result = 1
+                elif other.round == self.TWENTIETH_POSITION:
                     result = -1
                 else:
                     raise Exception('Problem comparing values: %s and  %s' % (self.round, other.round))

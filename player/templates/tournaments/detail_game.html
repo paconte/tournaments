@@ -2,7 +2,7 @@
 
 {% block content %}
 
-{% if stadistics %}
+{% if statistics %}
 <table class="table table-striped table-condensed">
   <thead>
     <tr>
@@ -19,7 +19,7 @@
     </tr>
   </thead>
   <tbody>
-    {% for row in stadistics %}    
+    {% for row in statistics %}
     <tr>
       {% for value in row %}
       <td>{{value}}</td>

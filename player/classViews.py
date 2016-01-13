@@ -10,7 +10,6 @@ from player.models import PlayerStadistic
 from player.models import Tournament
 from player.models import Team
 from player.models import Person
-
 from player.service import Fixtures
 from player.service import StructuresUtils
 
@@ -27,12 +26,12 @@ class GameView(DetailView):
     def get_context_data(self, **kwargs):
         local_players = Player.objects.filter(team=self.object.local, tournaments_played=self.object.tournament)
         visitor_players = Player.objects.filter(team=self.object.visitor, tournaments_played=self.object.tournament)
-        stadistics = PlayerStadistic.objects.filter(game=self.object.id)
+        statistics = PlayerStadistic.objects.filter(game=self.object.id)
 
         context = super(GameView, self).get_context_data(**kwargs)
         context['tournament_list'] = Tournament.objects.all()
         context['game'] = self.object
-        context['stadistics'] = self.get_game_details_matrix(stadistics,
+        context['stadistics'] = self.get_game_details_matrix(statistics,
                                                              local_players,
                                                              visitor_players)
         return context
@@ -152,7 +151,7 @@ class TeamTournamentView(DetailView):
 
         d_all = {}
         for game in games:
-            if d_all.has_key(game.phase):
+            if game.phase in d_all:
                 phase_games = d_all.get(game.phase)
             else:
                 phase_games = []
@@ -162,16 +161,20 @@ class TeamTournamentView(DetailView):
         d_pools = {}
         d_finals = {}
         l_finals = []
-        for k, v in d_all.iteritems():
+        for k, v in d_all.items():
             if GameRound.is_pool(k):
                 d_pools.update({k: v})
+            elif k.round == GameRound.DIVISION:
+                pass
             else:
+                logging.debug(k)
                 d_finals.update({k: v})
                 l_finals.append(k)
 
         result = OrderedDict()
         for k in (sorted(d_pools)):
             result.update({k: d_pools.get(k)})
+        logging.debug(l_finals)
         for k in (sorted(l_finals, key=lambda final: GameRound.ordered_rounds.index(final.round), reverse=True)):
             result.update({k: d_finals.get(k)})
 
@@ -215,8 +218,8 @@ class TournamentView(DetailView):
         teams = Team.objects.filter(tournament__id=self.object.id)
 
         fixtures = Fixtures(games)
-        fixtures.sort_pools()
         pool_games = fixtures.sorted_pools
+        division_games = fixtures.sorted_divisions
         finals_games = fixtures.get_phased_finals({})
         st_utils = StructuresUtils()
 
@@ -226,8 +229,10 @@ class TournamentView(DetailView):
         context['games'] = games
         context['liga_games'] = fixtures.liga_games
         context['pool_games'] = pool_games
+        context['division_games'] = division_games
         context['finals_games'] = finals_games
         context['phased_finals_games'] = fixtures.get_phased_finals({})
         context['teams_matrix'] = st_utils.get_teams_matrix(teams, 4)
+        context['division'] = self.object.get_division_name()
 
         return context
