@@ -89,6 +89,7 @@ class Tournament(models.Model):
                     return SENIOR_MIX
         assert "A name for the division: %s could not be found." % self.division
 
+
 class Player(models.Model):
     person = models.ForeignKey(Person)
     team = models.ForeignKey(Team)
@@ -211,6 +212,10 @@ class GameRound(models.Model):
                 elif self.round == self.SEVENTH_POSITION:
                     result = False
                 elif other.round == self.SEVENTH_POSITION:
+                    result = True
+                elif self.round == self.EIGHTH_POSITION:
+                    result = False
+                elif other.round == self.EIGHTH_POSITION:
                     result = True
                 elif self.round == self.QUARTER:
                     result = False
