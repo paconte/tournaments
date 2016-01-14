@@ -186,7 +186,7 @@ class GameRound(models.Model):
 
     def is_pool(self):
         return self.round == self.POOL_A or self.round == self.POOL_B or self.round == self.POOL_C or \
-               self.round == self.POOL_D or self.round == self.POOL_E or self.round == self.POOL_E
+               self.round == self.POOL_D or self.round == self.POOL_E or self.round == self.POOL_F
 
     def __lt__(self, other):
         #        print('self = %s, other = %s' %(self, other))
