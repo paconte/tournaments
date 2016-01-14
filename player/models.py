@@ -126,6 +126,8 @@ class GameRound(models.Model):
     POOL_B = 'Pool B'
     POOL_C = 'Pool C'
     POOL_D = 'Pool D'
+    POOL_E = 'Pool E'
+    POOL_F = 'Pool F'
     LIGA = 'Liga'
 
     ordered_rounds = [FINAL, THIRD_POSITION, SEMI, FIFTH_POSITION, QUARTER, SIXTH_POSITION,
@@ -158,6 +160,8 @@ class GameRound(models.Model):
         (POOL_B, POOL_B),
         (POOL_C, POOL_C),
         (POOL_D, POOL_D),
+        (POOL_E, POOL_E),
+        (POOL_F, POOL_F),
         (LIGA, LIGA),
     )
 
@@ -181,7 +185,8 @@ class GameRound(models.Model):
         return '{:s} {:d} {:s}'.format(str(self.round), self.number_teams, self.category)
 
     def is_pool(self):
-        return self.round == self.POOL_A or self.round == self.POOL_B or self.round == self.POOL_C or self.round == self.POOL_D
+        return self.round == self.POOL_A or self.round == self.POOL_B or self.round == self.POOL_C or \
+               self.round == self.POOL_D or self.round == self.POOL_E or self.round == self.POOL_E
 
     def __lt__(self, other):
         #        print('self = %s, other = %s' %(self, other))

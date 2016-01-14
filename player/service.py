@@ -227,10 +227,7 @@ class Fixtures:
             # split games in different rounds
             if game.phase.round == GameRound.LIGA:
                 self.liga_games.update({game.id: game})
-            elif (game.phase.round == GameRound.POOL_A
-                  or game.phase.round == GameRound.POOL_B
-                  or game.phase.round == GameRound.POOL_C
-                  or game.phase.round == GameRound.POOL_D):
+            elif GameRound.is_pool(game.phase):
                 self.pool_games.update({game.id: game})
             else:
                 self.playoff_games.update({game.id: game})
