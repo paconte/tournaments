@@ -197,6 +197,9 @@ class DjangoCsvFetcher:
         local_team, created = create_or_fetch_team(csv_game.local, csv_game.division)
         DjangoSimpleFetcher.print_fetch_result(local_team, created)
 
+        if created:
+            add_team_to_tournament(tournament, local_team)
+
         phase, created = DjangoCsvFetcher.create_csv_phase(csv_game, False)
         time = csv_game.time if csv_game.time else None
 
@@ -205,9 +208,6 @@ class DjangoCsvFetcher:
             DjangoSimpleFetcher.print_fetch_result(field, created)
         else:
             field = None
-
-        if created:
-            add_team_to_tournament(tournament, local_team)
 
         visitor_team, created = create_or_fetch_team(csv_game.visitor, csv_game.division)
         DjangoSimpleFetcher.print_fetch_result(visitor_team, created)
