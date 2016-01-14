@@ -218,7 +218,7 @@ class DjangoCsvFetcher:
         game, created = DjangoSimpleFetcher.create_game(
             tournament, phase, field, time, local_team, visitor_team, csv_game.local_score, csv_game.visitor_score)
         DjangoSimpleFetcher.print_fetch_result(game, created)
-        assert created, "The game already exists"
+        #assert created, "The game already exists"
 
     @staticmethod
     def create_or_fetch_person(row):
@@ -610,7 +610,9 @@ class CsvReader:
 
     def create_django_object(self, csv_object):
         if self._type == self.PHASE and isinstance(csv_object, csvdata.CsvPhase):
-            DjangoCsvFetcher.create_csv_phase(csv_object, True)
+            phase, created = DjangoSimpleFetcher.get_or_create_game_phase(
+                    csv_object.category, csv_object.round, csv_object.teams, True)
+            DjangoSimpleFetcher.print_fetch_result(phase, created)
         elif self._type == self.TOURNAMENT and isinstance(csv_object, csvdata.CsvGame):
             DjangoCsvFetcher.create_csv_game(csv_object)
         elif self._type == self.NTS_STADISTIC and isinstance(csv_object, csvdata.CsvNTSStadistic):
@@ -633,10 +635,10 @@ class CsvReader:
         print('\nFinished reading {:s}...\n'.format(self._type))
 
 
-# reader = CsvReader("phase")
-# reader.read_file('./player/data_files/csv/TPhases.csv', csvdata.CsvPhase)
+#reader = CsvReader(CsvReader.PHASE)
+#reader.read_file('./player/data_files/csv/TPhases.csv', csvdata.CsvPhase)
 reader = CsvReader(CsvReader.TOURNAMENT)
-reader.read_file('./player/data_files/csv/TGames_WC2015_MO_RAW.csv', csvdata.CsvPhase)
+reader.read_file('./player/data_files/csv/TGames_WC2015_MX_RAW.csv', csvdata.CsvPhase)
 #reader = CsvReader(CsvReader.NTS_STADISTIC)
 #reader.read_file('./player/NTS-player-stadistics.csv', csvdata.CsvNTSStadistic)
 
