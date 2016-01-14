@@ -243,25 +243,6 @@ class Fixtures:
         self.sorted_pools = self.__sort_rows(self.pool_rows)
         self.__sort_divisions()
 
-        # for game in self.pool_games.values():
-        #     if game.local.id in self.pool_rows:
-        #         row = self.pool_rows.get(game.local.id)
-        #         row.add_game(game)
-        #     else:
-        #         row = ClassificationRow(game.local, game.phase)
-        #         row.add_game(game)
-        #
-        #     self.pool_rows.update({game.local.id: row})
-        #
-        #     if game.visitor.id in self.pool_rows:
-        #         row = self.pool_rows.get(game.visitor.id)
-        #         row.add_game(game)
-        #     else:
-        #         row = ClassificationRow(game.visitor, game.phase)
-        #         row.add_game(game)
-        #
-        #     self.pool_rows.update({game.visitor.id: row})
-
     def __create_rows(self, games):
         result = {}
         for game in games.values():
@@ -346,12 +327,12 @@ class Fixtures:
         result = {}
         sorted_result = collections.OrderedDict()
         finals = self.get_finals({})
-        oldphase = GameRound.GOLD
+        old_phase = GameRound.GOLD
         variable = {}
         for key in finals:
-            if key.category != oldphase:
+            if key.category != old_phase:
                 variable = {}
-                oldphase = key.category
+                old_phase = key.category
             variable.update({key: finals[key]})
             # result.update({key.category:variable})
             result.update({key.category: collections.OrderedDict(sorted(variable.items()))})

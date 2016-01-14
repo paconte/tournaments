@@ -120,7 +120,7 @@ class GameRound(models.Model):
     FIFTEENTH_POSITION = 'Fifteenth position'
     SIXTEENTH_POSITION = 'Sixteenth position'
     EIGHTEENTH_POSITION = 'Eighteenth position'
-    TWENTIETH_POSITION = 'Nineteenth position'
+    TWENTIETH_POSITION = 'Twentieth position'
     DIVISION = 'Division'
     POOL_A = 'Pool A'
     POOL_B = 'Pool B'
@@ -257,6 +257,14 @@ class GameRound(models.Model):
                 elif self.round == self.SIXTEENTH:
                     result = False
                 elif other.round == self.SIXTEENTH:
+                    result = True
+                elif self.round == self.EIGHTEENTH_POSITION:
+                    result = False
+                elif other.round == self.EIGHTEENTH_POSITION:
+                    result = True
+                elif self.round == self.TWENTIETH_POSITION:
+                    result = False
+                elif other.round == self.TWENTIETH_POSITION:
                     result = True
                 else:
                     raise Exception('Problem comparing values: %s and  %s' % (self.round, other.round))
