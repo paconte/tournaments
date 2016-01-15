@@ -49,7 +49,7 @@
 	<tbody>
 	  {% for value in list %}
 	  <tr>
-	    <td>{{value.team}}</td>
+	    <td>{{value.team.name}}</td>
 	    <td>{{value.played}}</td>
 	    <td>{{value.won}}</td>
 	    <td>{{value.lost}}</td>
@@ -78,11 +78,11 @@
 	        <tr>
 		  {% if game.time %}<td class="text-center">{{game.time|date:"H:i"}}</td>{% endif %}
 		  {% if game.field %}<td class="col-sm-2 text-center">{{game.field}}</td>{% endif %}
-		  <td class="col-sm-5">{{game.local}}</td>
+		  <td class="col-sm-5">{{game.local.name}}</td>
 		  <td class="success text-center">{{game.local_score}}</td>
 		  <td class="text-center">v</td>
 		  <td class="success text-center">{{game.visitor_score}}</td>
-		  <td class="col-sm-5 text-right">{{game.visitor}}</td>
+		  <td class="col-sm-5 text-right">{{game.visitor.name}}</td>
 		  <td class="text-center"><a href="{% url 'detail_game' game.id %}">link</a></td>
 		</tr>
               {% endif %}
@@ -126,7 +126,7 @@
 			<tbody>
 			{% for value in values2 %}
 			<tr>
-				<td>{{value.team}}</td>
+				<td>{{value.team.name}}</td>
 				<td>{{value.played}}</td>
 				<td>{{value.won}}</td>
 				<td>{{value.lost}}</td>
@@ -158,11 +158,11 @@
 				{% if game.field %}
 				<td class="col-sm-2 text-center">{{game.field}}</td>
 				{% endif %}
-				<td class="col-sm-5">{{game.local}}</td>
+				<td class="col-sm-5">{{game.local.name}}</td>
 				<td class="success text-center">{{game.local_score}}</td>
 				<td class="text-center">v</td>
 				<td class="success text-center">{{game.visitor_score}}</td>
-				<td class="col-sm-5 text-right">{{game.visitor}}</td>
+				<td class="col-sm-5 text-right">{{game.visitor.name}}</td>
 				<td class="text-center"><a href="{% url 'detail_game' game.id %}">link</a></td>
 			</tr>
 			{% endif %}
@@ -210,7 +210,7 @@
 	  <tr>
 	    {% if values3.time %}<td class="col-sm-1 text-center">{{values3.time|date:"H:i"}}</td>{% endif %}
 	    {% if values3.field %}<td class="col-sm-1 text-center">{{values3.field}}</td>{% endif %}
-	    <td class="col-sm-3">{{values3.local}}</td>
+	    <td class="col-sm-3">{{values3.local.name}}</td>
 	    {% if key1 == "Gold" %}
 	    <td class="gold text-center">{{values3.local_score}}</td>
 	    {% elif key1 == "Silver" %}
@@ -230,7 +230,7 @@
 	    {% elif key1 == "Wood" %}
 	    <td class="wood text-center">{{values3.visitor_score}}</td>
 	    {% endif %}
-	    <td class="col-sm-3 text-right">{{values3.visitor}}</td>
+	    <td class="col-sm-3 text-right">{{values3.visitor.name}}</td>
 	    <td class="text-center col-sm-1"><a href="{% url 'detail_game' values3.id %}">link</a></td>
 	  </tr>
 	{% endfor %}
