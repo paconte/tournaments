@@ -380,7 +380,7 @@ def DRAW_POINTS(game):
     if game.tournament.name == "World Cup 2015":
         return 2
     else:
-        return
+        return 1
 
 def LOST_POINTS(game):
     return 1
