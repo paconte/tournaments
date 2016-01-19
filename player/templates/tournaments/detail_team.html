@@ -51,11 +51,11 @@
       {% for game in games %}
       <tr>
 	<td class="col-sm-3">{{game.tournament.name}}</td>
-	<td class="col-sm-3">{{game.local}}</td>
+	<td class="col-sm-3">{{game.local.name}}</td>
 	<td class="col-sm-0 success text-center">{{game.local_score}}</td>
 	<td class="text-center">v</td> 
 	<td class="success text-center">{{game.visitor_score}}</td>
-	<td class="col-sm-3 text-right">{{game.visitor}}</td>	
+	<td class="col-sm-3 text-right">{{game.visitor.name}}</td>
 	<td class="text-center"><a href="{% url 'detail_game' game.id %}">link</a></td>
       </tr>
       {% endfor %}
