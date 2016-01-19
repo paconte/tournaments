@@ -52,6 +52,15 @@ ROOT_URLCONF = 'restdjango.urls'
 
 WSGI_APPLICATION = 'restdjango.wsgi.application'
 
+# App Admins and Managers:
+
+ADMINS = (
+    ('Francisco Revilla', 'paconte@gmail.com'),
+)
+
+MANAGERS = (
+    ('Francisco Revilla', 'paconte@gmail.com'),
+)
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
@@ -82,6 +91,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
+# LOGGING configuration
 
 LOGGING = {
     'version': 1,
