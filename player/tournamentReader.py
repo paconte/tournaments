@@ -14,7 +14,6 @@ from player.models import Tournament
 
 from django.core.exceptions import MultipleObjectsReturned
 from django.core.exceptions import ObjectDoesNotExist
-from urllib.request import urlopen
 
 # PHASES_INDEXES
 PH_PHASE_ROUND_INDEX = 0
