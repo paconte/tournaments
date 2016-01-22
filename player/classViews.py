@@ -31,7 +31,7 @@ class GameView(DetailView):
         context = super(GameView, self).get_context_data(**kwargs)
         context['tournament_list'] = Tournament.objects.all()
         context['game'] = self.object
-        context['stadistics'] = self.get_game_details_matrix(statistics,
+        context['statistics'] = self.get_game_details_matrix(statistics,
                                                              local_players,
                                                              visitor_players)
         return context
