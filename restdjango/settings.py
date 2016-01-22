@@ -69,7 +69,15 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    },
+    #'default': {
+    #    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #    'NAME': 'touchDBp1',
+    #    'USER': 'touchDB',
+    #    'PASSWORD': 'touchDB',
+    #    'HOST': 'localhost',  # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+    #    'PORT': '',           # Set to empty string for default.
+    #}
 }
 
 # Internationalization
