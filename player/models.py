@@ -89,6 +89,13 @@ class Tournament(models.Model):
                     return SENIOR_MIX
         assert "A name for the division: %s could not be found." % self.division
 
+    def __lt__(self, other):
+        if self.name >= other.name:
+            result = False
+        else:
+            result = True
+        return result
+
 
 class Player(models.Model):
     person = models.ForeignKey(Person)
