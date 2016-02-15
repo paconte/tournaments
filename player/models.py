@@ -273,6 +273,14 @@ class GameRound(models.Model):
                     result = False
                 elif other.round == self.TWENTIETH_POSITION:
                     result = True
+                elif self.round == self.DIVISION:
+                    result = False
+                elif other.round == self.DIVISION:
+                    result = True
+                elif self.round in {self.POOL_A, self.POOL_B, self.POOL_C, self.POOL_D, self.POOL_E, self.POOL_F}:
+                    result = False
+                elif other.round in {self.POOL_A, self.POOL_B, self.POOL_C, self.POOL_D, self.POOL_E, self.POOL_F}:
+                    result = True
                 else:
                     raise Exception('Problem comparing values: %s and  %s' % (self.round, other.round))
         else:
