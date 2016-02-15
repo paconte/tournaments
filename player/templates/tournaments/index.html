@@ -15,58 +15,57 @@
 
  <!-- Example row of columns -->
  <div class="row">
-   
-   <div class="col-lg-6">
-     <div class="jumbotron">
-       <h2>Select a tournament</h2>
-       <p>Find a tournament and check all fixtures and results.</p>
-       <div class="dropdown">
-	 <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Tournaments
-	   <span class="caret"></span>
-	 </button>       
-	 <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-	   {% if tournament_list %}
-	     {% for t in tournament_list %}
-           <li><a href="{% url 'detail_tournament' t.id %}"> {{ t.name }}</a></li><br />
-	     {% endfor %}
-	   {% else %}
-	   <li><a role="menuitem" tabindex="-1" href="#">No available tournaments</a></li>
-	   {% endif %}
-	 </ul>
-       </div>
+
+     <div class="col-lg-6">
+         <div class="jumbotron">
+             <h2>Select a tournament</h2>
+             <p>Find a tournament and check all fixtures and results.</p>
+             <div class="dropdown">
+                 <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+                     Tournaments
+                     <span class="caret"></span>
+                 </button>
+                 <ul class="dropdown-menu multilevel" role="menu">
+                         {% include "tournaments/list_tournaments.html" %}
+                 </ul>
+
+
+             </div>
+         </div>
      </div>
-   </div>
-   
-   <div class="col-lg-6">
-     <div class="jumbotron">
-       <h2>Search</h2>
-       <p>Find a player, team or tournament and check all the results and fixtures.</p>
-       <div class="dropdown">
-	 <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Searchs
-	   <span class="caret"></span>
-	 </button>	 
-	 <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-	   <li><a href="{% url 'search_team' %}">Team</a></li>
-	   <li><a href="{% url 'search_person' %}">Person</a></li>
-	   <li><a href="{% url 'search_person' %}">Tournament</a></li>
-	 </ul>
-       </div>
+
+     <div class="col-lg-6">
+         <div class="jumbotron">
+             <h2>Search</h2>
+             <p>Find a player, team or tournament and check all the results and fixtures.</p>
+             <div class="dropdown">
+                 <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Searchs
+                     <span class="caret"></span>
+                 </button>
+                 <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                     <li><a href="{% url 'search_team' %}">Team</a></li>
+                     <li><a href="{% url 'search_person' %}">Person</a></li>
+                     <li><a href="{% url 'search_person' %}">Tournament</a></li>
+                 </ul>
+             </div>
+         </div>
      </div>
-   </div>
 
  </div>
  {% endblock %}
 
 {% block sidebar_tournaments %}
 {% if tournament_list %}
-    <p>
+<p>
     {% for t in tournament_list %}
-        <!-- <li><a href="/tournaments/{{ t.id }}/">{{ t.name }}</a></li> -->
-        <li><a href="{% url 'detail_tournament' t.id %}"> {{ t.name }}</a></li><br />
+    <!-- <li><a href="/tournaments/{{ t.id }}/">{{ t.name }}</a></li> -->
+    <!-- <li><a href="{% url 'detail_tournament' t.id %}"> {{ t.name }}</a></li><br/> -->
     {% endfor %}
-    </p>
+
+    {% include "tournaments/list_tournaments.html" %}
+</p>
 {% else %}
-    <p>No tournaments are available.</p>
+<p>No tournaments are available.</p>
 {% endif %}
-    <br />
+<br/>
 {% endblock %}

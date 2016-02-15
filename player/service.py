@@ -370,6 +370,21 @@ class TeamsMatrix:
                 i += 1
 
 
+def sort_tournament_list(tournament_list):
+    result = {"England": list(), "Nationals": list(), "Germany": list()}
+    for t in tournament_list:
+        if 'NTS' in t.name:
+            result["England"].append(t)
+        elif 'World Cup' in t.name:
+            result["Nationals"].append(t)
+        elif 'Capital Cup' in t.name:
+            result["Germany"].append(t)
+        else:
+            raise Exception('Tournament name %s not recognized.' % t.name)
+    result["England"] = sorted(result.get("England"))
+    return result
+
+
 def WIN_POINTS(game):
     if game.tournament.name == "World Cup 2015":
         return 3

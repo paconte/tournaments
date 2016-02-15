@@ -1,28 +1,27 @@
-from django.http import Http404
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.template import RequestContext, loader
 from django.db.models import Q
+from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
-from player.models import Tournament
+from django.shortcuts import render
+from django.template import RequestContext, loader
+
+from player.forms import ContactForm
+from player.forms import PersonSearchForm
+from player.forms import TeamSearchForm
 from player.models import Game
 from player.models import GameRound
-from player.models import Team
+from player.models import Person
 from player.models import Player
 from player.models import PlayerStadistic
-from player.models import Person
-from django.views.generic import DetailView
-from player.forms import ContactForm
-from player.forms import TeamSearchForm
-from player.forms import PersonSearchForm
-
+from player.models import Team
+from player.models import Tournament
 from player.service import Fixtures
-from player.service import TeamsMatrix
 from player.service import StructuresUtils
+from player.service import TeamsMatrix
 
-
+from player.service import sort_tournament_list
 
 # Create your views here.
+
 
 def index(request):
     """
@@ -34,8 +33,13 @@ def index(request):
         A django HttpResponse class
     """
     tournament_list = Tournament.objects.all()
+    sort_tournament = sort_tournament_list(tournament_list)
     template = loader.get_template('tournaments/index.html')
-    context = RequestContext(request, {'tournament_list': tournament_list, })
+    context = RequestContext(request, {'tournament_list': tournament_list,
+                                       'england': sort_tournament['England'],
+                                       'germany': sort_tournament['Germany'],
+                                       'nationals': sort_tournament['Nationals'],
+                                       })
     return HttpResponse(template.render(context))
 
 
@@ -50,8 +54,13 @@ def about(request):
     """
 
     tournament_list = Tournament.objects.all()
+    sort_tournament = sort_tournament_list(tournament_list)
     template = loader.get_template('tournaments/about.html')
-    context = RequestContext(request, {'tournament_list': tournament_list, })
+    context = RequestContext(request, {'tournament_list': tournament_list,
+                                       'england': sort_tournament['England'],
+                                       'germany': sort_tournament['Germany'],
+                                       'nationals': sort_tournament['Nationals'],
+                                       })
     return HttpResponse(template.render(context))
 
 
@@ -69,6 +78,7 @@ def contact(request):
 
     success = False  # true if form has been saved otherwise false
     tournament_list = Tournament.objects.all()
+    sort_tournament = sort_tournament_list(tournament_list)
     template = loader.get_template('tournaments/contact.html')
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -81,12 +91,18 @@ def contact(request):
 
     context = RequestContext(request, {'tournament_list': tournament_list,
                                        'form': form,
-                                       'sucess': success})
+                                       'success': success,
+                                       'england': sort_tournament['England'],
+                                       'germany': sort_tournament['Germany'],
+                                       'nationals': sort_tournament['Nationals'],
+                                       })
 
     return HttpResponse(template.render(context))
 
 
 def search_team(request):
+    tournament_list = Tournament.objects.all()
+    sort_tournament = sort_tournament_list(tournament_list)
     template = loader.get_template('tournaments/search_team.html')
     success = False
     teams = None
@@ -100,12 +116,19 @@ def search_team(request):
     else:
         form = TeamSearchForm()
 
-    context = RequestContext(request, {'form': form, 'result': teams, 'success': success})
+    context = RequestContext(request, {'form': form, 'result': teams, 'success': success,
+                                       'tournament_list': tournament_list,
+                                       'england': sort_tournament['England'],
+                                       'germany': sort_tournament['Germany'],
+                                       'nationals': sort_tournament['Nationals'],
+                                       })
 
     return HttpResponse(template.render(context))
 
 
 def search_person(request):
+    tournament_list = Tournament.objects.all()
+    sort_tournament = sort_tournament_list(tournament_list)
     template = loader.get_template('tournaments/search_person.html')
     success = False
     persons = None
@@ -128,7 +151,12 @@ def search_person(request):
     else:
         form = PersonSearchForm()
 
-    context = RequestContext(request, {'form': form, 'result': persons, 'success': success})
+    context = RequestContext(request, {'form': form, 'result': persons, 'success': success,
+                                       'tournament_list': tournament_list,
+                                       'england': sort_tournament['England'],
+                                       'germany': sort_tournament['Germany'],
+                                       'nationals': sort_tournament['Nationals'],
+                                       })
 
     return HttpResponse(template.render(context))
 

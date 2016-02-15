@@ -12,6 +12,7 @@ from player.models import Team
 from player.models import Person
 from player.service import Fixtures
 from player.service import StructuresUtils
+from player.service import sort_tournament_list
 
 import logging
 
@@ -222,10 +223,12 @@ class TournamentView(DetailView):
         division_games = fixtures.sorted_divisions
         finals_games = fixtures.get_phased_finals({})
         st_utils = StructuresUtils()
+        tournament_list = Tournament.objects.all()
+        sort_tournament = sort_tournament_list(tournament_list)
 
         context = super(TournamentView, self).get_context_data(**kwargs)
         context['tournament'] = self.object
-        context['tournament_list'] = Tournament.objects.all()
+        context['tournament_list'] = tournament_list
         context['games'] = games
         context['liga_games'] = fixtures.liga_games
         context['pool_games'] = pool_games
@@ -234,5 +237,8 @@ class TournamentView(DetailView):
         context['phased_finals_games'] = fixtures.get_phased_finals({})
         context['teams_matrix'] = st_utils.get_teams_matrix(teams, 4)
         context['division'] = self.object.get_division_name()
+        context['england'] = sort_tournament['England']
+        context['germany'] = sort_tournament['Germany']
+        context['nationals'] = sort_tournament['Nationals']
 
         return context
