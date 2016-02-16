@@ -149,18 +149,25 @@ def convert_time(arg1, arg2):
 
 def get_game_nteams(game):
     return game[1]
+
 def get_game_date(game):
     return time.strftime("%m/%d/%y", game[3])
+
 def get_game_time(game):
     return time.strftime("%H:%M", game[3])
+
 def get_game_field(game):
     return game[4]
+
 def get_game_local(game):
     return game[5]
+
 def get_game_local_score(game):
     return game[6]
+
 def get_game_visitor_score(game):
     return game[7]
+
 def get_game_visitor(game):
     return game[8]
 
@@ -205,6 +212,7 @@ def get_game_round(game):
     else:
         result = game[0]        
     return result
+
 def get_game_category(game):
     if game[0] == 'Division 2':
         result = 'Silver'
@@ -242,9 +250,6 @@ def write_csv(games, fname):
         for game in games:
             spamwriter.writerow(game)
 
-
-
-
 #remote_file = WC2015_WO_URL
 remote_file = WC2015_MX_URL
 #local_file = WC2015_WO_FILE
@@ -264,13 +269,6 @@ groups = extract_groups(soup)
 comp_games = assign_games_to_groups(web_games, groups)
 csv_games = games_to_csv_array(comp_games, 'World Cup 2015', category)
 write_csv(csv_games, generated_file)
-for game in csv_games:
-    print '%s\n' % (game)
-    break
-    
-print 'len(web_games) = %s' % len(web_games)
-print 'len(comp_games) = %s' % len(comp_games)
-print 'len(csv_games) = %s' % len(csv_games)
     
 
 
