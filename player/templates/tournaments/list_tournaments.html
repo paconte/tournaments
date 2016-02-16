@@ -1,0 +1,36 @@
+{% if nationals %}
+<li class="dropdown-submenu">
+    <a tabindex="-1" href="#">Nationals</a>
+    <ul class="dropdown-menu">
+        {% for t in nationals %}
+        <li><a tabindex="-1" href="{% url 'detail_tournament' t.id %}">{{ t.name }} - {{t.division}}</a></li>
+        {% endfor %}
+    </ul>
+</li><br/>
+{% endif%}
+
+{% if england %}
+<li class="dropdown-submenu">
+    <a tabindex="-1" href="#">England</a>
+    <ul class="dropdown-menu">
+        {% for t in england %}
+        <li><a tabindex="-1" href="{% url 'detail_tournament' t.id %}">{{ t.name }}</a></li>
+        {% endfor %}
+    </ul>
+</li><br/>
+{% endif %}
+
+{% if germany %}
+<li class="dropdown-submenu">
+    <a tabindex="-1" href="#">Germany</a>
+    <ul class="dropdown-menu">
+        {% for t in germany %}
+        <li><a tabindex="-1" href="{% url 'detail_tournament' t.id %}">{{ t.name }}</a></li>
+        {% endfor %}
+    </ul>
+</li>
+{% endif %}
+
+</p>
+
+<br/>
