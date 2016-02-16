@@ -631,38 +631,15 @@ class CsvReader:
                     self.print_row_to_read(row)
                     csv_object = self.get_csv_object(row)
                     self.create_django_object(csv_object)
-        print('\nFinished reading {:s}...\n'.format(self._type))
+        print('\nFinished reading {:s}...[0=PHASE, 1=TOURNAMENT, 2=NTS_STADISTIC]\n'.format(str(self._type)))
 
 
-#reader = CsvReader(CsvReader.PHASE)
-#reader.read_file('./player/data_files/csv/TPhases.csv', csvdata.CsvPhase)
-reader = CsvReader(CsvReader.TOURNAMENT)
-reader.read_file('./player/data_files/csv/TGames_WC2015_MX_RAW.csv', csvdata.CsvPhase)
+reader = CsvReader(CsvReader.PHASE)
+reader.read_file('./player/data_files/csv/TPhases.csv', csvdata.CsvPhase)
+#reader = CsvReader(CsvReader.TOURNAMENT)
+#reader.read_file('./player/data_files/csv/TGames_WC2015_MX_RAW.csv', csvdata.CsvPhase)
 #reader = CsvReader(CsvReader.NTS_STADISTIC)
 #reader.read_file('./player/NTS-player-stadistics.csv', csvdata.CsvNTSStadistic)
-
-DATA_PATH = './player/data_files/'
-CSV_PATH = DATA_PATH + 'csv/'
-# fname './player/test.csv'
-# phases = './player/TPhases.csv'
-# fname = './player/WC2015_WO_GENERATED.csv'
-# fname = './player/WC2015_MX_GENERATED.csv'
-# print(DATA_FILES)
-# fname = WC2015_MO_CSV
-fname = ""
-
 # read_tournament_games('./player/data_files/csv/TGames_WC2015_MO_RAW.csv')
 exit(0)
-if os.path.isfile(fname):
-    if (fname == WC2015_MO_CSV or fname == WC2015_WO_CSV or fname == WC2015_MXO_CSV):
-        read_tournament_games(fname)
-    elif (fname == './player/data_files/csv/TPhases.csv'):
-        readPhases(fname)
-    elif (fname == './player/data_files/csv/test.csv'):
-        readTournamentStadistic(fname)
-else:
-    print('ERROR: {:s} is not a file'.format(fname))
 
-# fname = 'http://www.touchworldcup.com/'
-# fname = 'http://www.foxsportspulse.com/comp_info.cgi?a=ROUND&compID=360314&c=1-9035-0-0-0'
-# readWorldCup(fname)
