@@ -189,7 +189,7 @@ class GameRound(models.Model):
     category = models.CharField(default=GOLD, max_length=6, null=False, blank=False, choices=CATEGORY_ROUND_CHOICES)
 
     def __str__(self):
-        return '{:s} {:d} {:s}'.format(str(self.round), self.number_teams, self.category)
+        return '{:s} {:s} {:s}'.format(str(self.round), str(self.number_teams), str(self.category))
 
     def is_pool(self):
         return self.round == self.POOL_A or self.round == self.POOL_B or self.round == self.POOL_C or \
