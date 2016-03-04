@@ -55,8 +55,9 @@ EIGHTEENTH_POSITION = 'Eighteenth position'
 TWENTIETH_POSITION = 'Twentieth position'
 
 # CONSTANTS DIRECTORIES
-DATA_FILES = './data_files/'
+DATA_FILES = './player/data_files/'
 RAW_FILES = DATA_FILES + 'raw/'
+STATISTIC_RAW_FILES = RAW_FILES + 'statistics/'
 CSV_FILES = DATA_FILES + 'csv/'
 
 # CONSTANTS FILE NAMES
@@ -64,6 +65,9 @@ GAME_PREFIX = 'TGames'
 WC2015_MO_URL = 'http://www.internationaltouch.org/events/world-cup/2015/mens/'
 WC2015_WO_URL = 'http://www.internationaltouch.org/events/world-cup/2015/womens/'
 WC2015_MXO_URL = 'http://www.internationaltouch.org/events/world-cup/2015/mixed/'
+WC2015_MO_FOX_RAW = RAW_FILES + 'WC2015_MO_FOX_RAW.html'
+WC2015_WO_FOX_RAW = RAW_FILES + 'WC2015_WO_FOX_RAW.html'
+WC2015_MXO_FOX_RAW = RAW_FILES + 'WC2015_MXO_FOX_RAW.html'
 WC2015_MO_RAW = RAW_FILES + 'WC2015_MO_RAW.txt'
 WC2015_WO_RAW = RAW_FILES + 'WC2015_WO_RAW.txt'
 WC2015_MXO_RAW = RAW_FILES + 'WC2015_MX_RAW.txt'
@@ -77,126 +81,119 @@ WC2015_RE_FINALS = '[Grand Final|Bronze|Playoff ]'
 
 
 class CsvNTSStadistic:
-    def __init__(self, row):
-        self._tournament_name = row[PL_ST_TOURNAMENT_INDEX]
-        self._division = row[PL_ST_DIVISION_INDEX]
-        self._team = row[PL_ST_TEAM_INDEX]
-        self._number = row[PL_ST_NUMBER_INDEX]
-        self._first_name = row[PL_ST_FIRST_NAME_INDEX]
-        self._last_name = row[PL_ST_LAST_NAME_INDEX]
-        self._gender = row[PL_ST_GENDER_INDEX]
-        self._tries = row[PL_ST_PLAYER_TRIES_INDEX]
-        self._local = row[PL_ST_LOCAL_TEAM_INDEX]
-        self._local_score = row[PL_ST_LOCAL_TEAM_SCORE_INDEX]
-        self._visitor_score = row[PL_ST_VISITOR_TEAM_SCORE_INDEX]
-        self._visitor = row[PL_ST_VISITOR_TEAM_INDEX]
-        self._category = row[PL_ST_GAME_CATEGORY_INDEX]
-        self._round = row[PL_ST_GAME_ROUND_INDEX]
-        self._team_numbers = row[PL_ST_PHASE_TEAMS_INDEX]
+    def __init__(self, row, tname=None, division=None, team=None, number=None, first_name=None, last_name=None,
+                 gender=None, tries=None, local=None, local_score=None, visitor_score=None, visitor=None, category=None,
+                 round=None, team_numbers=None):
+        if row:
+            self._tournament_name = row[PL_ST_TOURNAMENT_INDEX]
+            self._division = row[PL_ST_DIVISION_INDEX]
+            self._team = row[PL_ST_TEAM_INDEX]
+            self._number = row[PL_ST_NUMBER_INDEX]
+            self._first_name = row[PL_ST_FIRST_NAME_INDEX]
+            self._last_name = row[PL_ST_LAST_NAME_INDEX]
+            self._gender = row[PL_ST_GENDER_INDEX]
+            self._tries = row[PL_ST_PLAYER_TRIES_INDEX]
+            self._local = row[PL_ST_LOCAL_TEAM_INDEX]
+            self._local_score = row[PL_ST_LOCAL_TEAM_SCORE_INDEX]
+            self._visitor_score = row[PL_ST_VISITOR_TEAM_SCORE_INDEX]
+            self._visitor = row[PL_ST_VISITOR_TEAM_INDEX]
+            self._category = row[PL_ST_GAME_CATEGORY_INDEX]
+            self._round = row[PL_ST_GAME_ROUND_INDEX]
+            self._team_numbers = row[PL_ST_PHASE_TEAMS_INDEX]
+        else:
+            self._tournament_name = tname
+            self._division = division
+            self._team = team
+            self._number = number
+            self._first_name = first_name
+            self._last_name = last_name
+            self._gender = gender
+            self._tries = tries
+            self._local = local
+            self._local_score = local_score
+            self._visitor_score = visitor_score
+            self._visitor = visitor
+            self._category = category
+            self._round = round
+            self._team_numbers = team_numbers
 
     @property
-    def tournament_name(self):
-        return self._tournament_name
+    def tournament_name(self): return self._tournament_name
 
     @tournament_name.setter
-    def tournament_name(self, tournament_name):
-        self._tournament_name = tournament_name
+    def tournament_name(self, tournament_name): self._tournament_name = tournament_name
 
     @property
-    def division(self):
-        return self._division
+    def division(self): return self._division
 
     @division.setter
-    def division(self, division):
-        self._division = division
+    def division(self, division): self._division = division
 
     @property
-    def team(self):
-        return self._team
+    def team(self): return self._team
 
     @team.setter
-    def team(self, team):
-        self._team = team
+    def team(self, team): self._team = team
 
     @property
-    def number(self):
-        return self._number
+    def number(self): return self._number
 
     @number.setter
-    def number(self, number):
-        self._number = number
+    def number(self, number): self._number = number
 
     @property
-    def first_name(self):
-        return self._first_name
+    def first_name(self): return self._first_name
 
     @first_name.setter
-    def first_name(self, first_name):
-        self._first_name = first_name
+    def first_name(self, first_name): self._first_name = first_name
 
     @property
-    def last_name(self):
-        return self._last_name
+    def last_name(self): return self._last_name
 
     @last_name.setter
-    def last_name(self, last_name):
-        self._last_name = last_name
+    def last_name(self, last_name): self._last_name = last_name
 
     @property
-    def gender(self):
-        return self._gender
+    def gender(self): return self._gender
 
     @gender.setter
-    def gender(self, gender):
-        self._gender = gender
+    def gender(self, gender): self._gender = gender
 
     @property
-    def tries(self):
-        return self._tries
+    def tries(self): return self._tries
 
     @tries.setter
-    def tries(self, tries):
-        self._tries = tries
+    def tries(self, tries): self._tries = tries
 
     @property
-    def local(self):
-        return self._local
+    def local(self): return self._local
 
     @local.setter
-    def local(self, local):
-        self._local = local
+    def local(self, local): self._local = local
 
     @property
-    def local_score(self):
-        return self._local_score
+    def local_score(self): return self._local_score
 
     @local_score.setter
-    def local_score(self, local_score):
-        self._local_score = local_score
+    def local_score(self, local_score): self._local_score = local_score
 
     @property
-    def visitor_score(self):
-        return self._visitor_score
+    def visitor_score(self): return self._visitor_score
 
     @visitor_score.setter
-    def visitor_score(self, visitor_score):
-        self._visitor_score = visitor_score
+    def visitor_score(self, visitor_score): self._visitor_score = visitor_score
 
     @property
-    def visitor(self):
-        return self._visitor
+    def visitor(self): return self._visitor
 
     @visitor.setter
-    def visitor(self, visitor):
-        self._visitor = visitor
+    def visitor(self, visitor): self._visitor = visitor
 
     @property
-    def category(self):
-        return self._category
+    def category(self): return self._category
 
     @category.setter
-    def category(self, category):
-        self._category = category
+    def category(self, category): self._category = category
 
     @property
     def round(self):
@@ -208,16 +205,13 @@ class CsvNTSStadistic:
         return result
 
     @round.setter
-    def round(self, round):
-        self._round = round
+    def round(self, round): self._round = round
 
     @property
-    def team_numbers(self):
-        return self._team_numbers
+    def team_numbers(self): return self._team_numbers
 
     @team_numbers.setter
-    def team_numbers(self, team_numbers):
-        self._team_numbers = team_numbers
+    def team_numbers(self, team_numbers): self._team_numbers = team_numbers
 
     def to_csv_array(self):
         result = list(range(15))
