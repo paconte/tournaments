@@ -1,13 +1,13 @@
-from bs4 import BeautifulSoup
-from lxml import html
-import copy
 import csv
-import csvdata
 import logging
 import os.path
 import re
-import requests
 import time
+
+import requests
+from bs4 import BeautifulSoup
+
+from player import csvdata
 
 # CONSTANTS DIRECTORIES
 DATA_FILES = './data_files/'
