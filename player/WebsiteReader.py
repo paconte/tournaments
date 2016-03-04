@@ -1,14 +1,18 @@
-from lxml import html
+import os
+
+from bs4 import BeautifulSoup
+# from player.csvdata import RAW_FILES
+# from player.csvdata import STATISTIC_RAW_FILES
+from time import strftime
+from player import csvdata
+
+import logging
 import requests
 import re
 import time
 import csv
-import copy
 
-from datetime import datetime
-from bs4 import BeautifulSoup
-
-#CONSTANTS
+# CONSTANTS
 WC2015_MO_GENERATED_FILE = './WC2015_MO_GENERATED.csv'
 WC2015_WO_GENERATED_FILE = './WC2015_WO_GENERATED.csv'
 WC2015_MX_GENERATED_FILE = './WC2015_MX_GENERATED.csv'
@@ -20,32 +24,57 @@ WC2015_WO_FILE = './WC2015_WO.txt'
 WC2015_MX_FILE = './WC2015_MX.txt'
 WC2015_RE_GROUPS = '[Pool [A|B|C|D|E|F]|Division [1|2|3]'
 WC2015_RE_FINALS = '[Grand Final|Bronze|Playoff ]'
-FINALS_CONVERSION_DICT = {'Grand Final':'Final',
-                          'Bronze':'Third position',
-                          'Playoff 5th/6th':'Fifth position',
-                          'Playoff 7th/8th':'Seventh position',
-                          'Playoff 9th/10th':'Ninth position',
-                          'Playoff 11th/12th':'Eleventh position',
-                          'Playoff 13th/14th':'Thirteenth position',
-                          'Playoff 15th/16th':'Fifteenths position'}
+FINALS_CONVERSION_DICT = {'Grand Final': 'Final',
+                          'Bronze': 'Third position',
+                          'Playoff 5th/6th': 'Fifth position',
+                          'Playoff 7th/8th': 'Seventh position',
+                          'Playoff 9th/10th': 'Ninth position',
+                          'Playoff 11th/12th': 'Eleventh position',
+                          'Playoff 13th/14th': 'Thirteenth position',
+                          'Playoff 15th/16th': 'Fifteenths position'}
 
-def downloadFile(src, dst):
+THIRD_POSITION = 'Third position'
+FIFTH_POSITION = 'Fifth position'
+SIXTH_POSITION = 'Sixth position'
+SEVENTH_POSITION = 'Seventh position'
+EIGHTH_POSITION = 'Eighth position'
+NINTH_POSITION = 'Ninth position'
+TENTH_POSITION = 'Tenth position'
+ELEVENTH_POSITION = 'Eleventh position'
+TWELFTH_POSITION = 'Twelfth position'
+THIRTEENTH_POSITION = 'Thirteenth position'
+FOURTEENTH_POSITION = 'Fourteenth position'
+FIFTEENTH_POSITION = 'Fifteenth position'
+SIXTEENTH_POSITION = 'Sixteenth position'
+EIGHTEENTH_POSITION = 'Eighteenth position'
+TWENTIETH_POSITION = 'Twentieth position'
+
+GAME_INDEX_STADISTIC = 9
+
+# Get an instance of a logger
+logger = logging.getLogger(__name__)
+
+
+def download_file(src, dst):
+    logger.debug('Downloading remote file: %s\nTo local file %s', src, dst)
     page = requests.get(src)
     with open(dst, 'wb') as code:
         code.write(page.content)
+    logger.debug('Download complete')
+
 
 def find_group_position(groups, position):
-    if (position == 1):
-        if (re.match('Pool [A|B|C|D|E|F]', groups[0])):
+    if position == 1:
+        if re.match('Pool [A|B|C|D|E|F]', groups[0]):
             result = groups[0]
-        elif (re.match('Pool [A|B|C|D|E|F]', groups[1])):
+        elif re.match('Pool [A|B|C|D|E|F]', groups[1]):
             result = groups[1]
         else:
             raise Exception('Illegal Argument')
-    elif (position == 2):
-        if (re.match('Division [1|2|3]', groups[0])):
+    elif position == 2:
+        if re.match('Division [1|2|3]', groups[0]):
             result = groups[0]
-        elif (re.match('Division [1|2|3]', groups[1])):
+        elif re.match('Division [1|2|3]', groups[1]):
             result = groups[1]
         else:
             raise Exception('Illegal Argument')
@@ -53,6 +82,7 @@ def find_group_position(groups, position):
         raise Exception('Illegal Argument')
 
     return result
+
 
 def find_game_groups(local, visitor, groups):
     result = []
@@ -66,9 +96,11 @@ def find_game_groups(local, visitor, groups):
             result.append(key)
     return result
 
+
 def get_group_size(key, groups):
     return len(groups.get(key))
-    
+
+
 def assign_games_to_groups(games, groups):
     result = []
     multiple_choice_list = []
@@ -87,7 +119,7 @@ def assign_games_to_groups(games, groups):
                     multiple_choice_list.append([local, visitor])
                     multiple_choice_list.append([visitor, local])
                 else:
-                    assigned_group = find_group_position(possible_groups, 2)        
+                    assigned_group = find_group_position(possible_groups, 2)
             else:
                 assigned_group = possible_groups[0]
             nteams = get_group_size(assigned_group, groups)
@@ -95,47 +127,199 @@ def assign_games_to_groups(games, groups):
         game.insert(1, nteams)
     return games
 
-def extract_groups(soup):
+
+def extract_groups_fit(soup):
     pools = dict()
-    for row0 in soup.findAll('table', {"class" : "info-table"}):
+    for row0 in soup.findAll('table', {"class": "info-table"}):
         pool = []
         for row1 in row0.tbody.findAll(['tr', 'td']):
-            if row1.find('th', text = re.compile(WC2015_RE_GROUPS)):
-                pool_name = row1.find('th', text = re.compile(WC2015_RE_GROUPS)).get_text()
-            for row2 in row1.findAll('td', {"class" : "team"}):
+            if row1.find('th', text=re.compile(WC2015_RE_GROUPS)):
+                pool_name = row1.find('th', text=re.compile(WC2015_RE_GROUPS)).get_text()
+            for row2 in row1.findAll('td', {"class": "team"}):
                 for row3 in row2.find('span').contents:
                     pool.append(row3)
                     pools[pool_name] = pool
     return pools
 
-def extract_games(soup):
+
+def extract_games_fit(soup):
     games = []
-    for row1 in soup.findAll('table', {"class" : "round-table"}):
+    for row1 in soup.findAll('table', {"class": "round-table"}):
         game_date = row1.previous_sibling.previous_sibling.string
         for row2 in row1.findAll('tr'):
             game = range(7)
-            if (row2.find('strong', {"class" : "round"})):
-                current_round = row2.find('strong', {"class" : "round"}).contents[0].strip()
+            if row2.find('strong', {"class": "round"}):
+                current_round = row2.find('strong', {"class": "round"}).contents[0].strip()
             game[0] = current_round
-            game_time = row2.find('td', {"class" : "time"}).find('span').contents[0]
+            game_time = row2.find('td', {"class": "time"}).find('span').contents[0]
             game[1] = convert_time(game_time, game_date)
-#            game[1] = datetime(*game[1][:6]).isoformat()
-            game[2] = row2.find('td', {"class" : "field"}).find('span').contents[0]
-            game[3] = row2.find('td', {"class" : "home"}).find('span').contents[0]
-            i = 4            
-            for score in row2.findAll('td', {"class" : "score"}):
+            #            game[1] = datetime(*game[1][:6]).isoformat()
+            game[2] = row2.find('td', {"class": "field"}).find('span').contents[0]
+            game[3] = row2.find('td', {"class": "home"}).find('span').contents[0]
+            i = 4
+            for score in row2.findAll('td', {"class": "score"}):
                 game[i] = score.contents[0]
                 i += 1
-                game[6] = row2.find('td', {"class" : "away"}).find('span').contents[0]
+                game[6] = row2.find('td', {"class": "away"}).find('span').contents[0]
             games.append(game)
     return games
 
+
+PL_ST_TOURNAMENT_INDEX = 0
+PL_ST_DIVISION_INDEX = 1
+PL_ST_TEAM_INDEX = 2
+PL_ST_NUMBER_INDEX = 3
+PL_ST_FIRST_NAME_INDEX = 4
+PL_ST_LAST_NAME_INDEX = 5
+PL_ST_GENDER_INDEX = 6
+PL_ST_PLAYER_TRIES_INDEX = 7
+PL_ST_LOCAL_TEAM_INDEX = 8
+PL_ST_LOCAL_TEAM_SCORE_INDEX = 9
+PL_ST_VISITOR_TEAM_SCORE_INDEX = 10
+PL_ST_VISITOR_TEAM_INDEX = 11
+PL_ST_GAME_CATEGORY_INDEX = 12
+PL_ST_GAME_ROUND_INDEX = 13
+PL_ST_PHASE_TEAMS_INDEX = 14
+
+
+def extract_game_statistic_fox(soup, tname, division, filename):
+    # ['WorldCup', '2015', 'WO', 'DIVISION', 'GOLD', '7', '05', '02', '15', '17', '00', 'Field9', 'England', '4', '5', 'Japan', 'html']
+    filename_parts = re.split('\W+', filename)
+    category = filename_parts[3]
+    round = filename_parts[4]
+    team_numbers = filename_parts[5]
+
+    result = []
+    scores = soup.findAll(class_="big-score")
+    local_score = scores[0].contents[0]
+    visitor_score = scores[1].contents[0]
+
+    local_stats = soup.find(class_="playerMatchStats").find(id="team-1-player-stats-wrap")
+    local = local_stats.find("table", {"class": "tableClass stats"}).find(class_="tableTitle").find(
+            'h4').contents[0]
+
+    visitor_stats = soup.find(class_="playerMatchStats").find(id="team-2-player-stats-wrap")
+    visitor = visitor_stats.find("table", {"class": "tableClass stats"}).find(class_="tableTitle").find(
+            'h4').contents[0]
+
+    # logger.debug('%s vs %s', local_name, visitor_name)
+    # print('%s (%s) vs (%s) %s' % (local, local_score, visitor_score, visitor))
+
+    # ignore the first element of the table[1:]!!
+    for tr in local_stats.find("table", {"class": "tableClass stats"}).findAll('tr')[1:]:
+        tds = tr.findAll('td')
+        number = tds[0].contents[0]
+        # only one first_name, the rest is last_name TODO: use some stats to separate properly?
+        name = tds[1].find(class_="playerdetail resultlink").contents[0].split(" ", 1)
+        first_name = name[0]
+        last_name = name[1]
+        tries = tds[2].contents[0]
+        print('%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s' % (
+            tname, division, local, number, first_name, last_name, None, tries, local, local_score, visitor_score,
+            visitor, category, round, team_numbers))
+        statistic = csvdata.CsvNTSStadistic(None, tname, division, local, number, first_name, last_name, None, tries,
+                                            local, local_score, visitor_score, visitor, category, round, team_numbers)
+        result.append(statistic)
+        break
+    for tr in visitor_stats.find("table", {"class": "tableClass stats"}).findAll('tr')[1:]:
+        tds = tr.findAll('td')
+        number = tds[0].contents[0]
+        # only one first_name, the rest is last_name TODO: use some stats to separate properly?
+        name = tds[1].find(class_="playerdetail resultlink").contents[0].split(" ", 1)
+        first_name = name[0]
+        last_name = name[1]
+        tries = tds[2].contents[0]
+        print('%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s' % (
+            tname, division, visitor, number, first_name, last_name, None, tries, local, local_score, visitor_score,
+            visitor, category, round, team_numbers))
+        statistic = csvdata.CsvNTSStadistic(None, tname, division, visitor, number, first_name, last_name, None, tries,
+                                            local, local_score, visitor_score, visitor, category, round, team_numbers)
+        result.append(statistic)
+        break
+
+    return result
+
+
+def extract_games_fox(soup, year):
+    result = []
+    phase = soup.find(class_="compoptions comppage comppools").find(class_="fixoptions").find(
+            class_="buttons active").contents[0]
+
+    if phase in ['Championship', 'Plate', 'Division One Finals', 'Division Two Finals (Plate)',
+                 'DIVISION THREE FINALS (BOWL)', 'PLAYOFF GAMES']:
+        round = 'UNKNOWN'
+        category = 'GOLD'
+    elif 'Pool' in phase:
+        round = phase
+        category = 'GOLD'
+    elif phase == 'Division One':
+        round = 'DIVISION'
+        category = 'GOLD'
+    elif phase == 'Division Two':
+        round = 'DIVISION'
+        category = 'SILVER'
+    elif phase == 'Division Three':
+        round = 'DIVISION'
+        category = 'BRONZE'
+    else:
+        print('Problem with the phase = %s' % phase)
+        raise Exception('The phase is not supported')
+
+    team_names = {}
+    for row1 in soup.findAll(class_="all-fixture-wrap stacked-wide"):
+        if round == 'UNKNOWN':
+            round = row1.find(class_="match-name").contents[0]
+        #else:
+        #    game_round = row1.find(id="current-round").contents[0]
+        for row2 in row1.findAll(class_="match-wrap sport-5 fixturerow "):
+            if row1.find(class_="match-name"):
+                round = row1.find(class_="match-name").contents[0]
+            link = row2.find(class_="match-centre-link").find("a", href=True)
+            local_team = row2.find(class_="home-team-name").find("a").contents[0]
+            local_score = row2.find(class_="home-team-score").contents[0]
+            visitor_team = row2.find(class_="away-team-name").find("a").contents[0]
+            visitor_score = row2.find(class_="away-team-score").contents[0]
+            time_date = row2.find(class_="match-time").contents[0]
+            time_st = convert_fox_time(time_date, year)
+            field = row2.find(class_="match-venue").find("a").contents[0]
+            team_names[local_team] = None
+            team_names[visitor_team] = None
+
+            game = list(range(10))
+            game[0] = round
+            game[1] = category
+            game[3] = time_st
+            game[4] = field
+            game[5] = local_team
+            game[6] = local_score
+            game[7] = visitor_score
+            game[8] = visitor_team
+            game[GAME_INDEX_STADISTIC] = link['href']
+            result.append(game)
+
+            print("%s - %s - %s - %s - %s %s - %s %s" % (
+                round, category, field, time_date, local_team, local_score, visitor_score, visitor_team))
+
+    n_teams = len(team_names)
+    for game in result:
+        game[2] = n_teams
+    return result
+
+
 def rep1(n):
-    if (int(n.group(0)) < 10):
+    if int(n.group(0)) < 10:
         result = str(n.group(0)).zfill(2)
     else:
         result = str(n.group(0))
     return result
+
+
+def convert_fox_time(arg, year):
+    arg = arg.replace(u'\xa0', ' ')
+    aux = arg.split(' / ', maxsplit=1)
+    result = time.strptime(aux[0] + " " + aux[1] + " " + str(year), "%I:%M %p %a %d %b %Y")
+    return result
+
 
 def convert_time(arg1, arg2):
     if "a.m" in arg1:
@@ -144,48 +328,32 @@ def convert_time(arg1, arg2):
         ntime = arg1.replace("p.m.", "PM")
     ndate = re.sub('\d+', rep1, arg2, 1)
     final_date = ndate + ' ' + ntime
-    result =  time.strptime(final_date, '%d %b %Y %I:%M %p')
+    result = time.strptime(final_date, '%d %b %Y %I:%M %p')
     return result
 
-def get_game_nteams(game):
-    return game[1]
 
-def get_game_date(game):
-    return time.strftime("%m/%d/%y", game[3])
+def get_game_nteams(game): return game[1]
 
-def get_game_time(game):
-    return time.strftime("%H:%M", game[3])
 
-def get_game_field(game):
-    return game[4]
+def get_game_date(game): return time.strftime("%m/%d/%y", game[3])
 
-def get_game_local(game):
-    return game[5]
 
-def get_game_local_score(game):
-    return game[6]
+def get_game_time(game): return time.strftime("%H:%M", game[3])
 
-def get_game_visitor_score(game):
-    return game[7]
 
-def get_game_visitor(game):
-    return game[8]
+def get_game_field(game): return game[4]
 
-THIRD_POSITION = 'Third position'
-FIFTH_POSITION = 'Fifth position'
-SIXTH_POSITION = 'Sixth position'
-SEVENTH_POSITION = 'Seventh position'
-EIGHTH_POSITION = 'Eighth position'
-NINTH_POSITION = 'Ninth position'    
-TENTH_POSITION = 'Tenth position'
-ELEVENTH_POSITION = 'Eleventh position'
-TWELFTH_POSITION = 'Twelfth position'
-THIRTEENTH_POSITION = 'Thirteenth position'
-FOURTEENTH_POSITION = 'Fourteenth position'
-FIFTEENTH_POSITION = 'Fifteenth position'
-SIXTEENTH_POSITION = 'Sixteenth position'
-EIGHTEENTH_POSITION = 'Eighteenth position'
-TWENTIETH_POSITION = 'Twentieth position'
+
+def get_game_local(game): return game[5]
+
+
+def get_game_local_score(game): return game[6]
+
+
+def get_game_visitor_score(game): return game[7]
+
+
+def get_game_visitor(game): return game[8]
 
 
 def get_game_round(game):
@@ -210,16 +378,18 @@ def get_game_round(game):
         result = result.replace('Playoff 20th/21st', TWENTIETH_POSITION, 1)
         result = result.replace('Bronze', THIRD_POSITION, 1)
     else:
-        result = game[0]        
+        result = game[0]
     return result
+
 
 def get_game_category(game):
     if game[0] == 'Division 2':
         result = 'Silver'
     else:
         result = 'Gold'
-    return result   
-    
+    return result
+
+
 def games_to_csv_array(games, t_name, t_division):
     results = []
     for game in games:
@@ -240,36 +410,148 @@ def games_to_csv_array(games, t_name, t_division):
         results.append(result)
     return results
 
+
 def write_csv(games, fname):
     with open(fname, 'wb') as csvfile:
         spamwriter = csv.writer(csvfile,
-                                delimiter = ';',
+                                delimiter=';',
                                 quotechar='|',
                                 quoting=csv.QUOTE_MINIMAL
-        )
+                                )
         for game in games:
             spamwriter.writerow(game)
 
-#remote_file = WC2015_WO_URL
+
+# remote_file = WC2015_WO_URL
 remote_file = WC2015_MX_URL
-#local_file = WC2015_WO_FILE
+# local_file = WC2015_WO_FILE
 local_file = WC2015_MX_FILE
-#csv_name = WC2015_WO_FILE
+# csv_name = WC2015_WO_FILE
 csv_name = WC2015_MX_FILE
-#generated_file = WC2015_WO_GENERATED_FILE
+# generated_file = WC2015_WO_GENERATED_FILE
 generated_file = WC2015_MX_GENERATED_FILE
-#category = 'WO'
+# category = 'WO'
 category = 'MX'
 
-#downloadFile(remote_file, local_file)
-f = open(local_file, 'r')
-soup =  BeautifulSoup(f)
-web_games = extract_games(soup)
-groups = extract_groups(soup)
-comp_games = assign_games_to_groups(web_games, groups)
-csv_games = games_to_csv_array(comp_games, 'World Cup 2015', category)
-write_csv(csv_games, generated_file)
-    
+## download_file(remote_file, local_file)
+# f = open(local_file, 'r')
+# soup = BeautifulSoup(f)
+# web_games = extract_games_fit(soup)
+# groups = extract_groups_fit(soup)
+# comp_games = assign_games_to_groups(web_games, groups)
+# csv_games = games_to_csv_array(comp_games, 'World Cup 2015', category)
+# write_csv(csv_games, generated_file)
+
+remote_files_WC_2015_WO_FX = [
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360318-0&pool=11&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360318-0&pool=12&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360318-0&pool=13&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360318-0&pool=14&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360318-0&pool=21&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360318-0&pool=22&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360318-0&pool=1031&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360318-0&pool=1032&action=ROUND&round=-1']
+
+remote_files_WC_2015_MO_FX = [
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360314-0&pool=11&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360314-0&pool=12&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360314-0&pool=13&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360314-0&pool=14&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360314-0&pool=21&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360314-0&pool=22&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360314-0&pool=1031&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360314-0&pool=1032&action=ROUND&round=-1']
+
+local_files_WC_2015_MO_FX = [csvdata.RAW_FILES + 'WC2015_MO_FOX_POOLA.html',
+                             csvdata.RAW_FILES + 'WC2015_MO_FOX_POOLB.html',
+                             csvdata.RAW_FILES + 'WC2015_MO_FOX_POOLC.html',
+                             csvdata.RAW_FILES + 'WC2015_MO_FOX_POOLD.html',
+                             csvdata.RAW_FILES + 'WC2015_MO_FOX_DIVONE.html',
+                             csvdata.RAW_FILES + 'WC2015_MO_FOX_DIVTWO.html',
+                             csvdata.RAW_FILES + 'WC2015_MO_FOX_CHAMPIONSHIP.html',
+                             csvdata.RAW_FILES + 'WC2015_MO_FOX_PLATE.html']
+
+local_files_WC_2015_WO_FX = [csvdata.RAW_FILES + 'WC2015_WO_FOX_POOLA.html',
+                             csvdata.RAW_FILES + 'WC2015_WO_FOX_POOLB.html',
+                             csvdata.RAW_FILES + 'WC2015_WO_FOX_POOLC.html',
+                             csvdata.RAW_FILES + 'WC2015_WO_FOX_POOLD.html',
+                             csvdata.RAW_FILES + 'WC2015_WO_FOX_DIVONE.html',
+                             csvdata.RAW_FILES + 'WC2015_WO_FOX_DIVTWO.html',
+                             csvdata.RAW_FILES + 'WC2015_WO_FOX_CHAMPIONSHIP.html',
+                             csvdata.RAW_FILES + 'WC2015_WO_FOX_PLATE.html']
 
 
+class WebsiteReader:
+    (WC_2015_MO_FOX, WC_2015_WO_FOX, WC_2015_MXO_FOX) = (0, 1, 2)
 
+    def __init__(self, tournament):
+        self._games = []
+        if tournament == self.WC_2015_MO_FOX:
+            self._root_website = 'http://www.foxsportspulse.com/'
+            self._remote_files = remote_files_WC_2015_MO_FX
+            self._local_files = local_files_WC_2015_MO_FX
+            self._year = 2015
+            self._tournament_name = 'World Cup'
+            self._tournament_division = 'MO'
+        elif tournament == self.WC_2015_WO_FOX:
+            self._root_website = 'http://www.foxsportspulse.com/'
+            self._remote_files = remote_files_WC_2015_WO_FX
+            self._local_files = local_files_WC_2015_WO_FX
+            self._tournament_name = 'World Cup'
+            self._tournament_division = 'WO'
+            self._year = 2015
+        elif tournament == self.WC_2015_MXO_FOX:
+            self._root_website = 'http://www.foxsportspulse.com/'
+            self._year = 2015
+            self._tournament_name = 'World Cup'
+            self._tournament_division = 'MXO'
+            raise Exception("Tournament not supported.")
+            # remote_files = remote_files_WC_2015_MXO_FX
+            # local_files = local_files_WC_2015_MXO_FX
+        else:
+            raise Exception("Tournament not supported.")
+
+    def download_games_files(self):
+        for i in range(0, len(self._remote_files)):
+            download_file(self._remote_files[i], self._local_files[i])
+
+    def get_game_statistic_file_to_save(self, game):
+        destination = self._tournament_name + '-' + str(self._year) + '-' + self._tournament_division + '-' + str(
+                game[0]) + '-' + str(game[1]) + '-' + str(game[2]) + '-' + strftime("%m/%d/%y-%H:%M",
+                                                                                    game[3]) + '-' + str(
+                game[4]) + '-' + str(game[5]) + '-' + str(game[6]) + '-' + str(game[7]) + '-' + str(game[8]) + '.html'
+        destination = destination.replace(' ', '')
+        destination = destination.replace('/', '-')
+        return csvdata.STATISTIC_RAW_FILES + destination
+
+    def download_games_statistics(self):
+        if len(self._web_games) > 0:
+            for game in self._web_games:
+                destination = self.get_game_statistic_file_to_save(game)
+                download_file(self._root_website + game[GAME_INDEX_STADISTIC], destination)
+
+    def extract_games(self):
+        self._web_games = []
+        for i in range(0, len(self._local_files)):
+            f = open(self._local_files[i], 'r')
+            soup = BeautifulSoup(f)
+            self._web_games.extend(extract_games_fox(soup, self._year))
+        return self._web_games
+
+    def extract_statistics(self):
+        if os.path.exists(csvdata.STATISTIC_RAW_FILES) and os.path.isdir(csvdata.STATISTIC_RAW_FILES):
+            for filename in os.listdir(csvdata.STATISTIC_RAW_FILES):
+                f = open(csvdata.STATISTIC_RAW_FILES + filename, 'r')
+                soup = BeautifulSoup(f)
+                extract_game_statistic_fox(soup, self._tournament_name, self._tournament_division, filename)
+        else:
+            print('The directory %s does not exists.' % csvdata.STATISTIC_RAW_FILES)
+            logger.debug('The directory %s does not exists.', csvdata.STATISTIC_RAW_FILES)
+
+
+## main program ###
+reader = WebsiteReader(WebsiteReader.WC_2015_WO_FOX)
+# reader.download_files()
+reader.extract_games()
+# reader.download_games_statistics()
+#reader.extract_statistics()
