@@ -318,84 +318,64 @@ class FitGame:
         result[8] = self.visitor
 
     @property
-    def round(self):
-        return self._round
+    def round(self): return self._round
 
     @round.setter
-    def round(self, round):
-        self._round = round
+    def round(self, round): self._round = round
 
     @property
-    def finals(self):
-        return self._finals
+    def finals(self): return self._finals
 
     @finals.setter
-    def finals(self, finals):
-        self._finals = finals
+    def finals(self, finals): self._finals = finals
 
     @property
-    def nteams(self):
-        return self._nteams
+    def nteams(self): return self._nteams
 
     @nteams.setter
-    def nteams(self, nteams):
-        self._nteams = nteams
+    def nteams(self, nteams): self._nteams = nteams
 
     @property
-    def date(self):
-        return self._date
+    def date(self): return self._date
 
     @date.setter
-    def date(self, date):
-        self._date = date
+    def date(self, date): self._date = date
 
     @property
-    def time(self):
-        return self._time
+    def time(self): return self._time
 
     @time.setter
-    def time(self, time):
-        self._time = time
+    def time(self, time): self._time = time
 
     @property
-    def field(self):
-        return self._field
+    def field(self): return self._field
 
     @field.setter
-    def field(self, field):
-        self._field = field
+    def field(self, field): self._field = field
 
     @property
-    def local(self):
-        return self._local
+    def local(self): return self._local
 
     @local.setter
-    def local(self, local):
-        self._local = local
+    def local(self, local): self._local = local
 
     @property
-    def visitor(self):
-        return self._visitor
+    def visitor(self): return self._visitor
 
     @visitor.setter
-    def visitor(self, visitor):
-        self._visitor = visitor
+    def visitor(self, visitor): self._visitor = visitor
 
     @property
-    def local_score(self):
-        return self._local_score
+    def local_score(self): return self._local_score
 
     @local_score.setter
-    def local_score(self, local_score):
-        self._local_score = local_score
+    def local_score(self, local_score): self._local_score = local_score
 
     @property
-    def visitor_score(self):
-        return self._visitor_score
+    def visitor_score(self): return self._visitor_score
 
     @visitor_score.setter
-    def visitor_score(self, visitor_score):
-        self._visitor_score = visitor_score
+    def visitor_score(self, visitor_score): self._visitor_score = visitor_score
 
 
 class CsvGame(FitGame):
@@ -448,36 +428,28 @@ class CsvGame(FitGame):
             self._category = row[TG_CATEGORY_INDEX]
 
     @property
-    def tournament_name(self):
-        return self._tournament_name
+    def tournament_name(self): return self._tournament_name
 
     @tournament_name.setter
-    def tournament_name(self, tournament_name):
-        self._tournament_name = tournament_name
+    def tournament_name(self, tournament_name): self._tournament_name = tournament_name
 
     @property
-    def division(self):
-        return self._division
+    def division(self): return self._division
 
     @division.setter
-    def division(self, division):
-        self._division = division
+    def division(self, division): self._division = division
 
     @property
-    def round(self):
-        return self._round
+    def round(self): return self._round
 
     @round.setter
-    def round(self, round):
-        self._round = round
+    def round(self, round): self._round = round
 
     @property
-    def category(self):
-        return self._category
+    def category(self): return self._category
 
     @category.setter
-    def category(self, category):
-        self._category = category
+    def category(self, category): self._category = category
 
     def to_csv_array(self):
         result = list(range(13))
@@ -496,5 +468,4 @@ class CsvGame(FitGame):
         result[TG_VISITOR_TEAM_INDEX] = self._visitor
         return result
 
-    def __str__(self):
-        return self.to_csv_array().__str__()
+    def __str__(self): return self.to_csv_array().__str__()
