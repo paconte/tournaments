@@ -54,10 +54,25 @@ SIXTEENTH_POSITION = 'Sixteenth position'
 EIGHTEENTH_POSITION = 'Eighteenth position'
 TWENTIETH_POSITION = 'Twentieth position'
 
+ROUNDS_CONVERSIONS = {'Grand Final': 'Final',
+                      'Gold Medal Game': 'Final',
+                      'Bronze': THIRD_POSITION,
+                      'Bronze Medal Game': THIRD_POSITION,
+                      'Playoff 5th/6th': FIFTH_POSITION,
+                      'Playoff 7th/8th': SEVENTH_POSITION,
+                      'Playoff 8th/9th': EIGHTH_POSITION,
+                      'Playoff 9th/10th': NINTH_POSITION,
+                      'Playoff 10th/11th': TENTH_POSITION,
+                      'Playoff 11th/12th': ELEVENTH_POSITION,
+                      'Playoff 12th/13th': TWELFTH_POSITION,
+                      'Playoff 13th/14th': THIRTEENTH_POSITION,
+                      'Playoff 15th/16th': FIFTEENTH_POSITION}
+
 # CONSTANTS DIRECTORIES
 DATA_FILES = './player/data_files/'
 RAW_FILES = DATA_FILES + 'raw/'
-STATISTIC_RAW_FILES = RAW_FILES + 'statistics/'
+RAW_GAMES_FILES = RAW_FILES + 'games/'
+RAW_STATS_FILES = RAW_FILES + 'statistics/'
 CSV_FILES = DATA_FILES + 'csv/'
 
 # CONSTANTS FILE NAMES
@@ -118,86 +133,112 @@ class CsvNTSStadistic:
             self._team_numbers = team_numbers
 
     @property
-    def tournament_name(self): return self._tournament_name
+    def tournament_name(self):
+        return self._tournament_name
 
     @tournament_name.setter
-    def tournament_name(self, tournament_name): self._tournament_name = tournament_name
+    def tournament_name(self, tournament_name):
+        self._tournament_name = tournament_name
 
     @property
-    def division(self): return self._division
+    def division(self):
+        return self._division
 
     @division.setter
-    def division(self, division): self._division = division
+    def division(self, division):
+        self._division = division
 
     @property
-    def team(self): return self._team
+    def team(self):
+        return self._team
 
     @team.setter
-    def team(self, team): self._team = team
+    def team(self, team):
+        self._team = team
 
     @property
-    def number(self): return self._number
+    def number(self):
+        return self._number
 
     @number.setter
-    def number(self, number): self._number = number
+    def number(self, number):
+        self._number = number
 
     @property
-    def first_name(self): return self._first_name
+    def first_name(self):
+        return self._first_name
 
     @first_name.setter
-    def first_name(self, first_name): self._first_name = first_name
+    def first_name(self, first_name):
+        self._first_name = first_name
 
     @property
-    def last_name(self): return self._last_name
+    def last_name(self):
+        return self._last_name
 
     @last_name.setter
-    def last_name(self, last_name): self._last_name = last_name
+    def last_name(self, last_name):
+        self._last_name = last_name
 
     @property
-    def gender(self): return self._gender
+    def gender(self):
+        return self._gender
 
     @gender.setter
-    def gender(self, gender): self._gender = gender
+    def gender(self, gender):
+        self._gender = gender
 
     @property
-    def tries(self): return self._tries
+    def tries(self):
+        return self._tries
 
     @tries.setter
-    def tries(self, tries): self._tries = tries
+    def tries(self, tries):
+        self._tries = tries
 
     @property
-    def local(self): return self._local
+    def local(self):
+        return self._local
 
     @local.setter
-    def local(self, local): self._local = local
+    def local(self, local):
+        self._local = local
 
     @property
-    def local_score(self): return self._local_score
+    def local_score(self):
+        return self._local_score
 
     @local_score.setter
-    def local_score(self, local_score): self._local_score = local_score
+    def local_score(self, local_score):
+        self._local_score = local_score
 
     @property
-    def visitor_score(self): return self._visitor_score
+    def visitor_score(self):
+        return self._visitor_score
 
     @visitor_score.setter
-    def visitor_score(self, visitor_score): self._visitor_score = visitor_score
+    def visitor_score(self, visitor_score):
+        self._visitor_score = visitor_score
 
     @property
-    def visitor(self): return self._visitor
+    def visitor(self):
+        return self._visitor
 
     @visitor.setter
-    def visitor(self, visitor): self._visitor = visitor
+    def visitor(self, visitor):
+        self._visitor = visitor
 
     @property
-    def category(self): return self._category
+    def category(self):
+        return self._category
 
     @category.setter
-    def category(self, category): self._category = category
+    def category(self, category):
+        self._category = category
 
     @property
     def round(self):
-        #print(self._round.encode('UTF-8'))
+        # print(self._round.encode('UTF-8'))
         if self._round.encode('UTF-8') == b'\xc2\xbc':
             result = '1/4'
         else:
@@ -205,13 +246,16 @@ class CsvNTSStadistic:
         return result
 
     @round.setter
-    def round(self, round): self._round = round
+    def round(self, round):
+        self._round = round
 
     @property
-    def team_numbers(self): return self._team_numbers
+    def team_numbers(self):
+        return self._team_numbers
 
     @team_numbers.setter
-    def team_numbers(self, team_numbers): self._team_numbers = team_numbers
+    def team_numbers(self, team_numbers):
+        self._team_numbers = team_numbers
 
     def to_csv_array(self):
         result = list(range(15))
@@ -229,11 +273,15 @@ class CsvNTSStadistic:
         result[PL_ST_VISITOR_TEAM_INDEX] = self._visitor
         result[PL_ST_GAME_CATEGORY_INDEX] = self._category
         result[PL_ST_GAME_ROUND_INDEX] = self._round
-        result[PL_ST_PHASE_TEAMS_INDEX] = self._teams
+        result[PL_ST_PHASE_TEAMS_INDEX] = self._team_numbers
         return result
 
     def to_csv_game(self):
         pass
+
+    def __str__(self):
+        return self.to_csv_array().__str__()
+
 
 
 class CsvPhase:
@@ -318,72 +366,91 @@ class FitGame:
         result[8] = self.visitor
 
     @property
-    def round(self): return self._round
+    def round(self):
+        return self._round
 
     @round.setter
-    def round(self, round): self._round = round
+    def round(self, round):
+        self._round = round
 
     @property
-    def finals(self): return self._finals
+    def finals(self):
+        return self._finals
 
     @finals.setter
-    def finals(self, finals): self._finals = finals
+    def finals(self, finals):
+        self._finals = finals
 
     @property
-    def nteams(self): return self._nteams
+    def nteams(self):
+        return self._nteams
 
     @nteams.setter
-    def nteams(self, nteams): self._nteams = nteams
+    def nteams(self, nteams):
+        self._nteams = nteams
 
     @property
-    def date(self): return self._date
+    def date(self):
+        return self._date
 
     @date.setter
-    def date(self, date): self._date = date
+    def date(self, date):
+        self._date = date
 
     @property
-    def time(self): return self._time
+    def time(self):
+        return self._time
 
     @time.setter
-    def time(self, time): self._time = time
+    def time(self, time):
+        self._time = time
 
     @property
-    def field(self): return self._field
+    def field(self):
+        return self._field
 
     @field.setter
-    def field(self, field): self._field = field
+    def field(self, field):
+        self._field = field
 
     @property
-    def local(self): return self._local
+    def local(self):
+        return self._local
 
     @local.setter
-    def local(self, local): self._local = local
+    def local(self, local):
+        self._local = local
 
     @property
-    def visitor(self): return self._visitor
+    def visitor(self):
+        return self._visitor
 
     @visitor.setter
-    def visitor(self, visitor): self._visitor = visitor
+    def visitor(self, visitor):
+        self._visitor = visitor
 
     @property
-    def local_score(self): return self._local_score
+    def local_score(self):
+        return self._local_score
 
     @local_score.setter
-    def local_score(self, local_score): self._local_score = local_score
+    def local_score(self, local_score):
+        self._local_score = local_score
 
     @property
-    def visitor_score(self): return self._visitor_score
+    def visitor_score(self):
+        return self._visitor_score
 
     @visitor_score.setter
-    def visitor_score(self, visitor_score): self._visitor_score = visitor_score
+    def visitor_score(self, visitor_score):
+        self._visitor_score = visitor_score
 
 
 class CsvGame(FitGame):
-
     def __init__(self, row, game, tournament_name, division):
         if row is None:
             super().__init__(None, game.round, game.finals, game.nteams, game.date, game.time, game.field,
-                                          game.local, game.local_score, game.visitor_score, game.visitor)
+                             game.local, game.local_score, game.visitor_score, game.visitor)
 
             self._tournament_name = tournament_name
             self._division = division
@@ -427,29 +494,62 @@ class CsvGame(FitGame):
             self._division = row[TG_DIVISION_INDEX]
             self._category = row[TG_CATEGORY_INDEX]
 
+    @classmethod
+    def from_scratch(cls, t_name, division, date, time, field, phase, category, team_number, local, local_score,
+                     visitor_score, visitor):
+        row = list(range(13))
+        row[TG_TOURNAMENT_INDEX] = t_name
+        row[TG_DIVISION_INDEX] = division
+        row[TG_DATE_INDEX] = date
+        row[TG_TIME_INDEX] = time
+        row[TG_FIELD_INDEX] = field
+        row[TG_PHASE_INDEX] = cls.parse_phase(phase)
+        row[TG_CATEGORY_INDEX] = category
+        row[TG_PHASE_TEAMS_INDEX] = team_number
+        row[TG_LOCAL_TEAM_INDEX] = local
+        row[TG_LOCAL_TEAM_SCORE_INDEX] = local_score
+        row[TG_VISITOR_TEAM_SCORE_INDEX] = visitor_score
+        row[TG_VISITOR_TEAM_INDEX] = visitor
+        return cls(row, None, None, None)
+
+    @staticmethod
+    def parse_phase(phase_name):
+        result = phase_name
+        if phase_name in ROUNDS_CONVERSIONS:
+            result = ROUNDS_CONVERSIONS[phase_name]
+        return result
+
     @property
-    def tournament_name(self): return self._tournament_name
+    def tournament_name(self):
+        return self._tournament_name
 
     @tournament_name.setter
-    def tournament_name(self, tournament_name): self._tournament_name = tournament_name
+    def tournament_name(self, tournament_name):
+        self._tournament_name = tournament_name
 
     @property
-    def division(self): return self._division
+    def division(self):
+        return self._division
 
     @division.setter
-    def division(self, division): self._division = division
+    def division(self, division):
+        self._division = division
 
     @property
-    def round(self): return self._round
+    def round(self):
+        return self._round
 
     @round.setter
-    def round(self, round): self._round = round
+    def round(self, round):
+        self._round = round
 
     @property
-    def category(self): return self._category
+    def category(self):
+        return self._category
 
     @category.setter
-    def category(self, category): self._category = category
+    def category(self, category):
+        self._category = category
 
     def to_csv_array(self):
         result = list(range(13))
@@ -468,4 +568,5 @@ class CsvGame(FitGame):
         result[TG_VISITOR_TEAM_INDEX] = self._visitor
         return result
 
-    def __str__(self): return self.to_csv_array().__str__()
+    def __str__(self):
+        return self.to_csv_array().__str__()
