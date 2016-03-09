@@ -6,7 +6,7 @@ import time
 
 import requests
 from bs4 import BeautifulSoup
-
+from nameparser import HumanName
 from player import csvdata
 
 # CONSTANTS
@@ -570,17 +570,18 @@ class FoxGamesManager:
             download_file(self._remote_files[i], self._local_files[i])
 
     def get_game_statistic_file_to_save(self, game):
-        destination = self._tournament_name + '-' + str(self._year) + '-' + self._tournament_division + '-' + str(
-                game[0]) + '-' + str(game[1]) + '-' + str(game[2]) + '-' + strftime("%m/%d/%y-%H:%M",
-                                                                                    game[3]) + '-' + str(
-                game[4]) + '-' + str(game[5]) + '-' + str(game[6]) + '-' + str(game[7]) + '-' + str(game[8]) + '.html'
-        destination = destination.replace(' ', '')
-        destination = destination.replace('/', '-')
+        destination = self._tournament_name + '-' + self._tournament_division + '-' + str(game[0]) + '-' + str(
+            game[1]) + '-' + str(game[2]) + '-' + str(game[3]) + '-' + str(game[4]) + '-' + str(game[5]) + '-' + str(
+            game[6]) + '-' + str(game[7]) + '-' + str(game[8]) + '-' + str(game[9]) + '.html'
+
+        destination = destination.replace(' ', '_')
+        destination = destination.replace('/', '_to_')
+        destination = destination.replace(':', '_')
         return csvdata.RAW_STATS_FILES + destination
 
     def download_games_statistics(self):
-        if len(self._web_games) > 0:
-            for game in self._web_games:
+        if len(self._fox_games) > 0:
+            for game in self._fox_games:
                 destination = self.get_game_statistic_file_to_save(game)
                 download_file(self._root_website + game[self.GAME_INDEX_STATISTIC], destination)
 
@@ -634,7 +635,9 @@ class FoxGamesManager:
                 round = row1.find(class_="match-name").contents[0]
             for row2 in row1.findAll(class_="match-wrap sport-5 fixturerow "):
                 if row2.find(class_="match-name"):
+                    #print(row2.find(class_="match-name").contents[0])
                     round = row2.find(class_="match-name").contents[0]
+                print(round)
                 link = row2.find(class_="match-centre-link").find("a", href=True)
                 local_team = row2.find(class_="home-team-name").find("a").contents[0]
                 local_score = row2.find(class_="home-team-score").contents[0]
@@ -662,8 +665,8 @@ class FoxGamesManager:
                 game[9] = visitor_team
                 game[self.GAME_INDEX_STATISTIC] = link['href']
                 result.append(game)
-                print("%s - %s - %s - %s %s - %s %s - %s %s" % (
-                    round, category, field, date, t, local_team, local_score, visitor_score, visitor_team))
+                # print("%s - %s - %s - %s %s - %s %s - %s %s" % (
+                #    round, category, field, date, t, local_team, local_score, visitor_score, visitor_team))
 
         n_teams = len(team_names)
         for game in result:
@@ -679,12 +682,25 @@ class FoxGamesManager:
                                                    fgame[9])
             self._csv_games.append(csvgame)
 
+    def extract_human_name(self, name):
+        result = list(range(2))
+        human_name = HumanName(name)
+        if human_name.middle:
+            result[0] = human_name.first + " " + human_name.middle
+        else:
+            result[0] = human_name.first
+        result[1] = human_name.last
+
+        return result
+
     def extract_game_statistic_fox(self, soup, filename):
-        # ['WorldCup', '2015', 'WO', 'DIVISION', 'GOLD', '7', '05', '02', '15', '17', '00', 'Field9', 'England', '4', '5', 'Japan', 'html']
+        # ['World_Cup_2015', 'WO', '04_30_15', '10_40', 'Field_14', 'DIVISION', 'SILVER', '7', 'Philippines', '1', '5', 'Scotland', 'html']
         filename_parts = re.split('\W+', filename)
-        category = filename_parts[3]
-        round = filename_parts[4]
-        team_numbers = filename_parts[5]
+
+        category = filename_parts[5].replace('_to_', '/')
+        category = category.replace('_', ' ')
+        round = filename_parts[6].replace('_', ' ')
+        team_numbers = filename_parts[7]
 
         scores = soup.findAll(class_="big-score")
         local_score = scores[0].contents[0]
@@ -702,10 +718,9 @@ class FoxGamesManager:
         for tr in local_stats.find("table", {"class": "tableClass stats"}).findAll('tr')[1:]:
             tds = tr.findAll('td')
             number = tds[0].contents[0]
-            # only one first_name, the rest is last_name TODO: use some stats to separate properly?
-            name = tds[1].find(class_="playerdetail resultlink").contents[0].split(" ", 1)
-            first_name = name[0]
-            last_name = name[1]
+            names = self.extract_human_name(tds[1].find(class_="playerdetail resultlink").contents[0])
+            first_name = names[0]
+            last_name = names[1]
             tries = tds[2].contents[0]
             statistic = csvdata.CsvNTSStadistic(
                     None, self._tournament_name, self._tournament_division, local, number, first_name, last_name, None,
@@ -715,10 +730,9 @@ class FoxGamesManager:
         for tr in visitor_stats.find("table", {"class": "tableClass stats"}).findAll('tr')[1:]:
             tds = tr.findAll('td')
             number = tds[0].contents[0]
-            # only one first_name, the rest is last_name TODO: use some stats to separate properly?
-            name = tds[1].find(class_="playerdetail resultlink").contents[0].split(" ", 1)
-            first_name = name[0]
-            last_name = name[1]
+            names = self.extract_human_name(tds[1].find(class_="playerdetail resultlink").contents[0])
+            first_name = names[0]
+            last_name = names[1]
             tries = tds[2].contents[0]
             statistic = csvdata.CsvNTSStadistic(
                     None, self._tournament_name, self._tournament_division, visitor, number, first_name, last_name,
@@ -734,42 +748,52 @@ class FoxGamesManager:
 
 class CsvWriter:
     (WC_2015_MO_GAMES_FOX, WC_2015_WO_GAMES_FOX, WC_2015_MXO_GAMES_FOX,
-     WC_2015_MO_GAMES_FIT, WC_2015_WO_GAMES_FIT, WC_2015_MXO_GAMES_FIT,
-     WC_2015_MO_STATS_FOX, WC_2015_WO_STATS_FOX, WC_2015_MXO_STATS_FOX) = (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+     WC_2015_MO_GAMES_FIT, WC_2015_WO_GAMES_FIT, WC_2015_MXO_GAMES_FIT) = (0, 1, 2, 3, 4, 5)
 
-    def __init__(self, type):
-        if type == self.WC_2015_MO_GAMES_FOX:
+    def __init__(self, type, is_stats=False, is_test=True):
+        if type == self.WC_2015_MO_GAMES_FOX and not is_stats:
             self._filename = 'WC_2015_MO_GAMES_FOX'
-        elif type == self.WC_2015_WO_GAMES_FOX:
+        elif type == self.WC_2015_MO_GAMES_FOX and is_stats:
+            self._filename = 'WC_2015_MO_STATS_FOX'
+        elif type == self.WC_2015_WO_GAMES_FOX and not is_stats:
             self._filename = 'WC_2015_WO_GAMES_FOX'
-        elif type == self.WC_2015_MXO_GAMES_FOX:
+        elif type == self.WC_2015_WO_GAMES_FOX and is_stats:
+            self._filename = 'WC_2015_WO_STATS_FOX'
+        elif type == self.WC_2015_MXO_GAMES_FOX and not is_stats:
             self._filename = 'WC_2015_MXO_GAMES_FOX'
+        elif type == self.WC_2015_MXO_GAMES_FOX and is_stats:
+            self._filename = 'WC_2015_MXO_STATS_FOX'
         elif type == self.WC_2015_MO_GAMES_FIT:
             self._filename = 'WC_2015_MO_GAMES_FIT'
         elif type == self.WC_2015_WO_GAMES_FIT:
             self._filename = 'WC_2015_WO_GAMES_FIT'
         elif type == self.WC_2015_MXO_GAMES_FIT:
             self._filename = 'WC_2015_MXO_GAMES_FIT'
-        elif type == self.WC_2015_MO_STATS_FOX:
-            self._filename = 'WC_2015_MO_STATS_FOX'
-        elif type == self.WC_2015_WO_STATS_FOX:
-            self._filename = 'WC_2015_WO_STATS_FOX'
-        elif type == self.WC_2015_MXO_STATS_FOX:
-            self._filename = 'WC_2015_MXO_STATS_FOX'
 
         self._filename = csvdata.CSV_FILES + self._filename
 
-    def write_csv_games(self, rows):
+        if is_test:
+            self._filename += '.test'
+
+    def write_csv(self, rows):
         with open(self._filename, 'w') as csv_file:
-            spamwriter = csv.writer(csv_file,
-                                    delimiter=';',
-                                    quotechar='|',
-                                    quoting=csv.QUOTE_MINIMAL
-                                    )
-            logging.debug('Writing CSV file: %s' % (self._filename))
-            for row in self.rows:
-                spamwriter.writerow(row)
-            logging.debug('Done writing CSV file: %s' % (self._filename))
+            spam_writer = csv.writer(csv_file, delimiter=';', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+            logging.debug('Writing CSV file: %s' % self._filename)
+            for row in rows:
+                if type(row) is csvdata.CsvGame or isinstance(row, csvdata.CsvNTSStadistic):
+                    spam_writer.writerow(row.to_csv_array())
+                elif isinstance(row, list):
+                    spam_writer.writerow(row)
+                else:
+                    raise Exception('Operation not supported.')
+            logging.debug('Done writing CSV file: %s' % self._filename)
+
+    def get_path(self):
+        return self._filename
+
+    def delete_path(self):
+        if os.path.isfile(self.get_path()):
+            os.remove(self.get_path())
 
 
 remote_file = WC2015_MX_URL
@@ -793,9 +817,9 @@ category = 'MX'
 
 
 ## main program ###
-#fox_manager = FoxGamesManager(FoxGamesManager.WC_2015_WO_FOX)
-#fox_manager.extract_raw_games()
-#fox_manager.extract_statistics()
+# fox_manager = FoxGamesManager(FoxGamesManager.WC_2015_WO_FOX)
+# fox_manager.extract_raw_games()
+# fox_manager.extract_statistics()
 # fox_manager.convert_fox_games_to_csv_games()
 # for g in fox_manager.get_csv_games():
 #    print(g)

@@ -66,7 +66,20 @@ ROUNDS_CONVERSIONS = {'Grand Final': 'Final',
                       'Playoff 11th/12th': ELEVENTH_POSITION,
                       'Playoff 12th/13th': TWELFTH_POSITION,
                       'Playoff 13th/14th': THIRTEENTH_POSITION,
-                      'Playoff 15th/16th': FIFTEENTH_POSITION}
+                      'Playoff 15th/16th': FIFTEENTH_POSITION,
+                      'GrandFinal': 'Final',
+                      'GoldMedalGame': 'Final',
+                      'BronzeMedalGame': THIRD_POSITION,
+                      'Playoff5th/6th': FIFTH_POSITION,
+                      'Playoff7th/8th': SEVENTH_POSITION,
+                      'Playoff8th/9th': EIGHTH_POSITION,
+                      'Playoff9th/10th': NINTH_POSITION,
+                      'Playoff10th/11th': TENTH_POSITION,
+                      'Playoff11th/12th': ELEVENTH_POSITION,
+                      'Playoff12th/13th': TWELFTH_POSITION,
+                      'Playoff13th/14th': THIRTEENTH_POSITION,
+                      'Playoff15th/16th': FIFTEENTH_POSITION}
+
 
 # CONSTANTS DIRECTORIES
 DATA_FILES = './player/data_files/'
@@ -281,7 +294,6 @@ class CsvNTSStadistic:
 
     def __str__(self):
         return self.to_csv_array().__str__()
-
 
 
 class CsvPhase:
