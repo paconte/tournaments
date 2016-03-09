@@ -635,9 +635,7 @@ class FoxGamesManager:
                 round = row1.find(class_="match-name").contents[0]
             for row2 in row1.findAll(class_="match-wrap sport-5 fixturerow "):
                 if row2.find(class_="match-name"):
-                    #print(row2.find(class_="match-name").contents[0])
                     round = row2.find(class_="match-name").contents[0]
-                print(round)
                 link = row2.find(class_="match-centre-link").find("a", href=True)
                 local_team = row2.find(class_="home-team-name").find("a").contents[0]
                 local_score = row2.find(class_="home-team-score").contents[0]
