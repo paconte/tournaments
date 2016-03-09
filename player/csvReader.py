@@ -171,6 +171,7 @@ class DjangoCsvFetcher:
     def create_csv_phase(csv_game, create):
         if not isinstance(csv_game, csvdata.CsvGame):
             assert 0, "Wrong game to read: " + csv_game
+        print(csv_game.category, csv_game.round, csv_game.nteams)
         if create:
             result, created = GameRound.objects.get_or_create(
                 category=csv_game.category,
@@ -304,7 +305,7 @@ def create_or_fetch_person(row):
         )
         result = result, False
     except MultipleObjectsReturned:
-        if (row[PL_ST_GENDER_INDEX]):
+        if row[PL_ST_GENDER_INDEX]:
             result = Person.objects.get(
                 first_name=row[PL_ST_FIRST_NAME_INDEX],
                 last_name=row[PL_ST_LAST_NAME_INDEX],
@@ -312,7 +313,7 @@ def create_or_fetch_person(row):
             )
             result = result, False
     except ObjectDoesNotExist:
-        if (row[PL_ST_GENDER_INDEX]):
+        if row[PL_ST_GENDER_INDEX]:
             result = Person.objects.get_or_create(
                 first_name=row[PL_ST_FIRST_NAME_INDEX],
                 last_name=row[PL_ST_LAST_NAME_INDEX],
@@ -336,7 +337,7 @@ def create_or_fetch_team(pName, pDivision):
 
 def create_or_fetch_player_stadistic(pGame, pPlayer, row):
     result = None
-    if (row[PL_ST_PLAYER_TRIES_INDEX] and int(row[PL_ST_PLAYER_TRIES_INDEX]) > 0):
+    if row[PL_ST_PLAYER_TRIES_INDEX] and int(row[PL_ST_PLAYER_TRIES_INDEX]) > 0:
         result = PlayerStadistic.objects.get_or_create(
             game=pGame,
             player=pPlayer,
@@ -347,7 +348,7 @@ def create_or_fetch_player_stadistic(pGame, pPlayer, row):
 
 def get_game_phase(pCategory, pRound, pNumber, create):
     get_round = pRound
-    if (get_round == '\xc2\xbc'):
+    if get_round == '\xc2\xbc':
         get_round = '1/4'
 
     if create:
@@ -435,8 +436,8 @@ def get_or_create_tournament(pName, pDivision):
 
 
 def printCF(obj, created):
-    if (obj):
-        if (created):
+    if obj:
+        if created:
             print('Created {:s}:\n {:s}'.format(obj.__class__.__name__, obj))
         else:
             print('Found {:s}:\n {:s}'.format(obj.__class__.__name__, obj))
@@ -445,7 +446,7 @@ def printCF(obj, created):
 
 
 def print_read_file_result(obj, created):
-    if (created):
+    if created:
         print('Created {:s}:\n'.format('aaa') + str(obj))
     else:
         print('Found {:s}:\n'.format('aaa') + str(obj))
@@ -497,14 +498,14 @@ def readTournamentGameRow(row):
     # printCF(local_team, created)
     print_read_file_result(local_team, created)
 
-    if (created):
+    if created:
         add_team_to_tournament(tournament, local_team)
 
     visitor_team, created = create_or_fetch_team(row[TG_VISITOR_TEAM_INDEX], row[TG_DIVISION_INDEX])
     # printCF(visitor_team, created)
     print_read_file_result(visitor_team, created)
 
-    if (created):
+    if created:
         add_team_to_tournament(tournament, visitor_team)
 
     game = create_game_tournament(tournament, local_team, visitor_team, row)
@@ -513,17 +514,17 @@ def readTournamentGameRow(row):
 
 
 def readTournamentStadistic(file):
-    print('\nStarting reading tournament stadistics from {:s}\n', (file))
+    print('\nStarting reading tournament stadistics from {:s}\n', file)
     with open(file, 'rb') as csvfile:
         reader = csv.reader(csvfile, delimiter=';')
         for row in reader:
             if any(row):
-                if (row[0] == '####'):
+                if row[0] == '####':
                     print('\n Forcef exit #### :)\n')
                     break
                 print('\nRow to read:\n {:s}\n'.format(row))
                 readTournamentStadisticRow(row)
-    print('\nFinished reading tournament stadistics...\n')
+    print('\nFinished reading tournament statistics...\n')
 
 
 def read_tournament_games(file):
@@ -532,7 +533,7 @@ def read_tournament_games(file):
         reader = csv.reader(csv_file, delimiter=';')
         for row in reader:
             if any(row):
-                if (row[0] == '####'):
+                if row[0] == '####':
                     print('\n Force exit #### :)\n')
                     break
                 # print('\nRow to read:\n {:s}\n'.format(row))
@@ -550,7 +551,7 @@ def readPhases(file):
         reader = csv.reader(csvfile, delimiter=';')
         for row in reader:
             if any(row):
-                if (row[0] == '####'):
+                if row[0] == '####':
                     print('\n Forcef exit #### :)\n')
                     break
                 print('\nRow to read:\n {:s}\n'.format(row))
@@ -573,7 +574,7 @@ class CsvReader:
     def __init__(self, type):
         if type == self.PHASE or type == self.TOURNAMENT or type == self.NTS_STADISTIC:
             self._fexit = '####'
-            self._exit_text = '\n Forcef exit #### :)\n'
+            self._exit_text = '\n Force exit #### :)\n'
             self._type = type
         else:
             assert 0, "Wrong reader creation: " + type
@@ -591,7 +592,7 @@ class CsvReader:
         print('\nFinished reading {:s}...\n'.format(arg))
 
     def print_fetch_result(self, obj, created):
-        if (created):
+        if created:
             print('Created {:s}:\n'.format(self._type) + str(obj))
         else:
             print('Found {:s}:\n'.format(self._type) + str(obj))
@@ -634,12 +635,12 @@ class CsvReader:
         print('\nFinished reading {:s}...[0=PHASE, 1=TOURNAMENT, 2=NTS_STADISTIC]\n'.format(str(self._type)))
 
 
-reader = CsvReader(CsvReader.PHASE)
-reader.read_file('./player/data_files/csv/TPhases.csv', csvdata.CsvPhase)
+#reader = CsvReader(CsvReader.PHASE)
+#reader.read_file('./player/data_files/csv/TPhases.csv', csvdata.CsvPhase)
 #reader = CsvReader(CsvReader.TOURNAMENT)
 #reader.read_file('./player/data_files/csv/TGames_WC2015_MX_RAW.csv', csvdata.CsvPhase)
 #reader = CsvReader(CsvReader.NTS_STADISTIC)
 #reader.read_file('./player/NTS-player-stadistics.csv', csvdata.CsvNTSStadistic)
 # read_tournament_games('./player/data_files/csv/TGames_WC2015_MO_RAW.csv')
-exit(0)
+#exit(0)
 
