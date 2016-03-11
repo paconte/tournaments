@@ -64,8 +64,8 @@ class DjangoSimpleFetcher:
 
         else:
             if obj is None:
-                print('Neither object found or created {:s}:\n')
-                logger.debug('Neither object found or created {:s}:\n')
+                print('Neither object found or created.\n')
+                logger.debug('Neither object found or created.\n')
             else:
                 print('Found {:s}:\n'.format(type(obj).__name__) + str(obj))
                 logger.debug('Found {:s}:\n'.format(type(obj).__name__) + str(obj))
@@ -103,9 +103,9 @@ class DjangoSimpleFetcher:
     @staticmethod
     def get_or_create_player(person, team, number):
         result = Player.objects.get_or_create(
-            person=person,
-            team=team,
-            number=number)
+                person=person,
+                team=team,
+                number=number)
         return result
 
     @staticmethod
@@ -113,37 +113,37 @@ class DjangoSimpleFetcher:
         try:
             # first try with given local and visitor teams and scores:
             game = Game.objects.get(
-                tournament=tournament,
-                local=local,
-                visitor=visitor,
-                local_score=local_score,
-                visitor_score=visitor_score,
-                phase=phase)
+                    tournament=tournament,
+                    local=local,
+                    visitor=visitor,
+                    local_score=local_score,
+                    visitor_score=visitor_score,
+                    phase=phase)
             return game
         except Game.DoesNotExist as ex:
             if strict:
                 raise ex
         # else: ignore exception and go for a second try changing local and visitor teams and scores:
         game = Game.objects.get(
-            tournament=tournament,
-            visitor=local,
-            local=visitor,
-            visitor_score=local_score,
-            local_score=visitor_score,
-            phase=phase)
+                tournament=tournament,
+                visitor=local,
+                local=visitor,
+                visitor_score=local_score,
+                local_score=visitor_score,
+                phase=phase)
         return game
 
     @staticmethod
     def create_game(tournament, phase, field, time, local_team, visitor_team, local_score, visitor_score):
         result = Game.objects.get_or_create(
-            tournament=tournament,
-            local=local_team,
-            visitor=visitor_team,
-            local_score=local_score,
-            visitor_score=visitor_score,
-            phase=phase,
-            field=field,
-            time=time)
+                tournament=tournament,
+                local=local_team,
+                visitor=visitor_team,
+                local_score=local_score,
+                visitor_score=visitor_score,
+                phase=phase,
+                field=field,
+                time=time)
         return result
 
     @staticmethod
@@ -171,17 +171,17 @@ class DjangoCsvFetcher:
     def create_csv_phase(csv_game, create):
         if not isinstance(csv_game, csvdata.CsvGame):
             assert 0, "Wrong game to read: " + csv_game
-        print(csv_game.category, csv_game.round, csv_game.nteams)
+        print(csv_game.round, csv_game.category, csv_game.nteams)
         if create:
             result, created = GameRound.objects.get_or_create(
-                category=csv_game.category,
-                round=csv_game.round,
-                number_teams=csv_game.teams)
+                    category=csv_game.category,
+                    round=csv_game.round,
+                    number_teams=csv_game.nteams)
         else:
             result, created = GameRound.objects.get(
-                category=csv_game.category,
-                round=csv_game.round,
-                number_teams=csv_game.nteams), False
+                    category=csv_game.category,
+                    round=csv_game.round,
+                    number_teams=csv_game.nteams), False
 
         DjangoSimpleFetcher.print_fetch_result(result, created)
         return result, created
@@ -216,36 +216,37 @@ class DjangoCsvFetcher:
             add_team_to_tournament(tournament, visitor_team)
 
         game, created = DjangoSimpleFetcher.create_game(
-            tournament, phase, field, time, local_team, visitor_team, csv_game.local_score, csv_game.visitor_score)
+                tournament, phase, field, time, local_team, visitor_team, csv_game.local_score, csv_game.visitor_score)
         DjangoSimpleFetcher.print_fetch_result(game, created)
-        #assert created, "The game already exists"
+        # assert created, "The game already exists"
 
     @staticmethod
     def create_or_fetch_person(row):
+        print(row)
         try:
             result = Person.objects.get(
-                first_name=row[PL_ST_FIRST_NAME_INDEX],
-                last_name=row[PL_ST_LAST_NAME_INDEX])
+                    first_name=row[PL_ST_FIRST_NAME_INDEX],
+                    last_name=row[PL_ST_LAST_NAME_INDEX])
             result = result, False
 
         except MultipleObjectsReturned:
             if row[PL_ST_GENDER_INDEX]:
                 result = Person.objects.get(
-                    first_name=row[PL_ST_FIRST_NAME_INDEX],
-                    last_name=row[PL_ST_LAST_NAME_INDEX],
-                    gender=row[PL_ST_GENDER_INDEX])
+                        first_name=row[PL_ST_FIRST_NAME_INDEX],
+                        last_name=row[PL_ST_LAST_NAME_INDEX],
+                        gender=row[PL_ST_GENDER_INDEX])
             result = result, False
 
         except ObjectDoesNotExist:
             if row[PL_ST_GENDER_INDEX]:
                 result = Person.objects.get_or_create(
-                    first_name=row[PL_ST_FIRST_NAME_INDEX],
-                    last_name=row[PL_ST_LAST_NAME_INDEX],
-                    gender=row[PL_ST_GENDER_INDEX])
-        else:
-            result = Person.objects.get_or_create(
-                first_name=row[PL_ST_FIRST_NAME_INDEX],
-                last_name=row[PL_ST_LAST_NAME_INDEX])
+                        first_name=row[PL_ST_FIRST_NAME_INDEX],
+                        last_name=row[PL_ST_LAST_NAME_INDEX],
+                        gender=row[PL_ST_GENDER_INDEX])
+            else:
+                result = Person.objects.get_or_create(
+                        first_name=row[PL_ST_FIRST_NAME_INDEX],
+                        last_name=row[PL_ST_LAST_NAME_INDEX])
         return result
 
     @staticmethod
@@ -254,17 +255,17 @@ class DjangoCsvFetcher:
             assert 0, "Wrong stadistic to read: " + csv_nts_stadistic
 
         tournament, created = DjangoSimpleFetcher.get_or_create_tournament(
-            csv_nts_stadistic.tournament_name,
-            csv_nts_stadistic.division)
+                csv_nts_stadistic.tournament_name,
+                csv_nts_stadistic.division)
         DjangoSimpleFetcher.print_fetch_result(tournament, created)
 
         team, created = DjangoSimpleFetcher.get_or_create_team(csv_nts_stadistic.team, csv_nts_stadistic.division)
         DjangoSimpleFetcher.print_fetch_result(team, created)
 
         person, created = DjangoSimpleFetcher.get_or_create_person(
-            csv_nts_stadistic.first_name,
-            csv_nts_stadistic.last_name,
-            csv_nts_stadistic.gender)
+                csv_nts_stadistic.first_name,
+                csv_nts_stadistic.last_name,
+                csv_nts_stadistic.gender)
         DjangoSimpleFetcher.print_fetch_result(person, created)
 
         player, created = DjangoSimpleFetcher.get_or_create_player(person, team, csv_nts_stadistic.number)
@@ -278,7 +279,7 @@ class DjangoCsvFetcher:
             DjangoSimpleFetcher.print_fetch_result(visitor_team)
 
             phase, created = DjangoSimpleFetcher.get_or_create_game_phase(
-                csv_nts_stadistic.category, csv_nts_stadistic.round, csv_nts_stadistic.team_numbers, False)
+                    csv_nts_stadistic.category, csv_nts_stadistic.round, csv_nts_stadistic.team_numbers, False)
             DjangoSimpleFetcher.print_fetch_result(phase, created)
 
             game = DjangoSimpleFetcher.get_game(tournament, phase, local_team, csv_nts_stadistic.local_score,
@@ -286,7 +287,7 @@ class DjangoCsvFetcher:
             DjangoSimpleFetcher.print_fetch_result(game)
 
             nts_stadistic, created = DjangoSimpleFetcher.get_or_create_nts_stadistic(
-                game, player, csv_nts_stadistic.tries)
+                    game, player, csv_nts_stadistic.tries)
             DjangoSimpleFetcher.print_fetch_result(nts_stadistic, created)
         else:
             print('GameStadistic skipped: there are no tries for player: {:s}\n '.format(str(player)))
@@ -300,37 +301,37 @@ def add_team_to_tournament(tournament, team):
 def create_or_fetch_person(row):
     try:
         result = Person.objects.get(
-            first_name=row[PL_ST_FIRST_NAME_INDEX],
-            last_name=row[PL_ST_LAST_NAME_INDEX]
+                first_name=row[PL_ST_FIRST_NAME_INDEX],
+                last_name=row[PL_ST_LAST_NAME_INDEX]
         )
         result = result, False
     except MultipleObjectsReturned:
         if row[PL_ST_GENDER_INDEX]:
             result = Person.objects.get(
-                first_name=row[PL_ST_FIRST_NAME_INDEX],
-                last_name=row[PL_ST_LAST_NAME_INDEX],
-                gender=row[PL_ST_GENDER_INDEX],
+                    first_name=row[PL_ST_FIRST_NAME_INDEX],
+                    last_name=row[PL_ST_LAST_NAME_INDEX],
+                    gender=row[PL_ST_GENDER_INDEX],
             )
             result = result, False
     except ObjectDoesNotExist:
         if row[PL_ST_GENDER_INDEX]:
             result = Person.objects.get_or_create(
-                first_name=row[PL_ST_FIRST_NAME_INDEX],
-                last_name=row[PL_ST_LAST_NAME_INDEX],
-                gender=row[PL_ST_GENDER_INDEX],
+                    first_name=row[PL_ST_FIRST_NAME_INDEX],
+                    last_name=row[PL_ST_LAST_NAME_INDEX],
+                    gender=row[PL_ST_GENDER_INDEX],
             )
         else:
             result = Person.objects.get_or_create(
-                first_name=row[PL_ST_FIRST_NAME_INDEX],
-                last_name=row[PL_ST_LAST_NAME_INDEX]
+                    first_name=row[PL_ST_FIRST_NAME_INDEX],
+                    last_name=row[PL_ST_LAST_NAME_INDEX]
             )
     return result
 
 
 def create_or_fetch_team(pName, pDivision):
     result = Team.objects.get_or_create(
-        name=pName,
-        division=pDivision,
+            name=pName,
+            division=pDivision,
     )
     return result
 
@@ -339,9 +340,9 @@ def create_or_fetch_player_stadistic(pGame, pPlayer, row):
     result = None
     if row[PL_ST_PLAYER_TRIES_INDEX] and int(row[PL_ST_PLAYER_TRIES_INDEX]) > 0:
         result = PlayerStadistic.objects.get_or_create(
-            game=pGame,
-            player=pPlayer,
-            points=row[PL_ST_PLAYER_TRIES_INDEX]
+                game=pGame,
+                player=pPlayer,
+                points=row[PL_ST_PLAYER_TRIES_INDEX]
         )
     return result
 
@@ -353,15 +354,15 @@ def get_game_phase(pCategory, pRound, pNumber, create):
 
     if create:
         result = GameRound.objects.get_or_create(
-            category=pCategory,
-            round=get_round,
-            number_teams=pNumber
+                category=pCategory,
+                round=get_round,
+                number_teams=pNumber
         )
     else:
         result = GameRound.objects.get(
-            category=pCategory,
-            round=get_round,
-            number_teams=pNumber
+                category=pCategory,
+                round=get_round,
+                number_teams=pNumber
         ), False
     return result
 
@@ -385,14 +386,14 @@ def create_game_tournament(pTournament, pLocal, pVisitor, row):
         get_time = None
 
     game = Game.objects.create(
-        tournament=pTournament,
-        local=pLocal,
-        visitor=pVisitor,
-        local_score=row[TG_LOCAL_TEAM_SCORE_INDEX],
-        visitor_score=row[TG_VISITOR_TEAM_SCORE_INDEX],
-        phase=game_phase,
-        field=field,
-        time=get_time
+            tournament=pTournament,
+            local=pLocal,
+            visitor=pVisitor,
+            local_score=row[TG_LOCAL_TEAM_SCORE_INDEX],
+            visitor_score=row[TG_VISITOR_TEAM_SCORE_INDEX],
+            phase=game_phase,
+            field=field,
+            time=get_time
     )
     return game
 
@@ -407,12 +408,12 @@ def fetch_game_stadistic(pTournament, pLocal, pVisitor, row):
     try:
         # first try with given local and visitor teams and scores:
         get_game = Game.objects.get(
-            tournament=pTournament.id,
-            local=pLocal.id,
-            visitor=pVisitor.id,
-            local_score=row[PL_ST_LOCAL_TEAM_SCORE_INDEX],
-            visitor_score=row[PL_ST_VISITOR_TEAM_SCORE_INDEX],
-            phase=game_phase.id
+                tournament=pTournament.id,
+                local=pLocal.id,
+                visitor=pVisitor.id,
+                local_score=row[PL_ST_LOCAL_TEAM_SCORE_INDEX],
+                visitor_score=row[PL_ST_VISITOR_TEAM_SCORE_INDEX],
+                phase=game_phase.id
         )
         return get_game
     except Game.DoesNotExist:
@@ -420,12 +421,12 @@ def fetch_game_stadistic(pTournament, pLocal, pVisitor, row):
         pass
     # second try changing local and visitor teams and scores:
     get_game = Game.objects.get(
-        tournament=pTournament,
-        visitor=pLocal,
-        local=pVisitor,
-        visitor_score=int(row[PL_ST_LOCAL_TEAM_SCORE_INDEX]),
-        local_score=int(row[PL_ST_VISITOR_TEAM_SCORE_INDEX]),
-        phase=game_phase
+            tournament=pTournament,
+            visitor=pLocal,
+            local=pVisitor,
+            visitor_score=int(row[PL_ST_LOCAL_TEAM_SCORE_INDEX]),
+            local_score=int(row[PL_ST_VISITOR_TEAM_SCORE_INDEX]),
+            phase=game_phase
     )
     return get_game
 
@@ -463,9 +464,9 @@ def readTournamentStadisticRow(row):
     printCF(get_person, created)
 
     get_player, created = Player.objects.get_or_create(
-        person=get_person,
-        team=get_team,
-        number=row[PL_ST_NUMBER_INDEX]
+            person=get_person,
+            team=get_team,
+            number=row[PL_ST_NUMBER_INDEX]
     )
     printCF(get_player, created)
 
@@ -480,9 +481,9 @@ def readTournamentStadisticRow(row):
         printCF(get_game, False)
 
         get_player_stadistic, created = create_or_fetch_player_stadistic(
-            get_game,
-            get_player,
-            row
+                get_game,
+                get_player,
+                row
         )
         printCF(get_player_stadistic, created)
     else:
@@ -634,13 +635,11 @@ class CsvReader:
                     self.create_django_object(csv_object)
         print('\nFinished reading {:s}...[0=PHASE, 1=TOURNAMENT, 2=NTS_STADISTIC]\n'.format(str(self._type)))
 
-
-#reader = CsvReader(CsvReader.PHASE)
-#reader.read_file('./player/data_files/csv/TPhases.csv', csvdata.CsvPhase)
-#reader = CsvReader(CsvReader.TOURNAMENT)
-#reader.read_file('./player/data_files/csv/TGames_WC2015_MX_RAW.csv', csvdata.CsvPhase)
-#reader = CsvReader(CsvReader.NTS_STADISTIC)
-#reader.read_file('./player/NTS-player-stadistics.csv', csvdata.CsvNTSStadistic)
+# reader = CsvReader(CsvReader.PHASE)
+# reader.read_file('./player/data_files/csv/TPhases.csv', csvdata.CsvPhase)
+# reader = CsvReader(CsvReader.TOURNAMENT)
+# reader.read_file('./player/data_files/csv/TGames_WC2015_MX_RAW.csv', csvdata.CsvPhase)
+# reader = CsvReader(CsvReader.NTS_STADISTIC)
+# reader.read_file('./player/NTS-player-stadistics.csv', csvdata.CsvNTSStadistic)
 # read_tournament_games('./player/data_files/csv/TGames_WC2015_MO_RAW.csv')
-#exit(0)
-
+# exit(0)
