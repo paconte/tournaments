@@ -9,6 +9,7 @@ WOMEN_OPEN = 'Womens Open'
 SENIOR_MIX = 'Senior Mix Open'
 SENIOR_MEN = 'Senior Mens Open'
 SENIOR_WOMEN = 'Senior Womes Open'
+WOMEN_27 = 'Women 27'
 TOUCH_DIVISION_CHOICES = (
     ('MXO', MIXED_OPEN),
     ('MO', MEN_OPEN),
@@ -16,6 +17,7 @@ TOUCH_DIVISION_CHOICES = (
     ('SMX', SENIOR_MIX),
     ('SMO', SENIOR_MEN),
     ('SWO', SENIOR_WOMEN),
+    ('W27', WOMEN_27)
 )
 
 
@@ -23,16 +25,18 @@ TOUCH_DIVISION_CHOICES = (
 class Person(models.Model):
     MALE = 'M'
     FEMALE = 'F'
+    UNKNOWN = 'U'
     GENDER_CHOICES = (
         (MALE, 'Male'),
         (FEMALE, 'Female'),
+        (UNKNOWN, None)
     )
 
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     born = models.DateField(null=True, blank=True)
     nationality = models.CharField(max_length=30, null=True, blank=True)
-    gender = models.CharField(max_length=1, choices=GENDER_CHOICES, default=MALE)
+    gender = models.CharField(max_length=1, choices=GENDER_CHOICES, default=UNKNOWN, null=True)
 
     def __str__(self):
         return '{:s} {:s} - {:s}'.format(self.first_name, self.last_name, self.gender)
@@ -55,7 +59,6 @@ class Tournament(models.Model):
     name = models.CharField(max_length=50)
     country = models.CharField(max_length=30)
     city = models.CharField(max_length=30)
-    #   zip_code = models.ForeignKey(ZipCode)
     address = models.CharField(max_length=100, null=True, blank=True)
     date = models.DateField(null=True, blank=True)
     teams = models.ManyToManyField(Team)
@@ -87,6 +90,9 @@ class Tournament(models.Model):
                     return SENIOR_WOMEN
                 elif 'SMX' == x[0]:
                     return SENIOR_MIX
+                elif 'W27' == x[0]:
+                    return WOMEN_27
+
         assert "A name for the division: %s could not be found." % self.division
 
     def __lt__(self, other):
@@ -184,7 +190,7 @@ class GameRound(models.Model):
         (WOOD, WOOD),
     )
 
-    round = models.CharField(default=POOL_A, max_length=20, null=False, blank=False, choices=GAME_ROUND_CHOICES)
+    round = models.CharField(default=POOL_A, max_length=32, null=False, blank=False, choices=GAME_ROUND_CHOICES)
     number_teams = models.PositiveIntegerField(default=2, validators=[MinValueValidator(0), MaxValueValidator(20)])
     category = models.CharField(default=GOLD, max_length=6, null=False, blank=False, choices=CATEGORY_ROUND_CHOICES)
 
