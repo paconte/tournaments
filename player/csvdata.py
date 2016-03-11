@@ -20,7 +20,7 @@ TG_LOCAL_TEAM_SCORE_INDEX = 10
 TG_VISITOR_TEAM_SCORE_INDEX = 11
 TG_VISITOR_TEAM_INDEX = 12
 
-# PLAYER_STADISTICS_INDEXES
+# PLAYER_STATISTICS_INDEXES
 PL_ST_TOURNAMENT_INDEX = 0
 PL_ST_DIVISION_INDEX = 1
 PL_ST_TEAM_INDEX = 2
@@ -36,6 +36,9 @@ PL_ST_VISITOR_TEAM_INDEX = 11
 PL_ST_GAME_CATEGORY_INDEX = 12
 PL_ST_GAME_ROUND_INDEX = 13
 PL_ST_PHASE_TEAMS_INDEX = 14
+
+# FOX GAMES INDEXES
+FOX_GAME_STATISTIC_LINK_LINK = 10
 
 # POSITION CONSTANTS CONVERSION
 THIRD_POSITION = 'Third position'
@@ -67,19 +70,15 @@ ROUNDS_CONVERSIONS = {'Grand Final': 'Final',
                       'Playoff 12th/13th': TWELFTH_POSITION,
                       'Playoff 13th/14th': THIRTEENTH_POSITION,
                       'Playoff 15th/16th': FIFTEENTH_POSITION,
-                      'GrandFinal': 'Final',
-                      'GoldMedalGame': 'Final',
-                      'BronzeMedalGame': THIRD_POSITION,
-                      'Playoff5th/6th': FIFTH_POSITION,
-                      'Playoff7th/8th': SEVENTH_POSITION,
-                      'Playoff8th/9th': EIGHTH_POSITION,
-                      'Playoff9th/10th': NINTH_POSITION,
-                      'Playoff10th/11th': TENTH_POSITION,
-                      'Playoff11th/12th': ELEVENTH_POSITION,
-                      'Playoff12th/13th': TWELFTH_POSITION,
-                      'Playoff13th/14th': THIRTEENTH_POSITION,
-                      'Playoff15th/16th': FIFTEENTH_POSITION}
-
+                      'Playoff 18th/19th': EIGHTEENTH_POSITION,
+                      'Playoff 20th/21st': TWENTIETH_POSITION,
+                      'Playoff for 5th/6th': FIFTH_POSITION,
+                      'Playoff for 7th/8th': SEVENTH_POSITION,
+                      'Playoff for 11th/12th': ELEVENTH_POSITION,
+                      'Playoff for 15th/16th': FIFTEENTH_POSITION,
+                      'Plate Final': NINTH_POSITION,
+                      'Playoff 9th/10th (Plate Final)': NINTH_POSITION,
+                      'Playoff 16th/17th (Bowl Final)': SIXTEENTH_POSITION}
 
 # CONSTANTS DIRECTORIES
 DATA_FILES = './player/data_files/'
@@ -272,7 +271,7 @@ class CsvNTSStadistic:
 
     def to_csv_array(self):
         result = list(range(15))
-        result[PL_ST_TOURNAMENT_INDEX] = self._category
+        result[PL_ST_TOURNAMENT_INDEX] = self._tournament_name
         result[PL_ST_DIVISION_INDEX] = self._division
         result[PL_ST_TEAM_INDEX] = self._team
         result[PL_ST_NUMBER_INDEX] = self._number
@@ -582,3 +581,31 @@ class CsvGame(FitGame):
 
     def __str__(self):
         return self.to_csv_array().__str__()
+
+
+class FoxGame(CsvGame):
+    def __init__(self, t_name, division, date, time, field, phase, category, team_number, local, local_score,
+                 visitor_score, visitor, link):
+        self._stats_link = link
+        row = list(range(13))
+        row[TG_TOURNAMENT_INDEX] = t_name
+        row[TG_DIVISION_INDEX] = division
+        row[TG_DATE_INDEX] = date
+        row[TG_TIME_INDEX] = time
+        row[TG_FIELD_INDEX] = field
+        row[TG_PHASE_INDEX] = CsvGame.parse_phase(phase)
+        row[TG_CATEGORY_INDEX] = category
+        row[TG_PHASE_TEAMS_INDEX] = team_number
+        row[TG_LOCAL_TEAM_INDEX] = local
+        row[TG_LOCAL_TEAM_SCORE_INDEX] = local_score
+        row[TG_VISITOR_TEAM_SCORE_INDEX] = visitor_score
+        row[TG_VISITOR_TEAM_INDEX] = visitor
+        super().__init__(row, None, None, None)
+
+    @property
+    def stats_link(self):
+        return self._stats_link
+
+    @stats_link.setter
+    def link(self, stats_link):
+        self._stats_link = stats_link
