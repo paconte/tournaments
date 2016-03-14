@@ -1,6 +1,7 @@
 import os.path
 
 from django.test import TestCase
+from django.core import management
 
 from player import csvWriter
 from player import csvdata
@@ -19,8 +20,9 @@ class CsvFileTest(TestCase):
                     os.remove(filename)
 
     def setUp(self):
-        reader = csvReader.CsvReader(csvReader.CsvReader.PHASE)
-        reader.read_file('./player/data_files/csv/TPhases.csv', csvdata.CsvPhase)
+        pass
+        #reader = csvReader.CsvReader(csvReader.CsvReader.PHASE)
+        #reader.read_file('./player/data_files/csv/TPhases.csv', csvdata.CsvPhase)
 
     def test_fox_tournament_WC_2015_WO_FOX(self):
         tournament = csvdata.WC_2015_WO_GAMES_FOX
@@ -46,6 +48,12 @@ class CsvFileTest(TestCase):
         tournament = csvdata.WC_2015_M30_GAMES_FOX
         self.csv_fox_tournament(tournament)
 
+    def test_NTS_stats(self):
+        management.call_command('loaddata', './player/data_files/player.dumpdata.json', verbosity=0)
+        filename = csvdata.CSV_FILES + 'NTS-player-statistics.csv'
+        reader = csvReader.CsvReader(csvReader.CsvReader.NTS_STADISTIC)
+        reader.read_file(filename, csvdata.CsvNTSStadistic)
+        #management.call_command('flush', interactive=False, verbosity=0)
 
     def csv_fox_tournament(self, tournament, games_download=False, stats_download=False):
         fox_manager = csvWriter.FoxGamesManager(tournament)

@@ -640,6 +640,6 @@ class CsvReader:
 # reader = CsvReader(CsvReader.TOURNAMENT)
 # reader.read_file('./player/data_files/csv/TGames_WC2015_MX_RAW.csv', csvdata.CsvPhase)
 # reader = CsvReader(CsvReader.NTS_STADISTIC)
-# reader.read_file('./player/NTS-player-stadistics.csv', csvdata.CsvNTSStadistic)
+# reader.read_file('./player/NTS-player-statistics.csv', csvdata.CsvNTSStadistic)
 # read_tournament_games('./player/data_files/csv/TGames_WC2015_MO_RAW.csv')
 # exit(0)
