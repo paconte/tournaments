@@ -1,7 +1,6 @@
 import os.path
 
 from django.test import TestCase
-from django.test import TransactionTestCase
 
 from player import csvWriter
 from player import csvdata
@@ -16,7 +15,7 @@ class CsvFileTest(TestCase):
         directory = csvdata.RAW_STATS_FILES
         if os.path.exists(directory) and os.path.isdir(directory):
             for filename in os.listdir(directory):
-                if filename.endswith('.test'):
+                if filename.endswith('.csv.test'):
                     os.remove(filename)
 
     def setUp(self):
@@ -24,20 +23,29 @@ class CsvFileTest(TestCase):
         reader.read_file('./player/data_files/csv/TPhases.csv', csvdata.CsvPhase)
 
     def test_fox_tournament_WC_2015_WO_FOX(self):
-        tournament = csvWriter.FoxGamesManager.WC_2015_WO_FOX
+        tournament = csvdata.WC_2015_WO_GAMES_FOX
         self.csv_fox_tournament(tournament)
 
     def test_fox_tournament_WC_2015_MO_FOX(self):
-        tournament = csvWriter.FoxGamesManager.WC_2015_MO_FOX
+        tournament = csvdata.WC_2015_MO_GAMES_FOX
         self.csv_fox_tournament(tournament)
 
     def test_fox_tournament_WC_2015_MXO_FOX(self):
-        tournament = csvWriter.FoxGamesManager.WC_2015_MXO_FOX
+        tournament = csvdata.WC_2015_MXO_GAMES_FOX
+        self.csv_fox_tournament(tournament)
+
+    def test_fox_tournament_WC_2015_SMX_FOX(self):
+        tournament = csvdata.WC_2015_SMX_GAMES_FOX
         self.csv_fox_tournament(tournament)
 
     def test_fox_tournament_WC_2015_W27_FOX(self):
-        tournament = csvWriter.FoxGamesManager.WC_2015_W27_FOX
-        self.csv_fox_tournament(tournament, False, False)
+        tournament = csvdata.WC_2015_W27_GAMES_FOX
+        self.csv_fox_tournament(tournament)
+
+    def test_fox_tournament_WC_2015_M30_FOX(self):
+        tournament = csvdata.WC_2015_M30_GAMES_FOX
+        self.csv_fox_tournament(tournament)
+
 
     def csv_fox_tournament(self, tournament, games_download=False, stats_download=False):
         fox_manager = csvWriter.FoxGamesManager(tournament)
