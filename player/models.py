@@ -117,7 +117,7 @@ class GameRound(models.Model):
     FINAL = 'Final'
     SEMI = 'Semifinal'
     QUARTER = '1/4'
-    EIGHTH = '1/8'
+    EIGHTH = 'Eighthfinals'
     SIXTEENTH = '1/16'
     THIRD_POSITION = 'Third position'
     FIFTH_POSITION = 'Fifth position'
