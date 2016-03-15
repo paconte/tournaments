@@ -7,7 +7,7 @@ TEMPLATE_DEBUG = False
 
 # HOSTS
 
-ALLOWED_HOSTS = ['62.75.188.101']
+ALLOWED_HOSTS = ['62.75.188.101', 'www.frevilla.com', 'frevilla.com']
 
 # LOGGING configuration
 
