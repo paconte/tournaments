@@ -120,7 +120,7 @@ class TeamView(DetailView):
 
 
 class TeamTournamentView(DetailView):
-    model = Team;
+    model = Team
     template_name = 'tournaments/detail_team_tournament.html'
 
     def get_context_data(self, **kwargs):

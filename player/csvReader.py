@@ -101,12 +101,13 @@ class DjangoSimpleFetcher:
         return result
 
     @staticmethod
-    def get_or_create_player(person, team, number):
-        result = Player.objects.get_or_create(
-                person=person,
-                team=team,
-                number=number)
-        return result
+    def get_or_create_player(person, team, number, tournament_id=None):
+        obj, created = Player.objects.get_or_create(person=person, team=team, number=number)
+        if tournament_id is None:
+            pass
+        else:
+            obj.tournaments_played.add(tournament_id)
+        return obj, created
 
     @staticmethod
     def get_game(tournament, phase, local, local_score, visitor, visitor_score, strict=True):
@@ -268,7 +269,7 @@ class DjangoCsvFetcher:
                 csv_nts_stadistic.gender)
         DjangoSimpleFetcher.print_fetch_result(person, created)
 
-        player, created = DjangoSimpleFetcher.get_or_create_player(person, team, csv_nts_stadistic.number)
+        player, created = DjangoSimpleFetcher.get_or_create_player(person, team, csv_nts_stadistic.number, tournament)
         DjangoSimpleFetcher.print_fetch_result(player, created)
 
         if csv_nts_stadistic.visitor_score:  # if true nts stadistic otherwise player insert.
