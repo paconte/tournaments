@@ -9,6 +9,7 @@ from bs4 import BeautifulSoup
 from nameparser import HumanName
 from player import csvdata
 from player.models import GameRound
+from player.models import Person
 
 # CONSTANTS
 GAME_PREFIX = 'TGames'
@@ -763,6 +764,17 @@ class FoxGamesManager:
 
         return result
 
+    def get_player_gender(self):
+        if self._tournament_division in ['WO', 'W27']:
+            result = Person.FEMALE
+        elif self._tournament_division in ['MO', 'M30']:
+            result = Person.MALE
+        elif self._tournament_division in ['MXO', 'SMX']:
+            result = Person.UNKNOWN
+        else:
+            raise Exception('Division %s is not supported.' % self._tournament_division)
+        return result
+
     def extract_game_statistic_fox(self, soup, filename):
         # ['World_Cup_2015', 'WO', '05_02_15', '12_00', 'Division', 'Gold', '7', 'Singapore', '1', '1', 'Papua_New_Guinea.html']
         print('Extrating game statistic from file: %s' % filename)
@@ -773,6 +785,7 @@ class FoxGamesManager:
             round = filename_parts[4].replace('_', ' ')
         category = filename_parts[5].replace('_', '/')
         team_numbers = filename_parts[6]
+        player_gender = self.get_player_gender()
 
         scores = soup.findAll(class_="big-score")
         local_score = scores[0].contents[0]
@@ -806,8 +819,8 @@ class FoxGamesManager:
             last_name = names[1]
             tries = tds[2].contents[0]
             statistic = csvdata.CsvNTSStadistic(
-                    None, self._tournament_name, self._tournament_division, local, number, first_name, last_name, None,
-                    tries, local, local_score, visitor_score, visitor, category, round, team_numbers)
+                    None, self._tournament_name, self._tournament_division, local, number, first_name, last_name,
+                    player_gender, tries, local, local_score, visitor_score, visitor, category, round, team_numbers)
 
         # print(visitor_stats.find("table", {"class": "tableClass stats"}).findAll('tr')[1:])
         for tr in visitor_stats.find("table", {"class": "tableClass stats"}).findAll('tr')[1:]:
@@ -822,7 +835,7 @@ class FoxGamesManager:
             tries = tds[2].contents[0]
             statistic = csvdata.CsvNTSStadistic(
                     None, self._tournament_name, self._tournament_division, visitor, number, first_name, last_name,
-                    None, tries, local, local_score, visitor_score, visitor, category, round, team_numbers)
+                    player_gender, tries, local, local_score, visitor_score, visitor, category, round, team_numbers)
         self._csv_stats.append(statistic)
 
     def get_fox_games(self):
