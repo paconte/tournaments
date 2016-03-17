@@ -804,8 +804,10 @@ class FoxGamesManager:
             tds = tr.findAll('td')
             try:
                 number = tds[0].contents[0]
-            except IndexError:
+                int(number)
+            except (IndexError, ValueError):
                 number = None
+            print('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ %s', number)
             try:
                 names = self.extract_human_name(tds[1].find(class_="playerdetail resultlink").contents[0])
             except AttributeError:
@@ -821,13 +823,15 @@ class FoxGamesManager:
             statistic = csvdata.CsvNTSStadistic(
                     None, self._tournament_name, self._tournament_division, local, number, first_name, last_name,
                     player_gender, tries, local, local_score, visitor_score, visitor, category, round, team_numbers)
+            self._csv_stats.append(statistic)
 
         # print(visitor_stats.find("table", {"class": "tableClass stats"}).findAll('tr')[1:])
         for tr in visitor_stats.find("table", {"class": "tableClass stats"}).findAll('tr')[1:]:
             tds = tr.findAll('td')
             try:
                 number = tds[0].contents[0]
-            except IndexError:
+                int(number)
+            except (IndexError, ValueError):
                 number = None
             names = self.extract_human_name(tds[1].find(class_="playerdetail resultlink").contents[0])
             first_name = names[0]
@@ -836,7 +840,7 @@ class FoxGamesManager:
             statistic = csvdata.CsvNTSStadistic(
                     None, self._tournament_name, self._tournament_division, visitor, number, first_name, last_name,
                     player_gender, tries, local, local_score, visitor_score, visitor, category, round, team_numbers)
-        self._csv_stats.append(statistic)
+            self._csv_stats.append(statistic)
 
     def get_fox_games(self):
         return self._fox_games

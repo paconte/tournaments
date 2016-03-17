@@ -102,7 +102,11 @@ class DjangoSimpleFetcher:
 
     @staticmethod
     def get_or_create_player(person, team, number, tournament_id=None):
-        obj, created = Player.objects.get_or_create(person=person, team=team, number=number)
+        try:
+            number2 = int(number)
+        except ValueError:
+            number2 = None
+        obj, created = Player.objects.get_or_create(person=person, team=team, number=number2)
         if tournament_id is None:
             pass
         else:
