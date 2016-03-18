@@ -20,6 +20,15 @@ import logging
 logger = logging.getLogger(__name__)
 
 
+def add_data_for_tournaments_menu(context):
+    tournament_list = Tournament.objects.all()
+    sort_tournament = sort_tournament_list(tournament_list)
+    context['england'] = sort_tournament['England']
+    context['germany'] = sort_tournament['Germany']
+    context['nationals'] = sort_tournament['Nationals']
+    return context
+
+
 class GameView(DetailView):
     model = Game
     template_name = 'tournaments/detail_game.html'
@@ -32,9 +41,9 @@ class GameView(DetailView):
         context = super(GameView, self).get_context_data(**kwargs)
         context['tournament_list'] = Tournament.objects.all()
         context['game'] = self.object
-        context['statistics'] = self.get_game_details_matrix(statistics,
-                                                             local_players,
-                                                             visitor_players)
+        context['statistics'] = self.get_game_details_matrix(statistics, local_players, visitor_players)
+        add_data_for_tournaments_menu(context)
+
         return context
 
     def get_game_details_matrix(self, stadistics, local_players, visitor_players):
@@ -135,6 +144,7 @@ class TeamTournamentView(DetailView):
         context['tournament_list'] = Tournament.objects.all()
         context['games'] = self.sort_games_by_phases(games)
         context['players'] = self.get_player_stadistics(players, games)
+        add_data_for_tournaments_menu(context)
 
         return context
 
@@ -224,7 +234,6 @@ class TournamentView(DetailView):
         finals_games = fixtures.get_phased_finals({})
         st_utils = StructuresUtils()
         tournament_list = Tournament.objects.all()
-        sort_tournament = sort_tournament_list(tournament_list)
 
         context = super(TournamentView, self).get_context_data(**kwargs)
         context['tournament'] = self.object
@@ -237,8 +246,6 @@ class TournamentView(DetailView):
         context['phased_finals_games'] = fixtures.get_phased_finals({})
         context['teams_matrix'] = st_utils.get_teams_matrix(teams, 4)
         context['division'] = self.object.get_division_name()
-        context['england'] = sort_tournament['England']
-        context['germany'] = sort_tournament['Germany']
-        context['nationals'] = sort_tournament['Nationals']
+        add_data_for_tournaments_menu(context)
 
         return context
