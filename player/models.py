@@ -41,9 +41,13 @@ class Person(models.Model):
     def __str__(self):
         return '{:s} {:s} - {:s}'.format(self.first_name, self.last_name, self.gender)
 
-    def _get_full_name(self):
+    def get_full_name(self):
         """Returns the person's full name."""
         return '{:s} {:s}'.format(self.first_name, self.last_name)
+
+    def compare_name(self, other):
+        """Returns True if both persons have the same full name otherwise False."""
+        return self.get_full_name() == other.get_full_name()
 
 
 class Team(models.Model):
