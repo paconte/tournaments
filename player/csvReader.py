@@ -2,6 +2,8 @@ import csv
 import os.path
 import logging
 
+import itertools
+
 from player import csvdata
 from player.models import Game
 from player.models import GameField
@@ -628,9 +630,13 @@ class CsvReader:
 
     def read_file(self, file, subclass):
         with open(file, 'rt', encoding='utf-8') as csv_file:
-            reader = csv.reader(csv_file, delimiter=';')
+            #reader2 = csv.reader(csv_file, delimiter=';')
+            reader1, reader2 = itertools.tee(csv.reader(csv_file, delimiter=';'))
+            columns = len(next(reader1))
+            del reader1
+            print('\nDetected %s columns\n' % columns)
             print('\nStarting reading {:n} from {:s}\n'.format(self._type, file))
-            for row in reader:
+            for row in reader2:
                 if any(row):
                     if row[0] == self._fexit:
                         print(self._exit_text)

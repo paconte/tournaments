@@ -587,6 +587,12 @@ class CsvGame(FitGame):
     def __str__(self):
         return self.to_csv_array().__str__()
 
+    def csv_len_standard(self):
+        return 13
+
+    def csv_len_tennis(self):
+        return self.csv_len_standard()+10
+
 
 class FoxGame(CsvGame):
     def __init__(self, t_name, division, date, time, field, phase, category, team_number, local, local_score,
