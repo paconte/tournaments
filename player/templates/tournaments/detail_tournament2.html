@@ -10,19 +10,18 @@
 <div class="page-header">
   <h1>Teams</h1>
 </div>
-    <table class="table-condensed">
-      <thead>
+
+<table class="table-condensed">
 	<tbody>
-	  {% for row in teams_matrix %}
-	  <tr>
-	    {% for team in row %}
-	    <td class="col-sm-2"><a href="{% url 'detail_team_tournament' tournament.id team.id %}">{{team.name}}</a></td>
-	    {% endfor %}
-	  </tr>	  
-	  {% endfor %}
+     {% for row in teams_matrix %}
+	<tr>
+		{% for team in row %}
+		<td class="col-sm-2"><a href="{% url 'detail_team_tournament' tournament.id team.id %}">{{team.name}}</a></td>
+		{% endfor %}
+	</tr>
+	{% endfor %}
 	</tbody>
-      </thead>
-    </table>
+</table>
 
 {% if pool_games %}
 <div class="page-header">
@@ -49,7 +48,7 @@
 	<tbody>
 	  {% for value in list %}
 	  <tr>
-	    <td>{{value.team.name}}</td>
+	    <td><a href="{% url 'detail_team_tournament' tournament.id value.team.id %}">{{value.team.name}}</a></td>
 	    <td>{{value.played}}</td>
 	    <td>{{value.won}}</td>
 	    <td>{{value.lost}}</td>
@@ -78,12 +77,12 @@
 	        <tr>
 		  {% if game.time %}<td class="text-center">{{game.time|date:"H:i"}}</td>{% endif %}
 		  {% if game.field %}<td class="col-sm-2 text-center">{{game.field}}</td>{% endif %}
-		  <td class="col-sm-5">{{game.local.name}}</td>
+		  <td class="col-sm-5"><a href="{% url 'detail_team_tournament' tournament.id game.local.id %}">{{game.local.name}}</a></td>
 		  <td class="success text-center">{{game.local_score}}</td>
 		  <td class="text-center">v</td>
 		  <td class="success text-center">{{game.visitor_score}}</td>
-		  <td class="col-sm-5 text-right">{{game.visitor.name}}</td>
-		  <td class="text-center"><a href="{% url 'detail_game' game.id %}">link</a></td>
+		  <td class="col-sm-5 text-right"><a href="{% url 'detail_team_tournament' tournament.id game.visitor.id %}">{{game.visitor.name}}</a></td>
+		  <td class="text-center"><a class="ion-android-add-circle" href="{% url 'detail_game' game.id %}"/></td>
 		</tr>
               {% endif %}
 	    {% endfor %}
@@ -103,7 +102,6 @@
 <div class="page-header">
   <h1>Divisions</h1>
 </div>
-
 
 {% for key1, values1 in division_games.items %}
 <div class="jumbotron">
@@ -126,7 +124,7 @@
 			<tbody>
 			{% for value in values2 %}
 			<tr>
-				<td>{{value.team.name}}</td>
+				<td><a href="{% url 'detail_team_tournament' tournament.id value.team.id %}">{{value.team.name}}</a></td>
 				<td>{{value.played}}</td>
 				<td>{{value.won}}</td>
 				<td>{{value.lost}}</td>
@@ -158,12 +156,12 @@
 				{% if game.field %}
 				<td class="col-sm-2 text-center">{{game.field}}</td>
 				{% endif %}
-				<td class="col-sm-5">{{game.local.name}}</td>
+				<td class="col-sm-5"><a href="{% url 'detail_team_tournament' tournament.id game.local.id %}">{{game.local.name}}</a></td>
 				<td class="success text-center">{{game.local_score}}</td>
 				<td class="text-center">v</td>
 				<td class="success text-center">{{game.visitor_score}}</td>
-				<td class="col-sm-5 text-right">{{game.visitor.name}}</td>
-				<td class="text-center"><a href="{% url 'detail_game' game.id %}">link</a></td>
+				<td class="col-sm-5 text-right"><a href="{% url 'detail_team_tournament' tournament.id game.visitor.id %}">{{game.visitor.name}}</a></td>
+				<td class="text-center"><a class="ion-android-add-circle" href="{% url 'detail_game' game.id %}"/></td>
 			</tr>
 			{% endif %}
 			{% endfor %}
@@ -210,7 +208,7 @@
 	  <tr>
 	    {% if values3.time %}<td class="col-sm-1 text-center">{{values3.time|date:"H:i"}}</td>{% endif %}
 	    {% if values3.field %}<td class="col-sm-1 text-center">{{values3.field}}</td>{% endif %}
-	    <td class="col-sm-3">{{values3.local.name}}</td>
+	    <td class="col-sm-3"><a href="{% url 'detail_team_tournament' tournament.id values3.local.id %}">{{values3.local.name}}</a></td>
 	    {% if key1 == "Gold" %}
 	    <td class="gold text-center">{{values3.local_score}}</td>
 	    {% elif key1 == "Silver" %}
@@ -230,8 +228,8 @@
 	    {% elif key1 == "Wood" %}
 	    <td class="wood text-center">{{values3.visitor_score}}</td>
 	    {% endif %}
-	    <td class="col-sm-3 text-right">{{values3.visitor.name}}</td>
-	    <td class="text-center col-sm-1"><a href="{% url 'detail_game' values3.id %}">link</a></td>
+	    <td class="col-sm-3 text-right"><a href="{% url 'detail_team_tournament' tournament.id values3.visitor.id %}">{{values3.visitor.name}}</a></td>
+	    <td class="text-center col-sm-1"><a class="ion-android-add-circle" href="{% url 'detail_game' values3.id %}"/></td>
 	  </tr>
 	{% endfor %}
       </tbody>
