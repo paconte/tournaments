@@ -134,6 +134,7 @@ class TeamTournamentView(DetailView):
                                     Q(local=self.object.id) | Q(visitor=self.object.id))
 
         context = super(TeamTournamentView, self).get_context_data(**kwargs)
+        context['tournament_id'] = tournament_id
         context['team'] = self.object
         context['tournament_list'] = Tournament.objects.all()
         context['games'] = self.sort_games_by_phases(games)
