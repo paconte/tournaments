@@ -2,20 +2,21 @@
 
 {% block content %}
 
-<h1 id="about" class="page-header">About</h1>
-<p class="lead">Touch DB (currently beta v0.1) is an attempt to put touch tournaments information online.</p>
+<h2 id="about" class="page-header">About</h2>
+<p>Touch DB purpose is to put touch tournaments data online. We also offer tournaments organizers a tool to
+  display tournaments data online in real time.</p>
 
-<h1 id="about-features" class="page-header">Features</h1>
-<p>Touch DB currenlty features are tournament data in html format which can be navigate, clicking in the different links to see games, teams and player information.</p>
+<h2 id="about-features" class="page-header">Features</h2>
+<ul>
+<li>Surf online touch tournaments data: fixtures, statistics, Players.</li>
+<li>Search your for your favorite team or players to find out their tournament performance.</li>
+<li>Add your own tournament data to the app and it will be immediately online ready.</li>
 
-<h1 id="about-planned-features" class="page-header">Planned features</h1>
-<p>Players and team search is soon available.</p>
+</ul>
 
-<h1 id="about-available-tournaments" class="page-header">Available tournaments</h1>
-<p>Berlin Capital Cup 2014 and NTS 2014 are already available. Upcoming Capital Cup 2015.</p>
-
-<h1 id="about-collaborate" class="page-header">How to colaborate</h1>
-<p class="lead">We are a social app and want to be social, you can collaborate with feeding us with new input data or any new ideas. Some examples of how you can collaborate with us:</p>
+<h2 id="about-collaborate" class="page-header">How to colaborate</h2>
+<p>We are a social app and want to be social, you can collaborate with feeding us with new input data or
+    any new ideas. Some examples of how you can collaborate with us:</p>
 <ul>
   <li>Would you like to have your tournament online?</li>
   <li>Would you like to report wrong information?</li>
@@ -23,8 +24,15 @@
 </ul>
 <p>Go to the <a href="{% url 'contact' %}">contact</a> site and get in touch with us.</p>
 
+<h1 id="about-planned-features" class="page-header">Planned features</h1>
+<ul>
+<li>Tournament data for Berlin Capital Cup 2015 will be soon available.</li>
+<li>Player statistic will be soon available.</li>
+<li>If you want to request your own feature go to <a href="{% url 'contact' %}">contact</a> site and get in touch with us.</li>
+</ul>
+
 <h1 id="about-who" class="page-header">Who we are?</h1>
-<p>We are a bunch of <a href="http://www.touchberlin.de">touch Berlin</a> players with IT background and a passion for playing touch :)</p>
+<p>I am a <a href="http://www.touchberlin.de">touch Berlin</a> player with IT background and a passion for playing touch :)</p>
 
 {% endblock %}
 
