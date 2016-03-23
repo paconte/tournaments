@@ -45,11 +45,11 @@
             <tbody>
             {% for game in values %}
             <tr>
-                <td class="col-sm-5">{{game.local.name}}</td>
+                <td class="col-sm-5"><a href="{% url 'detail_team_tournament' tournament_id game.local.id %}">{{game.local.name}}</a></td>
                 <td class="success text-center">{{game.local_score}}</td>
                 <td class="text-center">v</td>
                 <td class="success text-center">{{game.visitor_score}}</td>
-                <td class="col-sm-5 text-right">{{game.visitor.name}}</td>
+                <td class="col-sm-5 text-right"><a href="{% url 'detail_team_tournament' tournament_id game.visitor.id %}">{{game.visitor.name}}</a></td>
                 <td class="text-center"><a class="ion-android-add-circle" href="{% url 'detail_game' game.id %}"/></td>
             </tr>
             {% endfor %}
