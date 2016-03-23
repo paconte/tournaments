@@ -69,13 +69,10 @@ class GameView(DetailView):
                 points = 0
                 number = local_players[i].number if local_players[i].number else ''
                 for st in stadistics:
-                    if (st.player == local_players[i]):
+                    if st.player == local_players[i]:
                         points = st.points
                         break
-                if (points > 0):
-                    row = [number, local_players[i].person, points]
-                else:
-                    row = [number, local_players[i].person, '-']
+                row = [number, local_players[i].person, points]
             else:
                 row = ['', '', '']
             if i < len(visitor_players):
@@ -85,10 +82,7 @@ class GameView(DetailView):
                     if st.player == visitor_players[i]:
                         points = st.points
                         break
-                if points > 0:
-                    row.extend([number, visitor_players[i].person, points])
-                else:
-                    row.extend([number, visitor_players[i].person, '-'])
+                row.extend([number, visitor_players[i].person, points])
             else:
                 row.extend(['', '', ''])
             result.append(row)
@@ -170,13 +164,14 @@ class TeamTournamentView(DetailView):
             d_all.update({game.phase: phase_games})
 
         d_pools = {}
+        d_divisions = {}
         d_finals = {}
         l_finals = []
         for k, v in d_all.items():
             if GameRound.is_pool(k):
                 d_pools.update({k: v})
             elif k.round == GameRound.DIVISION:
-                pass
+                d_divisions.update({k: v})
             else:
                 logging.debug(k)
                 d_finals.update({k: v})
@@ -186,6 +181,8 @@ class TeamTournamentView(DetailView):
         for k in (sorted(d_pools)):
             result.update({k: d_pools.get(k)})
         logging.debug(l_finals)
+        for k in (sorted(d_divisions)):
+            result.update({k: d_divisions.get(k)})
         for k in (sorted(l_finals, key=lambda final: GameRound.ordered_rounds.index(final.round), reverse=True)):
             result.update({k: d_finals.get(k)})
 
