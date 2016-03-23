@@ -21,7 +21,12 @@
             <tbody>
             {% for row in players %}
             <tr>
-                <td class="col-md-1">{{row.0}}</td>
+                <td class="col-md-1">
+                    {% if row.0 %}
+                    {{row.0}}
+                    {% else %}
+                    {% endif %}
+                </td>
                 <td>{{row.1.get_full_name}}</td>
                 <td class="col-md-1">{{row.2}}</td>
             </tr>
