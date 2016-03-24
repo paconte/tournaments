@@ -14,12 +14,11 @@
     <a tabindex="-1" href="#">Australia</a>
     <ul class="dropdown-menu">
         {% for t in australia %}
-        <li><a tabindex="-1" href="{% url 'detail_tournament' t.id %}">{{ t.name }}</a></li>
+        <li><a tabindex="-1" href="{% url 'detail_tournament' t.id %}">{{ t.name }} - {{t.division}}</a></li>
         {% endfor %}
     </ul>
-</li>
+</li><br/>
 {% endif %}
-
 
 {% if england %}
 <li class="dropdown-submenu">

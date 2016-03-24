@@ -371,7 +371,7 @@ class TeamsMatrix:
 
 
 def sort_tournament_list(tournament_list):
-    result = {"England": list(), "Nationals": list(), "Germany": list()}
+    result = {"England": list(), "Nationals": list(), "Germany": list(), "Australia": list()}
     for t in tournament_list:
         if 'NTS' in t.name:
             result["England"].append(t)
