@@ -380,7 +380,7 @@ def sort_tournament_list(tournament_list):
         elif 'Capital Cup' in t.name:
             result["Germany"].append(t)
         elif 'NTL' in t.name:
-            result['Australia'].append(t)
+            result["Australia"].append(t)
         else:
             raise Exception('Tournament name %s not recognized.' % t.name)
     result["England"] = sorted(result.get("England"))
