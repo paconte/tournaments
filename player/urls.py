@@ -9,6 +9,8 @@ from player.classViews import TeamView
 urlpatterns = patterns(
     '',
     url(r'^$', views.index, name='index'),
+    url(r'^add_tournament', views.add_tournament, name='add_tournament'),
+    url(r'^contact', views.contact, name='contact'),
     url(r'^about', views.about, name='about'),
     url(r'^contact', views.contact, name='contact'),
     url(r'^search_team', views.search_team, name='search_team'),

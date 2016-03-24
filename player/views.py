@@ -1,3 +1,6 @@
+import mimetypes
+import os
+
 from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
@@ -61,6 +64,20 @@ def about(request):
                                        'germany': sort_tournament['Germany'],
                                        'nationals': sort_tournament['Nationals'],
                                        })
+    return HttpResponse(template.render(context))
+
+
+def add_tournament(request):
+    template = loader.get_template('tournaments/add_tournament.html')
+    tournament_list = Tournament.objects.all()
+    sort_tournament = sort_tournament_list(tournament_list)
+
+    context = RequestContext(request, {'tournament_list': tournament_list,
+                                       'england': sort_tournament['England'],
+                                       'germany': sort_tournament['Germany'],
+                                       'nationals': sort_tournament['Nationals'],
+                                       })
+
     return HttpResponse(template.render(context))
 
 
