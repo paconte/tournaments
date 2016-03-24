@@ -396,10 +396,15 @@ def WIN_POINTS(game):
 def DRAW_POINTS(game):
     if game.tournament.name == "World Cup 2015":
         return 2
+    elif game.tournament.name == "NTL 2016":
+        return 2
     else:
         return 1
 
 def LOST_POINTS(game):
-    return 1
+    if game.tournament.name == "NTL 2016":
+        return 0
+    else:
+        return 1
 
 
