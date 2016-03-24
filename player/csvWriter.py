@@ -751,7 +751,13 @@ class FoxGamesManager:
                     round = row1.find(class_="match-name").contents[0]
                 except AttributeError:
                     round = row1.find(id="round-wrap").find(id="current-round").contents[0]
-
+            else:
+                try:
+                    check = row1.find(id="round-wrap").find(id="current-round").contents[0]
+                    if 'Round' not in check:
+                        round = check
+                except AttributeError:
+                    pass
             for row2 in row1.findAll(class_="match-wrap sport-5 fixturerow "):
                 n_teams = None
                 if row2.find(class_="match-name"):
@@ -759,6 +765,7 @@ class FoxGamesManager:
                     n_teams = 2
                 if round in ['Semi Final 1', 'Semi Final 2', 'Semi Finals']:
                     round = 'Semifinal'
+                    n_teams = 2
                 elif round == 'Elimination Playoff One':
                     if self._tournament_division == 'M30':
                         round = GameRound.EIGHTH
@@ -781,6 +788,7 @@ class FoxGamesManager:
 
                 date = time.strftime("%m/%d/%y", time_st)
                 t = time.strftime("%H:%M", time_st)
+
                 fgame = csvdata.FoxGame(self._tournament_name, self._tournament_division, date, t, field, round,
                                         category, n_teams, local_team, local_score, visitor_score, visitor_team,
                                         link['href'])
@@ -790,7 +798,10 @@ class FoxGamesManager:
         n_teams = len(team_names)
         for game in result:
             if game.nteams is None:
-                game.nteams = n_teams
+                if game.round == 'Semifinal' or game.round == 'Grand Final' or game.round == 'Final':
+                    game.nteams = 2
+                else:
+                    game.nteams = n_teams
 
         return result
 
