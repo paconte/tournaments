@@ -42,6 +42,7 @@ def index(request):
                                        'england': sort_tournament['England'],
                                        'germany': sort_tournament['Germany'],
                                        'nationals': sort_tournament['Nationals'],
+                                       'australia': sort_tournament['Australia']
                                        })
     return HttpResponse(template.render(context))
 
@@ -63,6 +64,7 @@ def about(request):
                                        'england': sort_tournament['England'],
                                        'germany': sort_tournament['Germany'],
                                        'nationals': sort_tournament['Nationals'],
+                                       'australia': sort_tournament['Australia']
                                        })
     return HttpResponse(template.render(context))
 
@@ -76,6 +78,7 @@ def add_tournament(request):
                                        'england': sort_tournament['England'],
                                        'germany': sort_tournament['Germany'],
                                        'nationals': sort_tournament['Nationals'],
+                                       'australia': sort_tournament['Australia']
                                        })
 
     return HttpResponse(template.render(context))
@@ -112,6 +115,7 @@ def contact(request):
                                        'england': sort_tournament['England'],
                                        'germany': sort_tournament['Germany'],
                                        'nationals': sort_tournament['Nationals'],
+                                       'australia': sort_tournament['Australia']
                                        })
 
     return HttpResponse(template.render(context))
