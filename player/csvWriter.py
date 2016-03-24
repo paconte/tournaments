@@ -108,6 +108,16 @@ remote_files_WC_2015_M30_FX = [
     'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360316-0&pool=1012&action=ROUND&round=-1'
 ]
 
+remote_files_NTL_2016_MO_FX = [
+    'http://www.foxsportspulse.com/comp_info.cgi?client=14-907-0-402811-0&pool=1&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=14-907-0-402811-0&pool=1001&action=ROUND&round=-1'
+]
+
+remote_files_NTL_2016_WO_FX = [
+    'http://www.foxsportspulse.com/comp_info.cgi?client=14-907-0-402794-0&pool=1&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=14-907-0-402794-0&pool=1001&action=ROUND&round=-1'
+]
+
 local_files_WC_2015_MO_FX = [csvdata.RAW_GAMES_FILES + 'WC2015_MO_FOX_POOLA.html',
                              csvdata.RAW_GAMES_FILES + 'WC2015_MO_FOX_POOLB.html',
                              csvdata.RAW_GAMES_FILES + 'WC2015_MO_FOX_POOLC.html',
@@ -148,6 +158,13 @@ local_files_WC_2015_MXO_FX = [csvdata.RAW_GAMES_FILES + 'WC2015_MXO_FOX_POOLA.ht
 local_files_WC_2015_SMX_FX = [csvdata.RAW_GAMES_FILES + 'WC2015_SMX_FOX_POOLA.html',
                               csvdata.RAW_GAMES_FILES + 'WC2015_SMX_FOX_PLAYOFF.html',
                               csvdata.RAW_GAMES_FILES + 'WC2015_SMX_FOX_CHAMPIONSHIP.html']
+
+local_files_NTL_2016_M_FX = [csvdata.RAW_GAMES_FILES + 'NTL2016_MO_FOX_POOLA.html',
+                             csvdata.RAW_GAMES_FILES + 'NTL2016_MO_FOX_FINALS.html']
+
+local_files_NTL_2016_WO_FX = [csvdata.RAW_GAMES_FILES + 'NTL2016_WO_FOX_POOLA.html',
+                              csvdata.RAW_GAMES_FILES + 'NTL2016_WO_FOX_FINALS.html']
+
 
 logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
 
@@ -634,6 +651,20 @@ class FoxGamesManager:
             self._tournament_name = 'World Cup 2015'
             self._tournament_division = 'M30'
             self._year = 2015
+        elif tournament == csvdata.NTL_2016_MO_GAMES_FOX:
+            self._root_website = 'http://www.foxsportspulse.com/'
+            self._remote_files = remote_files_NTL_2016_MO_FX
+            self._local_files = local_files_NTL_2016_M_FX
+            self._tournament_name = 'NTL 2016'
+            self._tournament_division = 'MO'
+            self._year = 2016
+        elif tournament == csvdata.NTL_2016_WO_GAMES_FOX:
+            self._root_website = 'http://www.foxsportspulse.com/'
+            self._remote_files = remote_files_NTL_2016_WO_FX
+            self._local_files = local_files_NTL_2016_WO_FX
+            self._tournament_name = 'NTL 2016'
+            self._tournament_division = 'WO'
+            self._year = 2016
         else:
             raise Exception("Tournament not supported.")
 
@@ -703,28 +734,38 @@ class FoxGamesManager:
         elif phase == 'Playoff Games':
             round = 'UNKNOWN'
             category = 'Gold'
+        elif phase == 'Normal Season':
+            round = 'Pool A'
+            category = 'Gold'
+        elif phase == 'Finals':
+            round = 'UNKNOWN'
+            category = 'Gold'
         else:
             print('Problem with the phase = %s' % phase)
-            raise Exception('The phase %s is not supported' % phase)
+            raise Exception('The phase is not supported')
 
         team_names = {}
         for row1 in soup.findAll(class_="all-fixture-wrap stacked-wide"):
             if round == 'UNKNOWN':
-                round = row1.find(class_="match-name").contents[0]
+                try:
+                    round = row1.find(class_="match-name").contents[0]
+                except AttributeError:
+                    round = row1.find(id="round-wrap").find(id="current-round").contents[0]
+
             for row2 in row1.findAll(class_="match-wrap sport-5 fixturerow "):
                 n_teams = None
                 if row2.find(class_="match-name"):
                     round = row2.find(class_="match-name").contents[0]
                     n_teams = 2
-                    if round in ['Semi Final 1', 'Semi Final 2']:
-                        round = 'Semifinal'
-                    elif round == 'Elimination Playoff One':
-                        if self._tournament_division == 'M30':
-                            round = GameRound.EIGHTH
-                        elif self._tournament_division == 'W27':
-                            round = csvdata.FIFTH_POSITION
-                    elif round in ['Qualifying Final One',
-                                   'Qualifying Final Two'] and self._tournament_division in ['M30', 'SMX']:
+                if round in ['Semi Final 1', 'Semi Final 2', 'Semi Finals']:
+                    round = 'Semifinal'
+                elif round == 'Elimination Playoff One':
+                    if self._tournament_division == 'M30':
+                        round = GameRound.EIGHTH
+                    elif self._tournament_division == 'W27':
+                        round = csvdata.FIFTH_POSITION
+                elif round in ['Qualifying Final One',
+                               'Qualifying Final Two'] and self._tournament_division in ['M30', 'SMX']:
                         round = GameRound.QUARTER
 
                 link = row2.find(class_="match-centre-link").find("a", href=True)
@@ -781,6 +822,8 @@ class FoxGamesManager:
         filename_parts = filename.split('-')
         if filename_parts[4] == '1_4':
             round = GameRound.QUARTER
+        #elif filename_parts[4] == 'Semi Finals':
+        #    round = GameRound.SEMI
         else:
             round = filename_parts[4].replace('_', ' ')
         category = filename_parts[5].replace('_', '/')
@@ -807,7 +850,6 @@ class FoxGamesManager:
                 int(number)
             except (IndexError, ValueError):
                 number = None
-            print('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ %s', number)
             try:
                 names = self.extract_human_name(tds[1].find(class_="playerdetail resultlink").contents[0])
             except AttributeError:
@@ -875,6 +917,14 @@ class CsvWriter:
             self._filename = 'WC_2015_SMX_GAMES_FOX'
         elif type == csvdata.WC_2015_SMX_GAMES_FOX and is_stats:
             self._filename = 'WC_2015_SMX_STATS_FOX'
+        elif type == csvdata.NTL_2016_MO_GAMES_FOX and not is_stats:
+            self._filename = 'NTL_2016_MO_GAMES_FOX'
+        elif type == csvdata.NTL_2016_MO_GAMES_FOX and is_stats:
+            self._filename = 'NTL_2016_MO_STATS_FOX'
+        elif type == csvdata.NTL_2016_WO_GAMES_FOX and not is_stats:
+            self._filename = 'NTL_2016_WO_GAMES_FOX'
+        elif type == csvdata.NTL_2016_WO_GAMES_FOX and is_stats:
+            self._filename = 'NTL_2016_WO_STATS_FOX'
         elif type == csvdata.WC_2015_MO_GAMES_FIT:
             self._filename = 'WC_2015_MO_GAMES_FIT'
         elif type == csvdata.WC_2015_WO_GAMES_FIT:

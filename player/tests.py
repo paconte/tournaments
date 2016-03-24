@@ -49,6 +49,14 @@ class CsvFileTest(TestCase):
         tournament = csvdata.WC_2015_M30_GAMES_FOX
         self.csv_fox_tournament(tournament)
 
+    def test_fox_tournament_NTL_2016_MO_FOX(self):
+        tournament = csvdata.NTL_2016_MO_GAMES_FOX
+        self.csv_fox_tournament(tournament)
+
+    def test_fox_tournament_NTL_2016_WO_FOX(self):
+        tournament = csvdata.NTL_2016_WO_GAMES_FOX
+        self.csv_fox_tournament(tournament)
+
     def Atest_NTS_stats(self):
         management.call_command('loaddata', './player/data_files/player.dumpdata.json', verbosity=0)
         filename = csvdata.CSV_FILES + 'NTS-player-statistics.csv'
