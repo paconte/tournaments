@@ -38,22 +38,25 @@ class GameView(DetailView):
         local_players = Player.objects.filter(team=self.object.local, tournaments_played=self.object.tournament)
         visitor_players = Player.objects.filter(team=self.object.visitor, tournaments_played=self.object.tournament)
         statistics = PlayerStadistic.objects.filter(game=self.object.id)
+        local_stats, visitor_stats = self.get_game_details_stats(statistics, local_players, visitor_players)
 
         context = super(GameView, self).get_context_data(**kwargs)
         context['tournament_list'] = Tournament.objects.all()
         context['game'] = self.object
-        context['statistics'] = self.get_game_details_matrix(statistics, local_players, visitor_players)
+        context['statistics'] = True if len(statistics) > 0 else False
+        context['local_stats'] = local_stats
+        context['visitor_stats'] = visitor_stats
         add_data_for_tournaments_menu(context)
 
         return context
 
-    def get_game_details_matrix(self, stadistics, local_players, visitor_players):
+    def get_game_details_stats(self, statistics, local_players, visitor_players):
         """
         Create a matrix with the content of the stadistics for all the players of a game. Only the
         detail_gamem template is designed to display this matrix data.
 
         Args:
-            stadistics:      The stadistics for the game
+            statistics:      The stadistics for the game
             local_players:   The local team players of the game
             visitor_players: The visitor team players of the game
 
@@ -62,32 +65,50 @@ class GameView(DetailView):
             person and the scored tries for a local and visitor players. If any local  or visitor
             team has more players than the other team the remaining cells will be empty.
         """
-
-        result = []
-        n_rows = len(local_players) if len(local_players) > len(visitor_players) else len(visitor_players)
+        local_stats = dict()
+        visitor_stats = dict()
+        n_rows = len(local_players)
         for i in range(n_rows):
-            if i < len(local_players):
-                points = 0
-                number = local_players[i].number if local_players[i].number else ''
-                for st in stadistics:
-                    if st.player == local_players[i]:
-                        points = st.points
-                        break
-                row = [number, local_players[i].person, points]
+            points = 0
+            number = local_players[i].number if local_players[i].number else ''
+            for st in statistics:
+                if st.player == local_players[i]:
+                    points = st.points
+                    break
+            # row = [number, local_players[i].person, points]
+            if local_players[i].person.get_full_name() in local_stats.keys():
+                local_stats[local_players[i].person.get_full_name()] = local_stats[local_players[
+                    i].person.get_full_name()] + points
             else:
-                row = ['', '', '']
-            if i < len(visitor_players):
-                points = 0
-                number = visitor_players[i].number if visitor_players[i].number else ''
-                for st in stadistics:
-                    if st.player == visitor_players[i]:
-                        points = st.points
-                        break
-                row.extend([number, visitor_players[i].person, points])
+                local_stats[local_players[i].person.get_full_name()] = points
+
+        n_rows = len(visitor_players)
+        for i in range(n_rows):
+            points = 0
+            number = visitor_players[i].number if visitor_players[i].number else ''
+            for st in statistics:
+                if st.player == visitor_players[i]:
+                    points = st.points
+                    break
+            # row = [number, visitor_players[i].person, points]
+            # visitor_stats.append(row)
+            if visitor_players[i].person.get_full_name() in visitor_stats.keys():
+                visitor_stats[visitor_players[i].person.get_full_name()] = visitor_stats[visitor_players[
+                    i].person.get_full_name()] + points
             else:
-                row.extend(['', '', ''])
-            result.append(row)
-        return result
+                visitor_stats[visitor_players[i].person.get_full_name()] = points
+
+        local_stats2 = []
+        for k, v in local_stats.items():
+            local_stats2.append([k, v])
+
+        visitor_stats2 = []
+        for k, v in visitor_stats.items():
+            visitor_stats2.append([k, v])
+
+        return sorted(local_stats2, key=lambda line: line[1], reverse=True), sorted(visitor_stats2,
+                                                                                    key=lambda line: line[1],
+                                                                                    reverse=True)
 
 
 class PersonView(DetailView):

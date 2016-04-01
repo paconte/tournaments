@@ -12,20 +12,16 @@
     <table class="table table-bordered table-striped table-condensed">
       <thead>
       <tr>
-        <td><b>#</b></td>
         <td><b>Player</b></td>
         <td><b>TD</b></td>
       </tr>
       </thead>
       <tbody>
-      {% for row in statistics %}
-      {% if row.1 %}
+      {% for row in local_stats %}
       <tr>
         <td>{{row.0}}</td>
-        <td>{{row.1.get_full_name}}</td>
-        <td>{{row.2}}</td>
+        <td>{{row.1}}</td>
       </tr>
-      {% endif %}
       {% endfor %}
       </tbody>
     </table>
@@ -38,21 +34,17 @@
     <table class="table table-bordered table-striped table-condensed">
       <thead>
       <tr>
-        <td><b>#</b></td>
         <td><b>Player</b></td>
         <td><b>TD</b></td>
       </tr>
       </thead>
       <tbody>
 
-      {% for row in statistics %}
-      {% if row.4 %}
+      {% for row in visitor_stats %}
       <tr>
-        <td>{{row.3}}</td>
-        <td>{{row.4.get_full_name}}</td>
-        <td>{{row.5}}</td>
+        <td>{{row.0}}</td>
+        <td>{{row.1}}</td>
       </tr>
-      {% endif %}
       {% endfor %}
       </tbody>
     </table>
