@@ -160,8 +160,11 @@ class TeamTournamentView(DetailView):
         context['team'] = self.object
         context['tournament_list'] = Tournament.objects.all()
         context['games'] = self.sort_games_by_phases(games)
-        context['players'] = self.get_player_stadistics(players, games)
+        context['players'] = self.get_player_statistics(players, games)
         add_data_for_tournaments_menu(context)
+
+        for i in context['players']:
+            print(i)
 
         return context
 
@@ -211,7 +214,7 @@ class TeamTournamentView(DetailView):
 
         return result
 
-    def get_player_stadistics(self, players, games):
+    def get_player_statistics(self, players, games):
         """
         Given a list of players, a list with the same players and their total amount of points in a
         tournament is returned.
@@ -225,19 +228,26 @@ class TeamTournamentView(DetailView):
         """
 
         result = []
-        stadistics = []
+        statistics = []
+        stats = dict()
 
         for player in players:
-            stadistics.extend(PlayerStadistic.objects.filter(Q(player=player.id), Q(game__in=games)))
+            statistics.extend(PlayerStadistic.objects.filter(Q(player=player.id), Q(game__in=games)))
 
         for player in players:
             points = 0
-            for st in stadistics:
+            for st in statistics:
                 if st.player == player:
                     points += st.points
-            result.append([player.number, player.person, points])
+            if player.person.get_full_name() in stats.keys():
+                stats[player.person.get_full_name()] = stats[player.person.get_full_name()] + points
+            else:
+                stats[player.person.get_full_name()] = points
 
-        return sorted(result, key=lambda line: line[2], reverse=True)
+        for k, v in stats.items():
+            result.append([k, v])
+
+        return sorted(result, key=lambda line: line[1], reverse=True)
 
 
 class TournamentView(DetailView):
