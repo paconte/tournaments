@@ -3,31 +3,53 @@
 {% block content %}
 
 {% if statistics %}
-<table class="table table-striped table-condensed">
-  <thead>
-    <tr>
-      <th class="text-center" colspan="3"><p>{{game.local}}</p><p>{{game.local_score}}</p></th>
-      <th class="text-center" colspan="3"><p>{{game.visitor}}</p><p>{{game.visitor_score}}</p></th>
-    </tr>
-    <tr>
-      <th class="col-sm-1"></th>
-      <th class="col-sm-4"></th>
-      <th class="col-sm-1"></th>
-      <th class="col-sm-1"></th>
-      <th class="col-sm-4"></th>
-      <th class="col-sm-1"></th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for row in statistics %}
-    <tr>
-      {% for value in row %}
-      <td>{{value}}</td>
+<div class="row">
+  <div class="col-xs-9 col-sm-4 col-md-6">
+    <div class="jumbotron">
+      <span class="text-center"><h2>{{game.local}}</h2></span>
+      <span class="text-center"><h2>{{game.local_score}}</h2></span>
+    </div>
+    <table class="table table-bordered table-striped table-condensed">
+      <thead>
+      <tr>
+        <td><b>Player</b></td>
+        <td><b>TD</b></td>
+      </tr>
+      </thead>
+      <tbody>
+      {% for row in local_stats %}
+      <tr>
+        <td>{{row.0}}</td>
+        <td>{{row.1}}</td>
+      </tr>
       {% endfor %}
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-xs-9 col-md-6">
+    <div class="jumbotron">
+      <span class="text-center"><h2>{{game.visitor}}</h2></span>
+      <span class="text-center"><h2>{{game.visitor_score}}</h2></span>
+    </div>
+    <table class="table table-bordered table-striped table-condensed">
+      <thead>
+      <tr>
+        <td><b>Player</b></td>
+        <td><b>TD</b></td>
+      </tr>
+      </thead>
+      <tbody>
+
+      {% for row in visitor_stats %}
+      <tr>
+        <td>{{row.0}}</td>
+        <td>{{row.1}}</td>
+      </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
 {% endif%}
 
 {% endblock %}

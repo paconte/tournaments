@@ -107,6 +107,12 @@ WC2015_RE_GROUPS = '[Pool [A|B|C|D|E|F]|Division [1|2|3]'
 WC2015_RE_FINALS = '[Grand Final|Bronze|Playoff ]'
 
 
+(WC_2015_MO_GAMES_FOX, WC_2015_WO_GAMES_FOX, WC_2015_MXO_GAMES_FOX,
+ WC_2015_W27_GAMES_FOX, WC_2015_M30_GAMES_FOX, WC_2015_SMX_GAMES_FOX,
+ NTL_2016_MO_GAMES_FOX, NTL_2016_WO_GAMES_FOX,
+ WC_2015_MO_GAMES_FIT, WC_2015_WO_GAMES_FIT, WC_2015_MXO_GAMES_FIT) = (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+
 class CsvNTSStadistic:
     def __init__(self, row, tname=None, division=None, team=None, number=None, first_name=None, last_name=None,
                  gender=None, tries=None, local=None, local_score=None, visitor_score=None, visitor=None, category=None,
@@ -581,6 +587,12 @@ class CsvGame(FitGame):
 
     def __str__(self):
         return self.to_csv_array().__str__()
+
+    def csv_len_standard(self):
+        return 13
+
+    def csv_len_tennis(self):
+        return self.csv_len_standard()+10
 
 
 class FoxGame(CsvGame):

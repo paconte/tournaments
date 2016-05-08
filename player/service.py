@@ -371,7 +371,7 @@ class TeamsMatrix:
 
 
 def sort_tournament_list(tournament_list):
-    result = {"England": list(), "Nationals": list(), "Germany": list()}
+    result = {"England": list(), "Nationals": list(), "Germany": list(), "Australia": list()}
     for t in tournament_list:
         if 'NTS' in t.name:
             result["England"].append(t)
@@ -379,6 +379,8 @@ def sort_tournament_list(tournament_list):
             result["Nationals"].append(t)
         elif 'Capital Cup' in t.name:
             result["Germany"].append(t)
+        elif 'NTL' in t.name:
+            result["Australia"].append(t)
         else:
             raise Exception('Tournament name %s not recognized.' % t.name)
     result["England"] = sorted(result.get("England"))
@@ -394,10 +396,15 @@ def WIN_POINTS(game):
 def DRAW_POINTS(game):
     if game.tournament.name == "World Cup 2015":
         return 2
+    elif game.tournament.name == "NTL 2016":
+        return 2
     else:
         return 1
 
 def LOST_POINTS(game):
-    return 1
+    if game.tournament.name == "NTL 2016":
+        return 0
+    else:
+        return 1
 
 

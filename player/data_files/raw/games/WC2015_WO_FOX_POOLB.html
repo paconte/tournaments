@@ -343,31 +343,33 @@ jQuery(document).ready(function(){
                     var req = new XMLHttpRequest(),
                         roundNotes = [],
                         onlineCompID = 225335 || 0;
-                    req.open('GET', 'https://awsapi.foxsportspulse.com/v2//compdata/competitions/' + onlineCompID, false);
+                    req.open('GET', 'https://awsapi.foxsportspulse.com/v2//compdata/competitions/' + onlineCompID, true);
                     req.setRequestHeader('x-api-key', 'ujZslDiepR18ItRFpwZXJ2usC5igjse06Vnb5NBC');
                     req.send(null);
                     var roundNotesTxt = '',
                         roundNotesTxtFinals = '';
-                    if (req.status == 200) {
-                        roundNotes = JSON.parse(req.responseText);
-                        roundNotes = roundNotes.resultList[0];
-                        for (var y = 0; y < roundNotes.round_list.length; y++) {
-                            if(roundNotes.round_list[y].number === 1 ) {
-                                if(parseInt('12',10) > 1000 && roundNotes.round_list[y].is_final) {
-                                    roundNotesTxtFinals = roundNotes.round_list[y].notes;
-                                }
-                                else if(roundNotes.round_list[y].notes !== '' && !roundNotes.round_list[y].is_final) {
-                                    roundNotesTxt = roundNotes.round_list[y].notes;
+                    req.onload = function() {
+                        if (req.status == 200) {
+                            roundNotes = JSON.parse(req.responseText);
+                            roundNotes = roundNotes.resultList[0];
+                            for (var y = 0; y < roundNotes.round_list.length; y++) {
+                                if(roundNotes.round_list[y].number === 1 ) {
+                                    if(parseInt('12',10) > 1000 && roundNotes.round_list[y].is_final) {
+                                        roundNotesTxtFinals = roundNotes.round_list[y].notes;
+                                    }
+                                    else if(roundNotes.round_list[y].notes !== '' && !roundNotes.round_list[y].is_final) {
+                                        roundNotesTxt = roundNotes.round_list[y].notes;
+                                    }
                                 }
                             }
+                            if(parseInt('12',10) < 1000 && roundNotesTxt !== '') {
+                                document.getElementById('RoundNotesContent').innerHTML = '<div class="compnotes fix-msg"><div class="noprint">Round Notes</div>' + roundNotesTxt + '</div>';
+                            }
+                            if(parseInt('12',10) > 1000 && roundNotesTxtFinals !== '') {
+                                document.getElementById('RoundNotesContent').innerHTML = '<div class="compnotes fix-msg"><div class="noprint">Round Notes</div>' + roundNotesTxtFinals + '</div>';
+                            }
                         }
-                        if(parseInt('12',10) < 1000 && roundNotesTxt !== '') {
-                            document.getElementById('RoundNotesContent').innerHTML = '<div class="compnotes fix-msg"><div class="noprint">Round Notes</div>' + roundNotesTxt + '</div>';
-                        }
-                        if(parseInt('12',10) > 1000 && roundNotesTxtFinals !== '') {
-                            document.getElementById('RoundNotesContent').innerHTML = '<div class="compnotes fix-msg"><div class="noprint">Round Notes</div>' + roundNotesTxtFinals + '</div>';
-                        }
-                    }
+                    };
                 </script>
                 <div class="all-fixture-wrap stacked-wide">
                     <div id="round-wrap">
@@ -475,31 +477,33 @@ jQuery(document).ready(function(){
                     var req = new XMLHttpRequest(),
                         roundNotes = [],
                         onlineCompID = 225335 || 0;
-                    req.open('GET', 'https://awsapi.foxsportspulse.com/v2//compdata/competitions/' + onlineCompID, false);
+                    req.open('GET', 'https://awsapi.foxsportspulse.com/v2//compdata/competitions/' + onlineCompID, true);
                     req.setRequestHeader('x-api-key', 'ujZslDiepR18ItRFpwZXJ2usC5igjse06Vnb5NBC');
                     req.send(null);
                     var roundNotesTxt = '',
                         roundNotesTxtFinals = '';
-                    if (req.status == 200) {
-                        roundNotes = JSON.parse(req.responseText);
-                        roundNotes = roundNotes.resultList[0];
-                        for (var y = 0; y < roundNotes.round_list.length; y++) {
-                            if(roundNotes.round_list[y].number === 2 ) {
-                                if(parseInt('12',10) > 1000 && roundNotes.round_list[y].is_final) {
-                                    roundNotesTxtFinals = roundNotes.round_list[y].notes;
-                                }
-                                else if(roundNotes.round_list[y].notes !== '' && !roundNotes.round_list[y].is_final) {
-                                    roundNotesTxt = roundNotes.round_list[y].notes;
+                    req.onload = function() {
+                        if (req.status == 200) {
+                            roundNotes = JSON.parse(req.responseText);
+                            roundNotes = roundNotes.resultList[0];
+                            for (var y = 0; y < roundNotes.round_list.length; y++) {
+                                if(roundNotes.round_list[y].number === 2 ) {
+                                    if(parseInt('12',10) > 1000 && roundNotes.round_list[y].is_final) {
+                                        roundNotesTxtFinals = roundNotes.round_list[y].notes;
+                                    }
+                                    else if(roundNotes.round_list[y].notes !== '' && !roundNotes.round_list[y].is_final) {
+                                        roundNotesTxt = roundNotes.round_list[y].notes;
+                                    }
                                 }
                             }
+                            if(parseInt('12',10) < 1000 && roundNotesTxt !== '') {
+                                document.getElementById('RoundNotesContent').innerHTML = '<div class="compnotes fix-msg"><div class="noprint">Round Notes</div>' + roundNotesTxt + '</div>';
+                            }
+                            if(parseInt('12',10) > 1000 && roundNotesTxtFinals !== '') {
+                                document.getElementById('RoundNotesContent').innerHTML = '<div class="compnotes fix-msg"><div class="noprint">Round Notes</div>' + roundNotesTxtFinals + '</div>';
+                            }
                         }
-                        if(parseInt('12',10) < 1000 && roundNotesTxt !== '') {
-                            document.getElementById('RoundNotesContent').innerHTML = '<div class="compnotes fix-msg"><div class="noprint">Round Notes</div>' + roundNotesTxt + '</div>';
-                        }
-                        if(parseInt('12',10) > 1000 && roundNotesTxtFinals !== '') {
-                            document.getElementById('RoundNotesContent').innerHTML = '<div class="compnotes fix-msg"><div class="noprint">Round Notes</div>' + roundNotesTxtFinals + '</div>';
-                        }
-                    }
+                    };
                 </script>
                 <div class="all-fixture-wrap stacked-wide">
                     <div id="round-wrap">
@@ -607,31 +611,33 @@ jQuery(document).ready(function(){
                     var req = new XMLHttpRequest(),
                         roundNotes = [],
                         onlineCompID = 225335 || 0;
-                    req.open('GET', 'https://awsapi.foxsportspulse.com/v2//compdata/competitions/' + onlineCompID, false);
+                    req.open('GET', 'https://awsapi.foxsportspulse.com/v2//compdata/competitions/' + onlineCompID, true);
                     req.setRequestHeader('x-api-key', 'ujZslDiepR18ItRFpwZXJ2usC5igjse06Vnb5NBC');
                     req.send(null);
                     var roundNotesTxt = '',
                         roundNotesTxtFinals = '';
-                    if (req.status == 200) {
-                        roundNotes = JSON.parse(req.responseText);
-                        roundNotes = roundNotes.resultList[0];
-                        for (var y = 0; y < roundNotes.round_list.length; y++) {
-                            if(roundNotes.round_list[y].number === 3 ) {
-                                if(parseInt('12',10) > 1000 && roundNotes.round_list[y].is_final) {
-                                    roundNotesTxtFinals = roundNotes.round_list[y].notes;
-                                }
-                                else if(roundNotes.round_list[y].notes !== '' && !roundNotes.round_list[y].is_final) {
-                                    roundNotesTxt = roundNotes.round_list[y].notes;
+                    req.onload = function() {
+                        if (req.status == 200) {
+                            roundNotes = JSON.parse(req.responseText);
+                            roundNotes = roundNotes.resultList[0];
+                            for (var y = 0; y < roundNotes.round_list.length; y++) {
+                                if(roundNotes.round_list[y].number === 3 ) {
+                                    if(parseInt('12',10) > 1000 && roundNotes.round_list[y].is_final) {
+                                        roundNotesTxtFinals = roundNotes.round_list[y].notes;
+                                    }
+                                    else if(roundNotes.round_list[y].notes !== '' && !roundNotes.round_list[y].is_final) {
+                                        roundNotesTxt = roundNotes.round_list[y].notes;
+                                    }
                                 }
                             }
+                            if(parseInt('12',10) < 1000 && roundNotesTxt !== '') {
+                                document.getElementById('RoundNotesContent').innerHTML = '<div class="compnotes fix-msg"><div class="noprint">Round Notes</div>' + roundNotesTxt + '</div>';
+                            }
+                            if(parseInt('12',10) > 1000 && roundNotesTxtFinals !== '') {
+                                document.getElementById('RoundNotesContent').innerHTML = '<div class="compnotes fix-msg"><div class="noprint">Round Notes</div>' + roundNotesTxtFinals + '</div>';
+                            }
                         }
-                        if(parseInt('12',10) < 1000 && roundNotesTxt !== '') {
-                            document.getElementById('RoundNotesContent').innerHTML = '<div class="compnotes fix-msg"><div class="noprint">Round Notes</div>' + roundNotesTxt + '</div>';
-                        }
-                        if(parseInt('12',10) > 1000 && roundNotesTxtFinals !== '') {
-                            document.getElementById('RoundNotesContent').innerHTML = '<div class="compnotes fix-msg"><div class="noprint">Round Notes</div>' + roundNotesTxtFinals + '</div>';
-                        }
-                    }
+                    };
                 </script>
             
             
@@ -688,6 +694,9 @@ $("#content-wrap").append($partenaires_logo);
 <div class="widget-container">
 <h4 class="widget-title">TWC Live Streaming</h4>
 <div class = "widget-content ">
+
+<script>if (!window.jQuery) { document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"><\/script>');}</script>
+<script type="text/javascript" src="http://www-static4.spulsecdn.net/js/jquery.innerfade.js"></script>
 
 
 
@@ -832,21 +841,21 @@ function countdown(){
     <div id="f-lb-big"><!-- ADDED WITH JS --></div>
                                         <div id="f-tdrive-wrap">
         <div class="f-tdrive one">
-            <div class="f-tdrive-img"><a href="http://touchfootball.com.au/"><img src="http://www-static.spulsecdn.net/pics/tdrivers/tdriver_7_1_30.jpg" alt=">Touch Football Australia" style="width:89px;height:89px;"></a></div>
+            <div class="f-tdrive-img"><a href="http://touchfootball.com.au/"><img src="http://www-static.spulsecdn.net/pics/tdrivers/tdriver_7_1_31.jpg" alt=">Touch Football Australia" style="width:89px;height:89px;"></a></div>
             <div class="f-tdrive-txtwrap">
                 <div class="f-tdrive-title"><a href="http://touchfootball.com.au/" target="_blank">Touch Football Australia</a></div>
                 <div class="f-tdrive-text">The latest TFA news, coaching resources and more<a href="http://touchfootball.com.au/" target="_blank">Read More</a></div>
             </div>
         </div>
         <div class="f-tdrive two">
-            <div class="f-tdrive-img"><a href="http://touchfootball.com.au/index.php?id=13&tx_ttnews%5Btt_news%5D=4885&tx_ttnews%5BbackPid%5D=1194&cHash=c950156fe3"><img src="http://www-static.spulsecdn.net/pics/tdrivers/tdriver_7_2_30.jpg" alt=">TFA Elite Coach Course Pilot" style="width:89px;height:89px;"></a></div>
+            <div class="f-tdrive-img"><a href="http://touchfootball.com.au/index.php?id=13&tx_ttnews[tt_news]=4993&cHash=670630497c"><img src="http://www-static.spulsecdn.net/pics/tdrivers/tdriver_7_2_31.jpg" alt=">2016 NTL Results" style="width:89px;height:89px;"></a></div>
             <div class="f-tdrive-txtwrap">
-                <div class="f-tdrive-title"><a href="http://touchfootball.com.au/index.php?id=13&tx_ttnews%5Btt_news%5D=4885&tx_ttnews%5BbackPid%5D=1194&cHash=c950156fe3" target="_blank">TFA Elite Coach Course Pilot</a></div>
-                <div class="f-tdrive-text">TFA is hosting a pilot for the Elite Coach Course in Brisbane in January.<a href="http://touchfootball.com.au/index.php?id=13&tx_ttnews%5Btt_news%5D=4885&tx_ttnews%5BbackPid%5D=1194&cHash=c950156fe3" target="_blank">Read More</a></div>
+                <div class="f-tdrive-title"><a href="http://touchfootball.com.au/index.php?id=13&tx_ttnews[tt_news]=4993&cHash=670630497c" target="_blank">2016 NTL Results</a></div>
+                <div class="f-tdrive-text">Congratulations to all of the winners at the 2016 National Touch League in Coffs Harbour.<a href="http://touchfootball.com.au/index.php?id=13&tx_ttnews[tt_news]=4993&cHash=670630497c" target="_blank">Read More</a></div>
             </div>
         </div>
         <div class="f-tdrive three">
-            <div class="f-tdrive-img"><a href="http://extra.foxsportspulse.com/the-science-of-winning/"><img src="http://www-static.spulsecdn.net/pics/tdrivers/tdriver_7_3_30.jpg" alt=">The science of winning" style="width:89px;height:89px;"></a></div>
+            <div class="f-tdrive-img"><a href="http://extra.foxsportspulse.com/the-science-of-winning/"><img src="http://www-static.spulsecdn.net/pics/tdrivers/tdriver_7_3_31.jpg" alt=">The science of winning" style="width:89px;height:89px;"></a></div>
             <div class="f-tdrive-txtwrap">
                 <div class="f-tdrive-title"><a href="http://extra.foxsportspulse.com/the-science-of-winning/" target="_blank">The science of winning</a></div>
                 <div class="f-tdrive-text">So much time and money goes into squeezing every last drop of energy out of elite athletes.<a href="http://extra.foxsportspulse.com/the-science-of-winning/" target="_blank">Read More</a></div>
@@ -960,17 +969,6 @@ window.onload = function() {
 
 
 
-
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=241352179220929";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-	
   
 <!-- START Tealium -->
 <script type="text/javascript">

@@ -13,6 +13,7 @@
     <!-- <link rel="stylesheet" type="text/css" href="{% static '0755/autumn05.css' %}"/> -->
     <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap-theme.min.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'ionicons/css/ionicons.css' %}"/>
     <!-- Custom styles for this template -->
     <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap-tournament.css' %}"/>
 
@@ -52,6 +53,7 @@
                         <li><a href="{% url 'search_person' %}">Person</a></li>
                         <li><a href="{% url 'search_person' %}">Tournament</a></li>
                     </ul>
+                <li><a href="{% url 'add_tournament' %}">Add a tournament</a></li>
                 <li><a href="{% url 'about' %}">About</a></li>
                 <li><a href="{% url 'contact' %}">Contact</a></li>
             </ul>

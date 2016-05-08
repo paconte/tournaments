@@ -41,13 +41,17 @@ class Person(models.Model):
     def __str__(self):
         return '{:s} {:s} - {:s}'.format(self.first_name, self.last_name, self.gender)
 
-    def _get_full_name(self):
+    def get_full_name(self):
         """Returns the person's full name."""
         return '{:s} {:s}'.format(self.first_name, self.last_name)
 
+    def compare_name(self, other):
+        """Returns True if both persons have the same full name otherwise False."""
+        return self.get_full_name() == other.get_full_name()
+
 
 class Team(models.Model):
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=40)
     players = models.ManyToManyField(Person, through='Player')
     division = models.CharField(max_length=3, choices=TOUCH_DIVISION_CHOICES)
 
@@ -117,7 +121,7 @@ class GameRound(models.Model):
     FINAL = 'Final'
     SEMI = 'Semifinal'
     QUARTER = '1/4'
-    EIGHTH = '1/8'
+    EIGHTH = 'Eighthfinals'
     SIXTEENTH = '1/16'
     THIRD_POSITION = 'Third position'
     FIFTH_POSITION = 'Fifth position'
@@ -144,7 +148,7 @@ class GameRound(models.Model):
     LIGA = 'Liga'
 
     ordered_rounds = [FINAL, THIRD_POSITION, SEMI, FIFTH_POSITION, QUARTER, SIXTH_POSITION,
-                      SEVENTH_POSITION, EIGHTH_POSITION, NINTH_POSITION, TENTH_POSITION,
+                      SEVENTH_POSITION, EIGHTH_POSITION, EIGHTH, NINTH_POSITION, TENTH_POSITION,
                       ELEVENTH_POSITION, TWELFTH_POSITION, THIRTEENTH_POSITION, FOURTEENTH_POSITION,
                       FIFTEENTH_POSITION, SIXTEENTH_POSITION, EIGHTEENTH_POSITION, TWENTIETH_POSITION]
 

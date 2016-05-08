@@ -20,6 +20,16 @@ import logging
 logger = logging.getLogger(__name__)
 
 
+def add_data_for_tournaments_menu(context):
+    tournament_list = Tournament.objects.all()
+    sorted_tournaments = sort_tournament_list(tournament_list)
+    context['england'] = sorted_tournaments['England']
+    context['germany'] = sorted_tournaments['Germany']
+    context['nationals'] = sorted_tournaments['Nationals']
+    context['australia'] = sorted_tournaments['Australia']
+    return context
+
+
 class GameView(DetailView):
     model = Game
     template_name = 'tournaments/detail_game.html'
@@ -28,22 +38,25 @@ class GameView(DetailView):
         local_players = Player.objects.filter(team=self.object.local, tournaments_played=self.object.tournament)
         visitor_players = Player.objects.filter(team=self.object.visitor, tournaments_played=self.object.tournament)
         statistics = PlayerStadistic.objects.filter(game=self.object.id)
+        local_stats, visitor_stats = self.get_game_details_stats(statistics, local_players, visitor_players)
 
         context = super(GameView, self).get_context_data(**kwargs)
         context['tournament_list'] = Tournament.objects.all()
         context['game'] = self.object
-        context['statistics'] = self.get_game_details_matrix(statistics,
-                                                             local_players,
-                                                             visitor_players)
+        context['statistics'] = True if len(statistics) > 0 else False
+        context['local_stats'] = local_stats
+        context['visitor_stats'] = visitor_stats
+        add_data_for_tournaments_menu(context)
+
         return context
 
-    def get_game_details_matrix(self, stadistics, local_players, visitor_players):
+    def get_game_details_stats(self, statistics, local_players, visitor_players):
         """
         Create a matrix with the content of the stadistics for all the players of a game. Only the
         detail_gamem template is designed to display this matrix data.
 
         Args:
-            stadistics:      The stadistics for the game
+            statistics:      The stadistics for the game
             local_players:   The local team players of the game
             visitor_players: The visitor team players of the game
 
@@ -52,38 +65,50 @@ class GameView(DetailView):
             person and the scored tries for a local and visitor players. If any local  or visitor
             team has more players than the other team the remaining cells will be empty.
         """
-
-        result = []
-        n_rows = len(local_players) if len(local_players) > len(visitor_players) else len(visitor_players)
+        local_stats = dict()
+        visitor_stats = dict()
+        n_rows = len(local_players)
         for i in range(n_rows):
-            if i < len(local_players):
-                points = 0
-                number = local_players[i].number if local_players[i].number else ''
-                for st in stadistics:
-                    if (st.player == local_players[i]):
-                        points = st.points
-                        break
-                if (points > 0):
-                    row = [number, local_players[i].person, points]
-                else:
-                    row = [number, local_players[i].person, '-']
+            points = 0
+            number = local_players[i].number if local_players[i].number else ''
+            for st in statistics:
+                if st.player == local_players[i]:
+                    points = st.points
+                    break
+            # row = [number, local_players[i].person, points]
+            if local_players[i].person.get_full_name() in local_stats.keys():
+                local_stats[local_players[i].person.get_full_name()] = local_stats[local_players[
+                    i].person.get_full_name()] + points
             else:
-                row = ['', '', '']
-            if i < len(visitor_players):
-                points = 0
-                number = visitor_players[i].number if visitor_players[i].number else ''
-                for st in stadistics:
-                    if st.player == visitor_players[i]:
-                        points = st.points
-                        break
-                if points > 0:
-                    row.extend([number, visitor_players[i].person, points])
-                else:
-                    row.extend([number, visitor_players[i].person, '-'])
+                local_stats[local_players[i].person.get_full_name()] = points
+
+        n_rows = len(visitor_players)
+        for i in range(n_rows):
+            points = 0
+            number = visitor_players[i].number if visitor_players[i].number else ''
+            for st in statistics:
+                if st.player == visitor_players[i]:
+                    points = st.points
+                    break
+            # row = [number, visitor_players[i].person, points]
+            # visitor_stats.append(row)
+            if visitor_players[i].person.get_full_name() in visitor_stats.keys():
+                visitor_stats[visitor_players[i].person.get_full_name()] = visitor_stats[visitor_players[
+                    i].person.get_full_name()] + points
             else:
-                row.extend(['', '', ''])
-            result.append(row)
-        return result
+                visitor_stats[visitor_players[i].person.get_full_name()] = points
+
+        local_stats2 = []
+        for k, v in local_stats.items():
+            local_stats2.append([k, v])
+
+        visitor_stats2 = []
+        for k, v in visitor_stats.items():
+            visitor_stats2.append([k, v])
+
+        return sorted(local_stats2, key=lambda line: line[1], reverse=True), sorted(visitor_stats2,
+                                                                                    key=lambda line: line[1],
+                                                                                    reverse=True)
 
 
 class PersonView(DetailView):
@@ -120,7 +145,7 @@ class TeamView(DetailView):
 
 
 class TeamTournamentView(DetailView):
-    model = Team;
+    model = Team
     template_name = 'tournaments/detail_team_tournament.html'
 
     def get_context_data(self, **kwargs):
@@ -131,10 +156,15 @@ class TeamTournamentView(DetailView):
                                     Q(local=self.object.id) | Q(visitor=self.object.id))
 
         context = super(TeamTournamentView, self).get_context_data(**kwargs)
+        context['tournament_id'] = tournament_id
         context['team'] = self.object
         context['tournament_list'] = Tournament.objects.all()
         context['games'] = self.sort_games_by_phases(games)
-        context['players'] = self.get_player_stadistics(players, games)
+        context['players'] = self.get_player_statistics(players, games)
+        add_data_for_tournaments_menu(context)
+
+        for i in context['players']:
+            print(i)
 
         return context
 
@@ -160,13 +190,14 @@ class TeamTournamentView(DetailView):
             d_all.update({game.phase: phase_games})
 
         d_pools = {}
+        d_divisions = {}
         d_finals = {}
         l_finals = []
         for k, v in d_all.items():
             if GameRound.is_pool(k):
                 d_pools.update({k: v})
             elif k.round == GameRound.DIVISION:
-                pass
+                d_divisions.update({k: v})
             else:
                 logging.debug(k)
                 d_finals.update({k: v})
@@ -176,12 +207,14 @@ class TeamTournamentView(DetailView):
         for k in (sorted(d_pools)):
             result.update({k: d_pools.get(k)})
         logging.debug(l_finals)
+        for k in (sorted(d_divisions)):
+            result.update({k: d_divisions.get(k)})
         for k in (sorted(l_finals, key=lambda final: GameRound.ordered_rounds.index(final.round), reverse=True)):
             result.update({k: d_finals.get(k)})
 
         return result
 
-    def get_player_stadistics(self, players, games):
+    def get_player_statistics(self, players, games):
         """
         Given a list of players, a list with the same players and their total amount of points in a
         tournament is returned.
@@ -195,19 +228,26 @@ class TeamTournamentView(DetailView):
         """
 
         result = []
-        stadistics = []
+        statistics = []
+        stats = dict()
 
         for player in players:
-            stadistics.extend(PlayerStadistic.objects.filter(Q(player=player.id), Q(game__in=games)))
+            statistics.extend(PlayerStadistic.objects.filter(Q(player=player.id), Q(game__in=games)))
 
         for player in players:
             points = 0
-            for st in stadistics:
+            for st in statistics:
                 if st.player == player:
                     points += st.points
-            result.append([player.number, player.person, points])
+            if player.person.get_full_name() in stats.keys():
+                stats[player.person.get_full_name()] = stats[player.person.get_full_name()] + points
+            else:
+                stats[player.person.get_full_name()] = points
 
-        return sorted(result, key=lambda line: line[0])
+        for k, v in stats.items():
+            result.append([k, v])
+
+        return sorted(result, key=lambda line: line[1], reverse=True)
 
 
 class TournamentView(DetailView):
@@ -224,7 +264,6 @@ class TournamentView(DetailView):
         finals_games = fixtures.get_phased_finals({})
         st_utils = StructuresUtils()
         tournament_list = Tournament.objects.all()
-        sort_tournament = sort_tournament_list(tournament_list)
 
         context = super(TournamentView, self).get_context_data(**kwargs)
         context['tournament'] = self.object
@@ -237,8 +276,6 @@ class TournamentView(DetailView):
         context['phased_finals_games'] = fixtures.get_phased_finals({})
         context['teams_matrix'] = st_utils.get_teams_matrix(teams, 4)
         context['division'] = self.object.get_division_name()
-        context['england'] = sort_tournament['England']
-        context['germany'] = sort_tournament['Germany']
-        context['nationals'] = sort_tournament['Nationals']
+        add_data_for_tournaments_menu(context)
 
         return context

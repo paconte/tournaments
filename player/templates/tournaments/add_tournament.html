@@ -1,0 +1,142 @@
+{% extends "tournaments/index.html" %}
+
+{% block content %}
+
+<div class="row" xmlns:https="http://www.w3.org/1999/xhtml">
+  <div class="col-xs-12 col-sm-6 col-md-8">
+
+      <br/>
+      <p class="lead">
+          There are two different options to add tournaments data. One automatically via a
+          <a href="https://en.wikipedia.org/wiki/Comma-separated_values">csv file</a> and another one  manually via a
+          web interface.
+      </p>
+
+      <h2 id="automatic-1" class="page-header">Automatic</h2>
+      <p>
+          The idea is to create <a href="https://en.wikipedia.org/wiki/Comma-separated_values">csv file</a>, send it to
+          us and we will just run our developed app with your created csv file as input and the tournament data will
+          automatically online at the website.
+      </p>
+
+      <p>
+          A <csv></csv> file can be created with your favorite text editor but also with a more comfortable
+          <a href="https://en.wikipedia.org/wiki/Spreadsheet">spreadsheet software</a> like
+          <a href="https://en.wikipedia.org/wiki/Microsoft_Excel">Excel</a>,
+          <a href="https://en.wikipedia.org/wiki/LibreOffice">LibreOffice</a> or
+          <a href="https://en.wikipedia.org/wiki/OpenOffice.org">OpenOffice.</a>
+      </p>
+
+      <p>
+          The <a href="https://en.wikipedia.org/wiki/Comma-separated_values">csv file</a> must have an specific format
+          otherwise the software will not allow to upload your tournament data to the web.
+      </p>
+
+      <p>
+          The most practical approach to create your own
+          <a href="https://en.wikipedia.org/wiki/Comma-separated_values">csv file</a> is to
+          <a href="http://www.frevilla.com/csv/WC_2015_MXO_GAMES.csv">download this file</a> which has been already
+          used by us to add tournaments data. After download it, open and edit it adapting the column values to your own
+          tournament data.
+      </p>
+
+      <p>
+          A line contains all the information of a tournament game and it must look like the following examples (for
+          more examples <a href="http://www.frevilla.com/csv/WC_2015_MXO_GAMES.csv">download this file</a>):
+      </p>
+      <code>
+          World Cup 2015;MO;04/29/15;11:30;Field 2;Pool A;Gold;4;xx;France;8;5;Malaysia<br/>
+          World Cup 2015;MO;04/30/15;12:20;Field 15;Division;Silver;8;xx;England;8;3;Wales<br/>
+          World Cup 2015;MO;05/03/15;12:30;Field 3;Fifth position;Gold;2;xx;Japan;5;3;Fiji<br/>
+          World Cup 2015;M30;05/02/15;20:00;Field 5;1/4;Gold;2;xx;Fiji;3;4;Papua New Guinea<br/>
+          World Cup 2015;M30;05/03/15;08:00;Field 1;Semifinal;Gold;2;xx;Australia;16;0;Papua New Guinea<br/>
+          World Cup 2015;MO;05/03/15;18:40;Field 1;Final;Gold;2;xx;Australia;11;2;New Zealand
+      </code>
+
+      <p>
+          <br/>This is the meaning of each column or comma separated value:
+      </p>
+      <ol>
+          <li>Name of the tournament</li>
+          <li>Division, e.g: MO, WO, MXO, M30, W27, SMX, etc...</li>
+          <li>Date of the game</li>
+          <li>Field name</li>
+          <li>Phase of the tournament: Pool A, Division, Final, Ninth position, 1/4, Semifinal, etc...</li>
+          <li>Category: which kind of cup is the team playing for Gold, Silver, Bronze or Wood</li>
+          <li>Numbers of teams playing for the given phase and category.</li>
+          <li>xx: this value is constant</li>
+          <li>Local team name</li>
+          <li>Local team score</li>
+          <li>Visitor team score</li>
+          <li>Visitor team name</li>
+      </ol>
+
+      <p>
+          If you want to add the statistics of the tournament you need to create a separated
+          <a href="https://en.wikipedia.org/wiki/Comma-separated_values">csv file</a> with a different format. You can
+          follow the same procedure, <a href="http://www.frevilla.com/csv/WC_2015_WO_STATS.csv">download this file</a> and edit it. The
+          format of the statistic file look like (for more examples
+          <a href="http://www.frevilla.com/csv/WC_2015_WO_STATS.csv">download this file</a>):
+      </p>
+
+      <code>
+          World Cup 2015;MO;Fiji;5;Taito;Nawaituruturu;M;0;South Africa;7;3;Fiji;Gold;Division;8
+          World Cup 2015;MO;Australia;4;Ben;Moylan;M;4;Australia;11;2;New Zealand;Gold;Final;2
+          World Cup 2015;MO;England;12;Benjamin;Meakin;M;0;New Zealand;11;2;England;Gold;Pool B;4
+          World Cup 2015;MO;United States of America;15;Malik;Vano;M;1;United States of America;5;2;Singapore;Silver;Division;8
+      </code>
+
+      <p>
+          <br/>This is the meaning of each column or comma separated value:
+      </p>
+
+      <ol>
+          <li>Name of the tournament</li>
+          <li>Division, e.g: MO, WO, MXO, M30, W27, SMX, etc...</li>
+          <li>Scorer team</li>
+          <li>Number of the scorer player</li>
+          <li>First name of the scorer player</li>
+          <li>Last name of the scorer player</li>
+          <li>Gender of the scorer player: M, F, U (Unknown)</li>
+          <li>Total touch downs of the player, it could be 0</li>
+          <li>Local team name</li>
+          <li>Local team score</li>
+          <li>Visitor team score</li>
+          <li>Visitor team name</li>
+          <li>Category: which kind of cup is the team playing for Gold, Silver, Bronze or Wood</li>
+          <li>Phase of the tournament: Pool A, Division, Final, Ninth position, 1/4, Semifinal, etc...</li>
+          <li>Numbers of teams playing for the given phase and category.</li>
+      </ol>
+
+      <p class="leader">
+          <br/>Once you have your <a href="https://en.wikipedia.org/wiki/Comma-separated_values">csv file</a> ready
+          please <a href="{% url 'contact' %}">contact</a> us and we will upload your tournament data. We are also
+          please to help you to create your <a href="https://en.wikipedia.org/wiki/Comma-separated_values">csv file</a>
+          or answer your questions.
+      </p>
+
+      <h2 id="manual-1" class="page-header">Manually</h2>
+      <p>
+          This app is developed with <a href="https://en.wikipedia.org/wiki/Django_%28web_framework%29">django</a> which
+          offer an administration interface where you can add via web forms tournaments, games, players, persons, etc...
+      </p>
+
+      <p>
+          The disadvantage of doing it manually is that you would have to add each player, each game and tournament one
+          by one completing a web form for each object you need to add and would take more time than the automatic
+          option.
+      </p>
+      <p>
+          You should request a user name and password to login in into the administration interface, if you want to use
+          this process to put your tournament data online please <a href="{% url 'contact' %}">contact us</a>.
+      </p>
+
+      <p>
+          If you are interested in how does the administration interface looks and works you can watch this
+          <a href="https://youtu.be/kvFDV1oM-ZA?t=409">youtube video</a>.
+      </p>
+
+  </div>
+</div>
+
+{% endblock %}

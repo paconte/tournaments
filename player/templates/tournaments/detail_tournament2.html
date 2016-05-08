@@ -10,19 +10,18 @@
 <div class="page-header">
   <h1>Teams</h1>
 </div>
-    <table class="table-condensed">
-      <thead>
+
+<table class="table-condensed">
 	<tbody>
-	  {% for row in teams_matrix %}
-	  <tr>
-	    {% for team in row %}
-	    <td class="col-sm-2"><a href="{% url 'detail_team_tournament' tournament.id team.id %}">{{team.name}}</a></td>
-	    {% endfor %}
-	  </tr>	  
-	  {% endfor %}
+     {% for row in teams_matrix %}
+	<tr>
+		{% for team in row %}
+		<td class="col-sm-2"><a href="{% url 'detail_team_tournament' tournament.id team.id %}">{{team.name}}</a></td>
+		{% endfor %}
+	</tr>
+	{% endfor %}
 	</tbody>
-      </thead>
-    </table>
+</table>
 
 {% if pool_games %}
 <div class="page-header">
@@ -49,7 +48,7 @@
 	<tbody>
 	  {% for value in list %}
 	  <tr>
-	    <td>{{value.team.name}}</td>
+	    <td><a href="{% url 'detail_team_tournament' tournament.id value.team.id %}">{{value.team.name}}</a></td>
 	    <td>{{value.played}}</td>
 	    <td>{{value.won}}</td>
 	    <td>{{value.lost}}</td>
@@ -78,12 +77,12 @@
 	        <tr>
 		  {% if game.time %}<td class="text-center">{{game.time|date:"H:i"}}</td>{% endif %}
 		  {% if game.field %}<td class="col-sm-2 text-center">{{game.field}}</td>{% endif %}
-		  <td class="col-sm-5">{{game.local.name}}</td>
+		  <td class="col-sm-5"><a href="{% url 'detail_team_tournament' tournament.id game.local.id %}">{{game.local.name}}</a></td>
 		  <td class="success text-center">{{game.local_score}}</td>
 		  <td class="text-center">v</td>
 		  <td class="success text-center">{{game.visitor_score}}</td>
-		  <td class="col-sm-5 text-right">{{game.visitor.name}}</td>
-		  <td class="text-center"><a href="{% url 'detail_game' game.id %}">link</a></td>
+		  <td class="col-sm-5 text-right"><a href="{% url 'detail_team_tournament' tournament.id game.visitor.id %}">{{game.visitor.name}}</a></td>
+		  <td class="text-center"><a class="ion-android-add-circle" href="{% url 'detail_game' game.id %}"/></td>
 		</tr>
               {% endif %}
 	    {% endfor %}
@@ -104,7 +103,6 @@
   <h1>Divisions</h1>
 </div>
 
-
 {% for key1, values1 in division_games.items %}
 <div class="jumbotron">
 <div class="row">
@@ -112,7 +110,17 @@
 	<div class="col-md-4">
 		<table class="table table-striped table-condensed">
 			<thead>
+			{% if key1.category == "Gold" %}
 			<tr class="success">
+			{% elif key1.category == "Silver" %}
+			<tr class="info">
+			{% elif key1.category == "Bronze" %}
+			<tr class="warning">
+			{% elif key1.category == "Wood" %}
+			<tr class="danger">
+			{% else %}
+			<tr class="success">
+			{% endif %}
 				<th>{{key1}}</th>
 				<th>P</th>
 				<th>W</th>
@@ -126,7 +134,7 @@
 			<tbody>
 			{% for value in values2 %}
 			<tr>
-				<td>{{value.team.name}}</td>
+				<td><a href="{% url 'detail_team_tournament' tournament.id value.team.id %}">{{value.team.name}}</a></td>
 				<td>{{value.played}}</td>
 				<td>{{value.won}}</td>
 				<td>{{value.lost}}</td>
@@ -144,7 +152,17 @@
 	<div class="col-md-8">
 		<table class="table table-striped table-condensed table-bordered">
 			<thead>
+			{% if key1.category == "Gold" %}
 			<tr class="success">
+			{% elif key1.category == "Silver" %}
+			<tr class="info">
+			{% elif key1.category == "Bronze" %}
+			<tr class="warning">
+			{% elif key1.category == "Wood" %}
+			<tr class="danger">
+			{% else %}
+			<tr class="success">
+			{% endif %}
 				<th colspan="8">{{key1}} - Games</th>
 			</tr>
 			<tbody>
@@ -158,12 +176,32 @@
 				{% if game.field %}
 				<td class="col-sm-2 text-center">{{game.field}}</td>
 				{% endif %}
-				<td class="col-sm-5">{{game.local.name}}</td>
+				<td class="col-sm-5"><a href="{% url 'detail_team_tournament' tournament.id game.local.id %}">{{game.local.name}}</a></td>
+				{% if key1.category == "Gold" %}
 				<td class="success text-center">{{game.local_score}}</td>
+				{% elif key1.category == "Silver" %}
+				<td class="info text-center">{{game.local_score}}</td>
+				{% elif key1.category == "Bronze" %}
+				<td class="warning text-center">{{game.local_score}}</td>
+				{% elif key1.category == "Wood" %}
+				<td class="danger text-center">{{game.local_score}}</td>
+				{% else %}
+				<td class="success text-center">{{game.local_score}}</td>
+				{% endif %}
 				<td class="text-center">v</td>
+				{% if key1.category == "Gold" %}
 				<td class="success text-center">{{game.visitor_score}}</td>
-				<td class="col-sm-5 text-right">{{game.visitor.name}}</td>
-				<td class="text-center"><a href="{% url 'detail_game' game.id %}">link</a></td>
+				{% elif key1.category == "Silver" %}
+				<td class="info text-center">{{game.visitor_score}}</td>
+				{% elif key1.category == "Bronze" %}
+				<td class="warning text-center">{{game.visitor_score}}</td>
+				{% elif key1.category == "Wood" %}
+				<td class="danger text-center">{{game.visitor_score}}</td>
+				{% else %}
+				<td class="success text-center">{{game.visitor_score}}</td>
+				{% endif %}
+				<td class="col-sm-5 text-right"><a href="{% url 'detail_team_tournament' tournament.id game.visitor.id %}">{{game.visitor.name}}</a></td>
+				<td class="text-center"><a class="ion-android-add-circle" href="{% url 'detail_game' game.id %}"/></td>
 			</tr>
 			{% endif %}
 			{% endfor %}
@@ -194,13 +232,13 @@
     <thead>
       <tr>
 	{% if key1 == "Gold" %}
-	<th colspan="8" class="gold">{{key2}}</th>
+	<th colspan="8" class="success">{{key2}}</th>
 	{% elif key1 == "Silver" %}
-	<th colspan="8" class="silver">{{key2}}</th>
+	<th colspan="8" class="info">{{key2}}</th>
 	{% elif key1 == "Bronze" %}
-	<th colspan="8" class="bronze">{{key2}}</th>
+	<th colspan="8" class="warning">{{key2}}</th>
 	{% elif key1 == "Wood" %}
-	<th colspan="8" class="wood">{{key2}}</th>
+	<th colspan="8" class="danger">{{key2}}</th>
 	{% else %}
 	<th colspan="8" class="success">{{key2}}</th>
 	{% endif %}
@@ -210,28 +248,28 @@
 	  <tr>
 	    {% if values3.time %}<td class="col-sm-1 text-center">{{values3.time|date:"H:i"}}</td>{% endif %}
 	    {% if values3.field %}<td class="col-sm-1 text-center">{{values3.field}}</td>{% endif %}
-	    <td class="col-sm-3">{{values3.local.name}}</td>
+	    <td class="col-sm-3"><a href="{% url 'detail_team_tournament' tournament.id values3.local.id %}">{{values3.local.name}}</a></td>
 	    {% if key1 == "Gold" %}
-	    <td class="gold text-center">{{values3.local_score}}</td>
+	    <td class="success text-center">{{values3.local_score}}</td>
 	    {% elif key1 == "Silver" %}
-	    <td class="silver text-center">{{values3.local_score}}</td>
+	    <td class="info text-center">{{values3.local_score}}</td>
 	    {% elif key1 == "Bronze" %}
-	    <td class="bronze text-center">{{values3.local_score}}</td>
+	    <td class="warning text-center">{{values3.local_score}}</td>
 	    {% elif key1 == "Wood" %}
-	    <td class="wood text-center">{{values3.local_score}}</td>	    
+	    <td class="danger text-center">{{values3.local_score}}</td>
 	    {% endif %}
 	    <td class="text-center">v</td>
 	    {% if key1 == "Gold" %}
-	    <td class="gold text-center">{{values3.visitor_score}}</td>
+	    <td class="success text-center">{{values3.visitor_score}}</td>
 	    {% elif key1 == "Silver" %}
-	    <td class="silver text-center">{{values3.visitor_score}}</td>
+	    <td class="info text-center">{{values3.visitor_score}}</td>
 	    {% elif key1 == "Bronze" %}
-	    <td class="bronze text-center">{{values3.visitor_score}}</td>
+	    <td class="warning text-center">{{values3.visitor_score}}</td>
 	    {% elif key1 == "Wood" %}
-	    <td class="wood text-center">{{values3.visitor_score}}</td>
+	    <td class="danger text-center">{{values3.visitor_score}}</td>
 	    {% endif %}
-	    <td class="col-sm-3 text-right">{{values3.visitor.name}}</td>
-	    <td class="text-center col-sm-1"><a href="{% url 'detail_game' values3.id %}">link</a></td>
+	    <td class="col-sm-3 text-right"><a href="{% url 'detail_team_tournament' tournament.id values3.visitor.id %}">{{values3.visitor.name}}</a></td>
+	    <td class="text-center col-sm-1"><a class="ion-android-add-circle" href="{% url 'detail_game' values3.id %}"/></td>
 	  </tr>
 	{% endfor %}
       </tbody>

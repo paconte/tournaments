@@ -2,6 +2,8 @@ import csv
 import os.path
 import logging
 
+import itertools
+
 from player import csvdata
 from player.models import Game
 from player.models import GameField
@@ -101,12 +103,17 @@ class DjangoSimpleFetcher:
         return result
 
     @staticmethod
-    def get_or_create_player(person, team, number):
-        result = Player.objects.get_or_create(
-                person=person,
-                team=team,
-                number=number)
-        return result
+    def get_or_create_player(person, team, number, tournament_id=None):
+        try:
+            number2 = int(number)
+        except ValueError:
+            number2 = None
+        obj, created = Player.objects.get_or_create(person=person, team=team, number=number2)
+        if tournament_id is None:
+            pass
+        else:
+            obj.tournaments_played.add(tournament_id)
+        return obj, created
 
     @staticmethod
     def get_game(tournament, phase, local, local_score, visitor, visitor_score, strict=True):
@@ -268,7 +275,7 @@ class DjangoCsvFetcher:
                 csv_nts_stadistic.gender)
         DjangoSimpleFetcher.print_fetch_result(person, created)
 
-        player, created = DjangoSimpleFetcher.get_or_create_player(person, team, csv_nts_stadistic.number)
+        player, created = DjangoSimpleFetcher.get_or_create_player(person, team, csv_nts_stadistic.number, tournament)
         DjangoSimpleFetcher.print_fetch_result(player, created)
 
         if csv_nts_stadistic.visitor_score:  # if true nts stadistic otherwise player insert.
@@ -623,9 +630,13 @@ class CsvReader:
 
     def read_file(self, file, subclass):
         with open(file, 'rt', encoding='utf-8') as csv_file:
-            reader = csv.reader(csv_file, delimiter=';')
+            #reader2 = csv.reader(csv_file, delimiter=';')
+            reader1, reader2 = itertools.tee(csv.reader(csv_file, delimiter=';'))
+            columns = len(next(reader1))
+            del reader1
+            print('\nDetected %s columns\n' % columns)
             print('\nStarting reading {:n} from {:s}\n'.format(self._type, file))
-            for row in reader:
+            for row in reader2:
                 if any(row):
                     if row[0] == self._fexit:
                         print(self._exit_text)
@@ -640,6 +651,6 @@ class CsvReader:
 # reader = CsvReader(CsvReader.TOURNAMENT)
 # reader.read_file('./player/data_files/csv/TGames_WC2015_MX_RAW.csv', csvdata.CsvPhase)
 # reader = CsvReader(CsvReader.NTS_STADISTIC)
-# reader.read_file('./player/NTS-player-stadistics.csv', csvdata.CsvNTSStadistic)
+# reader.read_file('./player/NTS-player-statistics.csv', csvdata.CsvNTSStadistic)
 # read_tournament_games('./player/data_files/csv/TGames_WC2015_MO_RAW.csv')
 # exit(0)
