@@ -156,7 +156,9 @@ class DjangoSimpleFetcher:
     @staticmethod
     def get_or_create_game_phase(category, round, number, create):
         get_round = round
-        if get_round == '\xc2\xbc':
+        print(get_round.encode('utf-8'))
+        if get_round.encode('utf-8') == b'\xc2\xbc' or get_round.encode(
+                'utf-8') == b'\xc2\xbd' or get_round == '\xc2\xbc':
             get_round = '1/4'
         if create:
             result = GameRound.objects.get_or_create(category=category, round=get_round, number_teams=number)
@@ -178,16 +180,21 @@ class DjangoCsvFetcher:
     def create_csv_phase(csv_game, create):
         if not isinstance(csv_game, csvdata.CsvGame):
             assert 0, "Wrong game to read: " + csv_game
-        print(csv_game.round, csv_game.category, csv_game.nteams)
+
+        round = csv_game.round
+        if round.encode('utf-8') == b'\xc2\xbc':
+            round = '1/4'
+        print(round.encode('utf-8'))
+
         if create:
             result, created = GameRound.objects.get_or_create(
                     category=csv_game.category,
-                    round=csv_game.round,
+                    round=round,
                     number_teams=csv_game.nteams)
         else:
             result, created = GameRound.objects.get(
                     category=csv_game.category,
-                    round=csv_game.round,
+                    round=round,
                     number_teams=csv_game.nteams), False
 
         DjangoSimpleFetcher.print_fetch_result(result, created)
@@ -630,7 +637,7 @@ class CsvReader:
 
     def read_file(self, file, subclass):
         with open(file, 'rt', encoding='utf-8') as csv_file:
-            #reader2 = csv.reader(csv_file, delimiter=';')
+            # reader2 = csv.reader(csv_file, delimiter=';')
             reader1, reader2 = itertools.tee(csv.reader(csv_file, delimiter=';'))
             columns = len(next(reader1))
             del reader1
