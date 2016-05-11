@@ -173,6 +173,10 @@ class ClassificationRow:
 
     def add_game(self, game):
         if game.local.id == self.team.id:
+            if game.local_score < 0:
+                self.won = 0
+                self.points = 0
+                return
             if game.local_score > game.visitor_score:
                 self.won += 1
                 self.points += WIN_POINTS(game)
@@ -188,6 +192,10 @@ class ClassificationRow:
             self.minus += game.visitor_score
             self.plus_minus += game.local_score - game.visitor_score
         elif game.visitor.id == self.team.id:
+            if game.visitor_score < 0:
+                self.won = 0
+                self.points = 0
+                return
             if game.local_score < game.visitor_score:
                 self.won += 1
                 self.points += WIN_POINTS(game)
