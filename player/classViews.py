@@ -255,8 +255,21 @@ class TournamentView(DetailView):
     template_name = 'tournaments/detail_tournament2.html'
 
     def get_context_data(self, **kwargs):
+        exclude_teams = ['1st Pool A', '2nd Pool A', '3rd Pool A', '4th Pool A',
+                         '1st Pool B', '2nd Pool B', '3rd Pool B', '4th Pool B',
+                         '1st Pool C', '2nd Pool C', '3rd Pool C', '4th Pool C',
+                         '1st Pool D', '2nd Pool D', '3rd Pool D', '4th Pool D',
+                         'Loser QF1', 'Loser QF2', 'Loser QF3', 'Loser QF4',
+                         'Loser QF5', 'Loser QF6', 'Loser QF7', 'Loser QF8',
+                         'Winner QF1', 'Winner QF2', 'Winner QF3', 'Winner QF4',
+                         'Winner QF5', 'Winner QF6','Winner QF7', 'Winner QF8',
+                         'Loser SF1', 'Loser SF2', 'Loser SF3', 'Loser SF4',
+                         'Loser SF5', 'Loser SF6', 'Loser SF7', 'Loser SF8',
+                         'Winner SF1', 'Winner SF2', 'Winner SF3', 'Winner SF4',
+                         'Winner SF5', 'Winner SF6', 'Winner SF7', 'Winner SF8']
+
         games = Game.objects.filter(tournament=self.object.id)
-        teams = Team.objects.filter(tournament__id=self.object.id)
+        teams = Team.objects.filter(tournament__id=self.object.id).exclude(name__in=exclude_teams)
 
         fixtures = Fixtures(games)
         pool_games = fixtures.sorted_pools
