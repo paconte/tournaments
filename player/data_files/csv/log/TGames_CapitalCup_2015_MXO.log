@@ -1,0 +1,923 @@
+Read csv file: "./player/data_files/csv/TGames_CapitalCup_2015_MXO_RAW.csv"
+
+Detected 13 columns
+
+
+Starting reading 1 from ./player/data_files/csv/TGames_CapitalCup_2015_MXO_RAW.csv
+
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '09:00', 'Field 1', 'Pool A', 'Gold', '4', 'xx', 'XXX Amsterdam', '5', '3', 'Baden Banditos']
+
+Created Tournament:
+MXO - Capital Cup 2015
+Created Team:
+MXO - XXX Amsterdam
+Added team XXX Amsterdam into tournament Capital Cup 2015
+b'Pool A'
+Found GameRound:
+Pool A 4 Gold
+Found GameField:
+Field 1
+Created Team:
+MXO - Baden Banditos
+Added team Baden Banditos into tournament Capital Cup 2015
+Created Game:
+MXO - Capital Cup 2015 - Pool A 4 Gold - MXO - XXX Amsterdam 5 - 3 MXO - Baden Banditos
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '09:00', 'Field 2', 'Pool A', 'Gold', '4', 'xx', 'JGA', '7', '4', 'Dragoni Milano']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Created Team:
+MXO - JGA
+Added team JGA into tournament Capital Cup 2015
+b'Pool A'
+Found GameRound:
+Pool A 4 Gold
+Found GameField:
+Field 2
+Created Team:
+MXO - Dragoni Milano
+Added team Dragoni Milano into tournament Capital Cup 2015
+Created Game:
+MXO - Capital Cup 2015 - Pool A 4 Gold - MXO - JGA 7 - 4 MXO - Dragoni Milano
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '09:00', 'Field 3', 'Pool C', 'Gold', '4', 'xx', 'Berlin', '9', '1', "Courant d'R"]
+
+Found Tournament:
+MXO - Capital Cup 2015
+Created Team:
+MXO - Berlin
+Added team Berlin into tournament Capital Cup 2015
+b'Pool C'
+Found GameRound:
+Pool C 4 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - Courant d'R
+Added team Courant d'R into tournament Capital Cup 2015
+Created Game:
+MXO - Capital Cup 2015 - Pool C 4 Gold - MXO - Berlin 9 - 1 MXO - Courant d'R
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '09:30', 'Field 1', 'Pool D', 'Gold', '4', 'xx', 'Turtleln Touch Modena', '5', '3', 'BRC Bears']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Created Team:
+MXO - Turtleln Touch Modena
+Added team Turtleln Touch Modena into tournament Capital Cup 2015
+b'Pool D'
+Found GameRound:
+Pool D 4 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - BRC Bears
+Added team BRC Bears into tournament Capital Cup 2015
+Created Game:
+MXO - Capital Cup 2015 - Pool D 4 Gold - MXO - Turtleln Touch Modena 5 - 3 MXO - BRC Bears
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '09:30', 'Field 2', 'Pool D', 'Gold', '4', 'xx', 'Munich', '3', '5', 'Strasbourg']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - Munich
+Added team Munich into tournament Capital Cup 2015
+b'Pool D'
+Found GameRound:
+Pool D 4 Gold
+Found GameField:
+Field 2
+Created Team:
+MXO - Strasbourg
+Added team Strasbourg into tournament Capital Cup 2015
+Created Game:
+MXO - Capital Cup 2015 - Pool D 4 Gold - MXO - Munich 3 - 5 MXO - Strasbourg
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '09:30', 'Field 3', 'Pool C', 'Gold', '4', 'xx', 'Frankfurt', '9', '1', 'Lokomotive Wien']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - Frankfurt
+Added team Frankfurt into tournament Capital Cup 2015
+b'Pool C'
+Found GameRound:
+Pool C 4 Gold
+Found GameField:
+Field 3
+Created Team:
+MXO - Lokomotive Wien
+Added team Lokomotive Wien into tournament Capital Cup 2015
+Created Game:
+MXO - Capital Cup 2015 - Pool C 4 Gold - MXO - Frankfurt 9 - 1 MXO - Lokomotive Wien
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '10:00', 'Field 1', 'Pool B', 'Gold', '4', 'xx', 'New Orleans Fluffy Dragons', '5', '4', 'Colonia']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - New Orleans Fluffy Dragons
+Added team New Orleans Fluffy Dragons into tournament Capital Cup 2015
+b'Pool B'
+Found GameRound:
+Pool B 4 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Colonia
+Added team Colonia into tournament Capital Cup 2015
+Created Game:
+MXO - Capital Cup 2015 - Pool B 4 Gold - MXO - New Orleans Fluffy Dragons 5 - 4 MXO - Colonia
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '10:00', 'Field 2', 'Pool B', 'Gold', '4', 'xx', 'Basel', '4', '4', 'Hamburg']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Created Team:
+MXO - Basel
+Added team Basel into tournament Capital Cup 2015
+b'Pool B'
+Found GameRound:
+Pool B 4 Gold
+Found GameField:
+Field 2
+Created Team:
+MXO - Hamburg
+Added team Hamburg into tournament Capital Cup 2015
+Created Game:
+MXO - Capital Cup 2015 - Pool B 4 Gold - MXO - Basel 4 - 4 MXO - Hamburg
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '10:00', 'Field 3', 'Pool A', 'Gold', '4', 'xx', 'JGA', '10', '4', 'XXX Amsterdam']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - JGA
+Tournament Capital Cup 2015 already has the team JGA
+b'Pool A'
+Found GameRound:
+Pool A 4 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - XXX Amsterdam
+Tournament Capital Cup 2015 already has the team XXX Amsterdam
+Created Game:
+MXO - Capital Cup 2015 - Pool A 4 Gold - MXO - JGA 10 - 4 MXO - XXX Amsterdam
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '10:30', 'Field 1', 'Pool D', 'Gold', '4', 'xx', 'Munich', '4', '3', 'Turtleln Touch Modena']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - Munich
+Tournament Capital Cup 2015 already has the team Munich
+b'Pool D'
+Found GameRound:
+Pool D 4 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Turtleln Touch Modena
+Tournament Capital Cup 2015 already has the team Turtleln Touch Modena
+Created Game:
+MXO - Capital Cup 2015 - Pool D 4 Gold - MXO - Munich 4 - 3 MXO - Turtleln Touch Modena
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '10:30', 'Field 2', 'Pool D', 'Gold', '4', 'xx', 'Strasbourg', '13', '3', 'BRC Bears']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - Strasbourg
+Tournament Capital Cup 2015 already has the team Strasbourg
+b'Pool D'
+Found GameRound:
+Pool D 4 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - BRC Bears
+Tournament Capital Cup 2015 already has the team BRC Bears
+Created Game:
+MXO - Capital Cup 2015 - Pool D 4 Gold - MXO - Strasbourg 13 - 3 MXO - BRC Bears
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '10:30', 'Field 3', 'Pool A', 'Gold', '4', 'xx', 'Baden Banditos', '2', '5', 'Dragoni Milano']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - Baden Banditos
+Tournament Capital Cup 2015 already has the team Baden Banditos
+b'Pool A'
+Found GameRound:
+Pool A 4 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - Dragoni Milano
+Tournament Capital Cup 2015 already has the team Dragoni Milano
+Created Game:
+MXO - Capital Cup 2015 - Pool A 4 Gold - MXO - Baden Banditos 2 - 5 MXO - Dragoni Milano
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '11:00', 'Field 1', 'Pool C', 'Gold', '4', 'xx', "Courant d'R", '2', '3', 'Lokomotive Wien']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - Courant d'R
+Tournament Capital Cup 2015 already has the team Courant d'R
+b'Pool C'
+Found GameRound:
+Pool C 4 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Lokomotive Wien
+Tournament Capital Cup 2015 already has the team Lokomotive Wien
+Created Game:
+MXO - Capital Cup 2015 - Pool C 4 Gold - MXO - Courant d'R 2 - 3 MXO - Lokomotive Wien
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '11:00', 'Field 2', 'Pool C', 'Gold', '4', 'xx', 'Berlin', '5', '7', 'Frankfurt']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - Berlin
+Tournament Capital Cup 2015 already has the team Berlin
+b'Pool C'
+Found GameRound:
+Pool C 4 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Frankfurt
+Tournament Capital Cup 2015 already has the team Frankfurt
+Created Game:
+MXO - Capital Cup 2015 - Pool C 4 Gold - MXO - Berlin 5 - 7 MXO - Frankfurt
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '11:00', 'Field 3', 'Pool B', 'Gold', '4', 'xx', 'New Orleans Fluffy Dragons', '10', '3', 'Basel']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - New Orleans Fluffy Dragons
+Tournament Capital Cup 2015 already has the team New Orleans Fluffy Dragons
+b'Pool B'
+Found GameRound:
+Pool B 4 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - Basel
+Tournament Capital Cup 2015 already has the team Basel
+Created Game:
+MXO - Capital Cup 2015 - Pool B 4 Gold - MXO - New Orleans Fluffy Dragons 10 - 3 MXO - Basel
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '11:30', 'Field 1', 'Pool A', 'Gold', '4', 'xx', 'JGA', '9', '0', 'Baden Banditos']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - JGA
+Tournament Capital Cup 2015 already has the team JGA
+b'Pool A'
+Found GameRound:
+Pool A 4 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Baden Banditos
+Tournament Capital Cup 2015 already has the team Baden Banditos
+Created Game:
+MXO - Capital Cup 2015 - Pool A 4 Gold - MXO - JGA 9 - 0 MXO - Baden Banditos
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '11:30', 'Field 2', 'Pool A', 'Gold', '4', 'xx', 'XXX Amsterdam', '8', '5', 'Dragoni Milano']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - XXX Amsterdam
+Tournament Capital Cup 2015 already has the team XXX Amsterdam
+b'Pool A'
+Found GameRound:
+Pool A 4 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Dragoni Milano
+Tournament Capital Cup 2015 already has the team Dragoni Milano
+Created Game:
+MXO - Capital Cup 2015 - Pool A 4 Gold - MXO - XXX Amsterdam 8 - 5 MXO - Dragoni Milano
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '11:30', 'Field 3', 'Pool B', 'Gold', '4', 'xx', 'Colonia', '8', '2', 'Hamburg']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - Colonia
+Tournament Capital Cup 2015 already has the team Colonia
+b'Pool B'
+Found GameRound:
+Pool B 4 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - Hamburg
+Tournament Capital Cup 2015 already has the team Hamburg
+Created Game:
+MXO - Capital Cup 2015 - Pool B 4 Gold - MXO - Colonia 8 - 2 MXO - Hamburg
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '12:00', 'Field 1', 'Pool C', 'Gold', '4', 'xx', 'Berlin', '8', '0', 'Lokomotive Wien']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - Berlin
+Tournament Capital Cup 2015 already has the team Berlin
+b'Pool C'
+Found GameRound:
+Pool C 4 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Lokomotive Wien
+Tournament Capital Cup 2015 already has the team Lokomotive Wien
+Created Game:
+MXO - Capital Cup 2015 - Pool C 4 Gold - MXO - Berlin 8 - 0 MXO - Lokomotive Wien
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '12:00', 'Field 2', 'Pool C', 'Gold', '4', 'xx', "Courant d'R", '1', '8', 'Frankfurt']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - Courant d'R
+Tournament Capital Cup 2015 already has the team Courant d'R
+b'Pool C'
+Found GameRound:
+Pool C 4 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Frankfurt
+Tournament Capital Cup 2015 already has the team Frankfurt
+Created Game:
+MXO - Capital Cup 2015 - Pool C 4 Gold - MXO - Courant d'R 1 - 8 MXO - Frankfurt
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '12:00', 'Field 3', 'Pool D', 'Gold', '4', 'xx', 'Strasbourg', '5', '5', 'Turtleln Touch Modena']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - Strasbourg
+Tournament Capital Cup 2015 already has the team Strasbourg
+b'Pool D'
+Found GameRound:
+Pool D 4 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - Turtleln Touch Modena
+Tournament Capital Cup 2015 already has the team Turtleln Touch Modena
+Created Game:
+MXO - Capital Cup 2015 - Pool D 4 Gold - MXO - Strasbourg 5 - 5 MXO - Turtleln Touch Modena
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '12:30', 'Field 1', 'Pool B', 'Gold', '4', 'xx', 'Colonia', '4', '4', 'Basel']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - Colonia
+Tournament Capital Cup 2015 already has the team Colonia
+b'Pool B'
+Found GameRound:
+Pool B 4 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Basel
+Tournament Capital Cup 2015 already has the team Basel
+Created Game:
+MXO - Capital Cup 2015 - Pool B 4 Gold - MXO - Colonia 4 - 4 MXO - Basel
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '12:30', 'Field 2', 'Pool B', 'Gold', '4', 'xx', 'New Orleans Fluffy Dragons', '13', '2', 'Hamburg']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - New Orleans Fluffy Dragons
+Tournament Capital Cup 2015 already has the team New Orleans Fluffy Dragons
+b'Pool B'
+Found GameRound:
+Pool B 4 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Hamburg
+Tournament Capital Cup 2015 already has the team Hamburg
+Created Game:
+MXO - Capital Cup 2015 - Pool B 4 Gold - MXO - New Orleans Fluffy Dragons 13 - 2 MXO - Hamburg
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '12:30', 'Field 3', 'Pool D', 'Gold', '4', 'xx', 'Munich', '7', '2', 'BRC Bears']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - Munich
+Tournament Capital Cup 2015 already has the team Munich
+b'Pool D'
+Found GameRound:
+Pool D 4 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - BRC Bears
+Tournament Capital Cup 2015 already has the team BRC Bears
+Created Game:
+MXO - Capital Cup 2015 - Pool D 4 Gold - MXO - Munich 7 - 2 MXO - BRC Bears
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '13:30', 'Field 1', '¼', 'Bronze', '2', 'xx', 'Baden Banditos', '1', '3', 'Turtleln Touch Modena']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - Baden Banditos
+Tournament Capital Cup 2015 already has the team Baden Banditos
+b'1/4'
+Found GameRound:
+1/4 2 Bronze
+Found GameField:
+Field 1
+Found Team:
+MXO - Turtleln Touch Modena
+Tournament Capital Cup 2015 already has the team Turtleln Touch Modena
+Created Game:
+MXO - Capital Cup 2015 - 1/4 2 Bronze - MXO - Baden Banditos 1 - 3 MXO - Turtleln Touch Modena
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '13:30', 'Field 2', '¼', 'Bronze', '2', 'xx', 'Lokomotive Wien', '2', '5', 'Hamburg']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - Lokomotive Wien
+Tournament Capital Cup 2015 already has the team Lokomotive Wien
+b'1/4'
+Found GameRound:
+1/4 2 Bronze
+Found GameField:
+Field 2
+Found Team:
+MXO - Hamburg
+Tournament Capital Cup 2015 already has the team Hamburg
+Created Game:
+MXO - Capital Cup 2015 - 1/4 2 Bronze - MXO - Lokomotive Wien 2 - 5 MXO - Hamburg
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '13:30', 'Field 3', '¼', 'Bronze', '2', 'xx', 'Basel', '5', '0', "Courant d'R"]
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - Basel
+Tournament Capital Cup 2015 already has the team Basel
+b'1/4'
+Found GameRound:
+1/4 2 Bronze
+Found GameField:
+Field 3
+Found Team:
+MXO - Courant d'R
+Tournament Capital Cup 2015 already has the team Courant d'R
+Created Game:
+MXO - Capital Cup 2015 - 1/4 2 Bronze - MXO - Basel 5 - 0 MXO - Courant d'R
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '14:30', 'Field 1', '¼', 'Bronze', '2', 'xx', 'Dragoni Milano', '4', '1', 'BRC Bears']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - Dragoni Milano
+Tournament Capital Cup 2015 already has the team Dragoni Milano
+b'1/4'
+Found GameRound:
+1/4 2 Bronze
+Found GameField:
+Field 1
+Found Team:
+MXO - BRC Bears
+Tournament Capital Cup 2015 already has the team BRC Bears
+Created Game:
+MXO - Capital Cup 2015 - 1/4 2 Bronze - MXO - Dragoni Milano 4 - 1 MXO - BRC Bears
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '14:30', 'Field 2', '¼', 'Gold', '2', 'xx', 'Strasbourg', '8', '3', 'XXX Amsterdam']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - Strasbourg
+Tournament Capital Cup 2015 already has the team Strasbourg
+b'1/4'
+Found GameRound:
+1/4 2 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - XXX Amsterdam
+Tournament Capital Cup 2015 already has the team XXX Amsterdam
+Created Game:
+MXO - Capital Cup 2015 - 1/4 2 Gold - MXO - Strasbourg 8 - 3 MXO - XXX Amsterdam
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '14:30', 'Field 3', '¼', 'Gold', '2', 'xx', 'Frankfurt', '7', '5', 'Colonia']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - Frankfurt
+Tournament Capital Cup 2015 already has the team Frankfurt
+b'1/4'
+Found GameRound:
+1/4 2 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - Colonia
+Tournament Capital Cup 2015 already has the team Colonia
+Created Game:
+MXO - Capital Cup 2015 - 1/4 2 Gold - MXO - Frankfurt 7 - 5 MXO - Colonia
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '15:00', 'Field 1', '¼', 'Gold', '2', 'xx', 'New Orleans Fluffy Dragons', '5', '3', 'Berlin']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - New Orleans Fluffy Dragons
+Tournament Capital Cup 2015 already has the team New Orleans Fluffy Dragons
+b'1/4'
+Found GameRound:
+1/4 2 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Berlin
+Tournament Capital Cup 2015 already has the team Berlin
+Created Game:
+MXO - Capital Cup 2015 - 1/4 2 Gold - MXO - New Orleans Fluffy Dragons 5 - 3 MXO - Berlin
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '15:00', 'Field 2', '¼', 'Gold', '2', 'xx', 'JGA', '5', '3', 'Munich']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - JGA
+Tournament Capital Cup 2015 already has the team JGA
+b'1/4'
+Found GameRound:
+1/4 2 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Munich
+Tournament Capital Cup 2015 already has the team Munich
+Created Game:
+MXO - Capital Cup 2015 - 1/4 2 Gold - MXO - JGA 5 - 3 MXO - Munich
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '15:00', 'Field 3', 'Semifinal', 'Wood', '2', 'xx', 'Baden Banditos', '7', '4', "Courant d'R"]
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - Baden Banditos
+Tournament Capital Cup 2015 already has the team Baden Banditos
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Wood
+Found GameField:
+Field 3
+Found Team:
+MXO - Courant d'R
+Tournament Capital Cup 2015 already has the team Courant d'R
+Created Game:
+MXO - Capital Cup 2015 - Semifinal 2 Wood - MXO - Baden Banditos 7 - 4 MXO - Courant d'R
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '15:30', 'Field 1', 'Semifinal', 'Wood', '2', 'xx', 'Lokomotive Wien', '6', '3', 'BRC Bears']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - Lokomotive Wien
+Tournament Capital Cup 2015 already has the team Lokomotive Wien
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Wood
+Found GameField:
+Field 1
+Found Team:
+MXO - BRC Bears
+Tournament Capital Cup 2015 already has the team BRC Bears
+Created Game:
+MXO - Capital Cup 2015 - Semifinal 2 Wood - MXO - Lokomotive Wien 6 - 3 MXO - BRC Bears
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '15:30', 'Field 2', 'Semifinal', 'Bronze', '2', 'xx', 'Turtleln Touch Modena', '5', '1', 'Basel']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - Turtleln Touch Modena
+Tournament Capital Cup 2015 already has the team Turtleln Touch Modena
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Bronze
+Found GameField:
+Field 2
+Found Team:
+MXO - Basel
+Tournament Capital Cup 2015 already has the team Basel
+Created Game:
+MXO - Capital Cup 2015 - Semifinal 2 Bronze - MXO - Turtleln Touch Modena 5 - 1 MXO - Basel
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '15:30', 'Field 3', 'Semifinal', 'Bronze', '2', 'xx', 'Hamburg', '3', '4', 'Dragoni Milano']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - Hamburg
+Tournament Capital Cup 2015 already has the team Hamburg
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Bronze
+Found GameField:
+Field 3
+Found Team:
+MXO - Dragoni Milano
+Tournament Capital Cup 2015 already has the team Dragoni Milano
+Created Game:
+MXO - Capital Cup 2015 - Semifinal 2 Bronze - MXO - Hamburg 3 - 4 MXO - Dragoni Milano
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '16:00', 'Field 1', 'Semifinal', 'Silver', '2', 'xx', 'XXX Amsterdam', '1', '7', 'Berlin']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - XXX Amsterdam
+Tournament Capital Cup 2015 already has the team XXX Amsterdam
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Silver
+Found GameField:
+Field 1
+Found Team:
+MXO - Berlin
+Tournament Capital Cup 2015 already has the team Berlin
+Created Game:
+MXO - Capital Cup 2015 - Semifinal 2 Silver - MXO - XXX Amsterdam 1 - 7 MXO - Berlin
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '16:00', 'Field 2', 'Semifinal', 'Silver', '2', 'xx', 'Colonia', '2', '5', 'Munich']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - Colonia
+Tournament Capital Cup 2015 already has the team Colonia
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Silver
+Found GameField:
+Field 2
+Found Team:
+MXO - Munich
+Tournament Capital Cup 2015 already has the team Munich
+Created Game:
+MXO - Capital Cup 2015 - Semifinal 2 Silver - MXO - Colonia 2 - 5 MXO - Munich
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '16:00', 'Field 3', 'Semifinal', 'Gold', '2', 'xx', 'Strasbourg', '1', '8', 'New Orleans Fluffy Dragons']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - Strasbourg
+Tournament Capital Cup 2015 already has the team Strasbourg
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - New Orleans Fluffy Dragons
+Tournament Capital Cup 2015 already has the team New Orleans Fluffy Dragons
+Created Game:
+MXO - Capital Cup 2015 - Semifinal 2 Gold - MXO - Strasbourg 1 - 8 MXO - New Orleans Fluffy Dragons
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '16:30', 'Field 1', 'Semifinal', 'Gold', '2', 'xx', 'Frankfurt', '2', '3', 'JGA']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - Frankfurt
+Tournament Capital Cup 2015 already has the team Frankfurt
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - JGA
+Tournament Capital Cup 2015 already has the team JGA
+Created Game:
+MXO - Capital Cup 2015 - Semifinal 2 Gold - MXO - Frankfurt 2 - 3 MXO - JGA
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '16:30', 'Field 2', 'Final', 'Wood', '2', 'xx', 'Baden Banditos', '3', '6', 'Lokomotive Wien']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - Baden Banditos
+Tournament Capital Cup 2015 already has the team Baden Banditos
+b'Final'
+Found GameRound:
+Final 2 Wood
+Found GameField:
+Field 2
+Found Team:
+MXO - Lokomotive Wien
+Tournament Capital Cup 2015 already has the team Lokomotive Wien
+Created Game:
+MXO - Capital Cup 2015 - Final 2 Wood - MXO - Baden Banditos 3 - 6 MXO - Lokomotive Wien
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '16:30', 'Field 3', 'Third position', 'Wood', '2', 'xx', "Courant d'R", '4', '2', 'BRC Bears']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - Courant d'R
+Tournament Capital Cup 2015 already has the team Courant d'R
+b'Third position'
+Found GameRound:
+Third position 2 Wood
+Found GameField:
+Field 3
+Found Team:
+MXO - BRC Bears
+Tournament Capital Cup 2015 already has the team BRC Bears
+Created Game:
+MXO - Capital Cup 2015 - Third position 2 Wood - MXO - Courant d'R 4 - 2 MXO - BRC Bears
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '17:00', 'Field 1', 'Third position', 'Bronze', '2', 'xx', 'Basel', '3', '7', 'Hamburg']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - Basel
+Tournament Capital Cup 2015 already has the team Basel
+b'Third position'
+Found GameRound:
+Third position 2 Bronze
+Found GameField:
+Field 1
+Found Team:
+MXO - Hamburg
+Tournament Capital Cup 2015 already has the team Hamburg
+Created Game:
+MXO - Capital Cup 2015 - Third position 2 Bronze - MXO - Basel 3 - 7 MXO - Hamburg
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '17:00', 'Field 2', 'Final', 'Bronze', '2', 'xx', 'Turtleln Touch Modena', '2', '3', 'Dragoni Milano']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - Turtleln Touch Modena
+Tournament Capital Cup 2015 already has the team Turtleln Touch Modena
+b'Final'
+Found GameRound:
+Final 2 Bronze
+Found GameField:
+Field 2
+Found Team:
+MXO - Dragoni Milano
+Tournament Capital Cup 2015 already has the team Dragoni Milano
+Created Game:
+MXO - Capital Cup 2015 - Final 2 Bronze - MXO - Turtleln Touch Modena 2 - 3 MXO - Dragoni Milano
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '17:00', 'Field 3', 'Third position', 'Silver', '2', 'xx', 'XXX Amsterdam', '2', '7', 'Colonia']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - XXX Amsterdam
+Tournament Capital Cup 2015 already has the team XXX Amsterdam
+b'Third position'
+Found GameRound:
+Third position 2 Silver
+Found GameField:
+Field 3
+Found Team:
+MXO - Colonia
+Tournament Capital Cup 2015 already has the team Colonia
+Created Game:
+MXO - Capital Cup 2015 - Third position 2 Silver - MXO - XXX Amsterdam 2 - 7 MXO - Colonia
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '17:30', 'Field 1', 'Third position', 'Gold', '2', 'xx', 'Frankfurt', '7', '6', 'Strasbourg']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - Frankfurt
+Tournament Capital Cup 2015 already has the team Frankfurt
+b'Third position'
+Found GameRound:
+Third position 2 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Strasbourg
+Tournament Capital Cup 2015 already has the team Strasbourg
+Created Game:
+MXO - Capital Cup 2015 - Third position 2 Gold - MXO - Frankfurt 7 - 6 MXO - Strasbourg
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '17:30', 'Field 2', 'Final', 'Silver', '2', 'xx', 'Berlin', '7', '2', 'Munich']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - Berlin
+Tournament Capital Cup 2015 already has the team Berlin
+b'Final'
+Found GameRound:
+Final 2 Silver
+Found GameField:
+Field 2
+Found Team:
+MXO - Munich
+Tournament Capital Cup 2015 already has the team Munich
+Created Game:
+MXO - Capital Cup 2015 - Final 2 Silver - MXO - Berlin 7 - 2 MXO - Munich
+
+Row to read:
+['Capital Cup 2015', 'MXO', '05/30/15', '18:00', 'Field 1', 'Final', 'Gold', '2', 'xx', 'New Orleans Fluffy Dragons', '7', '2', 'JGA']
+
+Found Tournament:
+MXO - Capital Cup 2015
+Found Team:
+MXO - New Orleans Fluffy Dragons
+Tournament Capital Cup 2015 already has the team New Orleans Fluffy Dragons
+b'Final'
+Found GameRound:
+Final 2 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - JGA
+Tournament Capital Cup 2015 already has the team JGA
+Created Game:
+MXO - Capital Cup 2015 - Final 2 Gold - MXO - New Orleans Fluffy Dragons 7 - 2 MXO - JGA
+
+Finished reading 1...[0=PHASE, 1=TOURNAMENT, 2=NTS_STADISTIC]
+
+Successfully read csv file: "./player/data_files/csv/TGames_CapitalCup_2015_MXO_RAW.csv"
