@@ -211,8 +211,9 @@ class DjangoCsvFetcher:
         local_team, created = create_or_fetch_team(csv_game.local, csv_game.division)
         DjangoSimpleFetcher.print_fetch_result(local_team, created)
 
-        if created:
-            add_team_to_tournament(tournament, local_team)
+        add_team_to_tournament(tournament, local_team)
+        #if created:
+        #    add_team_to_tournament(tournament, local_team)
 
         phase, created = DjangoCsvFetcher.create_csv_phase(csv_game, False)
         time = csv_game.time if csv_game.time else None
@@ -226,8 +227,9 @@ class DjangoCsvFetcher:
         visitor_team, created = create_or_fetch_team(csv_game.visitor, csv_game.division)
         DjangoSimpleFetcher.print_fetch_result(visitor_team, created)
 
-        if created:
-            add_team_to_tournament(tournament, visitor_team)
+        add_team_to_tournament(tournament, visitor_team)
+        #if created:
+        #    add_team_to_tournament(tournament, visitor_team)
 
         game, created = DjangoSimpleFetcher.create_game(
                 tournament, phase, field, time, local_team, visitor_team, csv_game.local_score, csv_game.visitor_score)
@@ -308,8 +310,12 @@ class DjangoCsvFetcher:
 
 
 def add_team_to_tournament(tournament, team):
-    tournament.teams.add(team)
-    tournament.save()
+    if not tournament.teams.filter(id=team.id).exists():
+        tournament.teams.add(team)
+        tournament.save()
+        print("Added team %s into tournament %s" % (team.name, tournament.name))
+    else:
+        print("Tournament %s already has the team %s" % (tournament.name, team.name))
 
 
 def create_or_fetch_person(row):
