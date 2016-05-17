@@ -132,14 +132,15 @@ class TeamView(DetailView):
     template_name = 'tournaments/detail_team.html'
 
     def get_context_data(self, **kwargs):
-        games = Game.objects.filter(Q(local=self.object.id) | Q(visitor=self.object.id))
-        played_tournaments = Tournament.objects.filter(teams__id=self.object.id)
+        games = Game.objects.filter(Q(local=self.object.id) | Q(visitor=self.object.id)).order_by('tournament')
+        played_tournaments = Tournament.objects.filter(teams__id=self.object.id).order_by('-name')
 
         context = super(TeamView, self).get_context_data(**kwargs)
         context['team'] = self.object
         context['tournament_list'] = Tournament.objects.all()
         context['played_tournaments'] = played_tournaments
         context['games'] = games
+        add_data_for_tournaments_menu(context)
 
         return context
 

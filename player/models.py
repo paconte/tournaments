@@ -38,6 +38,9 @@ class Person(models.Model):
     nationality = models.CharField(max_length=30, null=True, blank=True)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES, default=UNKNOWN, null=True)
 
+    class Meta:
+        ordering = ['gender', 'last_name', 'first_name']
+
     def __str__(self):
         return '{:s} {:s} - {:s}'.format(self.first_name, self.last_name, self.gender)
 
@@ -112,6 +115,9 @@ class Player(models.Model):
     team = models.ForeignKey(Team)
     number = models.PositiveIntegerField(null=True, blank=True)
     tournaments_played = models.ManyToManyField(Tournament, null=True, blank=True)
+
+    class Meta:
+        ordering = ["person"]
 
     def __str__(self):
         return '{:s},  {:s} {:s}'.format(str(self.team), str(self.number), str(self.person))
