@@ -9,19 +9,19 @@ Starting reading 1 from ./player/data_files/csv/TGames_CapitalCup_2016_MXO_RAW.c
 Row to read:
 ['Capital Cup 2016', 'MXO', '05/21/16', '09:00', 'Field 1', 'Pool A', 'Gold', '4', 'xx', 'Munich', '-1', '-1', 'Islanders']
 
-Created Tournament:
+Found Tournament:
 MXO - Capital Cup 2016
 Found Team:
 MXO - Munich
-Added team Munich into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Munich
 b'Pool A'
 Found GameRound:
 Pool A 4 Gold
 Found GameField:
 Field 1
-Created Team:
+Found Team:
 MXO - Islanders
-Added team Islanders into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Islanders
 Created Game:
 MXO - Capital Cup 2016 - Pool A 4 Gold - MXO - Munich -1 - -1 MXO - Islanders
 
@@ -30,9 +30,9 @@ Row to read:
 
 Found Tournament:
 MXO - Capital Cup 2016
-Created Team:
+Found Team:
 MXO - Big Bang
-Added team Big Bang into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Big Bang
 b'Pool A'
 Found GameRound:
 Pool A 4 Gold
@@ -40,66 +40,66 @@ Found GameField:
 Field 2
 Found Team:
 MXO - BRC Bears
-Added team BRC Bears into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team BRC Bears
 Created Game:
 MXO - Capital Cup 2016 - Pool A 4 Gold - MXO - Big Bang -1 - -1 MXO - BRC Bears
 
 Row to read:
-['Capital Cup 2016', 'MXO', '05/21/16', '09:00', 'Field 3', 'Pool C', 'Gold', '4', 'xx', 'New Orleans Fluffy Dragons', '-1', '-1', 'Berlin Foxes']
+['Capital Cup 2016', 'MXO', '05/21/16', '09:00', 'Field 3', 'Pool C', 'Gold', '4', 'xx', 'New Orleans Fluffy Dragons', '-1', '-1', "Courant d'R"]
 
 Found Tournament:
 MXO - Capital Cup 2016
 Found Team:
 MXO - New Orleans Fluffy Dragons
-Added team New Orleans Fluffy Dragons into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team New Orleans Fluffy Dragons
 b'Pool C'
 Found GameRound:
 Pool C 4 Gold
 Found GameField:
 Field 3
 Found Team:
-MXO - Berlin Foxes
-Added team Berlin Foxes into tournament Capital Cup 2016
+MXO - Courant d'R
+Tournament Capital Cup 2016 already has the team Courant d'R
 Created Game:
-MXO - Capital Cup 2016 - Pool C 4 Gold - MXO - New Orleans Fluffy Dragons -1 - -1 MXO - Berlin Foxes
+MXO - Capital Cup 2016 - Pool C 4 Gold - MXO - New Orleans Fluffy Dragons -1 - -1 MXO - Courant d'R
 
 Row to read:
-['Capital Cup 2016', 'MXO', '05/21/16', '09:30', 'Field 1', 'Pool C', 'Gold', '4', 'xx', 'Hamburg', '-1', '-1', 'Berlin Foxes']
-
-Found Tournament:
-MXO - Capital Cup 2016
-Found Team:
-MXO - Hamburg
-Added team Hamburg into tournament Capital Cup 2016
-b'Pool C'
-Found GameRound:
-Pool C 4 Gold
-Found GameField:
-Field 1
-Found Team:
-MXO - Berlin Foxes
-Tournament Capital Cup 2016 already has the team Berlin Foxes
-Created Game:
-MXO - Capital Cup 2016 - Pool C 4 Gold - MXO - Hamburg -1 - -1 MXO - Berlin Foxes
-
-Row to read:
-['Capital Cup 2016', 'MXO', '05/21/16', '09:30', 'Field 2', 'Pool D', 'Gold', '4', 'xx', 'CSSC Phantoms', '-1', '-1', 'XXX Amsterdam']
+['Capital Cup 2016', 'MXO', '05/21/16', '09:30', 'Field 1', 'Pool D', 'Gold', '4', 'xx', 'CSSC Phantoms', '-1', '-1', 'XXX Amsterdam']
 
 Found Tournament:
 MXO - Capital Cup 2016
 Found Team:
 MXO - CSSC Phantoms
-Added team CSSC Phantoms into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team CSSC Phantoms
 b'Pool D'
 Found GameRound:
 Pool D 4 Gold
 Found GameField:
-Field 2
+Field 1
 Found Team:
 MXO - XXX Amsterdam
-Added team XXX Amsterdam into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team XXX Amsterdam
 Created Game:
 MXO - Capital Cup 2016 - Pool D 4 Gold - MXO - CSSC Phantoms -1 - -1 MXO - XXX Amsterdam
+
+Row to read:
+['Capital Cup 2016', 'MXO', '05/21/16', '09:30', 'Field 2', 'Pool C', 'Gold', '4', 'xx', 'Hamburg', '-1', '-1', 'Berlin Foxes']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Hamburg
+Tournament Capital Cup 2016 already has the team Hamburg
+b'Pool C'
+Found GameRound:
+Pool C 4 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Berlin Foxes
+Tournament Capital Cup 2016 already has the team Berlin Foxes
+Created Game:
+MXO - Capital Cup 2016 - Pool C 4 Gold - MXO - Hamburg -1 - -1 MXO - Berlin Foxes
 
 Row to read:
 ['Capital Cup 2016', 'MXO', '05/21/16', '09:30', 'Field 3', 'Pool D', 'Gold', '4', 'xx', 'Colonia', '-1', '-1', 'Darvak']
@@ -108,55 +108,55 @@ Found Tournament:
 MXO - Capital Cup 2016
 Found Team:
 MXO - Colonia
-Added team Colonia into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Colonia
 b'Pool D'
 Found GameRound:
 Pool D 4 Gold
 Found GameField:
 Field 3
-Created Team:
+Found Team:
 MXO - Darvak
-Added team Darvak into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Darvak
 Created Game:
 MXO - Capital Cup 2016 - Pool D 4 Gold - MXO - Colonia -1 - -1 MXO - Darvak
 
 Row to read:
-['Capital Cup 2016', 'MXO', '05/21/16', '10:00', 'Field 1', 'Pool B', 'Gold', '4', 'xx', 'Unicorns', '-1', '-1', 'Frankfurt']
+['Capital Cup 2016', 'MXO', '05/21/16', '10:00', 'Field 1', 'Pool B', 'Gold', '4', 'xx', 'Berlin Armadillos', '-1', '-1', 'Blue Jays']
 
 Found Tournament:
 MXO - Capital Cup 2016
-Created Team:
-MXO - Unicorns
-Added team Unicorns into tournament Capital Cup 2016
+Found Team:
+MXO - Berlin Armadillos
+Tournament Capital Cup 2016 already has the team Berlin Armadillos
 b'Pool B'
 Found GameRound:
 Pool B 4 Gold
 Found GameField:
 Field 1
 Found Team:
-MXO - Frankfurt
-Added team Frankfurt into tournament Capital Cup 2016
+MXO - Blue Jays
+Tournament Capital Cup 2016 already has the team Blue Jays
 Created Game:
-MXO - Capital Cup 2016 - Pool B 4 Gold - MXO - Unicorns -1 - -1 MXO - Frankfurt
+MXO - Capital Cup 2016 - Pool B 4 Gold - MXO - Berlin Armadillos -1 - -1 MXO - Blue Jays
 
 Row to read:
-['Capital Cup 2016', 'MXO', '05/21/16', '10:00', 'Field 2', 'Pool B', 'Gold', '4', 'xx', 'Berlin Armadillos', '-1', '-1', 'Blue Jays']
+['Capital Cup 2016', 'MXO', '05/21/16', '10:00', 'Field 2', 'Pool B', 'Gold', '4', 'xx', 'Unicorns', '-1', '-1', 'Frankfurt']
 
 Found Tournament:
 MXO - Capital Cup 2016
 Found Team:
-MXO - Berlin Armadillos
-Added team Berlin Armadillos into tournament Capital Cup 2016
+MXO - Unicorns
+Tournament Capital Cup 2016 already has the team Unicorns
 b'Pool B'
 Found GameRound:
 Pool B 4 Gold
 Found GameField:
 Field 2
-Created Team:
-MXO - Blue Jays
-Added team Blue Jays into tournament Capital Cup 2016
+Found Team:
+MXO - Frankfurt
+Tournament Capital Cup 2016 already has the team Frankfurt
 Created Game:
-MXO - Capital Cup 2016 - Pool B 4 Gold - MXO - Berlin Armadillos -1 - -1 MXO - Blue Jays
+MXO - Capital Cup 2016 - Pool B 4 Gold - MXO - Unicorns -1 - -1 MXO - Frankfurt
 
 Row to read:
 ['Capital Cup 2016', 'MXO', '05/21/16', '10:00', 'Field 3', 'Pool A', 'Gold', '4', 'xx', 'Big Bang', '-1', '-1', 'Munich']
@@ -178,26 +178,7 @@ Created Game:
 MXO - Capital Cup 2016 - Pool A 4 Gold - MXO - Big Bang -1 - -1 MXO - Munich
 
 Row to read:
-['Capital Cup 2016', 'MXO', '05/21/16', '10:30', 'Field 1', 'Pool D', 'Gold', '4', 'xx', 'CSSC Phantoms', '-1', '-1', 'Colonia']
-
-Found Tournament:
-MXO - Capital Cup 2016
-Found Team:
-MXO - CSSC Phantoms
-Tournament Capital Cup 2016 already has the team CSSC Phantoms
-b'Pool D'
-Found GameRound:
-Pool D 4 Gold
-Found GameField:
-Field 1
-Found Team:
-MXO - Colonia
-Tournament Capital Cup 2016 already has the team Colonia
-Created Game:
-MXO - Capital Cup 2016 - Pool D 4 Gold - MXO - CSSC Phantoms -1 - -1 MXO - Colonia
-
-Row to read:
-['Capital Cup 2016', 'MXO', '05/21/16', '10:30', 'Field 2', 'Pool D', 'Gold', '4', 'xx', 'XXX Amsterdam', '-1', '-1', 'Darvak']
+['Capital Cup 2016', 'MXO', '05/21/16', '10:30', 'Field 1', 'Pool D', 'Gold', '4', 'xx', 'XXX Amsterdam', '-1', '-1', 'Darvak']
 
 Found Tournament:
 MXO - Capital Cup 2016
@@ -208,12 +189,31 @@ b'Pool D'
 Found GameRound:
 Pool D 4 Gold
 Found GameField:
-Field 2
+Field 1
 Found Team:
 MXO - Darvak
 Tournament Capital Cup 2016 already has the team Darvak
 Created Game:
 MXO - Capital Cup 2016 - Pool D 4 Gold - MXO - XXX Amsterdam -1 - -1 MXO - Darvak
+
+Row to read:
+['Capital Cup 2016', 'MXO', '05/21/16', '10:30', 'Field 2', 'Pool D', 'Gold', '4', 'xx', 'CSSC Phantoms', '-1', '-1', 'Colonia']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - CSSC Phantoms
+Tournament Capital Cup 2016 already has the team CSSC Phantoms
+b'Pool D'
+Found GameRound:
+Pool D 4 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Colonia
+Tournament Capital Cup 2016 already has the team Colonia
+Created Game:
+MXO - Capital Cup 2016 - Pool D 4 Gold - MXO - CSSC Phantoms -1 - -1 MXO - Colonia
 
 Row to read:
 ['Capital Cup 2016', 'MXO', '05/21/16', '10:30', 'Field 3', 'Pool A', 'Gold', '4', 'xx', 'Islanders', '-1', '-1', 'BRC Bears']
@@ -249,7 +249,7 @@ Found GameField:
 Field 1
 Found Team:
 MXO - Courant d'R
-Added team Courant d'R into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Courant d'R
 Created Game:
 MXO - Capital Cup 2016 - Pool C 4 Gold - MXO - Berlin Foxes -1 - -1 MXO - Courant d'R
 
@@ -406,26 +406,7 @@ Created Game:
 MXO - Capital Cup 2016 - Pool D 4 Gold - MXO - XXX Amsterdam -1 - -1 MXO - Colonia
 
 Row to read:
-['Capital Cup 2016', 'MXO', '05/21/16', '12:30', 'Field 1', 'Pool B', 'Gold', '4', 'xx', 'Frankfurt', '-1', '-1', 'Berlin Armadillos']
-
-Found Tournament:
-MXO - Capital Cup 2016
-Found Team:
-MXO - Frankfurt
-Tournament Capital Cup 2016 already has the team Frankfurt
-b'Pool B'
-Found GameRound:
-Pool B 4 Gold
-Found GameField:
-Field 1
-Found Team:
-MXO - Berlin Armadillos
-Tournament Capital Cup 2016 already has the team Berlin Armadillos
-Created Game:
-MXO - Capital Cup 2016 - Pool B 4 Gold - MXO - Frankfurt -1 - -1 MXO - Berlin Armadillos
-
-Row to read:
-['Capital Cup 2016', 'MXO', '05/21/16', '12:30', 'Field 2', 'Pool B', 'Gold', '4', 'xx', 'Unicorns', '-1', '-1', 'Blue Jays']
+['Capital Cup 2016', 'MXO', '05/21/16', '12:30', 'Field 1', 'Pool B', 'Gold', '4', 'xx', 'Unicorns', '-1', '-1', 'Blue Jays']
 
 Found Tournament:
 MXO - Capital Cup 2016
@@ -436,12 +417,31 @@ b'Pool B'
 Found GameRound:
 Pool B 4 Gold
 Found GameField:
-Field 2
+Field 1
 Found Team:
 MXO - Blue Jays
 Tournament Capital Cup 2016 already has the team Blue Jays
 Created Game:
 MXO - Capital Cup 2016 - Pool B 4 Gold - MXO - Unicorns -1 - -1 MXO - Blue Jays
+
+Row to read:
+['Capital Cup 2016', 'MXO', '05/21/16', '12:30', 'Field 2', 'Pool B', 'Gold', '4', 'xx', 'Frankfurt', '-1', '-1', 'Berlin Armadillos']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Frankfurt
+Tournament Capital Cup 2016 already has the team Frankfurt
+b'Pool B'
+Found GameRound:
+Pool B 4 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Berlin Armadillos
+Tournament Capital Cup 2016 already has the team Berlin Armadillos
+Created Game:
+MXO - Capital Cup 2016 - Pool B 4 Gold - MXO - Frankfurt -1 - -1 MXO - Berlin Armadillos
 
 Row to read:
 ['Capital Cup 2016', 'MXO', '05/21/16', '12:30', 'Field 3', 'Pool D', 'Gold', '4', 'xx', 'CSSC Phantoms', '-1', '-1', 'Darvak']
@@ -467,17 +467,17 @@ Row to read:
 
 Found Tournament:
 MXO - Capital Cup 2016
-Created Team:
+Found Team:
 MXO - 3rd Pool D
-Added team 3rd Pool D into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team 3rd Pool D
 b'1/4'
 Found GameRound:
 1/4 2 Bronze
 Found GameField:
 Field 1
-Created Team:
+Found Team:
 MXO - 4th Pool A
-Added team 4th Pool A into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team 4th Pool A
 Created Game:
 MXO - Capital Cup 2016 - 1/4 2 Bronze - MXO - 3rd Pool D -1 - -1 MXO - 4th Pool A
 
@@ -486,17 +486,17 @@ Row to read:
 
 Found Tournament:
 MXO - Capital Cup 2016
-Created Team:
+Found Team:
 MXO - 3rd Pool C
-Added team 3rd Pool C into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team 3rd Pool C
 b'1/4'
 Found GameRound:
 1/4 2 Bronze
 Found GameField:
 Field 2
-Created Team:
+Found Team:
 MXO - 4th Pool B
-Added team 4th Pool B into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team 4th Pool B
 Created Game:
 MXO - Capital Cup 2016 - 1/4 2 Bronze - MXO - 3rd Pool C -1 - -1 MXO - 4th Pool B
 
@@ -505,17 +505,17 @@ Row to read:
 
 Found Tournament:
 MXO - Capital Cup 2016
-Created Team:
+Found Team:
 MXO - 3rd Pool B
-Added team 3rd Pool B into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team 3rd Pool B
 b'1/4'
 Found GameRound:
 1/4 2 Bronze
 Found GameField:
 Field 3
-Created Team:
+Found Team:
 MXO - 4th Pool C
-Added team 4th Pool C into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team 4th Pool C
 Created Game:
 MXO - Capital Cup 2016 - 1/4 2 Bronze - MXO - 3rd Pool B -1 - -1 MXO - 4th Pool C
 
@@ -524,17 +524,17 @@ Row to read:
 
 Found Tournament:
 MXO - Capital Cup 2016
-Created Team:
+Found Team:
 MXO - 3rd Pool A
-Added team 3rd Pool A into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team 3rd Pool A
 b'1/4'
 Found GameRound:
 1/4 2 Bronze
 Found GameField:
 Field 1
-Created Team:
+Found Team:
 MXO - 4th Pool D
-Added team 4th Pool D into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team 4th Pool D
 Created Game:
 MXO - Capital Cup 2016 - 1/4 2 Bronze - MXO - 3rd Pool A -1 - -1 MXO - 4th Pool D
 
@@ -543,17 +543,17 @@ Row to read:
 
 Found Tournament:
 MXO - Capital Cup 2016
-Created Team:
+Found Team:
 MXO - 1st Pool D
-Added team 1st Pool D into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team 1st Pool D
 b'1/4'
 Found GameRound:
 1/4 2 Gold
 Found GameField:
 Field 2
-Created Team:
+Found Team:
 MXO - 2nd Pool A
-Added team 2nd Pool A into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team 2nd Pool A
 Created Game:
 MXO - Capital Cup 2016 - 1/4 2 Gold - MXO - 1st Pool D -1 - -1 MXO - 2nd Pool A
 
@@ -562,17 +562,17 @@ Row to read:
 
 Found Tournament:
 MXO - Capital Cup 2016
-Created Team:
+Found Team:
 MXO - 1st Pool C
-Added team 1st Pool C into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team 1st Pool C
 b'1/4'
 Found GameRound:
 1/4 2 Gold
 Found GameField:
 Field 3
-Created Team:
+Found Team:
 MXO - 2nd Pool B
-Added team 2nd Pool B into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team 2nd Pool B
 Created Game:
 MXO - Capital Cup 2016 - 1/4 2 Gold - MXO - 1st Pool C -1 - -1 MXO - 2nd Pool B
 
@@ -581,17 +581,17 @@ Row to read:
 
 Found Tournament:
 MXO - Capital Cup 2016
-Created Team:
+Found Team:
 MXO - 1st Pool B
-Added team 1st Pool B into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team 1st Pool B
 b'1/4'
 Found GameRound:
 1/4 2 Gold
 Found GameField:
 Field 1
-Created Team:
+Found Team:
 MXO - 2nd Pool C
-Added team 2nd Pool C into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team 2nd Pool C
 Created Game:
 MXO - Capital Cup 2016 - 1/4 2 Gold - MXO - 1st Pool B -1 - -1 MXO - 2nd Pool C
 
@@ -600,17 +600,17 @@ Row to read:
 
 Found Tournament:
 MXO - Capital Cup 2016
-Created Team:
+Found Team:
 MXO - 1st Pool A
-Added team 1st Pool A into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team 1st Pool A
 b'1/4'
 Found GameRound:
 1/4 2 Gold
 Found GameField:
 Field 2
-Created Team:
+Found Team:
 MXO - 2nd Pool D
-Added team 2nd Pool D into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team 2nd Pool D
 Created Game:
 MXO - Capital Cup 2016 - 1/4 2 Gold - MXO - 1st Pool A -1 - -1 MXO - 2nd Pool D
 
@@ -619,17 +619,17 @@ Row to read:
 
 Found Tournament:
 MXO - Capital Cup 2016
-Created Team:
+Found Team:
 MXO - Loser QF6
-Added team Loser QF6 into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Loser QF6
 b'Semifinal'
 Found GameRound:
 Semifinal 2 Wood
 Found GameField:
 Field 3
-Created Team:
+Found Team:
 MXO - Loser QF8
-Added team Loser QF8 into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Loser QF8
 Created Game:
 MXO - Capital Cup 2016 - Semifinal 2 Wood - MXO - Loser QF6 -1 - -1 MXO - Loser QF8
 
@@ -638,17 +638,17 @@ Row to read:
 
 Found Tournament:
 MXO - Capital Cup 2016
-Created Team:
+Found Team:
 MXO - Loser QF5
-Added team Loser QF5 into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Loser QF5
 b'Semifinal'
 Found GameRound:
 Semifinal 2 Wood
 Found GameField:
 Field 1
-Created Team:
+Found Team:
 MXO - Loser QF7
-Added team Loser QF7 into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Loser QF7
 Created Game:
 MXO - Capital Cup 2016 - Semifinal 2 Wood - MXO - Loser QF5 -1 - -1 MXO - Loser QF7
 
@@ -657,17 +657,17 @@ Row to read:
 
 Found Tournament:
 MXO - Capital Cup 2016
-Created Team:
+Found Team:
 MXO - Winner QF6
-Added team Winner QF6 into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Winner QF6
 b'Semifinal'
 Found GameRound:
 Semifinal 2 Bronze
 Found GameField:
 Field 2
-Created Team:
+Found Team:
 MXO - Winner QF8
-Added team Winner QF8 into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Winner QF8
 Created Game:
 MXO - Capital Cup 2016 - Semifinal 2 Bronze - MXO - Winner QF6 -1 - -1 MXO - Winner QF8
 
@@ -676,17 +676,17 @@ Row to read:
 
 Found Tournament:
 MXO - Capital Cup 2016
-Created Team:
+Found Team:
 MXO - Winner QF5
-Added team Winner QF5 into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Winner QF5
 b'Semifinal'
 Found GameRound:
 Semifinal 2 Bronze
 Found GameField:
 Field 3
-Created Team:
+Found Team:
 MXO - Winner QF7
-Added team Winner QF7 into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Winner QF7
 Created Game:
 MXO - Capital Cup 2016 - Semifinal 2 Bronze - MXO - Winner QF5 -1 - -1 MXO - Winner QF7
 
@@ -695,17 +695,17 @@ Row to read:
 
 Found Tournament:
 MXO - Capital Cup 2016
-Created Team:
+Found Team:
 MXO - Loser QF1
-Added team Loser QF1 into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Loser QF1
 b'Semifinal'
 Found GameRound:
 Semifinal 2 Silver
 Found GameField:
 Field 1
-Created Team:
+Found Team:
 MXO - Loser QF3
-Added team Loser QF3 into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Loser QF3
 Created Game:
 MXO - Capital Cup 2016 - Semifinal 2 Silver - MXO - Loser QF1 -1 - -1 MXO - Loser QF3
 
@@ -714,17 +714,17 @@ Row to read:
 
 Found Tournament:
 MXO - Capital Cup 2016
-Created Team:
+Found Team:
 MXO - Loser QF2
-Added team Loser QF2 into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Loser QF2
 b'Semifinal'
 Found GameRound:
 Semifinal 2 Silver
 Found GameField:
 Field 2
-Created Team:
+Found Team:
 MXO - Loser QF4
-Added team Loser QF4 into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Loser QF4
 Created Game:
 MXO - Capital Cup 2016 - Semifinal 2 Silver - MXO - Loser QF2 -1 - -1 MXO - Loser QF4
 
@@ -733,17 +733,17 @@ Row to read:
 
 Found Tournament:
 MXO - Capital Cup 2016
-Created Team:
+Found Team:
 MXO - Winner QF2
-Added team Winner QF2 into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Winner QF2
 b'Semifinal'
 Found GameRound:
 Semifinal 2 Gold
 Found GameField:
 Field 3
-Created Team:
+Found Team:
 MXO - Winner QF4
-Added team Winner QF4 into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Winner QF4
 Created Game:
 MXO - Capital Cup 2016 - Semifinal 2 Gold - MXO - Winner QF2 -1 - -1 MXO - Winner QF4
 
@@ -752,17 +752,17 @@ Row to read:
 
 Found Tournament:
 MXO - Capital Cup 2016
-Created Team:
+Found Team:
 MXO - Winner QF1
-Added team Winner QF1 into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Winner QF1
 b'Semifinal'
 Found GameRound:
 Semifinal 2 Gold
 Found GameField:
 Field 1
-Created Team:
+Found Team:
 MXO - Winner QF3
-Added team Winner QF3 into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Winner QF3
 Created Game:
 MXO - Capital Cup 2016 - Semifinal 2 Gold - MXO - Winner QF1 -1 - -1 MXO - Winner QF3
 
@@ -771,17 +771,17 @@ Row to read:
 
 Found Tournament:
 MXO - Capital Cup 2016
-Created Team:
+Found Team:
 MXO - Winner SF7
-Added team Winner SF7 into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Winner SF7
 b'Final'
 Found GameRound:
 Final 2 Wood
 Found GameField:
 Field 2
-Created Team:
+Found Team:
 MXO - Winner SF8
-Added team Winner SF8 into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Winner SF8
 Created Game:
 MXO - Capital Cup 2016 - Final 2 Wood - MXO - Winner SF7 -1 - -1 MXO - Winner SF8
 
@@ -790,17 +790,17 @@ Row to read:
 
 Found Tournament:
 MXO - Capital Cup 2016
-Created Team:
+Found Team:
 MXO - Loser SF7
-Added team Loser SF7 into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Loser SF7
 b'Third position'
 Found GameRound:
 Third position 2 Wood
 Found GameField:
 Field 3
-Created Team:
+Found Team:
 MXO - Loser SF8
-Added team Loser SF8 into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Loser SF8
 Created Game:
 MXO - Capital Cup 2016 - Third position 2 Wood - MXO - Loser SF7 -1 - -1 MXO - Loser SF8
 
@@ -809,17 +809,17 @@ Row to read:
 
 Found Tournament:
 MXO - Capital Cup 2016
-Created Team:
+Found Team:
 MXO - Loser SF5
-Added team Loser SF5 into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Loser SF5
 b'Third position'
 Found GameRound:
 Third position 2 Bronze
 Found GameField:
 Field 1
-Created Team:
+Found Team:
 MXO - Loser SF6
-Added team Loser SF6 into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Loser SF6
 Created Game:
 MXO - Capital Cup 2016 - Third position 2 Bronze - MXO - Loser SF5 -1 - -1 MXO - Loser SF6
 
@@ -828,17 +828,17 @@ Row to read:
 
 Found Tournament:
 MXO - Capital Cup 2016
-Created Team:
+Found Team:
 MXO - Winner SF5
-Added team Winner SF5 into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Winner SF5
 b'Final'
 Found GameRound:
 Final 2 Bronze
 Found GameField:
 Field 2
-Created Team:
+Found Team:
 MXO - Winner SF6
-Added team Winner SF6 into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Winner SF6
 Created Game:
 MXO - Capital Cup 2016 - Final 2 Bronze - MXO - Winner SF5 -1 - -1 MXO - Winner SF6
 
@@ -847,17 +847,17 @@ Row to read:
 
 Found Tournament:
 MXO - Capital Cup 2016
-Created Team:
+Found Team:
 MXO - Loser SF3
-Added team Loser SF3 into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Loser SF3
 b'Third position'
 Found GameRound:
 Third position 2 Silver
 Found GameField:
 Field 3
-Created Team:
+Found Team:
 MXO - Loser SF4
-Added team Loser SF4 into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Loser SF4
 Created Game:
 MXO - Capital Cup 2016 - Third position 2 Silver - MXO - Loser SF3 -1 - -1 MXO - Loser SF4
 
@@ -866,17 +866,17 @@ Row to read:
 
 Found Tournament:
 MXO - Capital Cup 2016
-Created Team:
+Found Team:
 MXO - Loser SF1
-Added team Loser SF1 into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Loser SF1
 b'Third position'
 Found GameRound:
 Third position 2 Gold
 Found GameField:
 Field 1
-Created Team:
+Found Team:
 MXO - Loser SF2
-Added team Loser SF2 into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Loser SF2
 Created Game:
 MXO - Capital Cup 2016 - Third position 2 Gold - MXO - Loser SF1 -1 - -1 MXO - Loser SF2
 
@@ -885,17 +885,17 @@ Row to read:
 
 Found Tournament:
 MXO - Capital Cup 2016
-Created Team:
+Found Team:
 MXO - Winner SF3
-Added team Winner SF3 into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Winner SF3
 b'Final'
 Found GameRound:
 Final 2 Silver
 Found GameField:
 Field 2
-Created Team:
+Found Team:
 MXO - Winner SF4
-Added team Winner SF4 into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Winner SF4
 Created Game:
 MXO - Capital Cup 2016 - Final 2 Silver - MXO - Winner SF3 -1 - -1 MXO - Winner SF4
 
@@ -904,17 +904,17 @@ Row to read:
 
 Found Tournament:
 MXO - Capital Cup 2016
-Created Team:
+Found Team:
 MXO - Winner SF1
-Added team Winner SF1 into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Winner SF1
 b'Final'
 Found GameRound:
 Final 2 Gold
 Found GameField:
 Field 1
-Created Team:
+Found Team:
 MXO - Winner SF2
-Added team Winner SF2 into tournament Capital Cup 2016
+Tournament Capital Cup 2016 already has the team Winner SF2
 Created Game:
 MXO - Capital Cup 2016 - Final 2 Gold - MXO - Winner SF1 -1 - -1 MXO - Winner SF2
 
