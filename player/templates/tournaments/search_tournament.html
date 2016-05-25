@@ -1,0 +1,43 @@
+{% extends "tournaments/index.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <form role="form" action="{% url 'search_tournament' %}" method="get" >
+      {% csrf_token %}
+      <div class="col-md-12">
+	<div class="form-group">
+	  {{form.name.label_tag}}
+	  <div class="input-group">
+	    {{form.name}}
+            <span class="input-group-addon"/>
+	  </div>
+	</div>
+	<input type="submit" name="submit" id="submit" value="Submit" class="btn btn-info pull-right">
+      </div><!-- end col-md-12 -->
+    </form><!-- end form -->
+  </div><!-- end row -->
+
+  {% if success %}
+  <p>#{{result.count}} entries found.</p>
+  {% if result.count > 0 %}
+  <table class="table table-striped table-condensed">
+    <thead>
+      <tr>
+	<th class="text-center">Tournament name</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in result %}
+      <tr>
+	<td class="text-center"><a href="{% url 'detail_tournament' row.id %}">{{row.name}}</a></td>
+      </tr>
+      {% endfor %}
+  </tbody>
+  </table>
+  {% endif %}
+  {% else %}
+  <p>No entries found.</p>
+  {% endif %}
+</div> <!-- end container -->
+{% endblock %}

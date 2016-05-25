@@ -1,13 +1,10 @@
-import mimetypes
-import os
-
 from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render
 from django.template import RequestContext, loader
 
-from player.forms import ContactForm
+from player.forms import ContactForm, TournamentSearchForm
 from player.forms import PersonSearchForm
 from player.forms import TeamSearchForm
 from player.models import Game
@@ -22,6 +19,7 @@ from player.service import StructuresUtils
 from player.service import TeamsMatrix
 
 from player.service import sort_tournament_list
+
 
 # Create your views here.
 
@@ -182,6 +180,32 @@ def search_person(request):
     return HttpResponse(template.render(context))
 
 
+def search_tournament(request):
+    tournament_list = Tournament.objects.all()
+    sort_tournament = sort_tournament_list(tournament_list)
+    template = loader.get_template('tournaments/search_tournament.html')
+    success = False
+    tournaments = None
+
+    if request.method == 'GET':
+        form = TournamentSearchForm(request.GET)
+        if form.is_valid():
+            tournaments = Tournament.objects.filter(name__icontains=form.cleaned_data.get('name'))
+            if tournaments:
+                success = True
+    else:
+        form = TournamentSearchForm()
+
+    context = RequestContext(request, {'form': form, 'result': tournaments, 'success': success,
+                                       'tournament_list': tournament_list,
+                                       'england': sort_tournament['England'],
+                                       'germany': sort_tournament['Germany'],
+                                       'nationals': sort_tournament['Nationals'],
+                                       })
+
+    return HttpResponse(template.render(context))
+
+
 def detail_tournament(request, tournament_id):
     """
     Prepare and displays a tournament view of a user selected tournament.
@@ -230,7 +254,7 @@ def detail_tournament(request, tournament_id):
                    'games': games,  # all tournament games
                    'sorted_pools': fixtures.sorted_pools,  # sorted pool games
                    'finals': fixtures.get_finals({}),  # sorted playoff/finals games
-                   'teams_matrix': st_utils.get_teams_matrix(teams, 4), })  # tournament teams
+                   'teams_matrix': st_utils.get_teams_matrix(teams, 4),})  # tournament teams
 
 
 def detail_team_tournament(request, tournament_id, team_id):
@@ -262,7 +286,7 @@ def detail_team_tournament(request, tournament_id, team_id):
                    'games': st_utils.get_team_view_games(games),
                    'players': st_utils.get_team_details_matrix(stadistics, players),
                    'tournament_list': tournament_list,
-                   'tournament': tournament, })
+                   'tournament': tournament,})
 
 
 """
@@ -306,4 +330,4 @@ def detail_game(request, game_id):
                    'stadistics': st_utils.get_game_details_matrix(stadistics,
                                                                   local_players,
                                                                   visitor_players),
-                   'tournament_list': tournament_list, })
+                   'tournament_list': tournament_list,})

@@ -15,6 +15,7 @@ urlpatterns = patterns(
     url(r'^contact', views.contact, name='contact'),
     url(r'^search_team', views.search_team, name='search_team'),
     url(r'^search_person', views.search_person, name='search_person'),
+    url(r'^search_tournament', views.search_tournament, name='search_tournament'),
 #    url(r'^contact_success', views.contact, name='contact_success'),
 #    url(r'^(?P<tournament_id>\d+)/$', views.detail_tournament, name='detail_tournament'),
 #    url(r'^(?P<tournament_id>\d+)/team/(?P<team_id>\d+)/$', views.detail_team, name='detail_team'),
