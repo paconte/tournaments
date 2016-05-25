@@ -116,13 +116,21 @@ class PersonView(DetailView):
     template_name = 'tournaments/detail_person.html'
 
     def get_context_data(self, **kwargs):
-        games = Game.objects.filter(Q(local=self.object.id) | Q(visitor=self.object.id))
-        played_tournaments = Tournament.objects.filter(teams__id=self.object.id)
+        players = Player.objects.filter(person=self.object.id)
+        tournament_team_dict = {}
+        for player in players:
+            team = player.team
+            for tournament in player.tournaments_played.all():
+                tournament_team_dict[tournament] = team
+        games = []
+        for tournie, team in tournament_team_dict.items():
+            games.extend(Game.objects.filter(Q(tournament=tournie), Q(local=team) | Q(visitor=team)))
 
         context = super(PersonView, self).get_context_data(**kwargs)
         context['person'] = self.object
-        context['tournament_list'] = Tournament.objects.all()
-        context['played_tournaments'] = played_tournaments
+        context['games'] = games
+        context['tournament_team_dict'] = tournament_team_dict
+        add_data_for_tournaments_menu(context)
 
         return context
 
