@@ -23,10 +23,10 @@ logger = logging.getLogger(__name__)
 def add_data_for_tournaments_menu(context):
     tournament_list = Tournament.objects.all()
     sorted_tournaments = sort_tournament_list(tournament_list)
+    context['australia'] = sorted_tournaments['Australia']
     context['england'] = sorted_tournaments['England']
     context['germany'] = sorted_tournaments['Germany']
     context['nationals'] = sorted_tournaments['Nationals']
-    context['australia'] = sorted_tournaments['Australia']
     return context
 
 
