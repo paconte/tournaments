@@ -4,7 +4,9 @@ from django.shortcuts import get_object_or_404
 from django.shortcuts import render
 from django.template import RequestContext, loader
 
-from player.forms import ContactForm, TournamentSearchForm
+from player.forms import ContactForm
+from player.forms import SearchForm
+from player.forms import TournamentSearchForm
 from player.forms import PersonSearchForm
 from player.forms import TeamSearchForm
 from player.models import Game
@@ -36,11 +38,12 @@ def index(request):
     tournament_list = Tournament.objects.all()
     sort_tournament = sort_tournament_list(tournament_list)
     template = loader.get_template('tournaments/index.html')
+    form = SearchForm
     context = RequestContext(request, {'tournament_list': tournament_list,
+                                       'australia': sort_tournament['Australia'],
                                        'england': sort_tournament['England'],
                                        'germany': sort_tournament['Germany'],
-                                       'nationals': sort_tournament['Nationals'],
-                                       'australia': sort_tournament['Australia']
+                                       'nationals': sort_tournament['Nationals']
                                        })
     return HttpResponse(template.render(context))
 
@@ -119,6 +122,44 @@ def contact(request):
     return HttpResponse(template.render(context))
 
 
+def search(request):
+    tournament_list = Tournament.objects.all()
+    sort_tournament = sort_tournament_list(tournament_list)
+    template = loader.get_template('tournaments/search.html')
+    success = False
+    result_size = 0
+    teams, persons, tournaments = [], [], []
+
+    if request.method == 'GET':
+        form = SearchForm(request.GET)
+        if form.is_valid():
+            text = form.cleaned_data.get('text')
+            if text is not None and len(text) > 0:
+                teams = Team.objects.filter(name__icontains=text)
+                persons = Person.objects.filter(Q(first_name__icontains=text) | Q(last_name__icontains=text))
+                tournaments = Tournament.objects.filter(name__icontains=text)
+                result_size = len(teams) + len(persons) + len(tournaments)
+                if result_size > 0:
+                    success = True
+    else:
+        form = SearchForm()
+
+    context = RequestContext(request, {'form': form,
+                                       'result_teams': teams,
+                                       'result_tournaments': tournaments,
+                                       'result_persons': persons,
+                                       'result_size': result_size,
+                                       'success': success,
+                                       'tournament_list': tournament_list,
+                                       'australia': sort_tournament['Australia'],
+                                       'england': sort_tournament['England'],
+                                       'germany': sort_tournament['Germany'],
+                                       'nationals': sort_tournament['Nationals'],
+                                       })
+
+    return HttpResponse(template.render(context))
+
+
 def search_team(request):
     tournament_list = Tournament.objects.all()
     sort_tournament = sort_tournament_list(tournament_list)
@@ -137,6 +178,7 @@ def search_team(request):
 
     context = RequestContext(request, {'form': form, 'result': teams, 'success': success,
                                        'tournament_list': tournament_list,
+                                       'australia': sort_tournament['Australia'],
                                        'england': sort_tournament['England'],
                                        'germany': sort_tournament['Germany'],
                                        'nationals': sort_tournament['Nationals'],
@@ -172,6 +214,7 @@ def search_person(request):
 
     context = RequestContext(request, {'form': form, 'result': persons, 'success': success,
                                        'tournament_list': tournament_list,
+                                       'australia': sort_tournament['Australia'],
                                        'england': sort_tournament['England'],
                                        'germany': sort_tournament['Germany'],
                                        'nationals': sort_tournament['Nationals'],
@@ -198,6 +241,7 @@ def search_tournament(request):
 
     context = RequestContext(request, {'form': form, 'result': tournaments, 'success': success,
                                        'tournament_list': tournament_list,
+                                       'australia': sort_tournament['Australia'],
                                        'england': sort_tournament['England'],
                                        'germany': sort_tournament['Germany'],
                                        'nationals': sort_tournament['Nationals'],

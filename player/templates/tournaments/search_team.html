@@ -2,6 +2,7 @@
 
 {% block content %}
 <div class="container">
+
     <div class="row">
         <form role="form" action="{% url 'search_team' %}" method="get">
             {% csrf_token %}
@@ -20,6 +21,7 @@
 
     {% if success %}
     <p>#{{result.count}} entries found.</p>
+
     {% if result.count > 0 %}
     <table class="table table-striped table-condensed">
         <thead>

@@ -13,7 +13,6 @@
 <!--  <p><a href="#" class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>-->
 </div>
 
- <!-- Example row of columns -->
  <div class="row">
 
      <div class="col-md-6">
@@ -36,16 +35,14 @@
          <div class="jumbotron">
              <h2>Search</h2>
              <p>Find a player, team or tournament and check all available data.</p>
-             <div class="dropdown">
-                 <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Searchs
-                     <span class="caret"></span>
-                 </button>
-                 <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                     <li><a href="{% url 'search_team' %}">Team</a></li>
-                     <li><a href="{% url 'search_person' %}">Person</a></li>
-                     <li><a href="{% url 'search_person' %}">Tournament</a></li>
-                 </ul>
-             </div>
+
+             <form class="form-inline" role="form" action="{% url 'search' %}" method="get">
+                 {% csrf_token %}
+                 <div class="form-group">
+                     <input class="form-control" type="text"  name="text" placeholder="Search">
+                 </div>
+                 <input class="btn btn-default" type="submit" name="submit" id="submit" value="Submit" class="btn btn-default">
+             </form><!-- end form -->
          </div>
      </div>
 

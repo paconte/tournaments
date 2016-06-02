@@ -7,6 +7,12 @@ from player.models import Person
 from player.models import Tournament
 
 
+class SearchForm(forms.Form):
+    text = forms.CharField(label='Search', required=True, max_length=40,
+            widget=forms.TextInput(attrs={'class': 'form-control',
+                                          'placeholder': 'Enter a player, team or tournament name'}))
+
+
 class PersonSearchForm(forms.ModelForm):
     first_name = forms.CharField(label='First name',
                                  required=False,
