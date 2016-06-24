@@ -1,116 +1,176 @@
 from time import strftime
 
-# PHASES_INDEXES
-PH_PHASE_ROUND_INDEX = 0
-PH_CATEGORY_INDEX = 1
-PH_PHASE_TEAMS_INDEX = 2
 
-# TOURNAMENT_GAMES_INDEXES
-TG_TOURNAMENT_INDEX = 0
-TG_DIVISION_INDEX = 1
-TG_DATE_INDEX = 2
-TG_TIME_INDEX = 3
-TG_FIELD_INDEX = 4
-TG_PHASE_INDEX = 5
-TG_CATEGORY_INDEX = 6
-TG_PHASE_TEAMS_INDEX = 7
-# TG_GAME_ROUND_INDEX = 8
-TG_LOCAL_TEAM_INDEX = 9
-TG_LOCAL_TEAM_SCORE_INDEX = 10
-TG_VISITOR_TEAM_SCORE_INDEX = 11
-TG_VISITOR_TEAM_INDEX = 12
-
-# PLAYER_STATISTICS_INDEXES
-PL_ST_TOURNAMENT_INDEX = 0
-PL_ST_DIVISION_INDEX = 1
-PL_ST_TEAM_INDEX = 2
-PL_ST_NUMBER_INDEX = 3
-PL_ST_FIRST_NAME_INDEX = 4
-PL_ST_LAST_NAME_INDEX = 5
-PL_ST_GENDER_INDEX = 6
-PL_ST_PLAYER_TRIES_INDEX = 7
-PL_ST_LOCAL_TEAM_INDEX = 8
-PL_ST_LOCAL_TEAM_SCORE_INDEX = 9
-PL_ST_VISITOR_TEAM_SCORE_INDEX = 10
-PL_ST_VISITOR_TEAM_INDEX = 11
-PL_ST_GAME_CATEGORY_INDEX = 12
-PL_ST_GAME_ROUND_INDEX = 13
-PL_ST_PHASE_TEAMS_INDEX = 14
-
-# FOX GAMES INDEXES
-FOX_GAME_STATISTIC_LINK_LINK = 10
-
-# POSITION CONSTANTS CONVERSION
-THIRD_POSITION = 'Third position'
-FIFTH_POSITION = 'Fifth position'
-SIXTH_POSITION = 'Sixth position'
-SEVENTH_POSITION = 'Seventh position'
-EIGHTH_POSITION = 'Eighth position'
-NINTH_POSITION = 'Ninth position'
-TENTH_POSITION = 'Tenth position'
-ELEVENTH_POSITION = 'Eleventh position'
-TWELFTH_POSITION = 'Twelfth position'
-THIRTEENTH_POSITION = 'Thirteenth position'
-FOURTEENTH_POSITION = 'Fourteenth position'
-FIFTEENTH_POSITION = 'Fifteenth position'
-SIXTEENTH_POSITION = 'Sixteenth position'
-EIGHTEENTH_POSITION = 'Eighteenth position'
-TWENTIETH_POSITION = 'Twentieth position'
-
-ROUNDS_CONVERSIONS = {'Grand Final': 'Final',
-                      'Gold Medal Game': 'Final',
-                      'Bronze': THIRD_POSITION,
-                      'Bronze Medal Game': THIRD_POSITION,
-                      'Playoff 5th/6th': FIFTH_POSITION,
-                      'Playoff 7th/8th': SEVENTH_POSITION,
-                      'Playoff 8th/9th': EIGHTH_POSITION,
-                      'Playoff 9th/10th': NINTH_POSITION,
-                      'Playoff 10th/11th': TENTH_POSITION,
-                      'Playoff 11th/12th': ELEVENTH_POSITION,
-                      'Playoff 12th/13th': TWELFTH_POSITION,
-                      'Playoff 13th/14th': THIRTEENTH_POSITION,
-                      'Playoff 15th/16th': FIFTEENTH_POSITION,
-                      'Playoff 18th/19th': EIGHTEENTH_POSITION,
-                      'Playoff 20th/21st': TWENTIETH_POSITION,
-                      'Playoff for 5th/6th': FIFTH_POSITION,
-                      'Playoff for 7th/8th': SEVENTH_POSITION,
-                      'Playoff for 11th/12th': ELEVENTH_POSITION,
-                      'Playoff for 15th/16th': FIFTEENTH_POSITION,
-                      'Plate Final': NINTH_POSITION,
-                      'Playoff 9th/10th (Plate Final)': NINTH_POSITION,
-                      'Playoff 16th/17th (Bowl Final)': SIXTEENTH_POSITION}
-
-# CONSTANTS DIRECTORIES
-DATA_FILES = './player/data_files/'
-RAW_FILES = DATA_FILES + 'raw/'
-RAW_GAMES_FILES = RAW_FILES + 'games/'
-RAW_STATS_FILES = RAW_FILES + 'statistics/'
-CSV_FILES = DATA_FILES + 'csv/'
-
-# CONSTANTS FILE NAMES
-GAME_PREFIX = 'TGames'
-WC2015_MO_URL = 'http://www.internationaltouch.org/events/world-cup/2015/mens/'
-WC2015_WO_URL = 'http://www.internationaltouch.org/events/world-cup/2015/womens/'
-WC2015_MXO_URL = 'http://www.internationaltouch.org/events/world-cup/2015/mixed/'
-WC2015_MO_FOX_RAW = RAW_FILES + 'WC2015_MO_FOX_RAW.html'
-WC2015_WO_FOX_RAW = RAW_FILES + 'WC2015_WO_FOX_RAW.html'
-WC2015_MXO_FOX_RAW = RAW_FILES + 'WC2015_MXO_FOX_RAW.html'
-WC2015_MO_RAW = RAW_FILES + 'WC2015_MO_RAW.txt'
-WC2015_WO_RAW = RAW_FILES + 'WC2015_WO_RAW.txt'
-WC2015_MXO_RAW = RAW_FILES + 'WC2015_MX_RAW.txt'
-WC2015_MO_CSV = CSV_FILES + GAME_PREFIX + '_WC2015_MO_RAW.csv'
-WC2015_WO_CSV = CSV_FILES + GAME_PREFIX + '_WC2015_WO_RAW.csv'
-WC2015_MXO_CSV = CSV_FILES + GAME_PREFIX + '_WC2015_MX_RAW.csv'
-
-# CONSTANTS ALGORITHMS
-WC2015_RE_GROUPS = '[Pool [A|B|C|D|E|F]|Division [1|2|3]'
-WC2015_RE_FINALS = '[Grand Final|Bronze|Playoff ]'
+def get_tournament_url(tournament):
+    if tournament == WC_2015_MO_GAMES_FOX:
+        return remote_files_WC2015_MO_FOX
+    elif tournament == WC_2015_WO_GAMES_FOX:
+        return remote_files_WC2015_WO_FOX
+    elif tournament == WC_2015_MXO_GAMES_FOX:
+        return remote_files_WC2015_MXO_FOX
+    elif tournament == WC_2015_SMX_GAMES_FOX:
+        return remote_files_WC2015_SMX_FOX
+    elif tournament == WC_2015_W27_GAMES_FOX:
+        return remote_files_WC2015_W27_FOX
+    elif tournament == WC_2015_M30_GAMES_FOX:
+        return remote_files_WC2015_M30_FOX
+    elif tournament == NTL_2016_MO_GAMES_FOX:
+        return remote_files_NTL2016_MO_FOX
+    elif tournament == NTL_2016_WO_GAMES_FOX:
+        return remote_files_NTL2016_WO_FOX
+    elif tournament == EUROS_2014_MO:
+        return remote_files_EUROS_2014_MO
+    elif tournament == EUROS_2014_WO:
+        return remote_files_EUROS_2014_WO
+    elif tournament == EUROS_2014_MXO:
+        return remote_files_EUROS_2014_MXO
+    elif tournament == EUROS_2014_W27:
+        return remote_files_EUROS_2014_W27
+    elif tournament == EUROS_2014_SMX:
+        return remote_files_EUROS_2014_SMX
+    elif tournament == EUROS_2014_M40:
+        return remote_files_EUROS_2014_M40
+    else:
+        raise ValueError("Tournament not supported.")
 
 
-(WC_2015_MO_GAMES_FOX, WC_2015_WO_GAMES_FOX, WC_2015_MXO_GAMES_FOX,
- WC_2015_W27_GAMES_FOX, WC_2015_M30_GAMES_FOX, WC_2015_SMX_GAMES_FOX,
- NTL_2016_MO_GAMES_FOX, NTL_2016_WO_GAMES_FOX,
- WC_2015_MO_GAMES_FIT, WC_2015_WO_GAMES_FIT, WC_2015_MXO_GAMES_FIT) = (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+def get_tournament_html_path(tournament):
+    if tournament == WC_2015_MO_GAMES_FOX:
+        return local_files_WC_2015_MO_FX
+    elif tournament == WC_2015_WO_GAMES_FOX:
+        return local_files_WC_2015_WO_FX
+    elif tournament == WC_2015_MXO_GAMES_FOX:
+        return local_files_WC_2015_MXO_FX
+    elif tournament == WC_2015_SMX_GAMES_FOX:
+        return local_files_WC_2015_SMX_FX
+    elif tournament == WC_2015_W27_GAMES_FOX:
+        return local_files_WC_2015_W27_FX
+    elif tournament == WC_2015_M30_GAMES_FOX:
+        return local_files_WC_2015_M30_FX
+    elif tournament == NTL_2016_MO_GAMES_FOX:
+        return local_files_NTL_2016_M_FX
+    elif tournament == NTL_2016_WO_GAMES_FOX:
+        return local_files_NTL_2016_WO_FX
+    elif tournament == EUROS_2014_MO:
+        return local_files_EUROS_2014_MO
+    elif tournament == EUROS_2014_WO:
+        return local_files_EUROS_2014_WO
+    elif tournament == EUROS_2014_MXO:
+        return local_files_EUROS_2014_MXO
+    elif tournament == EUROS_2014_SMX:
+        return local_files_EUROS_2014_SMX
+    elif tournament == EUROS_2014_W27:
+        return local_files_EUROS_2014_W27
+    elif tournament == EUROS_2014_M40:
+        return local_files_EUROS_2014_M40
+    else:
+        raise ValueError("Tournament not supported.")
+
+
+def get_csv_path(tournament, is_stats=False, is_test=True):
+
+    if tournament == WC_2015_MO_GAMES_FOX and not is_stats:
+        filename = 'WC_2015_MO_GAMES_FOX'
+    elif tournament == WC_2015_MO_GAMES_FOX and is_stats:
+        filename = 'WC_2015_MO_STATS_FOX'
+    elif tournament == WC_2015_M30_GAMES_FOX and not is_stats:
+        filename = 'WC_2015_M30_GAMES_FOX'
+    elif tournament == WC_2015_M30_GAMES_FOX and is_stats:
+        filename = 'WC_2015_M30_STATS_FOX'
+    elif tournament == WC_2015_WO_GAMES_FOX and not is_stats:
+        filename = 'WC_2015_WO_GAMES_FOX'
+    elif tournament == WC_2015_WO_GAMES_FOX and is_stats:
+        filename = 'WC_2015_WO_STATS_FOX'
+    elif tournament == WC_2015_W27_GAMES_FOX and not is_stats:
+        filename = 'WC_2015_W27_GAMES_FOX'
+    elif tournament == WC_2015_W27_GAMES_FOX and is_stats:
+        filename = 'WC_2015_W27_STATS_FOX'
+    elif tournament == WC_2015_MXO_GAMES_FOX and not is_stats:
+        filename = 'WC_2015_MXO_GAMES_FOX'
+    elif tournament == WC_2015_MXO_GAMES_FOX and is_stats:
+        filename = 'WC_2015_MXO_STATS_FOX'
+    elif tournament == WC_2015_SMX_GAMES_FOX and not is_stats:
+        filename = 'WC_2015_SMX_GAMES_FOX'
+    elif tournament == WC_2015_SMX_GAMES_FOX and is_stats:
+        filename = 'WC_2015_SMX_STATS_FOX'
+    elif tournament == NTL_2016_MO_GAMES_FOX and not is_stats:
+        filename = 'NTL_2016_MO_GAMES_FOX'
+    elif tournament == NTL_2016_MO_GAMES_FOX and is_stats:
+        filename = 'NTL_2016_MO_STATS_FOX'
+    elif tournament == NTL_2016_WO_GAMES_FOX and not is_stats:
+        filename = 'NTL_2016_WO_GAMES_FOX'
+    elif tournament == NTL_2016_WO_GAMES_FOX and is_stats:
+        filename = 'NTL_2016_WO_STATS_FOX'
+    elif tournament == WC_2015_MO_GAMES_FIT:
+        filename = 'WC_2015_MO_GAMES_FIT'
+    elif tournament == WC_2015_WO_GAMES_FIT:
+        filename = 'WC_2015_WO_GAMES_FIT'
+    elif tournament == WC_2015_MXO_GAMES_FIT:
+        filename = 'WC_2015_MXO_GAMES_FIT'
+    elif tournament == EUROS_2014_MO:
+        filename = 'EUROS_2014_MO_GAMES_FIT'
+    elif tournament == EUROS_2014_WO:
+        filename = 'EUROS_2014_WO_GAMES_FIT'
+    elif tournament == EUROS_2014_MXO:
+        filename = 'EUROS_2014_MXO_GAMES_FIT'
+    elif tournament == EUROS_2014_W27:
+        filename = 'EUROS_2014_WO27_GAMES_FIT'
+    elif tournament == EUROS_2014_SMX:
+        filename = 'EUROS_2014_SMX_GAMES_FIT'
+    elif tournament == EUROS_2014_M40:
+        filename = 'EUROS_2014_M40_GAMES_FIT'
+    else:
+        raise ValueError('Illegal argument: %s', tournament)
+
+    filename = CSV_FILES + filename + '.csv'
+
+    if is_test:
+        filename += '.test'
+
+    return filename
+
+
+def get_tournament_name(tournament):
+    if tournament in [WC_2015_MO_GAMES_FOX, WC_2015_WO_GAMES_FOX, WC_2015_MXO_GAMES_FOX, WC_2015_SMX_GAMES_FOX,
+                      WC_2015_W27_GAMES_FOX, WC_2015_M30_GAMES_FOX]:
+        return 'World Cup 2015'
+    elif tournament in [NTL_2016_MO_GAMES_FOX, NTL_2016_WO_GAMES_FOX]:
+        return 'NTL 2016'
+    elif tournament in [EUROS_2014_MO, EUROS_2014_M40, EUROS_2014_WO, EUROS_2014_W27, EUROS_2014_MXO, EUROS_2014_SMX]:
+        return 'Euros 2014'
+    else:
+        raise ValueError("Tournament not supported.")
+
+
+def get_tournament_division(tournament):
+    if tournament in [WC_2015_MO_GAMES_FOX, EUROS_2014_MO, NTL_2016_MO_GAMES_FOX]:
+        return 'MO'
+    elif tournament == WC_2015_M30_GAMES_FOX:
+        return 'M30'
+    elif tournament == EUROS_2014_M40:
+        return 'M40'
+    elif tournament in [WC_2015_WO_GAMES_FOX, NTL_2016_WO_GAMES_FOX, EUROS_2014_WO]:
+        return 'WO'
+    elif tournament in [WC_2015_W27_GAMES_FOX, EUROS_2014_W27]:
+        return 'W27'
+    elif tournament in [WC_2015_MXO_GAMES_FOX, EUROS_2014_MXO]:
+        return 'MXO'
+    elif tournament in [WC_2015_SMX_GAMES_FOX, EUROS_2014_SMX]:
+        return 'SMX'
+    else:
+        raise ValueError("Tournament not supported.")
+
+
+def get_tournament_year(tournament):
+    if tournament in [WC_2015_MO_GAMES_FOX, WC_2015_WO_GAMES_FOX, WC_2015_MXO_GAMES_FOX, WC_2015_SMX_GAMES_FOX,
+                      WC_2015_W27_GAMES_FOX, WC_2015_M30_GAMES_FOX]:
+        return 2015
+    elif tournament in [NTL_2016_MO_GAMES_FOX, NTL_2016_WO_GAMES_FOX]:
+        return 2016
+    elif tournament in [EUROS_2014_MO, EUROS_2014_WO, EUROS_2014_MXO, EUROS_2014_W27, EUROS_2014_SMX, EUROS_2014_M40]:
+        return 2014
+    else:
+        raise ValueError("Tournament not supported.")
 
 
 class CsvNTSStadistic:
@@ -477,6 +537,8 @@ class CsvGame(FitGame):
                 self._category = 'Silver'
             elif game.round == 'Division 3':
                 self._category = 'Bronze'
+            elif 'Seeding' in game.round:
+                self._category = 'Silver'
             else:
                 self._category = 'Gold'
 
@@ -486,10 +548,15 @@ class CsvGame(FitGame):
                 self._round = game.finals
                 self._round = self._round.replace('Grand Final', 'Final', 1)
                 self._round = self._round.replace('Playoff 5th/6th', FIFTH_POSITION, 1)
+                self._round = self._round.replace('5th/6th Playoff', FIFTH_POSITION, 1)
+                self._round = self._round.replace('5th/6th Seeding', FIFTH_POSITION, 1)
                 self._round = self._round.replace('Playoff 6th/7th', SIXTH_POSITION, 1)
                 self._round = self._round.replace('Playoff 7th/8th', SEVENTH_POSITION, 1)
+                self._round = self._round.replace('7th/8th Playoff', SEVENTH_POSITION, 1)
+                self._round = self._round.replace('7th/8th Seeding', SEVENTH_POSITION, 1)
                 self._round = self._round.replace('Playoff 8th/9th', EIGHTH_POSITION, 1)
                 self._round = self._round.replace('Playoff 9th/10th', NINTH_POSITION, 1)
+                self._round = self._round.replace('9th/10th/11th', NINTH_POSITION, 1)
                 self._round = self._round.replace('Playoff 10th/11th', TENTH_POSITION, 1)
                 self._round = self._round.replace('Playoff 11th/12th', ELEVENTH_POSITION, 1)
                 self._round = self._round.replace('Playoff 12th/13th', TWELFTH_POSITION, 1)
@@ -499,7 +566,10 @@ class CsvGame(FitGame):
                 self._round = self._round.replace('Playoff 16th/17th', SIXTEENTH_POSITION, 1)
                 self._round = self._round.replace('Playoff 18th/19th', EIGHTEENTH_POSITION, 1)
                 self._round = self._round.replace('Playoff 20th/21st', TWENTIETH_POSITION, 1)
+                self._round = self._round.replace('Bronze Final', THIRD_POSITION, 1)
                 self._round = self._round.replace('Bronze', THIRD_POSITION, 1)
+                self._round = self._round.replace('Seeding Semi Final 1', 'Semifinal', 1)
+                self._round = self._round.replace('Seeding Semi Final 2', 'Semifinal', 1)
             else:
                 self._round = game.round
         else:
@@ -592,7 +662,7 @@ class CsvGame(FitGame):
         return 13
 
     def csv_len_tennis(self):
-        return self.csv_len_standard()+10
+        return self.csv_len_standard() + 10
 
 
 class FoxGame(CsvGame):
@@ -621,3 +691,256 @@ class FoxGame(CsvGame):
     @stats_link.setter
     def link(self, stats_link):
         self._stats_link = stats_link
+
+    def get_game_statistic_file_to_save(self):
+        destination = self.tournament_name + '-' + self.division + '-' + self.date + '-' + self.time + '-' + self. \
+            round + '-' + self.category + '-' + str(self.nteams) + '-' + self.local + '-' + str(
+                self.local_score) + '-' + str(self.visitor_score) + '-' + self.visitor + '.html'
+
+        destination = destination.replace(' ', '_')
+        destination = destination.replace('/', '_')
+        destination = destination.replace(':', '_')
+        return RAW_STATS_FILES + destination
+
+
+# PHASES_INDEXES
+PH_PHASE_ROUND_INDEX = 0
+PH_CATEGORY_INDEX = 1
+PH_PHASE_TEAMS_INDEX = 2
+
+# TOURNAMENT_GAMES_INDEXES
+TG_TOURNAMENT_INDEX = 0
+TG_DIVISION_INDEX = 1
+TG_DATE_INDEX = 2
+TG_TIME_INDEX = 3
+TG_FIELD_INDEX = 4
+TG_PHASE_INDEX = 5
+TG_CATEGORY_INDEX = 6
+TG_PHASE_TEAMS_INDEX = 7
+# TG_GAME_ROUND_INDEX = 8
+TG_LOCAL_TEAM_INDEX = 9
+TG_LOCAL_TEAM_SCORE_INDEX = 10
+TG_VISITOR_TEAM_SCORE_INDEX = 11
+TG_VISITOR_TEAM_INDEX = 12
+
+# PLAYER_STATISTICS_INDEXES
+PL_ST_TOURNAMENT_INDEX = 0
+PL_ST_DIVISION_INDEX = 1
+PL_ST_TEAM_INDEX = 2
+PL_ST_NUMBER_INDEX = 3
+PL_ST_FIRST_NAME_INDEX = 4
+PL_ST_LAST_NAME_INDEX = 5
+PL_ST_GENDER_INDEX = 6
+PL_ST_PLAYER_TRIES_INDEX = 7
+PL_ST_LOCAL_TEAM_INDEX = 8
+PL_ST_LOCAL_TEAM_SCORE_INDEX = 9
+PL_ST_VISITOR_TEAM_SCORE_INDEX = 10
+PL_ST_VISITOR_TEAM_INDEX = 11
+PL_ST_GAME_CATEGORY_INDEX = 12
+PL_ST_GAME_ROUND_INDEX = 13
+PL_ST_PHASE_TEAMS_INDEX = 14
+
+# FOX GAMES INDEXES
+FOX_GAME_STATISTIC_LINK_LINK = 10
+
+# POSITION CONSTANTS CONVERSION
+THIRD_POSITION = 'Third position'
+FIFTH_POSITION = 'Fifth position'
+SIXTH_POSITION = 'Sixth position'
+SEVENTH_POSITION = 'Seventh position'
+EIGHTH_POSITION = 'Eighth position'
+NINTH_POSITION = 'Ninth position'
+TENTH_POSITION = 'Tenth position'
+ELEVENTH_POSITION = 'Eleventh position'
+TWELFTH_POSITION = 'Twelfth position'
+THIRTEENTH_POSITION = 'Thirteenth position'
+FOURTEENTH_POSITION = 'Fourteenth position'
+FIFTEENTH_POSITION = 'Fifteenth position'
+SIXTEENTH_POSITION = 'Sixteenth position'
+EIGHTEENTH_POSITION = 'Eighteenth position'
+TWENTIETH_POSITION = 'Twentieth position'
+
+ROUNDS_CONVERSIONS = {'Grand Final': 'Final',
+                      'Gold Medal Game': 'Final',
+                      'Bronze': THIRD_POSITION,
+                      'Bronze Medal Game': THIRD_POSITION,
+                      'Playoff 5th/6th': FIFTH_POSITION,
+                      'Playoff 7th/8th': SEVENTH_POSITION,
+                      'Playoff 8th/9th': EIGHTH_POSITION,
+                      'Playoff 9th/10th': NINTH_POSITION,
+                      'Playoff 10th/11th': TENTH_POSITION,
+                      'Playoff 11th/12th': ELEVENTH_POSITION,
+                      'Playoff 12th/13th': TWELFTH_POSITION,
+                      'Playoff 13th/14th': THIRTEENTH_POSITION,
+                      'Playoff 15th/16th': FIFTEENTH_POSITION,
+                      'Playoff 18th/19th': EIGHTEENTH_POSITION,
+                      'Playoff 20th/21st': TWENTIETH_POSITION,
+                      'Playoff for 5th/6th': FIFTH_POSITION,
+                      'Playoff for 7th/8th': SEVENTH_POSITION,
+                      'Playoff for 11th/12th': ELEVENTH_POSITION,
+                      'Playoff for 15th/16th': FIFTEENTH_POSITION,
+                      'Plate Final': NINTH_POSITION,
+                      'Playoff 9th/10th (Plate Final)': NINTH_POSITION,
+                      'Playoff 16th/17th (Bowl Final)': SIXTEENTH_POSITION}
+
+# CONSTANTS DIRECTORIES
+DATA_FILES = './player/data_files/'
+RAW_FILES = DATA_FILES + 'raw/'
+RAW_GAMES_FILES = RAW_FILES + 'games/'
+RAW_STATS_FILES = RAW_FILES + 'statistics/'
+CSV_FILES = DATA_FILES + 'csv/'
+
+# CONSTANTS FILE NAMES
+GAME_PREFIX = 'TGames'
+WC2015_MO_URL = 'http://www.internationaltouch.org/events/world-cup/2015/mens/'
+WC2015_WO_URL = 'http://www.internationaltouch.org/events/world-cup/2015/womens/'
+WC2015_MXO_URL = 'http://www.internationaltouch.org/events/world-cup/2015/mixed/'
+WC2015_MO_FOX_RAW = RAW_FILES + 'WC2015_MO_FOX_RAW.html'
+WC2015_WO_FOX_RAW = RAW_FILES + 'WC2015_WO_FOX_RAW.html'
+WC2015_MXO_FOX_RAW = RAW_FILES + 'WC2015_MXO_FOX_RAW.html'
+WC2015_MO_RAW = RAW_FILES + 'WC2015_MO_RAW.txt'
+WC2015_WO_RAW = RAW_FILES + 'WC2015_WO_RAW.txt'
+WC2015_MXO_RAW = RAW_FILES + 'WC2015_MX_RAW.txt'
+WC2015_MO_CSV = CSV_FILES + GAME_PREFIX + '_WC2015_MO_RAW.csv'
+WC2015_WO_CSV = CSV_FILES + GAME_PREFIX + '_WC2015_WO_RAW.csv'
+WC2015_MXO_CSV = CSV_FILES + GAME_PREFIX + '_WC2015_MX_RAW.csv'
+WC2015_MO_RAW = RAW_GAMES_FILES + 'WC2015_MO_RAW.txt'
+WC2015_WO_RAW = RAW_GAMES_FILES + 'WC2015_WO_RAW.txt'
+WC2015_MXO_RAW = RAW_GAMES_FILES + 'WC2015_MX_RAW.txt'
+WC2015_MO_CSV = CSV_FILES + GAME_PREFIX + '_WC2015_MO_RAW.csv'
+WC2015_WO_CSV = CSV_FILES + GAME_PREFIX + '_WC2015_WO_RAW.csv'
+WC2015_MXO_CSV = CSV_FILES + GAME_PREFIX + '_WC2015_MX_RAW.csv'
+EUROS2014_MO_CSV = CSV_FILES + GAME_PREFIX + '_EUROS2016_MO_RAW.csv'
+WC2015_MO_URL = 'http://www.internationaltouch.org/events/world-cup/2015/mens/'
+WC2015_WO_URL = 'http://www.internationaltouch.org/events/world-cup/2015/womens/'
+WC2015_MXO_URL = 'http://www.internationaltouch.org/events/world-cup/2015/mixed/'
+remote_files_WC2015_WO_FOX = [
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360318-0&pool=11&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360318-0&pool=12&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360318-0&pool=13&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360318-0&pool=14&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360318-0&pool=21&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360318-0&pool=22&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360318-0&pool=1031&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360318-0&pool=1032&action=ROUND&round=-1']
+remote_files_WC2015_WO_FOX = [
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360318-0&pool=11&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360318-0&pool=12&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360318-0&pool=13&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360318-0&pool=14&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360318-0&pool=21&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360318-0&pool=22&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360318-0&pool=1031&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360318-0&pool=1032&action=ROUND&round=-1']
+remote_files_WC2015_W27_FOX = [
+    'http://www.foxsportspulse.com/comp_info.cgi?a=ROUND&round=-1&client=1-9035-0-360317-0&pool=11',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360317-0&pool=1012&action=ROUND&round=-1']
+remote_files_WC2015_MO_FOX = [
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360314-0&pool=11&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360314-0&pool=12&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360314-0&pool=13&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360314-0&pool=14&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360314-0&pool=21&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360314-0&pool=22&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360314-0&pool=1031&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360314-0&pool=1032&action=ROUND&round=-1']
+remote_files_WC2015_MXO_FOX = [
+    'http://www.foxsportspulse.com/comp_info.cgi?a=ROUND&round=-1&client=1-9035-0-360315-0&pool=11',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360315-0&pool=12&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360315-0&pool=13&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360315-0&pool=14&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360315-0&pool=15&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360315-0&pool=16&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360315-0&pool=21&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360315-0&pool=22&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360315-0&pool=23&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360315-0&pool=1031&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360315-0&pool=1032&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360315-0&pool=1033&action=ROUND&round=-1']
+remote_files_WC2015_SMX_FOX = [
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360319-0&pool=11&action=ROUND&round=-1#',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360319-0&pool=1013&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360319-0&pool=1012&action=ROUND&round=-1']
+remote_files_WC2015_M30_FOX = [
+    'http://www.foxsportspulse.com/comp_info.cgi?a=ROUND&round=-1&client=1-9035-0-360316-0&pool=11',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=1-9035-0-360316-0&pool=1012&action=ROUND&round=-1'
+]
+remote_files_NTL2016_MO_FOX = [
+    'http://www.foxsportspulse.com/comp_info.cgi?client=14-907-0-402811-0&pool=1&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=14-907-0-402811-0&pool=1001&action=ROUND&round=-1'
+]
+remote_files_NTL2016_WO_FOX = [
+    'http://www.foxsportspulse.com/comp_info.cgi?client=14-907-0-402794-0&pool=1&action=ROUND&round=-1',
+    'http://www.foxsportspulse.com/comp_info.cgi?client=14-907-0-402794-0&pool=1001&action=ROUND&round=-1'
+]
+remote_files_EUROS_2014_MO = ['https://www.internationaltouch.org/events/euros/2014/mens-open/']
+remote_files_EUROS_2014_WO = ['https://www.internationaltouch.org/events/euros/2014/womens-open/']
+remote_files_EUROS_2014_MXO = ['https://www.internationaltouch.org/events/euros/2014/mixed-open/']
+remote_files_EUROS_2014_SMX = ['https://www.internationaltouch.org/events/euros/2014/senior-mixed/']
+remote_files_EUROS_2014_W27 = ['https://www.internationaltouch.org/events/euros/2014/womens-27/']
+remote_files_EUROS_2014_M40 = ['https://www.internationaltouch.org/events/euros/2014/mens-40/']
+
+local_files_WC_2015_MO_FX = [RAW_GAMES_FILES + 'WC2015_MO_FOX_POOLA.html',
+                             RAW_GAMES_FILES + 'WC2015_MO_FOX_POOLB.html',
+                             RAW_GAMES_FILES + 'WC2015_MO_FOX_POOLC.html',
+                             RAW_GAMES_FILES + 'WC2015_MO_FOX_POOLD.html',
+                             RAW_GAMES_FILES + 'WC2015_MO_FOX_DIVONE.html',
+                             RAW_GAMES_FILES + 'WC2015_MO_FOX_DIVTWO.html',
+                             RAW_GAMES_FILES + 'WC2015_MO_FOX_CHAMPIONSHIP.html',
+                             RAW_GAMES_FILES + 'WC2015_MO_FOX_PLATE.html']
+
+local_files_WC_2015_M30_FX = [RAW_GAMES_FILES + 'WC2015_M30_FOX_POOLA.html',
+                              RAW_GAMES_FILES + 'WC2015_M30_FOX_CHAMPIONSHIP.html']
+
+local_files_WC_2015_WO_FX = [RAW_GAMES_FILES + 'WC2015_WO_FOX_POOLA.html',
+                             RAW_GAMES_FILES + 'WC2015_WO_FOX_POOLB.html',
+                             RAW_GAMES_FILES + 'WC2015_WO_FOX_POOLC.html',
+                             RAW_GAMES_FILES + 'WC2015_WO_FOX_POOLD.html',
+                             RAW_GAMES_FILES + 'WC2015_WO_FOX_DIVONE.html',
+                             RAW_GAMES_FILES + 'WC2015_WO_FOX_DIVTWO.html',
+                             RAW_GAMES_FILES + 'WC2015_WO_FOX_CHAMPIONSHIP.html',
+                             RAW_GAMES_FILES + 'WC2015_WO_FOX_PLATE.html']
+
+local_files_WC_2015_W27_FX = [RAW_GAMES_FILES + 'WC2015_W27_FOX_POOLA.html',
+                              RAW_GAMES_FILES + 'WC2015_W27_FOX_CHAMPIONSHIP.html']
+
+local_files_WC_2015_MXO_FX = [RAW_GAMES_FILES + 'WC2015_MXO_FOX_POOLA.html',
+                              RAW_GAMES_FILES + 'WC2015_MXO_FOX_POOLB.html',
+                              RAW_GAMES_FILES + 'WC2015_MXO_FOX_POOLC.html',
+                              RAW_GAMES_FILES + 'WC2015_MXO_FOX_POOLD.html',
+                              RAW_GAMES_FILES + 'WC2015_MXO_FOX_POOLE.html',
+                              RAW_GAMES_FILES + 'WC2015_MXO_FOX_POOLF.html',
+                              RAW_GAMES_FILES + 'WC2015_MXO_FOX_DIVONE.html',
+                              RAW_GAMES_FILES + 'WC2015_MXO_FOX_DIVTWO.html',
+                              RAW_GAMES_FILES + 'WC2015_MXO_FOX_DIVTHREE.html',
+                              RAW_GAMES_FILES + 'WC2015_MXO_FOX_CHAMPIONSHIP.html',
+                              RAW_GAMES_FILES + 'WC2015_MXO_FOX_PLATE.html',
+                              RAW_GAMES_FILES + 'WC2015_MXO_FOX_BRONZE.html']
+
+local_files_WC_2015_SMX_FX = [RAW_GAMES_FILES + 'WC2015_SMX_FOX_POOLA.html',
+                              RAW_GAMES_FILES + 'WC2015_SMX_FOX_PLAYOFF.html',
+                              RAW_GAMES_FILES + 'WC2015_SMX_FOX_CHAMPIONSHIP.html']
+
+local_files_NTL_2016_M_FX = [RAW_GAMES_FILES + 'NTL2016_MO_FOX_POOLA.html',
+                             RAW_GAMES_FILES + 'NTL2016_MO_FOX_FINALS.html']
+
+local_files_NTL_2016_WO_FX = [RAW_GAMES_FILES + 'NTL2016_WO_FOX_POOLA.html',
+                              RAW_GAMES_FILES + 'NTL2016_WO_FOX_FINALS.html']
+
+local_files_EUROS_2014_MO = [RAW_GAMES_FILES + 'EUROS2016_MO.html']
+local_files_EUROS_2014_M40 = [RAW_GAMES_FILES + 'EUROS2016_M40.html']
+local_files_EUROS_2014_WO = [RAW_GAMES_FILES + 'EUROS2016_WO.html']
+local_files_EUROS_2014_W27 = [RAW_GAMES_FILES + 'EUROS2016_W27.html']
+local_files_EUROS_2014_MXO = [RAW_GAMES_FILES + 'EUROS2016_MXO.html']
+local_files_EUROS_2014_SMX = [RAW_GAMES_FILES + 'EUROS2016_SMX.html']
+
+# CONSTANTS ALGORITHMS
+WC2015_RE_GROUPS = '[Pool [A|B|C|D|E|F]|Division [1|2|3]'
+WC2015_RE_FINALS = '[Grand Final|Bronze|Playoff ]'
+EUROS2014_RE_FINALS = '[Final|Bronze Final|9th/10th/11th|Semi Final 1|Semi Final 2|5th/6th Playoff|7th/8th Playoff|Seeding Semi Final 1|Seeding Semi Final 2]'
+
+(WC_2015_MO_GAMES_FOX, WC_2015_WO_GAMES_FOX, WC_2015_MXO_GAMES_FOX,
+ WC_2015_W27_GAMES_FOX, WC_2015_M30_GAMES_FOX, WC_2015_SMX_GAMES_FOX,
+ NTL_2016_MO_GAMES_FOX, NTL_2016_WO_GAMES_FOX,
+ WC_2015_MO_GAMES_FIT, WC_2015_WO_GAMES_FIT, WC_2015_MXO_GAMES_FIT,
+ EUROS_2014_MO, EUROS_2014_WO, EUROS_2014_MXO, EUROS_2014_W27, EUROS_2014_SMX, EUROS_2014_M40) = (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)
