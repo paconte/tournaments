@@ -7,18 +7,38 @@ MIXED_OPEN = 'Mixed Open'
 MEN_OPEN = 'Mens Open'
 WOMEN_OPEN = 'Womens Open'
 SENIOR_MIX = 'Senior Mix Open'
-SENIOR_MEN = 'Senior Mens Open'
+MEN_30 = 'Mens 30'
+MEN_40 = 'Mens 40'
 SENIOR_WOMEN = 'Senior Womes Open'
 WOMEN_27 = 'Women 27'
+MXO = 'MXO'
+MO = 'MO'
+WO = 'WO'
+SMX = 'SMX'
+W27 = 'W27'
+M30 = 'M30'
+M40 = 'M40'
 TOUCH_DIVISION_CHOICES = (
-    ('MXO', MIXED_OPEN),
-    ('MO', MEN_OPEN),
-    ('WO', WOMEN_OPEN),
-    ('SMX', SENIOR_MIX),
-    ('SMO', SENIOR_MEN),
-    ('SWO', SENIOR_WOMEN),
-    ('W27', WOMEN_27)
+    (MXO, MIXED_OPEN),
+    (MO, MEN_OPEN),
+    (WO, WOMEN_OPEN),
+    (SMX, SENIOR_MIX),
+    (M30, MEN_30),
+    (M40, MEN_40),
+    (W27, WOMEN_27)
 )
+
+
+def get_player_gender(division):
+    if division in [WO, W27]:
+        result = Person.FEMALE
+    elif division in [MO, M30]:
+        result = Person.MALE
+    elif division in [MXO, SMX]:
+        result = Person.UNKNOWN
+    else:
+        raise Exception("Division %s is not supported." % division)
+    return result
 
 
 # Create your models here.
@@ -91,10 +111,10 @@ class Tournament(models.Model):
                     return WOMEN_OPEN
                 elif 'MXO' == x[0]:
                     return MIXED_OPEN
-                elif 'SMO' == x[0]:
-                    return SENIOR_MEN
-                elif 'SWO' == x[0]:
-                    return SENIOR_WOMEN
+                elif 'M30' == x[0]:
+                    return MEN_30
+                elif 'M40' == x[0]:
+                    return MEN_40
                 elif 'SMX' == x[0]:
                     return SENIOR_MIX
                 elif 'W27' == x[0]:
@@ -434,7 +454,7 @@ class Game(models.Model):
 
     def __str__(self):
         return '{} - {} - {} {} - {} {}'.format(
-            self.tournament, self.phase, self.local, self.local_score, self.visitor_score, self.visitor)
+                self.tournament, self.phase, self.local, self.local_score, self.visitor_score, self.visitor)
 
     def __lt__(self, other):
         return self.phase.__lt__(other.phase)
