@@ -1,3 +1,4 @@
+Pool A;Gold;3
 Pool A;Gold;4
 Pool A;Gold;5
 Pool A;Gold;6
@@ -14,6 +15,8 @@ Pool F;Gold;3
 ;;
 Division;Gold;8
 Division;Gold;7
+Division;Gold;6
+Division;Gold;4
 ;;
 ;;
 Twentieth position;Gold;2
@@ -37,6 +40,8 @@ Final;Gold;2
 ;;
 Division;Silver;8
 Division;Silver;7
+Division;Silver;5
+Division;Silver;3
 ;;
 ;;
 Division;Bronze;7
@@ -52,3 +57,9 @@ Final;Bronze;2
 ;;
 Semifinal;Wood;2
 Final;Wood;2
+;;
+;;
+Liga;Gold;9
+Liga;Gold;8
+Liga;Gold;7
+Liga;Gold;5
