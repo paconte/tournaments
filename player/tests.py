@@ -21,7 +21,7 @@ class CsvFileTest(TestCase):
                     os.remove(filename)
 
     def setUp(self):
-        #pass
+        # pass
         reader = csvReader.CsvReader(csvReader.CsvReader.PHASE)
         reader.read_file('./player/data_files/csv/TPhases.csv', csvdata.CsvPhase)
 
@@ -57,21 +57,56 @@ class CsvFileTest(TestCase):
         tournament = csvdata.NTL_2016_WO_GAMES_FOX
         self.csv_fox_tournament(tournament)
 
+    def test_fit_tournament_Euros_2014_MO(self):
+        tournament = csvdata.EUROS_2014_MO
+        self.csv_fit_tournament(tournament)
+
+    def test_fit_tournament_Euros_2014_M40(self):
+        tournament = csvdata.EUROS_2014_M40
+        self.csv_fit_tournament(tournament)
+
+    def test_fit_tournament_Euros_2014_WO(self):
+        tournament = csvdata.EUROS_2014_WO
+        self.csv_fit_tournament(tournament)
+
+    def test_fit_tournament_Euros_2014_W27(self):
+        tournament = csvdata.EUROS_2014_W27
+        self.csv_fit_tournament(tournament)
+
+    def test_fit_tournament_Euros_2014_MXO(self):
+        tournament = csvdata.EUROS_2014_MXO
+        self.csv_fit_tournament(tournament)
+
+    def test_fit_tournament_Euros_2014_SMX(self):
+        tournament = csvdata.EUROS_2014_SMX
+        self.csv_fit_tournament(tournament)
+
     def Atest_NTS_stats(self):
         management.call_command('loaddata', './player/data_files/player.dumpdata.json', verbosity=0)
         filename = csvdata.CSV_FILES + 'NTS-player-statistics.csv'
         reader = csvReader.CsvReader(csvReader.CsvReader.NTS_STADISTIC)
         reader.read_file(filename, csvdata.CsvNTSStadistic)
-        #management.call_command('flush', interactive=False, verbosity=0)
+        # management.call_command('flush', interactive=False, verbosity=0)
+
+    def csv_fit_tournament(self, tournament):
+        manager = csvWriter.FitGamesManager(tournament)
+        manager.download_games_html()
+
+        writer = csvWriter.CsvWriter(tournament, False, True)
+        writer.delete_filename_path()
+        writer.write_csv(manager.get_fit_games())
+
+        reader = csvReader.CsvReader(csvReader.CsvReader.TOURNAMENT)
+        reader.read_file(writer.get_filename_path(), csvdata.CsvGame)
 
     def csv_fox_tournament(self, tournament, games_download=False, stats_download=False):
         fox_manager = csvWriter.FoxGamesManager(tournament)
         if games_download:
-            fox_manager.download_games_files()
-        fox_manager.extract_raw_games()
+            fox_manager.download_games_html()
+        fox_manager.get_fox_games()
         if stats_download:
-            fox_manager.download_games_statistics()
-        fox_manager.extract_statistics()
+            fox_manager.download_statistics_html()
+        fox_manager.get_csv_statistics()
 
         writer = csvWriter.CsvWriter(tournament, False)
         writer.delete_filename_path()
@@ -89,9 +124,6 @@ class CsvFileTest(TestCase):
         reader = csvReader.CsvReader(csvReader.CsvReader.NTS_STADISTIC)
         reader.read_file(writer.get_filename_path(), csvdata.CsvNTSStadistic)
 
-
-        # class kkk(TestCase):
-        #    pass
 
 class DbChecks(TestCase):
     fixtures = ['touch.db_dump.json']
@@ -111,7 +143,7 @@ class DbChecks(TestCase):
             add_discard_player1 = False
             player1_add_same_sex = False
             player1_add_different_sex = False
-            for player2 in enum_players[player1[0]+1:]:
+            for player2 in enum_players[player1[0] + 1:]:
                 if player1[1].person.compare_name(player2[1].person):
                     if player1[1].team == player2[1].team and player1[1].person.gender == player2[1].person.gender:
                         discarded_players.append(player2[1])
@@ -164,14 +196,13 @@ class DbChecks(TestCase):
 
         print('players=%s' % len(conflict_players))
         print('teams=%s' % len(conflict_teams))
-        #for k in conflict_teams.keys():
+        # for k in conflict_teams.keys():
         #    print(k)
         print('different_sex=%s' % len(different_sex_conflicts))
-        #print(conflict_players)
+        # print(conflict_players)
         print('same_sex=%s, m=%s, f=%s, u=%s' % (len(same_sex_conflicts), males, females, unks))
         print('conflict_set=%s' % len(conflict_set))
         for k, v in conflict_set.items():
             print('####### %s #######\n' % k)
             for val in v:
                 print('%s, person_id=%s, player_id=%s\n' % (val, str(val.person.id), str(val.id)))
-
