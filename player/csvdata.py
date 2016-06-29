@@ -114,7 +114,7 @@ def get_csv_path(tournament, is_stats=False, is_test=True):
     elif tournament == EUROS_2014_MXO:
         filename = 'EUROS_2014_MXO_GAMES_FIT'
     elif tournament == EUROS_2014_W27:
-        filename = 'EUROS_2014_WO27_GAMES_FIT'
+        filename = 'EUROS_2014_W27_GAMES_FIT'
     elif tournament == EUROS_2014_SMX:
         filename = 'EUROS_2014_SMX_GAMES_FIT'
     elif tournament == EUROS_2014_M40:
