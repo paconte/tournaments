@@ -10,7 +10,6 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-import sys
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -49,9 +48,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'touchdb.urls'
+ROOT_URLCONF = 'restdjango.urls'
 
-WSGI_APPLICATION = 'touchdb.wsgi.application'
+WSGI_APPLICATION = 'restdjango.wsgi.application'
 
 # App Admins and Managers:
 
@@ -80,17 +79,6 @@ DATABASES = {
     #    'PORT': '',           # Set to empty string for default.
     #}
 }
-
-if 'test' in sys.argv:
-    DATABASES['default'] = {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'frevilla',
-        'USER': 'frevilla',
-        'PASSWORD': 'frevilla',
-        'HOST': 'localhost',  # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '5432',           # Set to empty string for default.
-    }
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/

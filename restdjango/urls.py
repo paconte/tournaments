@@ -9,6 +9,6 @@ urlpatterns = patterns(
     url(r'^admin/', include(admin.site.urls)),
     url(r'^tournaments/', include('player.urls')),
     # Examples:
-    # url(r'^$', 'touchdb.views.home', name='home'),
+    # url(r'^$', 'restdjango.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 )

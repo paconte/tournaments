@@ -195,7 +195,6 @@ class TeamTournamentView(DetailView):
             phase_games.append(game)
             d_all.update({game.phase: phase_games})
 
-        d_liga = {}
         d_pools = {}
         d_divisions = {}
         d_finals = {}
@@ -205,20 +204,17 @@ class TeamTournamentView(DetailView):
                 d_pools.update({k: v})
             elif k.round == GameRound.DIVISION:
                 d_divisions.update({k: v})
-            elif k.round == GameRound.LIGA:
-                d_liga.update({k: v})
             else:
+                logging.debug(k)
                 d_finals.update({k: v})
                 l_finals.append(k)
 
         result = OrderedDict()
         for k in (sorted(d_pools)):
             result.update({k: d_pools.get(k)})
-        print(l_finals)
+        logging.debug(l_finals)
         for k in (sorted(d_divisions)):
             result.update({k: d_divisions.get(k)})
-        for k in (sorted(d_liga)):
-            result.update({k: d_liga.get(k)})
         for k in (sorted(l_finals, key=lambda final: GameRound.ordered_rounds.index(final.round), reverse=True)):
             result.update({k: d_finals.get(k)})
 
