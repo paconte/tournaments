@@ -23,6 +23,81 @@
 	</tbody>
 </table>
 
+{% if liga_games %}
+<div class="page-header">
+  <h1>Liga Stage</h1>
+</div>
+
+{% for key, list in liga_games.items %}
+<div class="jumbotron">
+<div class="row">
+  <div class="col-md-4">
+    <table class="table table-striped table-condensed">
+      <thead>
+	<tr class="success">
+	  <th>{{key}}</th>
+	  <th>P</th>
+	  <th>W</th>
+	  <th>L</th>
+	  <th>D</th>
+	  <th>+</th>
+	  <th>-</th>
+	  <th>+/-</th>
+	  <th>Pts</th>
+	</tr>
+	<tbody>
+	  {% for value in list %}
+	  <tr>
+	    <td><a href="{% url 'detail_team_tournament' tournament.id value.team.id %}">{{value.team.name}}</a></td>
+	    <td>{{value.played}}</td>
+	    <td>{{value.won}}</td>
+	    <td>{{value.lost}}</td>
+	    <td>{{value.drawn}}</td>
+	    <td>{{value.plus}}</td>
+	    <td>{{value.minus}}</td>
+	    <td>{{value.plus_minus}}</td>
+	    <td>{{value.points}}</td>
+	  </tr>
+	  {% endfor %}
+	</tbody>
+      </thead>
+    </table>
+  </div>
+
+  <div class="col-md-8">
+    <table class="table table-striped table-condensed table-bordered">
+      <thead>
+	<tr class="success">
+	  <th colspan="8">{{key}} - Games</th>
+	</tr>
+	<tbody>
+	  {% if games %}
+	    {% for game in games %}
+              {% if game.phase.round == key %}
+	        <tr>
+		  {% if game.time %}<td class="text-center">{{game.time|date:"H:i"}}</td>{% endif %}
+		  {% if game.field %}<td class="col-sm-2 text-center">{{game.field}}</td>{% endif %}
+		  <td class="col-sm-5"><a href="{% url 'detail_team_tournament' tournament.id game.local.id %}">{{game.local.name}}</a></td>
+		  <td class="success text-center">{{game.local_score}}</td>
+		  <td class="text-center">v</td>
+		  <td class="success text-center">{{game.visitor_score}}</td>
+		  <td class="col-sm-5 text-right"><a href="{% url 'detail_team_tournament' tournament.id game.visitor.id %}">{{game.visitor.name}}</a></td>
+		  <td class="text-center"><a class="ion-android-add-circle" href="{% url 'detail_game' game.id %}"/></td>
+		</tr>
+              {% endif %}
+	    {% endfor %}
+	  {% else %}
+	  <td>No games are available.</td>
+	  {% endif %}
+	</tbody>
+      </thead>
+    </table>
+  </div>
+</div>
+</div>
+{% endfor %}
+{% endif %}
+
 {% if pool_games %}
 <div class="page-header">
   <h1>Pool Stage</h1>

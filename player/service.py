@@ -5,7 +5,9 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
 class StructuresUtils:
+
     def get_team_view_games(self, games):
         result = {}
         for game in games:
@@ -249,6 +251,8 @@ class Fixtures:
         # create classification rows
         self.pool_rows = self.__create_rows(self.pool_games)
         self.sorted_pools = self.__sort_rows(self.pool_rows)
+        self.liga_rows = self.__create_rows(self.liga_games)
+        self.sorted_ligas = self.__sort_rows(self.liga_rows)
         self.__sort_divisions()
 
     def __create_rows(self, games):
@@ -389,6 +393,8 @@ def sort_tournament_list(tournament_list):
             result["Germany"].append(t)
         elif 'NTL' in t.name:
             result["Australia"].append(t)
+        elif 'Euros 2014' in t.name:
+            result["Nationals"].append(t)
         else:
             raise Exception('Tournament name %s not recognized.' % t.name)
     result["England"] = sorted(result.get("England"))
@@ -401,6 +407,7 @@ def WIN_POINTS(game):
     else:
         return 4
 
+
 def DRAW_POINTS(game):
     if game.tournament.name == "World Cup 2015":
         return 2
@@ -408,6 +415,7 @@ def DRAW_POINTS(game):
         return 2
     else:
         return 1
+
 
 def LOST_POINTS(game):
     if game.tournament.name == "NTL 2016":

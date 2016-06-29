@@ -172,9 +172,6 @@ class TeamTournamentView(DetailView):
         context['players'] = self.get_player_statistics(players, games)
         add_data_for_tournaments_menu(context)
 
-        for i in context['players']:
-            print(i)
-
         return context
 
     def sort_games_by_phases(self, games):
@@ -291,7 +288,7 @@ class TournamentView(DetailView):
         context['tournament'] = self.object
         context['tournament_list'] = tournament_list
         context['games'] = games
-        context['liga_games'] = fixtures.liga_games
+        context['liga_games'] = fixtures.sorted_ligas
         context['pool_games'] = pool_games
         context['division_games'] = division_games
         context['finals_games'] = finals_games
