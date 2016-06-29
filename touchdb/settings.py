@@ -48,9 +48,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'restdjango.urls'
+ROOT_URLCONF = 'touchdb.urls'
 
-WSGI_APPLICATION = 'restdjango.wsgi.application'
+WSGI_APPLICATION = 'touchdb.wsgi.application'
 
 # App Admins and Managers:
 

@@ -1,4 +1,4 @@
-from restdjango.settings import *
+from touchdb.settings import *
 
 # DEBUG configuration
 
