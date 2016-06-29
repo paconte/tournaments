@@ -402,19 +402,14 @@ def sort_tournament_list(tournament_list):
 
 
 def WIN_POINTS(game):
-    if game.tournament.name == "World Cup 2015":
-        return 3
-    else:
+    if game.tournament.name == "NTL 2016" or "NTS" in game.tournament.name:
         return 4
+    else:
+        return 3
 
 
 def DRAW_POINTS(game):
-    if game.tournament.name == "World Cup 2015":
         return 2
-    elif game.tournament.name == "NTL 2016":
-        return 2
-    else:
-        return 1
 
 
 def LOST_POINTS(game):
