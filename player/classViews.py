@@ -26,13 +26,14 @@ def add_data_for_tournaments_menu(context):
     context['australia'] = sorted_tournaments['Australia']
     context['england'] = sorted_tournaments['England']
     context['germany'] = sorted_tournaments['Germany']
-    context['nationals'] = sorted_tournaments['Nationals']
+    context['world_cup'] = sorted_tournaments['World_Cup']
+    context['euros'] = sorted_tournaments['Euros']
     return context
 
 
 class GameView(DetailView):
     model = Game
-    template_name = 'tournaments/detail_game.html'
+    template_name = 'detail_game.html'
 
     def get_context_data(self, **kwargs):
         local_players = Player.objects.filter(team=self.object.local, tournaments_played=self.object.tournament)
@@ -113,7 +114,7 @@ class GameView(DetailView):
 
 class PersonView(DetailView):
     model = Person
-    template_name = 'tournaments/detail_person.html'
+    template_name = 'detail_person.html'
 
     def get_context_data(self, **kwargs):
         players = Player.objects.filter(person=self.object.id)
@@ -137,7 +138,7 @@ class PersonView(DetailView):
 
 class TeamView(DetailView):
     model = Team
-    template_name = 'tournaments/detail_team.html'
+    template_name = 'detail_team.html'
 
     def get_context_data(self, **kwargs):
         games = Game.objects.filter(Q(local=self.object.id) | Q(visitor=self.object.id)).order_by('tournament')
@@ -155,7 +156,7 @@ class TeamView(DetailView):
 
 class TeamTournamentView(DetailView):
     model = Team
-    template_name = 'tournaments/detail_team_tournament.html'
+    template_name = 'detail_team_tournament.html'
 
     def get_context_data(self, **kwargs):
         tournament_id = self.kwargs.get('tournament_id')
@@ -261,7 +262,7 @@ class TeamTournamentView(DetailView):
 
 class TournamentView(DetailView):
     model = Tournament
-    template_name = 'tournaments/detail_tournament2.html'
+    template_name = 'detail_tournament2.html'
 
     def get_context_data(self, **kwargs):
         exclude_teams = ['1st Pool A', '2nd Pool A', '3rd Pool A', '4th Pool A',

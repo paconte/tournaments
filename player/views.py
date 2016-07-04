@@ -37,13 +37,14 @@ def index(request):
     """
     tournament_list = Tournament.objects.all()
     sort_tournament = sort_tournament_list(tournament_list)
-    template = loader.get_template('tournaments/index.html')
+    template = loader.get_template('index.html')
     form = SearchForm
     context = RequestContext(request, {'tournament_list': tournament_list,
                                        'australia': sort_tournament['Australia'],
                                        'england': sort_tournament['England'],
                                        'germany': sort_tournament['Germany'],
-                                       'nationals': sort_tournament['Nationals']
+                                       'world_cup': sort_tournament['World_Cup'],
+                                       'euros': sort_tournament['Euros'],
                                        })
     return HttpResponse(template.render(context))
 
@@ -60,26 +61,28 @@ def about(request):
 
     tournament_list = Tournament.objects.all()
     sort_tournament = sort_tournament_list(tournament_list)
-    template = loader.get_template('tournaments/about.html')
+    template = loader.get_template('about.html')
     context = RequestContext(request, {'tournament_list': tournament_list,
                                        'england': sort_tournament['England'],
                                        'germany': sort_tournament['Germany'],
-                                       'nationals': sort_tournament['Nationals'],
-                                       'australia': sort_tournament['Australia']
+                                       'world_cup': sort_tournament['World_Cup'],
+                                       'australia': sort_tournament['Australia'],
+                                       'euros': sort_tournament['Euros'],
                                        })
     return HttpResponse(template.render(context))
 
 
 def add_tournament(request):
-    template = loader.get_template('tournaments/add_tournament.html')
+    template = loader.get_template('add_tournament.html')
     tournament_list = Tournament.objects.all()
     sort_tournament = sort_tournament_list(tournament_list)
 
     context = RequestContext(request, {'tournament_list': tournament_list,
                                        'england': sort_tournament['England'],
                                        'germany': sort_tournament['Germany'],
-                                       'nationals': sort_tournament['Nationals'],
-                                       'australia': sort_tournament['Australia']
+                                       'world_cup': sort_tournament['World_Cup'],
+                                       'australia': sort_tournament['Australia'],
+                                       'euros': sort_tournament['Euros'],
                                        })
 
     return HttpResponse(template.render(context))
@@ -100,7 +103,7 @@ def contact(request):
     success = False  # true if form has been saved otherwise false
     tournament_list = Tournament.objects.all()
     sort_tournament = sort_tournament_list(tournament_list)
-    template = loader.get_template('tournaments/contact.html')
+    template = loader.get_template('contact.html')
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -115,8 +118,9 @@ def contact(request):
                                        'success': success,
                                        'england': sort_tournament['England'],
                                        'germany': sort_tournament['Germany'],
-                                       'nationals': sort_tournament['Nationals'],
-                                       'australia': sort_tournament['Australia']
+                                       'world_cup': sort_tournament['World_Cup'],
+                                       'australia': sort_tournament['Australia'],
+                                       'euros': sort_tournament['Euros'],
                                        })
 
     return HttpResponse(template.render(context))
@@ -125,7 +129,7 @@ def contact(request):
 def search(request):
     tournament_list = Tournament.objects.all()
     sort_tournament = sort_tournament_list(tournament_list)
-    template = loader.get_template('tournaments/search.html')
+    template = loader.get_template('search.html')
     success = False
     result_size = 0
     teams, persons, tournaments = [], [], []
@@ -154,16 +158,31 @@ def search(request):
                                        'australia': sort_tournament['Australia'],
                                        'england': sort_tournament['England'],
                                        'germany': sort_tournament['Germany'],
-                                       'nationals': sort_tournament['Nationals'],
+                                       'world_cup': sort_tournament['World_Cup'],
+                                       'euros': sort_tournament['Euros'],
                                        })
 
+    return HttpResponse(template.render(context))
+
+
+def tournaments(request):
+    tournament_list = Tournament.objects.all()
+    sort_tournament = sort_tournament_list(tournament_list)
+    template = loader.get_template('tournaments.html')
+    context = RequestContext(request, {'tournament_list': tournament_list,
+                                       'england': sort_tournament['England'],
+                                       'germany': sort_tournament['Germany'],
+                                       'world_cup': sort_tournament['World_Cup'],
+                                       'australia': sort_tournament['Australia'],
+                                       'euros': sort_tournament['Euros'],
+                                       })
     return HttpResponse(template.render(context))
 
 
 def search_team(request):
     tournament_list = Tournament.objects.all()
     sort_tournament = sort_tournament_list(tournament_list)
-    template = loader.get_template('tournaments/search_team.html')
+    template = loader.get_template('search_team.html')
     success = False
     teams = None
 
@@ -181,7 +200,8 @@ def search_team(request):
                                        'australia': sort_tournament['Australia'],
                                        'england': sort_tournament['England'],
                                        'germany': sort_tournament['Germany'],
-                                       'nationals': sort_tournament['Nationals'],
+                                       'world_cup': sort_tournament['World_Cup'],
+                                       'euros': sort_tournament['Euros'],
                                        })
 
     return HttpResponse(template.render(context))
@@ -190,7 +210,7 @@ def search_team(request):
 def search_person(request):
     tournament_list = Tournament.objects.all()
     sort_tournament = sort_tournament_list(tournament_list)
-    template = loader.get_template('tournaments/search_person.html')
+    template = loader.get_template('search_person.html')
     success = False
     persons = None
 
@@ -217,7 +237,8 @@ def search_person(request):
                                        'australia': sort_tournament['Australia'],
                                        'england': sort_tournament['England'],
                                        'germany': sort_tournament['Germany'],
-                                       'nationals': sort_tournament['Nationals'],
+                                       'world_cup': sort_tournament['World_Cup'],
+                                       'euros': sort_tournament['Euros'],
                                        })
 
     return HttpResponse(template.render(context))
@@ -226,7 +247,7 @@ def search_person(request):
 def search_tournament(request):
     tournament_list = Tournament.objects.all()
     sort_tournament = sort_tournament_list(tournament_list)
-    template = loader.get_template('tournaments/search_tournament.html')
+    template = loader.get_template('search_tournament.html')
     success = False
     tournaments = None
 
@@ -244,7 +265,8 @@ def search_tournament(request):
                                        'australia': sort_tournament['Australia'],
                                        'england': sort_tournament['England'],
                                        'germany': sort_tournament['Germany'],
-                                       'nationals': sort_tournament['Nationals'],
+                                       'world_cup': sort_tournament['World_Cup'],
+                                       'euros': sort_tournament['Euros'],
                                        })
 
     return HttpResponse(template.render(context))
@@ -292,7 +314,7 @@ def detail_tournament(request, tournament_id):
     st_utils = StructuresUtils()
 
     return render(request,
-                  'tournaments/detail_tournament.html',
+                  'detail_tournament.html',
                   {'tournament_list': tournament_list,
                    'tournament': tournament,  # tournament info
                    'games': games,  # all tournament games
@@ -325,7 +347,7 @@ def detail_team_tournament(request, tournament_id, team_id):
         stadistics.extend(PlayerStadistic.objects.filter(player=player.id))
     st_utils = StructuresUtils()
 
-    return render(request, 'tournaments/detail_team_tournament.html',
+    return render(request, 'detail_team_tournament.html',
                   {'team': team,
                    'games': st_utils.get_team_view_games(games),
                    'players': st_utils.get_team_details_matrix(stadistics, players),
@@ -341,7 +363,7 @@ def detail_team_all(request, team_id):
     for player in players:
         stadistics.extend(PlayerStadistic.objects.filter(player=player.id))
     
-    return render(request, 'tournaments/detaul_team_all.html',
+    return render(request, 'detaul_team_all.html',
                   {'team': team, 'games': games, 'players': players})        
 """
 
@@ -369,7 +391,7 @@ def detail_game(request, game_id):
     st_utils = StructuresUtils()
     st_utils.get_game_details_matrix(stadistics, local_players, visitor_players)
 
-    return render(request, 'tournaments/detail_game.html',
+    return render(request, 'detail_game.html',
                   {'game': game[0],
                    'stadistics': st_utils.get_game_details_matrix(stadistics,
                                                                   local_players,

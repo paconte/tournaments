@@ -383,18 +383,18 @@ class TeamsMatrix:
 
 
 def sort_tournament_list(tournament_list):
-    result = {"England": list(), "Nationals": list(), "Germany": list(), "Australia": list()}
+    result = {"England": list(), "World_Cup": list(), "Euros": list(), "Germany": list(), "Australia": list()}
     for t in tournament_list:
         if 'NTS' in t.name:
             result["England"].append(t)
         elif 'World Cup' in t.name:
-            result["Nationals"].append(t)
+            result["World_Cup"].append(t)
         elif 'Capital Cup' in t.name:
             result["Germany"].append(t)
         elif 'NTL' in t.name:
             result["Australia"].append(t)
         elif 'Euros 2014' in t.name:
-            result["Nationals"].append(t)
+            result["Euros"].append(t)
         else:
             raise Exception('Tournament name %s not recognized.' % t.name)
     result["England"] = sorted(result.get("England"))
