@@ -401,4 +401,5 @@ class CsvReader:
                     self.print_row_to_read(row)
                     csv_object = self.get_csv_object(row)
                     self.create_django_object(csv_object)
+        csv_file.close()
         print('\nFinished reading {:s}...[0=PHASE, 1=TOURNAMENT, 2=NTS_STADISTIC]\n'.format(str(self._type)))

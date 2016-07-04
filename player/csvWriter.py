@@ -469,6 +469,7 @@ class CsvWriter:
                 else:
                     raise Exception('Operation not supported.')
             logging.debug('Done writing CSV file: %s' % self._filename)
+        csv_file.close()
 
     def get_filename_path(self):
         return self._filename
