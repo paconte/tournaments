@@ -212,7 +212,7 @@ class FitGamesManager:
     def _extract_fit_statistic_single(self, soup, team):
         table_rows = soup.find(id="players").find_all('tr')
         for row in table_rows[1:]:
-            csv_stat = list(range(9))
+            csv_stat = list(range(10))
             csv_stat[0] = self.t_name
             csv_stat[1] = self.t_division
             csv_stat[2] = team
@@ -222,9 +222,10 @@ class FitGamesManager:
             name = extract_human_name(full_name)
             csv_stat[4] = name[0]  # first name
             csv_stat[5] = name[1]  # last name
-            csv_stat[6] = columns[2].contents[0]  # played
-            csv_stat[7] = columns[3].contents[0]  # scores
-            csv_stat[8] = columns[4].contents[0]  # mvp
+            csv_stat[6] = get_player_gender(self.t_division)  # gender
+            csv_stat[7] = columns[2].contents[0].replace('-', '0')  # played
+            csv_stat[8] = columns[3].contents[0].replace('-', '0')  # scores
+            csv_stat[9] = columns[4].contents[0].replace('-', '0')  # mvp
             self._csv_stats.append(csv_stat)
 
 
@@ -428,7 +429,7 @@ class FoxGamesManager:
             first_name = names[0]
             last_name = names[1]
             tries = tds[2].contents[0]
-            statistic = csvdata.CsvNTSStadistic(
+            statistic = csvdata.CsvNTSStatistic(
                     None, self._tournament_name, self._tournament_division, local, number, first_name, last_name,
                     player_gender, tries, local, local_score, visitor_score, visitor, category, round, team_numbers)
             self._csv_stats.append(statistic)
@@ -445,7 +446,7 @@ class FoxGamesManager:
             first_name = names[0]
             last_name = names[1]
             tries = tds[2].contents[0]
-            statistic = csvdata.CsvNTSStadistic(
+            statistic = csvdata.CsvNTSStatistic(
                     None, self._tournament_name, self._tournament_division, visitor, number, first_name, last_name,
                     player_gender, tries, local, local_score, visitor_score, visitor, category, round, team_numbers)
             self._csv_stats.append(statistic)
@@ -461,7 +462,7 @@ class CsvWriter:
             spam_writer = csv.writer(csv_file, delimiter=';', quotechar='|', quoting=csv.QUOTE_MINIMAL)
             logging.debug('Writing CSV file: %s' % self._filename)
             for row in rows:
-                if isinstance(row, csvdata.CsvGame) or isinstance(row, csvdata.CsvNTSStadistic):
+                if isinstance(row, csvdata.CsvGame) or isinstance(row, csvdata.CsvNTSStatistic):
                     spam_writer.writerow(row.to_csv_array())
                 elif isinstance(row, list):
                     spam_writer.writerow(row)

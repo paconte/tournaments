@@ -34,7 +34,7 @@ TOUCH_DIVISION_CHOICES = (
 def get_player_gender(division):
     if division in [WO, W27]:
         result = Person.FEMALE
-    elif division in [MO, M30]:
+    elif division in [MO, M30, M40]:
         result = Person.MALE
     elif division in [MXO, SMX]:
         result = Person.UNKNOWN
@@ -467,8 +467,8 @@ class Game(models.Model):
 class PlayerStadistic(models.Model):
     player = models.ForeignKey(Player)
     points = models.PositiveSmallIntegerField(null=True, blank=True, default=0)
-    mvp = models.PositiveSmallIntegerField(null=True, blank=True)
-    played = models.PositiveSmallIntegerField(null=True, blank=True)
+    mvp = models.PositiveSmallIntegerField(null=True, blank=True, default=0)
+    played = models.PositiveSmallIntegerField(null=True, blank=True, default=0)
     game = models.ForeignKey(Game, null=True)
     tournament = models.ForeignKey(Tournament, null=True)
 
@@ -484,10 +484,10 @@ class PlayerStadistic(models.Model):
 
     def __str__(self):
         if self.is_game_stat():
-            first = self.game
+            return '{} - {} - touchdowns: {}'.format(self.game, self.player, self.points)
         else:
-            first = self.game
-        return '{} - {} - touchdowns: {}'.format(first, self.player, self.points)
+            return '{} - {} - touchdowns: {} - played: {} - mvp: {}'.format(self.tournament, self.player, self.points,
+                                                                            self.played, self.mvp)
 
 
 class Contact(models.Model):

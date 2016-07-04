@@ -20,8 +20,8 @@ class Command(BaseCommand):
         self.stdout.write(self.style.SUCCESS('Read csv file: "%s"' % file_path))
 
         if csv_type == 'stats':
-            reader = csvReader.CsvReader(csvReader.CsvReader.NTS_STADISTIC)
-            reader.read_file(file_path, csvdata.CsvNTSStadistic)
+            reader = csvReader.CsvReader(csvReader.CsvReader.NTS_STATISTIC)
+            reader.read_file(file_path, csvdata.CsvNTSStatistic)
         elif csv_type == 'games':
             reader = csvReader.CsvReader(csvReader.CsvReader.TOURNAMENT)
             reader.read_file(file_path, csvdata.CsvGame)

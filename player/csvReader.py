@@ -130,12 +130,17 @@ class DjangoSimpleFetcher:
         return result
 
     @staticmethod
-    def get_or_create_nts_stadistic(game, player, points):
-        if points and int(points) > 0:
-            result = PlayerStadistic.objects.get_or_create(game=game, player=player, points=points)
+    def get_or_create_nts_statistic(game, player, scores):
+        if scores and int(scores) > 0:
+            result = PlayerStadistic.objects.get_or_create(game=game, player=player, points=scores)
             return result
         else:
             return None, False
+
+    @staticmethod
+    def get_or_create_fit_statistic(tournament, player, played, scores, mvp):
+        result = PlayerStadistic.objects.get_or_create(tournament=tournament, player=player, played=played, mvp=mvp)
+        return result
 
 
 class DjangoCsvFetcher:
@@ -175,7 +180,7 @@ class DjangoCsvFetcher:
         DjangoSimpleFetcher.print_fetch_result(local_team, created)
 
         add_team_to_tournament(tournament, local_team)
-        #if created:
+        # if created:
         #    add_team_to_tournament(tournament, local_team)
         phase, created = DjangoCsvFetcher.create_csv_phase(csv_game, False)
         time = csv_game.time if csv_game.time else None
@@ -190,7 +195,7 @@ class DjangoCsvFetcher:
         DjangoSimpleFetcher.print_fetch_result(visitor_team, created)
 
         add_team_to_tournament(tournament, visitor_team)
-        #if created:
+        # if created:
         #    add_team_to_tournament(tournament, visitor_team)
 
         game, created = DjangoSimpleFetcher.create_game(
@@ -228,45 +233,71 @@ class DjangoCsvFetcher:
         return result
 
     @staticmethod
-    def create_csv_nts_player_stadistic(csv_nts_stadistic):
-        if not isinstance(csv_nts_stadistic, csvdata.CsvNTSStadistic):
-            assert 0, "Wrong stadistic to read: " + csv_nts_stadistic
+    def create_csv_fit_statistic(csv_stats):
+        if not isinstance(csv_stats, csvdata.FitStatistic):
+            assert 0, "Wrong statistic to read: " + csv_stats
 
         tournament, created = DjangoSimpleFetcher.get_or_create_tournament(
-                csv_nts_stadistic.tournament_name,
-                csv_nts_stadistic.division)
+                csv_stats.tournament_name,
+                csv_stats.division)
         DjangoSimpleFetcher.print_fetch_result(tournament, created)
 
-        team, created = DjangoSimpleFetcher.get_or_create_team(csv_nts_stadistic.team, csv_nts_stadistic.division)
+        team, created = DjangoSimpleFetcher.get_or_create_team(csv_stats.team, csv_stats.division)
         DjangoSimpleFetcher.print_fetch_result(team, created)
 
         person, created = DjangoSimpleFetcher.get_or_create_person(
-                csv_nts_stadistic.first_name,
-                csv_nts_stadistic.last_name,
-                csv_nts_stadistic.gender)
+                csv_stats.first_name,
+                csv_stats.last_name,
+                csv_stats.gender)
         DjangoSimpleFetcher.print_fetch_result(person, created)
 
-        player, created = DjangoSimpleFetcher.get_or_create_player(person, team, csv_nts_stadistic.number, tournament)
+        player, created = DjangoSimpleFetcher.get_or_create_player(person, team, csv_stats.number, tournament)
         DjangoSimpleFetcher.print_fetch_result(player, created)
 
-        if csv_nts_stadistic.visitor_score:  # if true nts stadistic otherwise player insert.
-            local_team = DjangoSimpleFetcher.get_team(csv_nts_stadistic.local, csv_nts_stadistic.division)
+        fit_stat, created = DjangoSimpleFetcher.get_or_create_fit_statistic(tournament, player, csv_stats.played,
+                                                                            csv_stats.scores, csv_stats.mvp)
+        DjangoSimpleFetcher.print_fetch_result(fit_stat, created)
+
+    @staticmethod
+    def create_csv_nts_player_statistic(csv_stats):
+        if not isinstance(csv_stats, csvdata.CsvNTSStatistic):
+            assert 0, "Wrong stadistic to read: " + csv_stats
+
+        tournament, created = DjangoSimpleFetcher.get_or_create_tournament(
+                csv_stats.tournament_name,
+                csv_stats.division)
+        DjangoSimpleFetcher.print_fetch_result(tournament, created)
+
+        team, created = DjangoSimpleFetcher.get_or_create_team(csv_stats.team, csv_stats.division)
+        DjangoSimpleFetcher.print_fetch_result(team, created)
+
+        person, created = DjangoSimpleFetcher.get_or_create_person(
+                csv_stats.first_name,
+                csv_stats.last_name,
+                csv_stats.gender)
+        DjangoSimpleFetcher.print_fetch_result(person, created)
+
+        player, created = DjangoSimpleFetcher.get_or_create_player(person, team, csv_stats.number, tournament)
+        DjangoSimpleFetcher.print_fetch_result(player, created)
+
+        if csv_stats.visitor_score:  # if true nts stadistic otherwise player insert.
+            local_team = DjangoSimpleFetcher.get_team(csv_stats.local, csv_stats.division)
             DjangoSimpleFetcher.print_fetch_result(local_team)
 
-            visitor_team = DjangoSimpleFetcher.get_team(csv_nts_stadistic.visitor, csv_nts_stadistic.division)
+            visitor_team = DjangoSimpleFetcher.get_team(csv_stats.visitor, csv_stats.division)
             DjangoSimpleFetcher.print_fetch_result(visitor_team)
 
             phase, created = DjangoSimpleFetcher.get_or_create_game_phase(
-                    csv_nts_stadistic.category, csv_nts_stadistic.round, csv_nts_stadistic.team_numbers, False)
+                    csv_stats.category, csv_stats.round, csv_stats.team_numbers, False)
             DjangoSimpleFetcher.print_fetch_result(phase, created)
 
-            game = DjangoSimpleFetcher.get_game(tournament, phase, local_team, csv_nts_stadistic.local_score,
-                                                visitor_team, csv_nts_stadistic.visitor_score, False)
+            game = DjangoSimpleFetcher.get_game(tournament, phase, local_team, csv_stats.local_score,
+                                                visitor_team, csv_stats.visitor_score, False)
             DjangoSimpleFetcher.print_fetch_result(game)
 
-            nts_stadistic, created = DjangoSimpleFetcher.get_or_create_nts_stadistic(
-                    game, player, csv_nts_stadistic.tries)
-            DjangoSimpleFetcher.print_fetch_result(nts_stadistic, created)
+            nts_stat, created = DjangoSimpleFetcher.get_or_create_nts_statistic(
+                    game, player, csv_stats.tries)
+            DjangoSimpleFetcher.print_fetch_result(nts_stat, created)
         else:
             print('GameStadistic skipped: there are no tries for player: {:s}\n '.format(str(player)))
 
@@ -299,10 +330,10 @@ def printCF(obj, created):
 
 
 class CsvReader:
-    (PHASE, TOURNAMENT, NTS_STADISTIC) = (0, 1, 2)
+    (PHASE, TOURNAMENT, NTS_STATISTIC, FIT_STATISTIC) = (0, 1, 2, 3)
 
     def __init__(self, type):
-        if type == self.PHASE or type == self.TOURNAMENT or type == self.NTS_STADISTIC:
+        if type in [self.PHASE, self.TOURNAMENT, self.NTS_STATISTIC, self.FIT_STATISTIC]:
             self._fexit = '####'
             self._exit_text = '\n Force exit #### :)\n'
             self._type = type
@@ -332,8 +363,10 @@ class CsvReader:
             result = csvdata.CsvPhase(row)
         elif self._type == self.TOURNAMENT:
             result = csvdata.CsvGame(row, None, None, None)
-        elif self._type == self.NTS_STADISTIC:
-            result = csvdata.CsvNTSStadistic(row)
+        elif self._type == self.NTS_STATISTIC:
+            result = csvdata.CsvNTSStatistic(row)
+        elif self._type == self.FIT_STATISTIC:
+            result = csvdata.FitStatistic.from_array(row)
         else:
             assert 0, "Wrong object to read: " + self._type
         return result
@@ -345,8 +378,10 @@ class CsvReader:
             DjangoSimpleFetcher.print_fetch_result(phase, created)
         elif self._type == self.TOURNAMENT and isinstance(csv_object, csvdata.CsvGame):
             DjangoCsvFetcher.create_csv_game(csv_object)
-        elif self._type == self.NTS_STADISTIC and isinstance(csv_object, csvdata.CsvNTSStadistic):
-            DjangoCsvFetcher.create_csv_nts_player_stadistic(csv_object)
+        elif self._type == self.NTS_STATISTIC and isinstance(csv_object, csvdata.CsvNTSStatistic):
+            DjangoCsvFetcher.create_csv_nts_player_statistic(csv_object)
+        elif self._type == self.FIT_STATISTIC and isinstance(csv_object, csvdata.FitStatistic):
+            DjangoCsvFetcher.create_csv_fit_statistic(csv_object)
         else:
             assert 0, "Wrong object to read: " + self._type
 

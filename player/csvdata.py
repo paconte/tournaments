@@ -194,7 +194,25 @@ def get_tournament_year(tournament):
         raise ValueError("Tournament not supported.")
 
 
-class CsvNTSStadistic:
+class FitStatistic:
+    def __init__(self, tournament_name, division, team, player_number, first_name, last_name, gender, played, scores, mvp):
+        self.tournament_name = tournament_name
+        self.division = division
+        self.team = team
+        self.number = player_number
+        self.first_name = first_name
+        self.last_name = last_name
+        self.gender = gender
+        self.played = played
+        self.scores = scores
+        self.mvp = mvp
+
+    @classmethod
+    def from_array(cls, row):
+        return cls(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9])
+
+
+class CsvNTSStatistic:
     def __init__(self, row, tname=None, division=None, team=None, number=None, first_name=None, last_name=None,
                  gender=None, tries=None, local=None, local_score=None, visitor_score=None, visitor=None, category=None,
                  round=None, team_numbers=None):
