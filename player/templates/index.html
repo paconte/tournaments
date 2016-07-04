@@ -25,7 +25,7 @@
                      <span class="caret"></span>
                  </button>
                  <ul class="dropdown-menu multilevel" role="menu">
-                         {% include "tournaments/list_tournaments.html" %}
+                         {% include "list_tournaments.html" %}
                  </ul>
              </div>
          </div>
@@ -57,7 +57,7 @@
     <!-- <li><a href="{% url 'detail_tournament' t.id %}"> {{ t.name }}</a></li><br/> -->
     {% endfor %}
 
-    {% include "tournaments/list_tournaments.html" %}
+    {% include "list_tournaments.html" %}
 </p>
 {% else %}
 <p>No tournaments are available.</p>

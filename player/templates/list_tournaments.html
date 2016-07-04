@@ -1,8 +1,19 @@
-{% if nationals %}
+{% if world_cup %}
 <li class="dropdown-submenu">
-    <a tabindex="-1" href="#">International</a>
+    <a tabindex="-1" href="#">World Cup</a>
     <ul class="dropdown-menu">
-        {% for t in nationals %}
+        {% for t in world_cup %}
+        <li><a tabindex="-1" href="{% url 'detail_tournament' t.id %}">{{ t.name }} - {{t.division}}</a></li>
+        {% endfor %}
+    </ul>
+</li><br/>
+{% endif%}
+
+{% if euros %}
+<li class="dropdown-submenu">
+    <a tabindex="-1" href="#">Euros</a>
+    <ul class="dropdown-menu">
+        {% for t in euros %}
         <li><a tabindex="-1" href="{% url 'detail_tournament' t.id %}">{{ t.name }} - {{t.division}}</a></li>
         {% endfor %}
     </ul>

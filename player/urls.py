@@ -16,6 +16,7 @@ urlpatterns = patterns(
     url(r'^about', views.about, name='about'),
     url(r'^contact', views.contact, name='contact'),
     url(r'^search', views.search, name='search'),
+    url(r'^tournaments', views.tournaments, name='tournaments'),
     url(r'^game/(?P<pk>\d+)/$', GameView.as_view(), name='detail_game'),
     url(r'^team/(?P<pk>\d+)/$', TeamView.as_view(), name='detail_team'),
     url(r'^person/(?P<pk>\d+)/$', PersonView.as_view(), name='detail_person'),
