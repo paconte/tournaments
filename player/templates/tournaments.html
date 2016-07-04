@@ -25,7 +25,26 @@
         </div>
     </div>
 
-    <div class="row">
+     <div class="row">
+         <div class="col-md-6">
+            <h2>Australia</h2>
+            {% if australia %}
+            <div class="list-group">
+                {% for t in australia %}
+                <a href="{% url 'detail_tournament' t.id %}" class="list-group-item">{{ t.name }} - {{t.division}}</a>
+                {% endfor %}
+            </div>
+            {% endif %}
+             <h2>Germany</h2>
+            {% if germany %}
+            <div class="list-group">
+                {% for t in germany %}
+                <a href="{% url 'detail_tournament' t.id %}" class="list-group-item">{{ t.name }} - {{t.division}}</a>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+
         <div class="col-md-6">
             <h2>NTS</h2>
             <p>NTS is the National Touch Series from England</p>
@@ -37,6 +56,10 @@
             </div>
             {% endif %}
         </div>
+    </div>
+
+    <!--
+    <div class="row">
         <div class="col-md-6">
             <h2>Germany</h2>
             {% if germany %}
@@ -48,6 +71,7 @@
             {% endif %}
         </div>
     </div>
+    -->
 
 </div>
 {% endblock %}
