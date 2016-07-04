@@ -1,5 +1,7 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.utils.translation import ugettext_lazy as _
 
 DATA_FILES = './data_files/'
 
@@ -133,7 +135,7 @@ class Tournament(models.Model):
 class Player(models.Model):
     person = models.ForeignKey(Person)
     team = models.ForeignKey(Team)
-    number = models.PositiveIntegerField(null=True, blank=True)
+    number = models.PositiveSmallIntegerField(null=True, blank=True)
     tournaments_played = models.ManyToManyField(Tournament, null=True, blank=True)
 
     class Meta:
@@ -448,7 +450,6 @@ class Game(models.Model):
     visitor = models.ForeignKey(Team, related_name="visitor", null=True, blank=True)
     local_score = models.SmallIntegerField(null=True, blank=True)
     visitor_score = models.SmallIntegerField(null=True, blank=True)
-    # player_stadistics = models.ManyToManyField(Stadictic)
     tournament = models.ForeignKey(Tournament)
     phase = models.ForeignKey(GameRound)
 
@@ -464,13 +465,29 @@ class Game(models.Model):
 
 
 class PlayerStadistic(models.Model):
-    game = models.ForeignKey(Game)
     player = models.ForeignKey(Player)
-    points = models.PositiveIntegerField(null=True, blank=True, default=0)
-    assistances = models.PositiveIntegerField(null=True, blank=True, default=0)
+    points = models.PositiveSmallIntegerField(null=True, blank=True, default=0)
+    mvp = models.PositiveSmallIntegerField(null=True, blank=True)
+    played = models.PositiveSmallIntegerField(null=True, blank=True)
+    game = models.ForeignKey(Game, null=True)
+    tournament = models.ForeignKey(Tournament, null=True)
+
+    def clean(self):
+        if not self.game or not self.tournament:
+            raise ValidationError(_('PlayerStatistic must be related either to a game or to a tournament.'))
+
+    def is_game_stat(self):
+        return True if self.game else False
+
+    def is_tournament_stat(self):
+        return not self.is_game_stat()
 
     def __str__(self):
-        return '{} - {} - touchdowns: {}'.format(self.game, self.player, self.points)
+        if self.is_game_stat():
+            first = self.game
+        else:
+            first = self.game
+        return '{} - {} - touchdowns: {}'.format(first, self.player, self.points)
 
 
 class Contact(models.Model):

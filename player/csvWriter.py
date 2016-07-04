@@ -20,6 +20,7 @@ class FitGamesManager:
 
     def __init__(self, tournament):
         self.tournament = tournament
+        self._csv_stats = []
         self.fit_games = []
         self.t_name = csvdata.get_tournament_name(tournament)
         self.t_division = csvdata.get_tournament_division(tournament)
@@ -28,6 +29,13 @@ class FitGamesManager:
 
     def download_games_html(self, force=False):
         _download_file(self.url, self.raw)
+
+    @staticmethod
+    def download_stats_html():
+        for competition, values1 in csvdata.remote_fit_stats_files.items():
+            for division, values2 in values1.items():
+                for team, url in values2.items():
+                    _download_file(url, csvdata.local_fit_stats_files.get(competition).get(division).get(team))
 
     def games_to_csv_array(self, games):
         result = []
@@ -45,6 +53,11 @@ class FitGamesManager:
         raw_sorted_games = self._assign_fit_games_to_fit_pools(raw_games, raw_groups)
         self.fit_games = self.games_to_csv_array(raw_sorted_games)
         return self.fit_games
+
+    def get_csv_statistics(self):
+        if not self._csv_stats:
+            self._extract_fit_statistics()
+        return self._csv_stats
 
     def _extract_fit_games(self, soup):
         games = []
@@ -186,6 +199,33 @@ class FitGamesManager:
             raise ValueError('Illegal arguments:', groups, position)
 
         return result
+
+    def _extract_fit_statistics(self):
+        if os.path.exists(csvdata.RAW_STATS_FILES) and os.path.isdir(csvdata.RAW_STATS_FILES):
+            self._csv_stats = []
+            local_files = csvdata.get_fit_local_stats_files(self.tournament)
+            for team, file_path in local_files.items():
+                        f = open(file_path, 'r')
+                        soup = BeautifulSoup(f)
+                        self._extract_fit_statistic_single(soup, team)
+
+    def _extract_fit_statistic_single(self, soup, team):
+        table_rows = soup.find(id="players").find_all('tr')
+        for row in table_rows[1:]:
+            csv_stat = list(range(9))
+            csv_stat[0] = self.t_name
+            csv_stat[1] = self.t_division
+            csv_stat[2] = team
+            columns = row.findAll('td')
+            csv_stat[3] = columns[1].contents[0]  # number
+            full_name = columns[0].contents[0]
+            name = extract_human_name(full_name)
+            csv_stat[4] = name[0]  # first name
+            csv_stat[5] = name[1]  # last name
+            csv_stat[6] = columns[2].contents[0]  # played
+            csv_stat[7] = columns[3].contents[0]  # scores
+            csv_stat[8] = columns[4].contents[0]  # mvp
+            self._csv_stats.append(csv_stat)
 
 
 class FoxGamesManager:

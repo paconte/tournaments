@@ -57,29 +57,51 @@ class CsvFileTest(TestCase):
         tournament = csvdata.NTL_2016_WO_GAMES_FOX
         self.csv_fox_tournament(tournament)
 
-    def test_fit_tournament_Euros_2014_MO(self):
+    def test_fit_euros_2014(self):
+        self._test_fit_tournament_Euros_2014_MO()
+        self._test_fit_tournament_Euros_2014_M40()
+        self._test_fit_tournament_Euros_2014_WO()
+        self._test_fit_tournament_Euros_2014_W27()
+        self._test_fit_tournament_Euros_2014_MXO()
+        self._test_fit_tournament_Euros_2014_SMX()
+
+    def _test_fit_tournament_Euros_2014_MO(self):
         tournament = csvdata.EUROS_2014_MO
         self.csv_fit_tournament(tournament)
 
-    def test_fit_tournament_Euros_2014_M40(self):
+    def _test_fit_tournament_Euros_2014_M40(self):
         tournament = csvdata.EUROS_2014_M40
         self.csv_fit_tournament(tournament)
 
-    def test_fit_tournament_Euros_2014_WO(self):
+    def _test_fit_tournament_Euros_2014_WO(self):
         tournament = csvdata.EUROS_2014_WO
         self.csv_fit_tournament(tournament)
 
-    def test_fit_tournament_Euros_2014_W27(self):
+    def _test_fit_tournament_Euros_2014_W27(self):
         tournament = csvdata.EUROS_2014_W27
         self.csv_fit_tournament(tournament)
 
-    def test_fit_tournament_Euros_2014_MXO(self):
+    def _test_fit_tournament_Euros_2014_MXO(self):
         tournament = csvdata.EUROS_2014_MXO
         self.csv_fit_tournament(tournament)
 
-    def test_fit_tournament_Euros_2014_SMX(self):
+    def _test_fit_tournament_Euros_2014_SMX(self):
         tournament = csvdata.EUROS_2014_SMX
         self.csv_fit_tournament(tournament)
+
+    def test_fit_stats_Euros_2014(self):
+        #csvWriter.FitGamesManager.download_stats_html()
+        tournament = csvdata.EUROS_2014_SMX
+        manager = csvWriter.FitGamesManager(tournament)
+        stats = manager.get_csv_statistics()
+
+        writer = csvWriter.CsvWriter(tournament, True, True)
+        writer.delete_filename_path()
+        writer.write_csv(stats)
+
+        reader = csvReader.CsvReader(csvReader.CsvReader.TOURNAMENT)
+        #reader.read_file(writer.get_filename_path(), csvdata.CsvGame)
+
 
     def Atest_NTS_stats(self):
         management.call_command('loaddata', './player/data_files/player.dumpdata.json', verbosity=0)

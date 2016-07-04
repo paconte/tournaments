@@ -1,4 +1,5 @@
 from time import strftime
+from player.models import MO, M30, M40, WO, W27, MXO, SMX;
 
 
 def get_tournament_url(tournament):
@@ -32,6 +33,18 @@ def get_tournament_url(tournament):
         return remote_files_EUROS_2014_M40
     else:
         raise ValueError("Tournament not supported.")
+
+
+def get_fit_remote_stats_files(tournament):
+    competition = get_competition(tournament)
+    division = get_tournament_division(tournament)
+    return remote_fit_stats_files.get(competition).get(division)
+
+
+def get_fit_local_stats_files(tournament):
+    competition = get_competition(tournament)
+    division = get_tournament_division(tournament)
+    return local_fit_stats_files.get(competition).get(division)
 
 
 def get_tournament_html_path(tournament):
@@ -68,7 +81,6 @@ def get_tournament_html_path(tournament):
 
 
 def get_csv_path(tournament, is_stats=False, is_test=True):
-
     if tournament == WC_2015_MO_GAMES_FOX and not is_stats:
         filename = 'WC_2015_MO_GAMES_FOX'
     elif tournament == WC_2015_MO_GAMES_FOX and is_stats:
@@ -157,6 +169,15 @@ def get_tournament_division(tournament):
         return 'MXO'
     elif tournament in [WC_2015_SMX_GAMES_FOX, EUROS_2014_SMX]:
         return 'SMX'
+    else:
+        raise ValueError("Tournament not supported.")
+
+
+def get_competition(tournament):
+    if tournament in [EUROS_2014_WO, EUROS_2014_W27, EUROS_2014_MO, EUROS_2014_M40, EUROS_2014_MXO, EUROS_2014_SMX]:
+        return EUROS_2014
+    #elif tournament in [WC_2015_MO_GAMES_FOX, WC_2015_WO_GAMES_FOX, WC_2015_W27_GAMES_FOX, WC_2015_MXO_GAMES_FOX]:
+    #    return 'WORLD_CUP_2015'
     else:
         raise ValueError("Tournament not supported.")
 
@@ -943,4 +964,132 @@ EUROS2014_RE_FINALS = '[Final|Bronze Final|9th/10th/11th|Semi Final 1|Semi Final
  WC_2015_W27_GAMES_FOX, WC_2015_M30_GAMES_FOX, WC_2015_SMX_GAMES_FOX,
  NTL_2016_MO_GAMES_FOX, NTL_2016_WO_GAMES_FOX,
  WC_2015_MO_GAMES_FIT, WC_2015_WO_GAMES_FIT, WC_2015_MXO_GAMES_FIT,
- EUROS_2014_MO, EUROS_2014_WO, EUROS_2014_MXO, EUROS_2014_W27, EUROS_2014_SMX, EUROS_2014_M40) = (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)
+ EUROS_2014_MO, EUROS_2014_WO, EUROS_2014_MXO, EUROS_2014_W27, EUROS_2014_SMX, EUROS_2014_M40) = (
+0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)
+
+local_fit_stats_files = {
+    'EUROS_2014':
+        {
+            MO: {
+                'england': RAW_STATS_FILES + 'EUROS_2014_MO_england_stats.html',
+                'wales': RAW_STATS_FILES + 'EUROS_2014_MO_wales_stats.html',
+                'scotland': RAW_STATS_FILES + 'EUROS_2014_MO_scotland_stats.html',
+                'ireland': RAW_STATS_FILES + 'EUROS_2014_MO_ireland_stats.html',
+                'france': RAW_STATS_FILES + 'EUROS_2014_MO_france_stats.html',
+                'luxembourg': RAW_STATS_FILES + 'EUROS_2014_MO_luxembourg_stats.html',
+                'belgium': RAW_STATS_FILES + 'EUROS_2014_MO_belgium_stats.html',
+                'hungary': RAW_STATS_FILES + 'EUROS_2014_MO_hungary_stats.html',
+                'italy': RAW_STATS_FILES + 'EUROS_2014_MO_italy_stats.html'
+            },
+            WO: {
+                'england': RAW_STATS_FILES + 'EUROS_2014_WO_england_stats.html',
+                'wales': RAW_STATS_FILES + 'EUROS_2014_WO_wales_stats.html',
+                'scotland': RAW_STATS_FILES + 'EUROS_2014_WO_scotland_stats.html',
+                'spain': RAW_STATS_FILES + 'EUROS_2014_WO_spain_stats.html',
+                'france': RAW_STATS_FILES + 'EUROS_2014_WO_france_stats.html',
+                'belgium': RAW_STATS_FILES + 'EUROS_2014_WO_belgium_stats.html',
+                'ireland': RAW_STATS_FILES + 'EUROS_2014_WO_ireland_stats.html'
+            },
+            MXO: {
+                'scotland': RAW_STATS_FILES + 'EUROS_2014_MXO_scotland_stats.html',
+                'england': RAW_STATS_FILES + 'EUROS_2014_MXO_england_stats.html',
+                'wales': RAW_STATS_FILES + 'EUROS_2014_MXO_wales_stats.html',
+                'jersey': RAW_STATS_FILES + 'EUROS_2014_MXO_jersey_stats.html',
+                'france': RAW_STATS_FILES + 'EUROS_2014_MXO_france_stats.html',
+                'netherlands': RAW_STATS_FILES + 'EUROS_2014_MXO_netherlands_stats.html',
+                'italy': RAW_STATS_FILES + 'EUROS_2014_MXO_italy_stats.html',
+                'guernsey': RAW_STATS_FILES + 'EUROS_2014_MXO_guernsey_stats.html',
+                'germany': RAW_STATS_FILES + 'EUROS_2014_MXO_germany_stats.html',
+                'switzerland': RAW_STATS_FILES + 'EUROS_2014_MXO_switzerland_stats.html',
+                'catalonia': RAW_STATS_FILES + 'EUROS_2014_MXO_catalonia_stats.html'
+            },
+            W27: {
+                'england': RAW_STATS_FILES + 'EUROS_2014_W27_england_stats.html',
+                'france': RAW_STATS_FILES + 'EUROS_2014_W27_france_stats.html',
+                'scotland': RAW_STATS_FILES + 'EUROS_2014_W27_scotland_stats.html',
+                'ireland': RAW_STATS_FILES + 'EUROS_2014_W27_ireland_stats.html',
+                'wales': RAW_STATS_FILES + 'EUROS_2014_W27_wales_stats.html'
+            },
+            SMX: {
+                'england': RAW_STATS_FILES + 'EUROS_2014_SMX_england_stats.html',
+                'scotland': RAW_STATS_FILES + 'EUROS_2014_SMX_scotland_stats.html',
+                'ireland': RAW_STATS_FILES + 'EUROS_2014_SMX_ireland_stats.html',
+                'wales': RAW_STATS_FILES + 'EUROS_2014_SMX_wales_stats.html',
+                'france': RAW_STATS_FILES + 'EUROS_2014_SMX_france_stats.html'
+            },
+            M40: {
+                'wales': RAW_STATS_FILES + 'EUROS_2014_M40_wales_stats.html',
+                'ireland': RAW_STATS_FILES + 'EUROS_2014_M40_ireland_stats.html',
+                'england': RAW_STATS_FILES + 'EUROS_2014_M40_england_stats.html',
+                'france': RAW_STATS_FILES + 'EUROS_2014_M40_france_stats.html',
+                'scotland': RAW_STATS_FILES + 'EUROS_2014_M40_scotland_stats.html',
+                'italy': RAW_STATS_FILES + 'EUROS_2014_M40_italy_stats.html',
+                'spain': RAW_STATS_FILES + 'EUROS_2014_M40_spain_stats.html',
+                'belgium': RAW_STATS_FILES + 'EUROS_2014_M40_belgium_stats.html'
+            }
+        }
+}
+
+EUROS_2014 = 'EUROS_2014'
+remote_fit_stats_files = {
+    EUROS_2014:
+        {
+            MO: {
+                'england': 'https://www.internationaltouch.org/events/euros/2014/mens-open/england/',
+                'wales': 'https://www.internationaltouch.org/events/euros/2014/mens-open/wales/',
+                'scotland': 'https://www.internationaltouch.org/events/euros/2014/mens-open/scotland/',
+                'ireland': 'https://www.internationaltouch.org/events/euros/2014/mens-open/ireland/',
+                'france': 'https://www.internationaltouch.org/events/euros/2014/mens-open/france/',
+                'luxembourg': 'https://www.internationaltouch.org/events/euros/2014/mens-open/luxembourg/',
+                'belgium': 'https://www.internationaltouch.org/events/euros/2014/mens-open/belgium/',
+                'hungary': 'https://www.internationaltouch.org/events/euros/2014/mens-open/hungary/',
+                'italy': 'https://www.internationaltouch.org/events/euros/2014/mens-open/italy/'
+            },
+            WO: {
+                'england': 'https://www.internationaltouch.org/events/euros/2014/womens-open/england/',
+                'wales': 'https://www.internationaltouch.org/events/euros/2014/womens-open/wales/',
+                'scotland': 'https://www.internationaltouch.org/events/euros/2014/womens-open/scotland/',
+                'spain': 'https://www.internationaltouch.org/events/euros/2014/womens-open/spain/',
+                'france': 'https://www.internationaltouch.org/events/euros/2014/womens-open/france/',
+                'belgium': 'https://www.internationaltouch.org/events/euros/2014/womens-open/belgium/',
+                'ireland': 'https://www.internationaltouch.org/events/euros/2014/womens-open/ireland/'
+            },
+            MXO: {
+                'scotland': 'https://www.internationaltouch.org/events/euros/2014/mixed-open/scotland/',
+                'england': 'https://www.internationaltouch.org/events/euros/2014/mixed-open/england/',
+                'wales': 'https://www.internationaltouch.org/events/euros/2014/mixed-open/wales/',
+                'jersey': 'https://www.internationaltouch.org/events/euros/2014/mixed-open/jersey/',
+                'france': 'https://www.internationaltouch.org/events/euros/2014/mixed-open/france/',
+                'netherlands': 'https://www.internationaltouch.org/events/euros/2014/mixed-open/netherlands/',
+                'italy': 'https://www.internationaltouch.org/events/euros/2014/mixed-open/italy/',
+                'guernsey': 'https://www.internationaltouch.org/events/euros/2014/mixed-open/guernsey/',
+                'germany': 'https://www.internationaltouch.org/events/euros/2014/mixed-open/germany/',
+                'switzerland': 'https://www.internationaltouch.org/events/euros/2014/mixed-open/switzerland/',
+                'catalonia': 'https://www.internationaltouch.org/events/euros/2014/mixed-open/catalonia/'
+            },
+            W27: {
+                'england': 'https://www.internationaltouch.org/events/euros/2014/womens-27/england/',
+                'france': 'https://www.internationaltouch.org/events/euros/2014/womens-27/france/',
+                'scotland': 'https://www.internationaltouch.org/events/euros/2014/womens-27/scotland/',
+                'ireland': 'https://www.internationaltouch.org/events/euros/2014/womens-27/ireland/',
+                'wales': 'https://www.internationaltouch.org/events/euros/2014/womens-27/wales/'
+            },
+            SMX: {
+                'england': 'https://www.internationaltouch.org/events/euros/2014/senior-mixed/england/',
+                'scotland': 'https://www.internationaltouch.org/events/euros/2014/senior-mixed/england/',
+                'ireland': 'https://www.internationaltouch.org/events/euros/2014/senior-mixed/ireland/',
+                'wales': 'https://www.internationaltouch.org/events/euros/2014/senior-mixed/wales/',
+                'france': 'https://www.internationaltouch.org/events/euros/2014/senior-mixed/france/'
+            },
+            M40: {
+                'wales': 'https://www.internationaltouch.org/events/euros/2014/mens-40/wales/',
+                'ireland': 'https://www.internationaltouch.org/events/euros/2014/mens-40/ireland/',
+                'england': 'https://www.internationaltouch.org/events/euros/2014/mens-40/england/',
+                'france': 'https://www.internationaltouch.org/events/euros/2014/mens-40/france/',
+                'scotland': 'https://www.internationaltouch.org/events/euros/2014/mens-40/scotland/',
+                'italy': 'https://www.internationaltouch.org/events/euros/2014/mens-40/italy/',
+                'spain': 'https://www.internationaltouch.org/events/euros/2014/mens-40/spain/',
+                'belgium': 'https://www.internationaltouch.org/events/euros/2014/mens-40/belgium/'
+            }
+        }
+}
