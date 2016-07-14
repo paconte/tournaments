@@ -58,34 +58,13 @@ def about(request):
     Returns:
         A django HttpResponse class
     """
-
-    tournament_list = Tournament.objects.all()
-    sort_tournament = sort_tournament_list(tournament_list)
     template = loader.get_template('about.html')
-    context = RequestContext(request, {'tournament_list': tournament_list,
-                                       'england': sort_tournament['England'],
-                                       'germany': sort_tournament['Germany'],
-                                       'world_cup': sort_tournament['World_Cup'],
-                                       'australia': sort_tournament['Australia'],
-                                       'euros': sort_tournament['Euros'],
-                                       })
-    return HttpResponse(template.render(context))
+    return HttpResponse(template.render())
 
 
 def add_tournament(request):
     template = loader.get_template('add_tournament.html')
-    tournament_list = Tournament.objects.all()
-    sort_tournament = sort_tournament_list(tournament_list)
-
-    context = RequestContext(request, {'tournament_list': tournament_list,
-                                       'england': sort_tournament['England'],
-                                       'germany': sort_tournament['Germany'],
-                                       'world_cup': sort_tournament['World_Cup'],
-                                       'australia': sort_tournament['Australia'],
-                                       'euros': sort_tournament['Euros'],
-                                       })
-
-    return HttpResponse(template.render(context))
+    return HttpResponse(template.render())
 
 
 def contact(request):
@@ -101,8 +80,6 @@ def contact(request):
     """
 
     success = False  # true if form has been saved otherwise false
-    tournament_list = Tournament.objects.all()
-    sort_tournament = sort_tournament_list(tournament_list)
     template = loader.get_template('contact.html')
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -113,22 +90,10 @@ def contact(request):
     else:
         form = ContactForm()
 
-    context = RequestContext(request, {'tournament_list': tournament_list,
-                                       'form': form,
-                                       'success': success,
-                                       'england': sort_tournament['England'],
-                                       'germany': sort_tournament['Germany'],
-                                       'world_cup': sort_tournament['World_Cup'],
-                                       'australia': sort_tournament['Australia'],
-                                       'euros': sort_tournament['Euros'],
-                                       })
-
-    return HttpResponse(template.render(context))
+    return HttpResponse(template.render())
 
 
 def search(request):
-    tournament_list = Tournament.objects.all()
-    sort_tournament = sort_tournament_list(tournament_list)
     template = loader.get_template('search.html')
     success = False
     result_size = 0
@@ -153,13 +118,7 @@ def search(request):
                                        'result_tournaments': tournaments,
                                        'result_persons': persons,
                                        'result_size': result_size,
-                                       'success': success,
-                                       'tournament_list': tournament_list,
-                                       'australia': sort_tournament['Australia'],
-                                       'england': sort_tournament['England'],
-                                       'germany': sort_tournament['Germany'],
-                                       'world_cup': sort_tournament['World_Cup'],
-                                       'euros': sort_tournament['Euros'],
+                                       'success': success
                                        })
 
     return HttpResponse(template.render(context))
@@ -180,8 +139,6 @@ def tournaments(request):
 
 
 def search_team(request):
-    tournament_list = Tournament.objects.all()
-    sort_tournament = sort_tournament_list(tournament_list)
     template = loader.get_template('search_team.html')
     success = False
     teams = None
@@ -195,21 +152,12 @@ def search_team(request):
     else:
         form = TeamSearchForm()
 
-    context = RequestContext(request, {'form': form, 'result': teams, 'success': success,
-                                       'tournament_list': tournament_list,
-                                       'australia': sort_tournament['Australia'],
-                                       'england': sort_tournament['England'],
-                                       'germany': sort_tournament['Germany'],
-                                       'world_cup': sort_tournament['World_Cup'],
-                                       'euros': sort_tournament['Euros'],
-                                       })
+    context = RequestContext(request, {'form': form, 'result': teams, 'success': success})
 
     return HttpResponse(template.render(context))
 
 
 def search_person(request):
-    tournament_list = Tournament.objects.all()
-    sort_tournament = sort_tournament_list(tournament_list)
     template = loader.get_template('search_person.html')
     success = False
     persons = None
@@ -232,21 +180,12 @@ def search_person(request):
     else:
         form = PersonSearchForm()
 
-    context = RequestContext(request, {'form': form, 'result': persons, 'success': success,
-                                       'tournament_list': tournament_list,
-                                       'australia': sort_tournament['Australia'],
-                                       'england': sort_tournament['England'],
-                                       'germany': sort_tournament['Germany'],
-                                       'world_cup': sort_tournament['World_Cup'],
-                                       'euros': sort_tournament['Euros'],
-                                       })
+    context = RequestContext(request, {'form': form, 'result': persons, 'success': success})
 
     return HttpResponse(template.render(context))
 
 
 def search_tournament(request):
-    tournament_list = Tournament.objects.all()
-    sort_tournament = sort_tournament_list(tournament_list)
     template = loader.get_template('search_tournament.html')
     success = False
     tournaments = None
@@ -260,14 +199,7 @@ def search_tournament(request):
     else:
         form = TournamentSearchForm()
 
-    context = RequestContext(request, {'form': form, 'result': tournaments, 'success': success,
-                                       'tournament_list': tournament_list,
-                                       'australia': sort_tournament['Australia'],
-                                       'england': sort_tournament['England'],
-                                       'germany': sort_tournament['Germany'],
-                                       'world_cup': sort_tournament['World_Cup'],
-                                       'euros': sort_tournament['Euros'],
-                                       })
+    context = RequestContext(request, {'form': form, 'result': tournaments, 'success': success})
 
     return HttpResponse(template.render(context))
 

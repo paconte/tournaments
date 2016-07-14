@@ -10,7 +10,7 @@ from player.classViews import TournamentView
 
 urlpatterns = patterns(
     '',
-    url(r'^$', views.index, name='index'),
+    url(r'^$', views.tournaments, name='tournaments'),
     url(r'^add_tournament', views.add_tournament, name='add_tournament'),
     url(r'^about', views.about, name='about'),
     url(r'^search', views.search, name='search'),
