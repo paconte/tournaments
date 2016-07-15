@@ -136,15 +136,15 @@ class FitGamesManager:
             if re.match(csvdata.WC2015_RE_FINALS, game[0]) or re.match(csvdata.EUROS2014_RE_FINALS, game[0]):
                 assigned_group = 'finals'
                 nteams = 2
-                print('######################################')
-                print(game)
+                #print('######################################')
+                #print(game)
             else:
                 possible_groups = self._find_fit_game_in_fit_groups(local, visitor, groups)
-                print("#####################################")
-                print(local)
-                print(visitor)
-                print(groups)
-                print(possible_groups)
+                #print("#####################################")
+                #print(local)
+                #print(visitor)
+                #print(groups)
+                #print(possible_groups)
                 if len(possible_groups) > 1:
                     if ([local, visitor] not in multiple_choice_list) or ([visitor, local] not in multiple_choice_list):
                         assigned_group = self._find_pool_position(possible_groups, 1)

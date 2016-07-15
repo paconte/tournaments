@@ -91,17 +91,13 @@ class CsvFileTest(TestCase):
         self.csv_fit_tournament(tournament)
 
     def _test_fit_stats_Euros_2014(self, tournament):
-        print('*******************************')
         #csvWriter.FitGamesManager.download_stats_html()
-        #print('#############################')
-        #tournament = csvdata.EUROS_2014_SMX
         manager = csvWriter.FitGamesManager(tournament)
         stats = manager.get_csv_statistics()
 
         writer = csvWriter.CsvWriter(tournament, True, True)
         writer.delete_filename_path()
         writer.write_csv(stats)
-
         reader = csvReader.CsvReader(csvReader.CsvReader.FIT_STATISTIC)
         reader.read_file(writer.get_filename_path(), csvdata.FitStatistic)
 

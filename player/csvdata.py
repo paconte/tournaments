@@ -81,38 +81,22 @@ def get_tournament_html_path(tournament):
 
 
 def get_csv_path(tournament, is_stats=False, is_test=True):
-    if tournament == WC_2015_MO_GAMES_FOX and not is_stats:
+    if tournament == WC_2015_MO_GAMES_FOX:
         filename = 'WC_2015_MO_GAMES_FOX'
-    elif tournament == WC_2015_MO_GAMES_FOX and is_stats:
-        filename = 'WC_2015_MO_STATS_FOX'
-    elif tournament == WC_2015_M30_GAMES_FOX and not is_stats:
+    elif tournament == WC_2015_M30_GAMES_FOX:
         filename = 'WC_2015_M30_GAMES_FOX'
-    elif tournament == WC_2015_M30_GAMES_FOX and is_stats:
-        filename = 'WC_2015_M30_STATS_FOX'
-    elif tournament == WC_2015_WO_GAMES_FOX and not is_stats:
+    elif tournament == WC_2015_WO_GAMES_FOX:
         filename = 'WC_2015_WO_GAMES_FOX'
-    elif tournament == WC_2015_WO_GAMES_FOX and is_stats:
-        filename = 'WC_2015_WO_STATS_FOX'
-    elif tournament == WC_2015_W27_GAMES_FOX and not is_stats:
+    elif tournament == WC_2015_W27_GAMES_FOX:
         filename = 'WC_2015_W27_GAMES_FOX'
-    elif tournament == WC_2015_W27_GAMES_FOX and is_stats:
-        filename = 'WC_2015_W27_STATS_FOX'
-    elif tournament == WC_2015_MXO_GAMES_FOX and not is_stats:
+    elif tournament == WC_2015_MXO_GAMES_FOX:
         filename = 'WC_2015_MXO_GAMES_FOX'
-    elif tournament == WC_2015_MXO_GAMES_FOX and is_stats:
-        filename = 'WC_2015_MXO_STATS_FOX'
-    elif tournament == WC_2015_SMX_GAMES_FOX and not is_stats:
+    elif tournament == WC_2015_SMX_GAMES_FOX:
         filename = 'WC_2015_SMX_GAMES_FOX'
-    elif tournament == WC_2015_SMX_GAMES_FOX and is_stats:
-        filename = 'WC_2015_SMX_STATS_FOX'
-    elif tournament == NTL_2016_MO_GAMES_FOX and not is_stats:
+    elif tournament == NTL_2016_MO_GAMES_FOX:
         filename = 'NTL_2016_MO_GAMES_FOX'
-    elif tournament == NTL_2016_MO_GAMES_FOX and is_stats:
-        filename = 'NTL_2016_MO_STATS_FOX'
-    elif tournament == NTL_2016_WO_GAMES_FOX and not is_stats:
+    elif tournament == NTL_2016_WO_GAMES_FOX:
         filename = 'NTL_2016_WO_GAMES_FOX'
-    elif tournament == NTL_2016_WO_GAMES_FOX and is_stats:
-        filename = 'NTL_2016_WO_STATS_FOX'
     elif tournament == WC_2015_MO_GAMES_FIT:
         filename = 'WC_2015_MO_GAMES_FIT'
     elif tournament == WC_2015_WO_GAMES_FIT:
@@ -133,6 +117,9 @@ def get_csv_path(tournament, is_stats=False, is_test=True):
         filename = 'EUROS_2014_M40_GAMES_FIT'
     else:
         raise ValueError('Illegal argument: %s', tournament)
+
+    if is_stats:
+        filename.replace('GAMES', 'STATS')
 
     filename = CSV_FILES + filename + '.csv'
 
