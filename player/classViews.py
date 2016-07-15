@@ -42,7 +42,6 @@ class GameView(DetailView):
         local_stats, visitor_stats = self.get_game_details_stats(statistics, local_players, visitor_players)
 
         context = super(GameView, self).get_context_data(**kwargs)
-        context['tournament_list'] = Tournament.objects.all()
         context['game'] = self.object
         context['statistics'] = True if len(statistics) > 0 else False
         context['local_stats'] = local_stats
@@ -146,7 +145,6 @@ class TeamView(DetailView):
 
         context = super(TeamView, self).get_context_data(**kwargs)
         context['team'] = self.object
-        context['tournament_list'] = Tournament.objects.all()
         context['played_tournaments'] = played_tournaments
         context['games'] = games
         add_data_for_tournaments_menu(context)
@@ -168,7 +166,6 @@ class TeamTournamentView(DetailView):
         context = super(TeamTournamentView, self).get_context_data(**kwargs)
         context['tournament_id'] = tournament_id
         context['team'] = self.object
-        context['tournament_list'] = Tournament.objects.all()
         context['games'] = self.sort_games_by_phases(games)
         context['players'] = self.get_player_statistics(players, games)
         add_data_for_tournaments_menu(context)
@@ -290,7 +287,6 @@ class TournamentView(DetailView):
 
         context = super(TournamentView, self).get_context_data(**kwargs)
         context['tournament'] = self.object
-        context['tournament_list'] = tournament_list
         context['games'] = games
         context['liga_games'] = fixtures.sorted_ligas
         context['pool_games'] = pool_games
