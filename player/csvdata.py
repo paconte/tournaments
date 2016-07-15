@@ -119,7 +119,7 @@ def get_csv_path(tournament, is_stats=False, is_test=True):
         raise ValueError('Illegal argument: %s', tournament)
 
     if is_stats:
-        filename.replace('GAMES', 'STATS')
+        filename = filename.replace('GAMES', 'STATS')
 
     filename = CSV_FILES + filename + '.csv'
 
