@@ -215,7 +215,7 @@ class FitGamesManager:
             csv_stat = list(range(10))
             csv_stat[0] = self.t_name
             csv_stat[1] = self.t_division
-            csv_stat[2] = team
+            csv_stat[2] = team.title()
             columns = row.findAll('td')
             csv_stat[3] = columns[1].contents[0]  # number
             full_name = columns[0].contents[0]
