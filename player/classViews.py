@@ -167,7 +167,8 @@ class TeamTournamentView(DetailView):
         context['tournament_id'] = tournament_id
         context['team'] = self.object
         context['games'] = self.sort_games_by_phases(games)
-        context['players'] = self.get_player_statistics(players, games)
+        context['players'] = self.get_player_statistics(players, games, tournament_id)
+        #context['players'] = self._get_player_stats_nts(players, games)
         add_data_for_tournaments_menu(context)
 
         return context
@@ -221,7 +222,15 @@ class TeamTournamentView(DetailView):
 
         return result
 
-    def get_player_statistics(self, players, games):
+    def get_player_statistics(self, players, games, tournament):
+        stats_fit = self._get_player_stats_fit(players, tournament)
+        if len(stats_fit) != 0:
+            result = stats_fit
+        else:
+            result = self._get_player_stats_nts(players, games)
+        return result
+
+    def _get_player_stats_nts(self, players, games):
         """
         Given a list of players, a list with the same players and their total amount of points in a
         tournament is returned.
@@ -254,6 +263,17 @@ class TeamTournamentView(DetailView):
         for k, v in stats.items():
             result.append([k, v])
 
+        return sorted(result, key=lambda line: line[1], reverse=True)
+
+    def _get_player_stats_fit(self, players, tournament_id):
+        statistics = []
+        result = []
+        for player in players:
+            statistics.extend(PlayerStadistic.objects.filter(Q(player=player.id), Q(tournament=tournament_id)))
+        for stat in statistics:
+            k = stat.player.person.get_full_name()
+            v = stat.points
+            result.append([k, v])
         return sorted(result, key=lambda line: line[1], reverse=True)
 
 
