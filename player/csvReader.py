@@ -330,7 +330,7 @@ def printCF(obj, created):
 
 
 class CsvReader:
-    (PHASE, TOURNAMENT, NTS_STATISTIC, FIT_STATISTIC) = (0, 1, 2, 3)
+    (PHASE, TOURNAMENT, NTS_STATISTIC, FIT_STATISTIC, PADEL_GAME) = (0, 1, 2, 3, 4)
 
     def __init__(self, type):
         if type in [self.PHASE, self.TOURNAMENT, self.NTS_STATISTIC, self.FIT_STATISTIC]:
@@ -339,11 +339,6 @@ class CsvReader:
             self._type = type
         else:
             assert 0, "Wrong reader creation: " + type
-            #        if type == "phase": return csvPhasesReader()
-            #        if type == "tournament": return csvTournamentReader()
-            #        if type == "ntsstadistic": return ntsStadisticReader()
-            #        assert 0, "Wrong reader creation: "+ type
-            #    factory = staticmethod(factory)
 
     @staticmethod
     def print_row_to_read(csv):

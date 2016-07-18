@@ -1,3 +1,4 @@
+import csv
 import os.path
 
 from django.test import TestCase
@@ -65,6 +66,18 @@ class CsvFileTest(TestCase):
         #self._test_fit_tournament_Euros_2014_MXO()
         #self._test_fit_tournament_Euros_2014_SMX()
 
+    def test_padel(self):
+        with open('./player/data_files/csv/padel.csv', 'rt', encoding='utf-8') as csv_file:
+            reader = csv.reader(csv_file, delimiter=';')
+            for row in reader:
+                i = 0
+                for column in row:
+                    print(str(i) + "] " + column)
+                    i += 1
+
+        csv_file.close()
+
+
     def _test_fit_tournament_Euros_2014_MO(self):
         tournament = csvdata.EUROS_2014_MO
         self.csv_fit_tournament(tournament)
@@ -100,7 +113,6 @@ class CsvFileTest(TestCase):
         writer.write_csv(stats)
         reader = csvReader.CsvReader(csvReader.CsvReader.FIT_STATISTIC)
         reader.read_file(writer.get_filename_path(), csvdata.FitStatistic)
-
 
     def Atest_NTS_stats(self):
         management.call_command('loaddata', './player/data_files/player.dumpdata.json', verbosity=0)
