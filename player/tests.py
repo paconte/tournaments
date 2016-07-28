@@ -8,6 +8,7 @@ from player import csvWriter
 from player import csvdata
 from player import csvReader
 from player import models
+from player import games
 
 
 # Create your tests here.
@@ -24,7 +25,7 @@ class CsvFileTest(TestCase):
     def setUp(self):
         # pass
         reader = csvReader.CsvReader(csvReader.CsvReader.PHASE)
-        reader.read_file('./player/data_files/csv/TPhases.csv', csvdata.CsvPhase)
+        reader.read_file('./player/data_files/csv/TPhases.csv')
 
     def test_fox_tournament_WC_2015_WO_FOX(self):
         tournament = csvdata.WC_2015_WO_GAMES_FOX
@@ -66,17 +67,10 @@ class CsvFileTest(TestCase):
         #self._test_fit_tournament_Euros_2014_MXO()
         #self._test_fit_tournament_Euros_2014_SMX()
 
-    def test_padel(self):
-        with open('./player/data_files/csv/padel.csv', 'rt', encoding='utf-8') as csv_file:
-            reader = csv.reader(csv_file, delimiter=';')
-            for row in reader:
-                i = 0
-                for column in row:
-                    print(str(i) + "] " + column)
-                    i += 1
-
-        csv_file.close()
-
+    def test_padel_hamburg_2016(self):
+        file = './player/data_files/csv/PADEL_HAMBURG_2016.csv'
+        reader = csvReader.CsvReader(csvReader.CsvReader.PADEL_GAME)
+        reader.read_file(file)
 
     def _test_fit_tournament_Euros_2014_MO(self):
         tournament = csvdata.EUROS_2014_MO
@@ -112,13 +106,13 @@ class CsvFileTest(TestCase):
         writer.delete_filename_path()
         writer.write_csv(stats)
         reader = csvReader.CsvReader(csvReader.CsvReader.FIT_STATISTIC)
-        reader.read_file(writer.get_filename_path(), csvdata.FitStatistic)
+        reader.read_file(writer.get_filename_path())
 
     def Atest_NTS_stats(self):
         management.call_command('loaddata', './player/data_files/player.dumpdata.json', verbosity=0)
         filename = csvdata.CSV_FILES + 'NTS-player-statistics.csv'
         reader = csvReader.CsvReader(csvReader.CsvReader.NTS_STATISTIC)
-        reader.read_file(filename, csvdata.CsvNTSStatistic)
+        reader.read_file(filename)
         # management.call_command('flush', interactive=False, verbosity=0)
 
     def csv_fit_tournament(self, tournament):
@@ -130,7 +124,7 @@ class CsvFileTest(TestCase):
         writer.write_csv(manager.get_fit_games())
 
         reader = csvReader.CsvReader(csvReader.CsvReader.TOURNAMENT)
-        reader.read_file(writer.get_filename_path(), csvdata.CsvGame)
+        reader.read_file(writer.get_filename_path())
 
     def csv_fox_tournament(self, tournament, games_download=False, stats_download=False):
         fox_manager = csvWriter.FoxGamesManager(tournament)
@@ -147,7 +141,7 @@ class CsvFileTest(TestCase):
         self.assertTrue(os.path.isfile(writer.get_filename_path()))
 
         reader = csvReader.CsvReader(csvReader.CsvReader.TOURNAMENT)
-        reader.read_file(writer.get_filename_path(), csvdata.CsvGame)
+        reader.read_file(writer.get_filename_path())
 
         writer = csvWriter.CsvWriter(tournament, True)
         writer.delete_filename_path()
@@ -155,7 +149,7 @@ class CsvFileTest(TestCase):
         self.assertTrue(os.path.isfile(writer.get_filename_path()))
 
         reader = csvReader.CsvReader(csvReader.CsvReader.NTS_STATISTIC)
-        reader.read_file(writer.get_filename_path(), csvdata.CsvNTSStatistic)
+        reader.read_file(writer.get_filename_path())
 
 
 class DbChecks(TestCase):
