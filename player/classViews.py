@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 
 
 def add_data_for_tournaments_menu(context):
-    tournament_list = Tournament.objects.all()
+    tournament_list = Tournament.objects.filter(type="TOUCH")
     sorted_tournaments = sort_tournament_list(tournament_list)
     context['australia'] = sorted_tournaments['Australia']
     context['england'] = sorted_tournaments['England']

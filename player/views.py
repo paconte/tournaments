@@ -35,7 +35,7 @@ def index(request):
     Returns:
         A django HttpResponse class
     """
-    tournament_list = Tournament.objects.all()
+    tournament_list = Tournament.objects.filter(type="TOUCH")
     sort_tournament = sort_tournament_list(tournament_list)
     template = loader.get_template('index.html')
     form = SearchForm
@@ -125,7 +125,7 @@ def search(request):
 
 
 def tournaments(request):
-    tournament_list = Tournament.objects.all()
+    tournament_list = Tournament.objects.filter(type="TOUCH")
     sort_tournament = sort_tournament_list(tournament_list)
     template = loader.get_template('tournaments.html')
     context = RequestContext(request, {'tournament_list': tournament_list,
