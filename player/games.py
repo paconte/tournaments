@@ -1,7 +1,6 @@
 import crypt
-from time import strftime, time
-
-import itertools
+from time import strftime
+from datetime import datetime
 
 from player import csvdata
 
@@ -18,111 +17,98 @@ class DrawError(Exception):
         return repr(self.value)
 
 
-class Result:
-    (TOUCH, TENNIS) = (0, 1)
+class PadelResult:
 
-    def __init__(self, local_score=None, visitor_score=None, kind=TOUCH):
-        if kind == self.TOUCH:
-            if not isinstance(local_score, int):
-                raise ValueError("local_score must be an integer.")
-            if isinstance(visitor_score, int):
-                raise ValueError("visitor_score must be an integer.")
-        elif kind == self.TENNIS:
-            if not isinstance(local_score, list):
-                raise ValueError("visitor_score must be an list of integers.")
-            if not isinstance(visitor_score, list):
-                raise ValueError("visitor_score must be list of integers.")
-            if len(local_score != visitor_score):
-                raise ValueError("local_score and visitor_score must have the same length.")
-            for x, y in itertools.zip(local_score, visitor_score):
-                if not isinstance(x, int):
-                    raise ValueError("local_score must be an list of integers.")
-                if not isinstance(y, int):
-                    raise ValueError("visitor_score must be an list of integers.")
+    def __init__(self, scores):
+        self._asset_init(scores)
+        self.scores = scores
+        self.local_score = self.visitor_score = []
+        local = True
+        for score in scores:
+            if score:
+                if local:
+                    self.local_score.append(score)
+                else:
+                    self.visitor_score.append(score)
+            local = not local
 
+    def get_local_score(self):
+        sets = 0
+        for x in range(0, len(self.local_score)):
+            if self.local_score[x] > self.visitor_score[x]:
+                sets += 1
+                return sets
 
-        else:
-            raise ValueError("Wrong type argument")
-
-        self.kind = kind
-        self.local_score = local_score
-        self.visitor_score = visitor_score
+    def get_visitor_score(self):
+        sets = 0
+        for x in range(0, len(self.visitor_score)):
+            if self.visitor_score[x] > self.local_score[x]:
+                sets += 1
+                return sets
 
     def is_draw(self):
+        """Returns True if the result is a draw otherwise False."""
         try:
-            self.get_winner()
+            return self.get_winner() == 0
         except DrawError:
             return True
         return False
 
-    def get_winner(self):
-        if self.kind == self.TOUCH:
-            if self.local_score > self.visitor_score:
-                return self.local
-            elif self.local_score < self.visitor_score:
-                return self.visitor
-            else:
-                raise DrawError("The game is a draw.")
-        elif self.kind == self.TENNIS:
-            local_sets, visitor_sets = 0
-            for x in range(0, len(self.local_score)):
-                if self.local_score[x] > self.visitor_score[x]:
-                    local_sets += 1
-                elif self.local_score[x] < self.visitor_score[x]:
-                    visitor_sets += 1
-            if local_sets > visitor_sets:
-                return self.local
-            elif local_sets < visitor_sets:
-                return self.visitor
-            else:
-                raise DrawError("The game is a draw.")
-            return local_sets == visitor_sets
-
-
-class Teams:
-    (TOUCH, PADEL) = (0, 1)
-
-    def __init__(self, local=None, visitor=None, kind=TOUCH):
-        if kind == self.TOUCH:
-            self._assets_touch(local, visitor)
-            self.local_first = local
-            self.visitor_first = visitor
-        elif kind == self.PADEL:
-            self._assets_padel(local, visitor)
-            self.local_first = local[0]
-            self.local_second = local[1]
-            self.visitor_first = visitor[0]
-            self.visitor_second = visitor[1]
+    def get_winner(self, allow_draw=True):
+        """Returns: 1 if local team won, 2 if visitor team won, 0 if is a draw or an exception if draw is not allowed"""
+        local_sets = self.get_local_score()
+        visitor_sets = self.get_visitor_score()
+        if local_sets > visitor_sets:
+            return 1
+        elif local_sets < visitor_sets:
+            return 2
         else:
-            raise ValueError("Wrong type argument")
-        self.kind = kind
+            if allow_draw:
+                return 0
+            raise DrawError("The game is a draw.")
 
-    def _assets_touch(self, local, visitor):
-        if not isinstance(local, str):
-            raise ValueError("local must be a string.")
-        if isinstance(visitor, str):
-            raise ValueError("visitor must be a string.")
+    def _asset_init(self, scores):
+        assert len(scores) % 2 == 0, "Scores list argument length must be modulo 2."
 
-    def _assets_padel(self, local, visitor):
-        if not isinstance(local, list):
-            raise ValueError("visitor must be an list of strings.")
-        if not isinstance(visitor, list):
-            raise ValueError("visitor list of string.")
-        if len(local != visitor and len(local) == 2):
-            raise ValueError("local and visitor must have the two players each.")
-        for x, y in itertools.zip(local, visitor):
-            if not isinstance(x, str):
-                raise ValueError("local must be an list of strings.")
-            if not isinstance(y, str):
-                raise ValueError("visitor_score must be an list of strings.")
+        for score in scores[:-1]:
+            if score and not isinstance(int(score), int):
+                raise ValueError("Scores argument must be list of integers.")
+
+
+class PadelTeamNames:
+    def __init__(self, csv):
+        if len(csv) != 8:
+            raise ValueError("Touch games has a local and a visitor names")
+        for name in csv:
+            if not isinstance(name, str):
+                raise ValueError("Names must be a string.")
+
+        self.local_first_first_name = csv[1]
+        self.local_first_last_name = csv[0]
+        self.local_second_first_name = csv[3]
+        self.local_second_last_name = csv[2]
+
+        self.visitor_first_first_name = csv[5]
+        self.visitor_first_last_name = csv[4]
+        self.visitor_second_first_name = csv[7]
+        self.visitor_second_last_name = csv[6]
+
+        self.local = self.local_first_last_name + " - " + self.local_second_last_name
+        self.visitor = self.visitor_first_last_name + " - " + self.visitor_second_last_name
 
 
 class Game:
     def __init__(self):
-        self.local = self.visitor = self.result = None
-        self.round = self.category = self.n_teams = None
-        self.t_name = self.division = None
+        self.local = self.visitor = self.padel_team_names = None
+        self.round = self.category = self.nteams = None
+        self.tournament_name = self.division = self.result = None
         self.date_time = self.field = None
+
+    def get_local_score(self):
+        return self.result.get_local_score()
+
+    def get_visitor_score(self):
+        return self.result.get_visitor_score()
 
     def get_result(self):
         return self.result
@@ -136,15 +122,15 @@ class Game:
     def is_draw(self):
         return self.is_draw()
 
-    def get_time(self):
+    def get_date(self):
         return strftime("%m/%d/%y", self.date_time)
 
-    def get_date(self):
+    def get_time(self):
         return strftime("%H:%M", self.date_time)
 
     def get_touch_csv_list(self):
         result = list(range(13))
-        result[csvdata.TG_TOURNAMENT_INDEX] = self.t_name
+        result[csvdata.TG_TOURNAMENT_INDEX] = self.tournament_name
         result[csvdata.TG_DIVISION_INDEX] = self.division
         result[csvdata.TG_DATE_INDEX] = self.get_date()
         result[csvdata.TG_TIME_INDEX] = self.get_time()
@@ -159,12 +145,23 @@ class Game:
         result[csvdata.TG_VISITOR_TEAM_INDEX] = self.visitor
         return result
 
-    def from_csv_array(self, csv):
-        self.t_name = csv[0]
-        self.division = csv[1]
-        self.date_time = time.strptime(csv[2] + " " + csv[3], '%d/%m/%y %I:%M')
-        self.field = csv[3]
-        self.round = csv[4]
-        self.category = csv[5]
-        self.n_teams = csv[6]
-
+    @classmethod
+    def padel_from_csv_list(cls, csv):
+        game = cls()
+        game.tournament_name = csv[0]
+        game.ranking = csv[1]
+        game.division = csv[2]
+        game.date_time = datetime.strptime(csv[3], '%d/%m/%y')
+        # game.date = strftime("%m/%d/%y", game.date_time)
+        # game.time = None
+        # 4 => time , 5 => field
+        game.round = csv[6]
+        game.category = csv[7]
+        game.nteams = csv[8]
+        game.padel_team_names = PadelTeamNames(csv[9:17])
+        game.local = game.padel_team_names.local
+        game.visitor = game.padel_team_names.visitor
+        game.padel_result = PadelResult(csv[18:])
+        game.local_score = game.padel_result.get_local_score()
+        game.visitor_score = game.padel_result.get_visitor_score()
+        return game

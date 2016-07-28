@@ -1,5 +1,5 @@
 from time import strftime
-from player.models import MO, M30, M40, WO, W27, MXO, SMX;
+from player.models import MO, M30, M40, WO, W27, MXO, SMX
 
 
 def get_tournament_url(tournament):

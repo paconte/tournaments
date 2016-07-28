@@ -1,8 +1,5 @@
-import argparse
+from django.core.management.base import BaseCommand
 
-from django.core.management.base import BaseCommand, CommandError
-
-from player import csvdata
 from player import csvReader
 
 
@@ -10,7 +7,7 @@ class Command(BaseCommand):
     help = 'Add csv data to the database.'
 
     def add_arguments(self, parser):
-        parser.add_argument('type', choices=['games', 'phases', 'stats_game', 'stats_tournament'])
+        parser.add_argument('type', choices=['games', 'phases', 'stats_game', 'stats_tournament', 'padel'])
         parser.add_argument('file_path', nargs='+')
 
     def handle(self, *args, **options):
@@ -21,16 +18,19 @@ class Command(BaseCommand):
 
         if csv_type == 'stats_game':
             reader = csvReader.CsvReader(csvReader.CsvReader.NTS_STATISTIC)
-            reader.read_file(file_path, csvdata.CsvNTSStatistic)
+            reader.read_file(file_path)
         elif csv_type == 'stats_tournament':
             reader = csvReader.CsvReader(csvReader.CsvReader.FIT_STATISTIC)
-            reader.read_file(file_path, csvdata.FitStatistic)
+            reader.read_file(file_path)
         elif csv_type == 'games':
             reader = csvReader.CsvReader(csvReader.CsvReader.TOURNAMENT)
-            reader.read_file(file_path, csvdata.CsvGame)
+            reader.read_file(file_path)
+        elif csv_type == 'padel':
+            reader = csvReader.CsvReader(csvReader.CsvReader.PADEL_GAME)
+            reader.read_file(file_path)
         elif csv_type == 'phases':
             reader = csvReader.CsvReader(csvReader.CsvReader.PHASE)
-            reader.read_file(file_path, csvdata.CsvPhase)
+            reader.read_file(file_path)
         else:
             raise Exception('Argument %s not supported.' % csv_type)
 

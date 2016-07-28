@@ -3,8 +3,9 @@ import logging
 
 import itertools
 
+from player import games
 from player import csvdata
-from player.models import Game
+from player.models import Game, PadelResult
 from player.models import GameField
 from player.models import GameRound
 from player.models import Person
@@ -12,6 +13,7 @@ from player.models import Player
 from player.models import PlayerStadistic
 from player.models import Team
 from player.models import Tournament
+from player.models import get_player_gender
 
 from django.core.exceptions import MultipleObjectsReturned
 from django.core.exceptions import ObjectDoesNotExist
@@ -36,8 +38,8 @@ class DjangoSimpleFetcher:
                 logger.debug('Found {:s}:\n'.format(type(obj).__name__) + str(obj))
 
     @staticmethod
-    def get_or_create_tournament(tournament_name, tournament_division):
-        result = Tournament.objects.get_or_create(name=tournament_name, division=tournament_division)
+    def get_or_create_tournament(tournament_name, tournament_division, type):
+        result = Tournament.objects.get_or_create(name=tournament_name, division=tournament_division, type=type)
         return result
 
     @staticmethod
@@ -104,7 +106,13 @@ class DjangoSimpleFetcher:
         return game
 
     @staticmethod
-    def create_game(tournament, phase, field, time, local_team, visitor_team, local_score, visitor_score):
+    def create_game(tournament, phase, field, time, local_team, visitor_team, local_score, visitor_score, padel_scores):
+        if padel_scores:
+            result_padel = PadelResult.create(padel_scores.scores)
+            result_padel.save()
+        else:
+            result_padel = None
+
         result = Game.objects.get_or_create(
                 tournament=tournament,
                 local=local_team,
@@ -113,7 +121,9 @@ class DjangoSimpleFetcher:
                 visitor_score=visitor_score,
                 phase=phase,
                 field=field,
-                time=time)
+                time=time,
+                result_padel=result_padel)
+
         return result
 
     @staticmethod
@@ -146,7 +156,7 @@ class DjangoSimpleFetcher:
 class DjangoCsvFetcher:
     @staticmethod
     def create_csv_phase(csv_game, create):
-        if not isinstance(csv_game, csvdata.CsvGame):
+        if not isinstance(csv_game, csvdata.CsvGame) and not isinstance(csv_game, games.Game):
             assert 0, "Wrong game to read: " + csv_game
 
         round = csv_game.round
@@ -168,30 +178,65 @@ class DjangoCsvFetcher:
         DjangoSimpleFetcher.print_fetch_result(result, created)
         return result, created
 
-    @staticmethod
-    def create_csv_game(csv_game):
-        if not isinstance(csv_game, csvdata.CsvGame):
-            assert 0, "Wrong game to read: " + csv_game
+    def create_padel_persons(self, game):
+        if game.padel_team_names:
+            gender = get_player_gender(game.division)
+            # local team first pair
+            person, created = DjangoSimpleFetcher.get_or_create_person(
+                    game.padel_team_names.local_first_first_name,
+                    game.padel_team_names.local_first_last_name,
+                    gender)
+            DjangoSimpleFetcher.print_fetch_result(person, created)
+            # local team second pair
+            person, created = DjangoSimpleFetcher.get_or_create_person(
+                    game.padel_team_names.local_second_first_name,
+                    game.padel_team_names.local_second_last_name,
+                    gender)
+            DjangoSimpleFetcher.print_fetch_result(person, created)
+            # visitor team first pair
+            person, created = DjangoSimpleFetcher.get_or_create_person(
+                    game.padel_team_names.visitor_first_first_name,
+                    game.padel_team_names.visitor_first_last_name,
+                    gender)
+            DjangoSimpleFetcher.print_fetch_result(person, created)
+            # visitor team second pair
+            person, created = DjangoSimpleFetcher.get_or_create_person(
+                    game.padel_team_names.visitor_second_first_name,
+                    game.padel_team_names.visitor_second_last_name,
+                    gender)
+            DjangoSimpleFetcher.print_fetch_result(person, created)
 
-        tournament, created = DjangoSimpleFetcher.get_or_create_tournament(csv_game.tournament_name, csv_game.division)
+    @staticmethod
+    def create_touch_csv_game(game):
+        # if not isinstance(game, csvdata.CsvGame):
+        #    assert 0, "Wrong game to read: " + game
+        type = "TOUCH"
+        if game.padel_team_names:
+            DjangoCsvFetcher.create_padel_persons
+            type = "PADEL"
+
+        tournament, created = DjangoSimpleFetcher.get_or_create_tournament(game.tournament_name, game.division, type)
         DjangoSimpleFetcher.print_fetch_result(tournament, created)
 
-        local_team, created = create_or_fetch_team(csv_game.local, csv_game.division)
+        local_team, created = create_or_fetch_team(game.local, game.division)
         DjangoSimpleFetcher.print_fetch_result(local_team, created)
 
         add_team_to_tournament(tournament, local_team)
         # if created:
         #    add_team_to_tournament(tournament, local_team)
-        phase, created = DjangoCsvFetcher.create_csv_phase(csv_game, False)
-        time = csv_game.time if csv_game.time else None
+        phase, created = DjangoCsvFetcher.create_csv_phase(game, False)
+        try:
+            time = game.time
+        except AttributeError:
+            time = None
 
-        if csv_game.field:
-            field, created = GameField.objects.get_or_create(name=csv_game.field)
+        if game.field:
+            field, created = GameField.objects.get_or_create(name=game.field)
             DjangoSimpleFetcher.print_fetch_result(field, created)
         else:
             field = None
 
-        visitor_team, created = create_or_fetch_team(csv_game.visitor, csv_game.division)
+        visitor_team, created = create_or_fetch_team(game.visitor, game.division)
         DjangoSimpleFetcher.print_fetch_result(visitor_team, created)
 
         add_team_to_tournament(tournament, visitor_team)
@@ -199,38 +244,10 @@ class DjangoCsvFetcher:
         #    add_team_to_tournament(tournament, visitor_team)
 
         game, created = DjangoSimpleFetcher.create_game(
-                tournament, phase, field, time, local_team, visitor_team, csv_game.local_score, csv_game.visitor_score)
+                tournament, phase, field, time, local_team, visitor_team,
+                game.local_score, game.visitor_score, game.padel_result)
         DjangoSimpleFetcher.print_fetch_result(game, created)
         # assert created, "The game already exists"
-
-    @staticmethod
-    def create_or_fetch_person(row):
-        print(row)
-        try:
-            result = Person.objects.get(
-                    first_name=row[csvdata.PL_ST_FIRST_NAME_INDEX],
-                    last_name=row[csvdata.PL_ST_LAST_NAME_INDEX])
-            result = result, False
-
-        except MultipleObjectsReturned:
-            if row[csvdata.PL_ST_GENDER_INDEX]:
-                result = Person.objects.get(
-                        first_name=row[csvdata.PL_ST_FIRST_NAME_INDEX],
-                        last_name=row[csvdata.PL_ST_LAST_NAME_INDEX],
-                        gender=row[csvdata.PL_ST_GENDER_INDEX])
-            result = result, False
-
-        except ObjectDoesNotExist:
-            if row[csvdata.PL_ST_GENDER_INDEX]:
-                result = Person.objects.get_or_create(
-                        first_name=row[csvdata.PL_ST_FIRST_NAME_INDEX],
-                        last_name=row[csvdata.PL_ST_LAST_NAME_INDEX],
-                        gender=row[csvdata.csvdata.PL_ST_GENDER_INDEX])
-            else:
-                result = Person.objects.get_or_create(
-                        first_name=row[csvdata.PL_ST_FIRST_NAME_INDEX],
-                        last_name=row[csvdata.PL_ST_LAST_NAME_INDEX])
-        return result
 
     @staticmethod
     def create_csv_fit_statistic(csv_stats):
@@ -239,7 +256,8 @@ class DjangoCsvFetcher:
 
         tournament, created = DjangoSimpleFetcher.get_or_create_tournament(
                 csv_stats.tournament_name,
-                csv_stats.division)
+                csv_stats.division,
+                "TOUCH")
         DjangoSimpleFetcher.print_fetch_result(tournament, created)
 
         team, created = DjangoSimpleFetcher.get_or_create_team(csv_stats.team, csv_stats.division)
@@ -265,7 +283,8 @@ class DjangoCsvFetcher:
 
         tournament, created = DjangoSimpleFetcher.get_or_create_tournament(
                 csv_stats.tournament_name,
-                csv_stats.division)
+                csv_stats.division,
+                "TOUCH")
         DjangoSimpleFetcher.print_fetch_result(tournament, created)
 
         team, created = DjangoSimpleFetcher.get_or_create_team(csv_stats.team, csv_stats.division)
@@ -311,9 +330,15 @@ def add_team_to_tournament(tournament, team):
         print("Tournament %s already has the team %s" % (tournament.name, team.name))
 
 
-def create_or_fetch_team(pName, pDivision):
+def create_or_fetch_team(pName, pDivision, type=None):
+    if type == 'PADEL':
+        assert len(pName) == 2, "pName must be a list with two strings"
+        name = pName[0] + " - " + pName[1]
+    else:
+        name = pName
+
     result = Team.objects.get_or_create(
-            name=pName,
+            name=name,
             division=pDivision,
     )
     return result
@@ -333,7 +358,7 @@ class CsvReader:
     (PHASE, TOURNAMENT, NTS_STATISTIC, FIT_STATISTIC, PADEL_GAME) = (0, 1, 2, 3, 4)
 
     def __init__(self, type):
-        if type in [self.PHASE, self.TOURNAMENT, self.NTS_STATISTIC, self.FIT_STATISTIC]:
+        if type in [self.PHASE, self.TOURNAMENT, self.NTS_STATISTIC, self.FIT_STATISTIC, self.PADEL_GAME]:
             self._fexit = '####'
             self._exit_text = '\n Force exit #### :)\n'
             self._type = type
@@ -362,6 +387,8 @@ class CsvReader:
             result = csvdata.CsvNTSStatistic(row)
         elif self._type == self.FIT_STATISTIC:
             result = csvdata.FitStatistic.from_array(row)
+        elif self._type == self.PADEL_GAME:
+            result = games.Game.padel_from_csv_list(row)
         else:
             assert 0, "Wrong object to read: " + self._type
         return result
@@ -372,15 +399,17 @@ class CsvReader:
                     csv_object.category, csv_object.round, csv_object.teams, True)
             DjangoSimpleFetcher.print_fetch_result(phase, created)
         elif self._type == self.TOURNAMENT and isinstance(csv_object, csvdata.CsvGame):
-            DjangoCsvFetcher.create_csv_game(csv_object)
+            DjangoCsvFetcher.create_touch_csv_game(csv_object)
         elif self._type == self.NTS_STATISTIC and isinstance(csv_object, csvdata.CsvNTSStatistic):
             DjangoCsvFetcher.create_csv_nts_player_statistic(csv_object)
         elif self._type == self.FIT_STATISTIC and isinstance(csv_object, csvdata.FitStatistic):
             DjangoCsvFetcher.create_csv_fit_statistic(csv_object)
+        elif self._type == self.PADEL_GAME and isinstance(csv_object, games.Game):
+            DjangoCsvFetcher.create_touch_csv_game(csv_object)
         else:
             assert 0, "Wrong object to read: " + self._type
 
-    def read_file(self, file, subclass):
+    def read_file(self, file):
         with open(file, 'rt', encoding='utf-8') as csv_file:
             # reader2 = csv.reader(csv_file, delimiter=';')
             reader1, reader2 = itertools.tee(csv.reader(csv_file, delimiter=';'))
