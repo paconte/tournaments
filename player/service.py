@@ -382,7 +382,10 @@ class TeamsMatrix:
                 i += 1
 
 
-def sort_tournament_list(tournament_list):
+def sort_tournament_list(tournament_list, tournament_type):
+    if tournament_type == "PADEL":
+        return tournament_list
+
     result = {"England": list(), "World_Cup": list(), "Euros": list(), "Germany": list(), "Australia": list()}
     for t in tournament_list:
         if 'NTS' in t.name:

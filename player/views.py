@@ -22,10 +22,11 @@ from player.service import TeamsMatrix
 
 from player.service import sort_tournament_list
 
+tournament_type = "TOUCH"
+#tournament_type = "PADEL"
+
 
 # Create your views here.
-
-
 def index(request):
     """
     Prepare and displays the main view of the web application.
@@ -35,17 +36,10 @@ def index(request):
     Returns:
         A django HttpResponse class
     """
-    tournament_list = Tournament.objects.filter(type="TOUCH")
-    sort_tournament = sort_tournament_list(tournament_list)
+    tournament_list = _get_tournament_list()
+    sort_tournament = sort_tournament_list(tournament_list, tournament_type)
     template = loader.get_template('index.html')
-    form = SearchForm
-    context = RequestContext(request, {'tournament_list': tournament_list,
-                                       'australia': sort_tournament['Australia'],
-                                       'england': sort_tournament['England'],
-                                       'germany': sort_tournament['Germany'],
-                                       'world_cup': sort_tournament['World_Cup'],
-                                       'euros': sort_tournament['Euros'],
-                                       })
+    context = RequestContext(request, _get_tournaments_context(sort_tournament))
     return HttpResponse(template.render(context))
 
 
@@ -125,16 +119,10 @@ def search(request):
 
 
 def tournaments(request):
-    tournament_list = Tournament.objects.filter(type="TOUCH")
-    sort_tournament = sort_tournament_list(tournament_list)
-    template = loader.get_template('tournaments.html')
-    context = RequestContext(request, {'tournament_list': tournament_list,
-                                       'england': sort_tournament['England'],
-                                       'germany': sort_tournament['Germany'],
-                                       'world_cup': sort_tournament['World_Cup'],
-                                       'australia': sort_tournament['Australia'],
-                                       'euros': sort_tournament['Euros'],
-                                       })
+    tournament_list = _get_tournament_list()
+    sort_tournament = sort_tournament_list(tournament_list, tournament_type)
+    template = _get_tournaments_template()
+    context = RequestContext(request,  _get_tournaments_context(sort_tournament))
     return HttpResponse(template.render(context))
 
 
@@ -329,3 +317,49 @@ def detail_game(request, game_id):
                                                                   local_players,
                                                                   visitor_players),
                    'tournament_list': tournament_list,})
+
+
+# non view functions here.
+def add_data_for_tournaments_menu(context):
+    if tournament_type == "TOUCH":
+        tournament_list = _get_tournament_list()
+        sorted_tournaments = sort_tournament_list(tournament_list)
+        context['australia'] = sorted_tournaments['Australia']
+        context['england'] = sorted_tournaments['England']
+        context['germany'] = sorted_tournaments['Germany']
+        context['world_cup'] = sorted_tournaments['World_Cup']
+        context['euros'] = sorted_tournaments['Euros']
+        return context
+    else:
+        context['tournaments']
+
+# private functions here.
+def _get_tournament_list():
+    return Tournament.objects.filter(type=tournament_type)
+
+
+def _get_tournaments_context(sort_tournament):
+    if tournament_type == "TOUCH":
+        if sort_tournament:
+            tournament_list = True
+        else:
+            tournament_list = False
+        return {'tournament_list': tournament_list,
+                'england': sort_tournament['England'],
+                'germany': sort_tournament['Germany'],
+                'world_cup': sort_tournament['World_Cup'],
+                'australia': sort_tournament['Australia'],
+                'euros': sort_tournament['Euros']}
+    elif tournament_type == "PADEL":
+        return {'tournaments': _get_tournament_list()}
+
+
+def _get_tournaments_template():
+    if tournament_type == "TOUCH":
+        template = 'touch/tournaments.html'
+    elif tournament_type == "PADEL":
+        template = 'padel/tournaments.html'
+    else:
+        raise AttributeError('tournament type is not supported')
+    return loader.get_template(template)
+

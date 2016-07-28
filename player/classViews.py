@@ -12,23 +12,11 @@ from player.models import Team
 from player.models import Person
 from player.service import Fixtures
 from player.service import StructuresUtils
-from player.service import sort_tournament_list
 
 import logging
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
-
-
-def add_data_for_tournaments_menu(context):
-    tournament_list = Tournament.objects.filter(type="TOUCH")
-    sorted_tournaments = sort_tournament_list(tournament_list)
-    context['australia'] = sorted_tournaments['Australia']
-    context['england'] = sorted_tournaments['England']
-    context['germany'] = sorted_tournaments['Germany']
-    context['world_cup'] = sorted_tournaments['World_Cup']
-    context['euros'] = sorted_tournaments['Euros']
-    return context
 
 
 class GameView(DetailView):
@@ -46,7 +34,6 @@ class GameView(DetailView):
         context['statistics'] = True if len(statistics) > 0 else False
         context['local_stats'] = local_stats
         context['visitor_stats'] = visitor_stats
-        add_data_for_tournaments_menu(context)
 
         return context
 
@@ -130,7 +117,6 @@ class PersonView(DetailView):
         context['person'] = self.object
         context['games'] = games
         context['tournament_team_dict'] = tournament_team_dict
-        add_data_for_tournaments_menu(context)
 
         return context
 
@@ -147,7 +133,6 @@ class TeamView(DetailView):
         context['team'] = self.object
         context['played_tournaments'] = played_tournaments
         context['games'] = games
-        add_data_for_tournaments_menu(context)
 
         return context
 
@@ -169,7 +154,6 @@ class TeamTournamentView(DetailView):
         context['games'] = self.sort_games_by_phases(games)
         context['players'] = self.get_player_statistics(players, games, tournament_id)
         #context['players'] = self._get_player_stats_nts(players, games)
-        add_data_for_tournaments_menu(context)
 
         return context
 
@@ -303,7 +287,6 @@ class TournamentView(DetailView):
         division_games = fixtures.sorted_divisions
         finals_games = fixtures.get_phased_finals({})
         st_utils = StructuresUtils()
-        tournament_list = Tournament.objects.all()
 
         context = super(TournamentView, self).get_context_data(**kwargs)
         context['tournament'] = self.object
@@ -315,6 +298,6 @@ class TournamentView(DetailView):
         context['phased_finals_games'] = fixtures.get_phased_finals({})
         context['teams_matrix'] = st_utils.get_teams_matrix(teams, 4)
         context['division'] = self.object.get_division_name()
-        add_data_for_tournaments_menu(context)
+        #add_data_for_tournaments_menu(context)
 
         return context

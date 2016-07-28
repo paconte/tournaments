@@ -22,29 +22,27 @@ class PadelResult:
     def __init__(self, scores):
         self._asset_init(scores)
         self.scores = scores
-        self.local_score = self.visitor_score = []
-        local = True
-        for score in scores:
-            if score:
-                if local:
-                    self.local_score.append(score)
-                else:
-                    self.visitor_score.append(score)
-            local = not local
+        self.local_score = []
+        self.visitor_score = []
+        for x in range(0, len(scores)):
+            if x % 2 == 0:
+                self.local_score.append(int(scores[x]))
+            else:
+                self.visitor_score.append(int(scores[x]))
 
     def get_local_score(self):
         sets = 0
         for x in range(0, len(self.local_score)):
             if self.local_score[x] > self.visitor_score[x]:
                 sets += 1
-                return sets
+        return sets
 
     def get_visitor_score(self):
         sets = 0
         for x in range(0, len(self.visitor_score)):
             if self.visitor_score[x] > self.local_score[x]:
                 sets += 1
-                return sets
+        return sets
 
     def is_draw(self):
         """Returns True if the result is a draw otherwise False."""

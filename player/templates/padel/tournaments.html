@@ -1,0 +1,76 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Germany</h2>
+            {% if tournaments %}
+            <div class="list-group">
+                {% for t in tournaments %}
+                <a href="{% url 'detail_tournament' t.id %}" class="list-group-item">{{ t.name }} - {{t.division}}</a>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        <div class="col-md-6">
+            <h2>Euros</h2>
+            {% if euros %}
+            <div class="list-group">
+                {% for t in euros %}
+                <a href="{% url 'detail_tournament' t.id %}" class="list-group-item">{{ t.name }} - {{t.division}}</a>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+     <div class="row">
+         <div class="col-md-6">
+            <h2>Australia</h2>
+            {% if australia %}
+            <div class="list-group">
+                {% for t in australia %}
+                <a href="{% url 'detail_tournament' t.id %}" class="list-group-item">{{ t.name }} - {{t.division}}</a>
+                {% endfor %}
+            </div>
+            {% endif %}
+             <h2>Germany</h2>
+            {% if germany %}
+            <div class="list-group">
+                {% for t in germany %}
+                <a href="{% url 'detail_tournament' t.id %}" class="list-group-item">{{ t.name }} - {{t.division}}</a>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="col-md-6">
+            <h2>England - NTS</h2>
+            {% if england %}
+            <div class="list-group">
+                {% for t in england %}
+                <a href="{% url 'detail_tournament' t.id %}" class="list-group-item">{{ t.name }} - {{t.division}}</a>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!--
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Germany</h2>
+            {% if germany %}
+            <div class="list-group">
+                {% for t in germany %}
+                <a href="{% url 'detail_tournament' t.id %}" class="list-group-item">{{ t.name }} - {{t.division}}</a>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    -->
+
+</div>
+{% endblock %}
