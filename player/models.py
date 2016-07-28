@@ -85,6 +85,8 @@ class Team(models.Model):
 
 
 class Tournament(models.Model):
+    TOURNAMENT_CHOICES = (("PADEL", "PADEL"), ("TOUCH", "TOUCH"))
+    type = models.CharField(max_length=10, choices=TOURNAMENT_CHOICES, default="TOUCH")
     name = models.CharField(max_length=50)
     country = models.CharField(max_length=30)
     city = models.CharField(max_length=30)
@@ -443,6 +445,58 @@ class GameField(models.Model):
         return '{}'.format(self.name)
 
 
+class PadelResult(models.Model):
+    scores = []
+
+    local1 = models.SmallIntegerField(null=True, blank=True)
+    local2 = models.SmallIntegerField(null=True, blank=True)
+    local3 = models.SmallIntegerField(null=True, blank=True)
+    local4 = models.SmallIntegerField(null=True, blank=True)
+    local5 = models.SmallIntegerField(null=True, blank=True)
+    local6 = models.SmallIntegerField(null=True, blank=True)
+    local7 = models.SmallIntegerField(null=True, blank=True)
+    local8 = models.SmallIntegerField(null=True, blank=True)
+    local9 = models.SmallIntegerField(null=True, blank=True)
+    local10 = models.SmallIntegerField(null=True, blank=True)
+
+    visitor1 = models.SmallIntegerField(null=True, blank=True)
+    visitor2 = models.SmallIntegerField(null=True, blank=True)
+    visitor3 = models.SmallIntegerField(null=True, blank=True)
+    visitor4 = models.SmallIntegerField(null=True, blank=True)
+    visitor5 = models.SmallIntegerField(null=True, blank=True)
+    visitor6 = models.SmallIntegerField(null=True, blank=True)
+    visitor7 = models.SmallIntegerField(null=True, blank=True)
+    visitor8 = models.SmallIntegerField(null=True, blank=True)
+    visitor9 = models.SmallIntegerField(null=True, blank=True)
+    visitor10 = models.SmallIntegerField(null=True, blank=True)
+
+    @classmethod
+    def create(cls, scores):
+        result = cls(local1=scores[0], visitor1=scores[1])
+        try:
+            result.local2 = scores[2]
+            result.visitor2 = scores[3]
+            result.local3 = scores[4]
+            result.visitor3 = scores[5]
+            result.local4 = scores[6]
+            result.visitor4 = scores[7]
+            result.local5 = scores[8]
+            result.visitor5 = scores[9]
+            result.local6 = scores[10]
+            result.visitor6 = scores[11]
+            result.local7 = scores[12]
+            result.visitor7 = scores[13]
+            result.local8 = scores[14]
+            result.visitor8 = scores[15]
+            result.local9 = scores[16]
+            result.visitor9 = scores[17]
+            result.local10 = scores[18]
+            result.visitor10 = scores[19]
+        except IndexError:
+            pass
+        return result
+
+
 class Game(models.Model):
     field = models.ForeignKey(GameField, blank=True, null=True)
     time = models.TimeField(blank=True, null=True)
@@ -452,6 +506,7 @@ class Game(models.Model):
     visitor_score = models.SmallIntegerField(null=True, blank=True)
     tournament = models.ForeignKey(Tournament)
     phase = models.ForeignKey(GameRound)
+    result_padel = models.ForeignKey(PadelResult, null=True, blank=True)
 
     def __str__(self):
         return '{} - {} - {} {} - {} {}'.format(
