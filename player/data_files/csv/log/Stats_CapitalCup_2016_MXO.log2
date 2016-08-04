@@ -1,0 +1,2489 @@
+Read csv file: "./player/data_files/csv/CapitalCup2016-player-statistics.csv"
+
+Detected 15 columns
+
+
+Starting reading 2 from ./player/data_files/csv/CapitalCup2016-player-statistics.csv
+
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Colonia', '5', 'Kate', 'McRae', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Colonia
+Found Person:
+Kate McRae - F
+Found Player:
+MXO - Touch Colonia,  5 Kate McRae - F
+GameStadistic skipped: there are no tries for player: MXO - Touch Colonia,  5 Kate McRae - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Colonia', '12', 'Ute', 'Kohlheim', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Colonia
+Found Person:
+Ute Kohlheim - U
+Found Player:
+MXO - Touch Colonia,  12 Ute Kohlheim - U
+GameStadistic skipped: there are no tries for player: MXO - Touch Colonia,  12 Ute Kohlheim - U
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Colonia', '11', 'Pia', 'Kotzur', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Colonia
+Found Person:
+Pia Kotzur - F
+Found Player:
+MXO - Touch Colonia,  11 Pia Kotzur - F
+GameStadistic skipped: there are no tries for player: MXO - Touch Colonia,  11 Pia Kotzur - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Colonia', '33', 'Solveig', 'Heisterkamp', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Colonia
+Found Person:
+Solveig Heisterkamp - F
+Found Player:
+MXO - Touch Colonia,  33 Solveig Heisterkamp - F
+GameStadistic skipped: there are no tries for player: MXO - Touch Colonia,  33 Solveig Heisterkamp - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Colonia', '3', 'Chrissie', 'Redenbach', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Colonia
+Found Person:
+Chrissie Redenbach - F
+Found Player:
+MXO - Touch Colonia,  3 Chrissie Redenbach - F
+GameStadistic skipped: there are no tries for player: MXO - Touch Colonia,  3 Chrissie Redenbach - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Colonia', '2', 'Sarah', 'Wilmschen', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Colonia
+Found Person:
+Sarah Wilmschen - F
+Found Player:
+MXO - Touch Colonia,  2 Sarah Wilmschen - F
+GameStadistic skipped: there are no tries for player: MXO - Touch Colonia,  2 Sarah Wilmschen - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Colonia', '36', 'Mark', 'Moses', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Colonia
+Found Person:
+Mark Moses - M
+Found Player:
+MXO - Touch Colonia,  36 Mark Moses - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Colonia,  36 Mark Moses - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Colonia', '69', 'Lennart', 'Palm', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Colonia
+Found Person:
+Lennart Palm - M
+Found Player:
+MXO - Touch Colonia,  69 Lennart Palm - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Colonia,  69 Lennart Palm - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Colonia', '29', 'Jeremy', 'Despretz', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Colonia
+Found Person:
+Jeremy Despretz - M
+Found Player:
+MXO - Touch Colonia,  29 Jeremy Despretz - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Colonia,  29 Jeremy Despretz - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Colonia', '7', 'Udo', 'Haberich', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Colonia
+Found Person:
+Udo Haberich - U
+Found Player:
+MXO - Touch Colonia,  7 Udo Haberich - U
+GameStadistic skipped: there are no tries for player: MXO - Touch Colonia,  7 Udo Haberich - U
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'BRC Bears', '11', 'Katharina', 'Urban', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - BRC Bears
+Found Person:
+Katharina Urban - U
+Found Player:
+MXO - BRC Bears,  11 Katharina Urban - U
+GameStadistic skipped: there are no tries for player: MXO - BRC Bears,  11 Katharina Urban - U
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'BRC Bears', '4', 'Jeanette', '', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - BRC Bears
+Found Person:
+Jeanette  - F
+Found Player:
+MXO - BRC Bears,  4 Jeanette  - F
+GameStadistic skipped: there are no tries for player: MXO - BRC Bears,  4 Jeanette  - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'BRC Bears', '10', 'Ulrike', 'Heller', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - BRC Bears
+Found Person:
+Ulrike Heller - F
+Found Player:
+MXO - BRC Bears,  10 Ulrike Heller - F
+GameStadistic skipped: there are no tries for player: MXO - BRC Bears,  10 Ulrike Heller - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'BRC Bears', '20', 'Karo', '', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - BRC Bears
+Found Person:
+Karo  - F
+Found Player:
+MXO - BRC Bears,  20 Karo  - F
+GameStadistic skipped: there are no tries for player: MXO - BRC Bears,  20 Karo  - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'BRC Bears', '9', 'Selim', 'Yürgüc', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - BRC Bears
+Found Person:
+Selim Yürgüc - M
+Found Player:
+MXO - BRC Bears,  9 Selim Yürgüc - M
+GameStadistic skipped: there are no tries for player: MXO - BRC Bears,  9 Selim Yürgüc - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'BRC Bears', '22', 'Aaron', 'Herrera', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - BRC Bears
+Found Person:
+Aaron Herrera - M
+Found Player:
+MXO - BRC Bears,  22 Aaron Herrera - M
+GameStadistic skipped: there are no tries for player: MXO - BRC Bears,  22 Aaron Herrera - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'BRC Bears', '23', 'Martin', 'K', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - BRC Bears
+Found Person:
+Martin K - M
+Found Player:
+MXO - BRC Bears,  23 Martin K - M
+GameStadistic skipped: there are no tries for player: MXO - BRC Bears,  23 Martin K - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'BRC Bears', '17', 'Sven', '', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - BRC Bears
+Found Person:
+Sven  - M
+Found Player:
+MXO - BRC Bears,  17 Sven  - M
+GameStadistic skipped: there are no tries for player: MXO - BRC Bears,  17 Sven  - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'BRC Bears', '15', 'Martin', '', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - BRC Bears
+Found Person:
+Martin  - M
+Found Player:
+MXO - BRC Bears,  15 Martin  - M
+GameStadistic skipped: there are no tries for player: MXO - BRC Bears,  15 Martin  - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'BRC Bears', '5', 'Moritz', '', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - BRC Bears
+Found Person:
+Moritz  - M
+Found Player:
+MXO - BRC Bears,  5 Moritz  - M
+GameStadistic skipped: there are no tries for player: MXO - BRC Bears,  5 Moritz  - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'BRC Bears', '25', 'Daniel', '', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - BRC Bears
+Found Person:
+Daniel  - M
+Found Player:
+MXO - BRC Bears,  25 Daniel  - M
+GameStadistic skipped: there are no tries for player: MXO - BRC Bears,  25 Daniel  - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'BRC Bears', '19', 'Lukas', 'M.', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - BRC Bears
+Found Person:
+Lukas M. - M
+Found Player:
+MXO - BRC Bears,  19 Lukas M. - M
+GameStadistic skipped: there are no tries for player: MXO - BRC Bears,  19 Lukas M. - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'BRC Bears', '14', 'Lukas', 'W.', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - BRC Bears
+Found Person:
+Lukas W. - M
+Found Player:
+MXO - BRC Bears,  14 Lukas W. - M
+GameStadistic skipped: there are no tries for player: MXO - BRC Bears,  14 Lukas W. - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Munich', '10', 'Svenja', 'Gellert', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Munich
+Found Person:
+Svenja Gellert - F
+Found Player:
+MXO - Touch Munich,  10 Svenja Gellert - F
+GameStadistic skipped: there are no tries for player: MXO - Touch Munich,  10 Svenja Gellert - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Munich', '', 'Nancy', '', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Munich
+Found Person:
+Nancy  - F
+Found Player:
+MXO - Touch Munich,  None Nancy  - F
+GameStadistic skipped: there are no tries for player: MXO - Touch Munich,  None Nancy  - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Munich', '', 'Lena', '', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Munich
+Found Person:
+Lena  - F
+Found Player:
+MXO - Touch Munich,  None Lena  - F
+GameStadistic skipped: there are no tries for player: MXO - Touch Munich,  None Lena  - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Munich', '', 'Ulrike', '', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Munich
+Found Person:
+Ulrike  - F
+Found Player:
+MXO - Touch Munich,  None Ulrike  - F
+GameStadistic skipped: there are no tries for player: MXO - Touch Munich,  None Ulrike  - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Munich', '6', 'Lok Man', 'Ho', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Munich
+Found Person:
+Lok Man Ho - M
+Found Player:
+MXO - Touch Munich,  6 Lok Man Ho - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Munich,  6 Lok Man Ho - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Munich', '4', 'Jonathan', 'Pengelly', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Munich
+Found Person:
+Jonathan Pengelly - M
+Found Player:
+MXO - Touch Munich,  4 Jonathan Pengelly - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Munich,  4 Jonathan Pengelly - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Munich', '9', 'Nikolay', 'Landjev', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Munich
+Found Person:
+Nikolay Landjev - M
+Found Player:
+MXO - Touch Munich,  9 Nikolay Landjev - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Munich,  9 Nikolay Landjev - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Munich', '', 'Ricardo', 'de Castro', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Munich
+Found Person:
+Ricardo de Castro - M
+Found Player:
+MXO - Touch Munich,  None Ricardo de Castro - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Munich,  None Ricardo de Castro - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Munich', '', 'Bob', 'Kalman', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Munich
+Found Person:
+Bob Kalman - M
+Found Player:
+MXO - Touch Munich,  None Bob Kalman - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Munich,  None Bob Kalman - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Munich', '', 'Fin', '', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Munich
+Found Person:
+Fin  - M
+Found Player:
+MXO - Touch Munich,  None Fin  - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Munich,  None Fin  - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Munich', '', 'Matt', 'Dang', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Munich
+Found Person:
+Matt Dang - M
+Found Player:
+MXO - Touch Munich,  None Matt Dang - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Munich,  None Matt Dang - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Munich', '', 'Duncan', 'Binger', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Munich
+Found Person:
+Duncan Binger - M
+Found Player:
+MXO - Touch Munich,  None Duncan Binger - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Munich,  None Duncan Binger - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Munich', '', 'Stefan', 'Breitschuh', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Munich
+Found Person:
+Stefan Breitschuh - M
+Found Player:
+MXO - Touch Munich,  None Stefan Breitschuh - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Munich,  None Stefan Breitschuh - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Munich', '', 'Victor', '', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Munich
+Found Person:
+Victor  - M
+Found Player:
+MXO - Touch Munich,  None Victor  - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Munich,  None Victor  - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Munich', '', 'Allen', '', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Munich
+Found Person:
+Allen  - M
+Found Player:
+MXO - Touch Munich,  None Allen  - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Munich,  None Allen  - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Frankfurt', '', 'Sharlen', 'Smith', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Frankfurt
+Found Person:
+Sharlen Smith - F
+Found Player:
+MXO - Touch Frankfurt,  None Sharlen Smith - F
+GameStadistic skipped: there are no tries for player: MXO - Touch Frankfurt,  None Sharlen Smith - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Frankfurt', '', 'Lisa', 'Tighe-Umbers', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Frankfurt
+Found Person:
+Lisa Tighe-Umbers - F
+Found Player:
+MXO - Touch Frankfurt,  None Lisa Tighe-Umbers - F
+GameStadistic skipped: there are no tries for player: MXO - Touch Frankfurt,  None Lisa Tighe-Umbers - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Frankfurt', '', 'Vicki', 'Seipp', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Frankfurt
+Found Person:
+Vicki Seipp - F
+Found Player:
+MXO - Touch Frankfurt,  None Vicki Seipp - F
+GameStadistic skipped: there are no tries for player: MXO - Touch Frankfurt,  None Vicki Seipp - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Frankfurt', '', 'Alexandra', 'Ils', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Frankfurt
+Found Person:
+Alexandra Ils - F
+Found Player:
+MXO - Touch Frankfurt,  None Alexandra Ils - F
+GameStadistic skipped: there are no tries for player: MXO - Touch Frankfurt,  None Alexandra Ils - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Frankfurt', '', 'Simi', 'Hebler', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Frankfurt
+Found Person:
+Simi Hebler - M
+Found Player:
+MXO - Touch Frankfurt,  None Simi Hebler - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Frankfurt,  None Simi Hebler - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Frankfurt', '', 'Ben', 'Edwards', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Frankfurt
+Found Person:
+Ben Edwards - M
+Found Player:
+MXO - Touch Frankfurt,  None Ben Edwards - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Frankfurt,  None Ben Edwards - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Frankfurt', '', 'Jörg', 'Scloßmacher', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Frankfurt
+Found Person:
+Jörg Scloßmacher - M
+Found Player:
+MXO - Touch Frankfurt,  None Jörg Scloßmacher - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Frankfurt,  None Jörg Scloßmacher - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Frankfurt', '', 'Thomas', 'Trespialles', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Frankfurt
+Found Person:
+Thomas Trespialles - M
+Found Player:
+MXO - Touch Frankfurt,  None Thomas Trespialles - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Frankfurt,  None Thomas Trespialles - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Frankfurt', '', 'Annie', 'Ueyama', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Frankfurt
+Found Person:
+Annie Ueyama - F
+Found Player:
+MXO - Touch Frankfurt,  None Annie Ueyama - F
+GameStadistic skipped: there are no tries for player: MXO - Touch Frankfurt,  None Annie Ueyama - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Frankfurt', '', 'Greg', 'Gibsons', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Frankfurt
+Found Person:
+Greg Gibsons - M
+Found Player:
+MXO - Touch Frankfurt,  None Greg Gibsons - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Frankfurt,  None Greg Gibsons - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Frankfurt', '', 'Verena', 'Seipp', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Frankfurt
+Found Person:
+Verena Seipp - F
+Found Player:
+MXO - Touch Frankfurt,  None Verena Seipp - F
+GameStadistic skipped: there are no tries for player: MXO - Touch Frankfurt,  None Verena Seipp - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Frankfurt', '', 'Josue Manuel', 'Quintana Diaz', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Frankfurt
+Found Person:
+Josue Manuel Quintana Diaz - M
+Found Player:
+MXO - Touch Frankfurt,  None Josue Manuel Quintana Diaz - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Frankfurt,  None Josue Manuel Quintana Diaz - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Frankfurt', '', 'Alex', 'Ibbett', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Frankfurt
+Found Person:
+Alex Ibbett - M
+Found Player:
+MXO - Touch Frankfurt,  None Alex Ibbett - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Frankfurt,  None Alex Ibbett - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Berlin Armadillos', '', 'Emily', 'Lux', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Berlin Armadillos
+Found Person:
+Emily Lux - F
+Found Player:
+MXO - Touch Berlin Armadillos,  None Emily Lux - F
+GameStadistic skipped: there are no tries for player: MXO - Touch Berlin Armadillos,  None Emily Lux - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Berlin Armadillos', '', 'Leo', 'Picau', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Berlin Armadillos
+Found Person:
+Leo Picau - F
+Found Player:
+MXO - Touch Berlin Armadillos,  None Leo Picau - F
+GameStadistic skipped: there are no tries for player: MXO - Touch Berlin Armadillos,  None Leo Picau - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Berlin Armadillos', '', 'Alice', 'Higgins', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Berlin Armadillos
+Found Person:
+Alice Higgins - F
+Found Player:
+MXO - Touch Berlin Armadillos,  None Alice Higgins - F
+GameStadistic skipped: there are no tries for player: MXO - Touch Berlin Armadillos,  None Alice Higgins - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Berlin Armadillos', '', 'Kirstin', 'Piening', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Berlin Armadillos
+Found Person:
+Kirstin Piening - F
+Found Player:
+MXO - Touch Berlin Armadillos,  None Kirstin Piening - F
+GameStadistic skipped: there are no tries for player: MXO - Touch Berlin Armadillos,  None Kirstin Piening - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Berlin Armadillos', '', 'Matthis', 'Brinkhaus', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Berlin Armadillos
+Found Person:
+Matthis Brinkhaus - M
+Found Player:
+MXO - Touch Berlin Armadillos,  None Matthis Brinkhaus - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Berlin Armadillos,  None Matthis Brinkhaus - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Berlin Armadillos', '', 'Suki', '', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Berlin Armadillos
+Found Person:
+Suki  - M
+Found Player:
+MXO - Touch Berlin Armadillos,  None Suki  - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Berlin Armadillos,  None Suki  - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Berlin Armadillos', '', 'Romain', 'Bousquet', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Berlin Armadillos
+Found Person:
+Romain Bousquet - M
+Found Player:
+MXO - Touch Berlin Armadillos,  None Romain Bousquet - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Berlin Armadillos,  None Romain Bousquet - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Berlin Armadillos', '', 'Chris', 'Cooke', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Berlin Armadillos
+Found Person:
+Chris Cooke - M
+Found Player:
+MXO - Touch Berlin Armadillos,  None Chris Cooke - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Berlin Armadillos,  None Chris Cooke - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Berlin Armadillos', '', 'Ian', 'Darcy', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Berlin Armadillos
+Found Person:
+Ian Darcy - M
+Found Player:
+MXO - Touch Berlin Armadillos,  None Ian Darcy - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Berlin Armadillos,  None Ian Darcy - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Berlin Armadillos', '', 'Chris', 'Cooke', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Berlin Armadillos
+Found Person:
+Chris Cooke - M
+Found Player:
+MXO - Touch Berlin Armadillos,  None Chris Cooke - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Berlin Armadillos,  None Chris Cooke - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Berlin Armadillos', '', 'Henrik', '', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Berlin Armadillos
+Found Person:
+Henrik  - M
+Found Player:
+MXO - Touch Berlin Armadillos,  None Henrik  - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Berlin Armadillos,  None Henrik  - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Berlin Armadillos', '', 'George', 'Carillo', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Berlin Armadillos
+Found Person:
+George Carillo - M
+Found Player:
+MXO - Touch Berlin Armadillos,  None George Carillo - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Berlin Armadillos,  None George Carillo - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Blue Jays', '43', 'Stuart', 'Irvine', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Blue Jays
+Found Person:
+Stuart Irvine - M
+Found Player:
+MXO - Blue Jays,  43 Stuart Irvine - M
+GameStadistic skipped: there are no tries for player: MXO - Blue Jays,  43 Stuart Irvine - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Blue Jays', '17', 'Joanne', 'Bolland', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Blue Jays
+Found Person:
+Joanne Bolland - F
+Found Player:
+MXO - Blue Jays,  17 Joanne Bolland - F
+GameStadistic skipped: there are no tries for player: MXO - Blue Jays,  17 Joanne Bolland - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Blue Jays', '15', 'Kate', 'Fleming', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Blue Jays
+Found Person:
+Kate Fleming - F
+Found Player:
+MXO - Blue Jays,  15 Kate Fleming - F
+GameStadistic skipped: there are no tries for player: MXO - Blue Jays,  15 Kate Fleming - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Blue Jays', '7', 'James', 'Reekie', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Blue Jays
+Found Person:
+James Reekie - M
+Found Player:
+MXO - Blue Jays,  7 James Reekie - M
+GameStadistic skipped: there are no tries for player: MXO - Blue Jays,  7 James Reekie - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Blue Jays', '0', 'Callum', 'Pearson', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Blue Jays
+Found Person:
+Callum Pearson - M
+Found Player:
+MXO - Blue Jays,  0 Callum Pearson - M
+GameStadistic skipped: there are no tries for player: MXO - Blue Jays,  0 Callum Pearson - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Blue Jays', '2', 'Tamzin', 'Malone', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Blue Jays
+Found Person:
+Tamzin Malone - F
+Found Player:
+MXO - Blue Jays,  2 Tamzin Malone - F
+GameStadistic skipped: there are no tries for player: MXO - Blue Jays,  2 Tamzin Malone - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Blue Jays', '', 'Kai', 'Lawrence', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Blue Jays
+Found Person:
+Kai Lawrence - M
+Found Player:
+MXO - Blue Jays,  None Kai Lawrence - M
+GameStadistic skipped: there are no tries for player: MXO - Blue Jays,  None Kai Lawrence - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Blue Jays', '', 'Chris', 'Alteen', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Blue Jays
+Found Person:
+Chris Alteen - M
+Found Player:
+MXO - Blue Jays,  None Chris Alteen - M
+GameStadistic skipped: there are no tries for player: MXO - Blue Jays,  None Chris Alteen - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Blue Jays', '', 'Clement', 'Tranier', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Blue Jays
+Found Person:
+Clement Tranier - M
+Found Player:
+MXO - Blue Jays,  None Clement Tranier - M
+GameStadistic skipped: there are no tries for player: MXO - Blue Jays,  None Clement Tranier - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Blue Jays', '', 'Lisa', 'Goral', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Blue Jays
+Found Person:
+Lisa Goral - M
+Found Player:
+MXO - Blue Jays,  None Lisa Goral - M
+GameStadistic skipped: there are no tries for player: MXO - Blue Jays,  None Lisa Goral - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Big Bang France', '3', 'Julie', 'Rieu', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Big Bang France
+Found Person:
+Julie Rieu - U
+Found Player:
+MXO - Big Bang France,  3 Julie Rieu - U
+GameStadistic skipped: there are no tries for player: MXO - Big Bang France,  3 Julie Rieu - U
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Big Bang France', '4', 'Edwinge', 'Benard', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Big Bang France
+Found Person:
+Edwinge Benard - F
+Found Player:
+MXO - Big Bang France,  4 Edwinge Benard - F
+GameStadistic skipped: there are no tries for player: MXO - Big Bang France,  4 Edwinge Benard - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Big Bang France', '6', 'Emmanuelle', 'Brebion', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Big Bang France
+Found Person:
+Emmanuelle Brebion - F
+Found Player:
+MXO - Big Bang France,  6 Emmanuelle Brebion - F
+GameStadistic skipped: there are no tries for player: MXO - Big Bang France,  6 Emmanuelle Brebion - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Big Bang France', '7', 'Julliette', 'Mounier', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Big Bang France
+Found Person:
+Julliette Mounier - F
+Found Player:
+MXO - Big Bang France,  7 Julliette Mounier - F
+GameStadistic skipped: there are no tries for player: MXO - Big Bang France,  7 Julliette Mounier - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Big Bang France', '4', 'Aude', 'Greil', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Big Bang France
+Found Person:
+Aude Greil - U
+Found Player:
+MXO - Big Bang France,  4 Aude Greil - U
+GameStadistic skipped: there are no tries for player: MXO - Big Bang France,  4 Aude Greil - U
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Big Bang France', '8', 'Denis', 'Soubrier', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Big Bang France
+Found Person:
+Denis Soubrier - M
+Found Player:
+MXO - Big Bang France,  8 Denis Soubrier - M
+GameStadistic skipped: there are no tries for player: MXO - Big Bang France,  8 Denis Soubrier - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Big Bang France', '9', 'Christophe', 'Lafourcade', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Big Bang France
+Found Person:
+Christophe Lafourcade - U
+Found Player:
+MXO - Big Bang France,  9 Christophe Lafourcade - U
+GameStadistic skipped: there are no tries for player: MXO - Big Bang France,  9 Christophe Lafourcade - U
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Big Bang France', '12', 'Romain', 'Fremez', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Big Bang France
+Found Person:
+Romain Fremez - M
+Found Player:
+MXO - Big Bang France,  12 Romain Fremez - M
+GameStadistic skipped: there are no tries for player: MXO - Big Bang France,  12 Romain Fremez - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Big Bang France', '13', 'Jules', 'Sire', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Big Bang France
+Found Person:
+Jules Sire - M
+Found Player:
+MXO - Big Bang France,  13 Jules Sire - M
+GameStadistic skipped: there are no tries for player: MXO - Big Bang France,  13 Jules Sire - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Big Bang France', '14', 'Mathieu', 'Le Merrer', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Big Bang France
+Found Person:
+Mathieu Le Merrer - M
+Found Player:
+MXO - Big Bang France,  14 Mathieu Le Merrer - M
+GameStadistic skipped: there are no tries for player: MXO - Big Bang France,  14 Mathieu Le Merrer - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Big Bang France', '15', 'Thomas', 'Mounier', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Big Bang France
+Found Person:
+Thomas Mounier - U
+Found Player:
+MXO - Big Bang France,  15 Thomas Mounier - U
+GameStadistic skipped: there are no tries for player: MXO - Big Bang France,  15 Thomas Mounier - U
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Big Bang France', '16', 'Florent', 'Galy', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Big Bang France
+Found Person:
+Florent Galy - M
+Found Player:
+MXO - Big Bang France,  16 Florent Galy - M
+GameStadistic skipped: there are no tries for player: MXO - Big Bang France,  16 Florent Galy - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'CSSC Phantoms', '1', 'Lois', 'Lau', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - CSSC Phantoms
+Found Person:
+Lois Lau - F
+Found Player:
+MXO - CSSC Phantoms,  1 Lois Lau - F
+GameStadistic skipped: there are no tries for player: MXO - CSSC Phantoms,  1 Lois Lau - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'CSSC Phantoms', '2', 'Natalie', 'Davis', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - CSSC Phantoms
+Found Person:
+Natalie Davis - F
+Found Player:
+MXO - CSSC Phantoms,  2 Natalie Davis - F
+GameStadistic skipped: there are no tries for player: MXO - CSSC Phantoms,  2 Natalie Davis - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'CSSC Phantoms', '43', 'Ari', 'Doyle', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - CSSC Phantoms
+Found Person:
+Ari Doyle - F
+Found Player:
+MXO - CSSC Phantoms,  43 Ari Doyle - F
+GameStadistic skipped: there are no tries for player: MXO - CSSC Phantoms,  43 Ari Doyle - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'CSSC Phantoms', '48', 'Mary', 'Gamble', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - CSSC Phantoms
+Found Person:
+Mary Gamble - F
+Found Player:
+MXO - CSSC Phantoms,  48 Mary Gamble - F
+GameStadistic skipped: there are no tries for player: MXO - CSSC Phantoms,  48 Mary Gamble - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'CSSC Phantoms', '86', 'Laura', 'Cusak', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - CSSC Phantoms
+Found Person:
+Laura Cusak - F
+Found Player:
+MXO - CSSC Phantoms,  86 Laura Cusak - F
+GameStadistic skipped: there are no tries for player: MXO - CSSC Phantoms,  86 Laura Cusak - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'CSSC Phantoms', '6', 'Neil', 'Irving', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - CSSC Phantoms
+Found Person:
+Neil Irving - M
+Found Player:
+MXO - CSSC Phantoms,  6 Neil Irving - M
+GameStadistic skipped: there are no tries for player: MXO - CSSC Phantoms,  6 Neil Irving - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'CSSC Phantoms', '11', 'Russel', 'Kelleway', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - CSSC Phantoms
+Found Person:
+Russel Kelleway - M
+Found Player:
+MXO - CSSC Phantoms,  11 Russel Kelleway - M
+GameStadistic skipped: there are no tries for player: MXO - CSSC Phantoms,  11 Russel Kelleway - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'CSSC Phantoms', '42', 'Federico', 'Agostini', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - CSSC Phantoms
+Found Person:
+Federico Agostini - M
+Found Player:
+MXO - CSSC Phantoms,  42 Federico Agostini - M
+GameStadistic skipped: there are no tries for player: MXO - CSSC Phantoms,  42 Federico Agostini - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'CSSC Phantoms', '50', 'Nick', 'Heath', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - CSSC Phantoms
+Found Person:
+Nick Heath - M
+Found Player:
+MXO - CSSC Phantoms,  50 Nick Heath - M
+GameStadistic skipped: there are no tries for player: MXO - CSSC Phantoms,  50 Nick Heath - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'CSSC Phantoms', '80', 'Tom', 'Hall', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - CSSC Phantoms
+Found Person:
+Tom Hall - M
+Found Player:
+MXO - CSSC Phantoms,  80 Tom Hall - M
+GameStadistic skipped: there are no tries for player: MXO - CSSC Phantoms,  80 Tom Hall - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Darvak Touch', '', 'Amanda', 'Grenville-Jones', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Darvak Touch
+Found Person:
+Amanda Grenville-Jones - F
+Found Player:
+MXO - Darvak Touch,  None Amanda Grenville-Jones - F
+GameStadistic skipped: there are no tries for player: MXO - Darvak Touch,  None Amanda Grenville-Jones - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Darvak Touch', '', 'Bata', 'Emese', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Darvak Touch
+Found Person:
+Bata Emese - F
+Found Player:
+MXO - Darvak Touch,  None Bata Emese - F
+GameStadistic skipped: there are no tries for player: MXO - Darvak Touch,  None Bata Emese - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Darvak Touch', '', 'Réka', 'David', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Darvak Touch
+Found Person:
+Réka David - F
+Found Player:
+MXO - Darvak Touch,  None Réka David - F
+GameStadistic skipped: there are no tries for player: MXO - Darvak Touch,  None Réka David - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Darvak Touch', '', 'Meszéna', 'Erzsi', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Darvak Touch
+Found Person:
+Meszéna Erzsi - F
+Found Player:
+MXO - Darvak Touch,  None Meszéna Erzsi - F
+GameStadistic skipped: there are no tries for player: MXO - Darvak Touch,  None Meszéna Erzsi - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Darvak Touch', '', 'Konkoly', 'Csabi', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Darvak Touch
+Found Person:
+Konkoly Csabi - M
+Found Player:
+MXO - Darvak Touch,  None Konkoly Csabi - M
+GameStadistic skipped: there are no tries for player: MXO - Darvak Touch,  None Konkoly Csabi - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Darvak Touch', '', 'Kugler', 'Miki', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Darvak Touch
+Found Person:
+Kugler Miki - M
+Found Player:
+MXO - Darvak Touch,  None Kugler Miki - M
+GameStadistic skipped: there are no tries for player: MXO - Darvak Touch,  None Kugler Miki - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Darvak Touch', '', 'Medvey', 'Bálint', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Darvak Touch
+Found Person:
+Medvey Bálint - M
+Found Player:
+MXO - Darvak Touch,  None Medvey Bálint - M
+GameStadistic skipped: there are no tries for player: MXO - Darvak Touch,  None Medvey Bálint - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Darvak Touch', '', 'Merza', 'Bence', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Darvak Touch
+Found Person:
+Merza Bence - M
+Found Player:
+MXO - Darvak Touch,  None Merza Bence - M
+GameStadistic skipped: there are no tries for player: MXO - Darvak Touch,  None Merza Bence - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Darvak Touch', '', 'Meszéna', 'Laci', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Darvak Touch
+Found Person:
+Meszéna Laci - M
+Found Player:
+MXO - Darvak Touch,  None Meszéna Laci - M
+GameStadistic skipped: there are no tries for player: MXO - Darvak Touch,  None Meszéna Laci - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Darvak Touch', '', 'Pór', 'Laci', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Darvak Touch
+Found Person:
+Pór Laci - M
+Found Player:
+MXO - Darvak Touch,  None Pór Laci - M
+GameStadistic skipped: there are no tries for player: MXO - Darvak Touch,  None Pór Laci - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Darvak Touch', '', 'Sándor', 'Andris', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Darvak Touch
+Found Person:
+Sándor Andris - M
+Found Player:
+MXO - Darvak Touch,  None Sándor Andris - M
+GameStadistic skipped: there are no tries for player: MXO - Darvak Touch,  None Sándor Andris - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Darvak Touch', '', 'Sándor', 'Gyuri', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Darvak Touch
+Found Person:
+Sándor Gyuri - M
+Found Player:
+MXO - Darvak Touch,  None Sándor Gyuri - M
+GameStadistic skipped: there are no tries for player: MXO - Darvak Touch,  None Sándor Gyuri - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Darvak Touch', '', 'Szakács', 'Barna', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Darvak Touch
+Found Person:
+Szakács Barna - M
+Found Player:
+MXO - Darvak Touch,  None Szakács Barna - M
+GameStadistic skipped: there are no tries for player: MXO - Darvak Touch,  None Szakács Barna - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'New Orleans Fluffy Dragons', '13', 'Paul', 'Black', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - New Orleans Fluffy Dragons
+Found Person:
+Paul Black - M
+Found Player:
+MXO - New Orleans Fluffy Dragons,  13 Paul Black - M
+GameStadistic skipped: there are no tries for player: MXO - New Orleans Fluffy Dragons,  13 Paul Black - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'New Orleans Fluffy Dragons', '3', 'Jon', 'MacDonald', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - New Orleans Fluffy Dragons
+Found Person:
+Jon MacDonald - M
+Found Player:
+MXO - New Orleans Fluffy Dragons,  3 Jon MacDonald - M
+GameStadistic skipped: there are no tries for player: MXO - New Orleans Fluffy Dragons,  3 Jon MacDonald - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'New Orleans Fluffy Dragons', '1', 'Claudine', 'Van Diemen', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - New Orleans Fluffy Dragons
+Found Person:
+Claudine Van Diemen - U
+Found Player:
+MXO - New Orleans Fluffy Dragons,  1 Claudine Van Diemen - U
+GameStadistic skipped: there are no tries for player: MXO - New Orleans Fluffy Dragons,  1 Claudine Van Diemen - U
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'New Orleans Fluffy Dragons', '4', 'Jerry', 'Van Dijk', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - New Orleans Fluffy Dragons
+Found Person:
+Jerry Van Dijk - M
+Found Player:
+MXO - New Orleans Fluffy Dragons,  4 Jerry Van Dijk - M
+GameStadistic skipped: there are no tries for player: MXO - New Orleans Fluffy Dragons,  4 Jerry Van Dijk - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'New Orleans Fluffy Dragons', '10', 'Vincent', 'Westerhof', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - New Orleans Fluffy Dragons
+Found Person:
+Vincent Westerhof - U
+Found Player:
+MXO - New Orleans Fluffy Dragons,  10 Vincent Westerhof - U
+GameStadistic skipped: there are no tries for player: MXO - New Orleans Fluffy Dragons,  10 Vincent Westerhof - U
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'New Orleans Fluffy Dragons', '11', 'Hester', 'Williams', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - New Orleans Fluffy Dragons
+Found Person:
+Hester Williams - F
+Found Player:
+MXO - New Orleans Fluffy Dragons,  11 Hester Williams - F
+GameStadistic skipped: there are no tries for player: MXO - New Orleans Fluffy Dragons,  11 Hester Williams - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'New Orleans Fluffy Dragons', '', 'Carys', 'Reece', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - New Orleans Fluffy Dragons
+Found Person:
+Carys Reece - F
+Found Player:
+MXO - New Orleans Fluffy Dragons,  None Carys Reece - F
+GameStadistic skipped: there are no tries for player: MXO - New Orleans Fluffy Dragons,  None Carys Reece - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'New Orleans Fluffy Dragons', '', 'Gulnaz', 'Bari', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - New Orleans Fluffy Dragons
+Found Person:
+Gulnaz Bari - F
+Found Player:
+MXO - New Orleans Fluffy Dragons,  None Gulnaz Bari - F
+GameStadistic skipped: there are no tries for player: MXO - New Orleans Fluffy Dragons,  None Gulnaz Bari - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'New Orleans Fluffy Dragons', '', 'Istvan', 'Gyori', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - New Orleans Fluffy Dragons
+Found Person:
+Istvan Gyori - M
+Found Player:
+MXO - New Orleans Fluffy Dragons,  None Istvan Gyori - M
+GameStadistic skipped: there are no tries for player: MXO - New Orleans Fluffy Dragons,  None Istvan Gyori - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'New Orleans Fluffy Dragons', '', 'Jarrid', 'Gyori', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - New Orleans Fluffy Dragons
+Found Person:
+Jarrid Gyori - M
+Found Player:
+MXO - New Orleans Fluffy Dragons,  None Jarrid Gyori - M
+GameStadistic skipped: there are no tries for player: MXO - New Orleans Fluffy Dragons,  None Jarrid Gyori - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Berlin Foxes', '1', 'Barbara', 'Garcia', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Berlin Foxes
+Found Person:
+Barbara Garcia - F
+Found Player:
+MXO - Touch Berlin Foxes,  1 Barbara Garcia - F
+GameStadistic skipped: there are no tries for player: MXO - Touch Berlin Foxes,  1 Barbara Garcia - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Berlin Foxes', '', 'Alex', 'McOnie', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Berlin Foxes
+Found Person:
+Alex McOnie - F
+Found Player:
+MXO - Touch Berlin Foxes,  None Alex McOnie - F
+GameStadistic skipped: there are no tries for player: MXO - Touch Berlin Foxes,  None Alex McOnie - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Berlin Foxes', '', 'Nora', 'Stachel-Braum', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Berlin Foxes
+Found Person:
+Nora Stachel-Braum - F
+Found Player:
+MXO - Touch Berlin Foxes,  None Nora Stachel-Braum - F
+GameStadistic skipped: there are no tries for player: MXO - Touch Berlin Foxes,  None Nora Stachel-Braum - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Berlin Foxes', '', 'Christina', 'Spindler', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Berlin Foxes
+Found Person:
+Christina Spindler - F
+Found Player:
+MXO - Touch Berlin Foxes,  None Christina Spindler - F
+GameStadistic skipped: there are no tries for player: MXO - Touch Berlin Foxes,  None Christina Spindler - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Berlin Foxes', '', 'Malin', 'Buchholz', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Berlin Foxes
+Found Person:
+Malin Buchholz - F
+Found Player:
+MXO - Touch Berlin Foxes,  None Malin Buchholz - F
+GameStadistic skipped: there are no tries for player: MXO - Touch Berlin Foxes,  None Malin Buchholz - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Berlin Foxes', '', 'Louise', 'Jeffery', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Berlin Foxes
+Found Person:
+Louise Jeffery - F
+Found Player:
+MXO - Touch Berlin Foxes,  None Louise Jeffery - F
+GameStadistic skipped: there are no tries for player: MXO - Touch Berlin Foxes,  None Louise Jeffery - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Berlin Foxes', '21', 'Gerardo', 'Hurtado', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Berlin Foxes
+Found Person:
+Gerardo Hurtado - M
+Found Player:
+MXO - Touch Berlin Foxes,  21 Gerardo Hurtado - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Berlin Foxes,  21 Gerardo Hurtado - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Berlin Foxes', '7', 'Mark', 'Hansen', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Berlin Foxes
+Found Person:
+Mark Hansen - M
+Found Player:
+MXO - Touch Berlin Foxes,  7 Mark Hansen - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Berlin Foxes,  7 Mark Hansen - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Berlin Foxes', '10', 'Andrew', 'Davis', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Berlin Foxes
+Found Person:
+Andrew Davis - M
+Found Player:
+MXO - Touch Berlin Foxes,  10 Andrew Davis - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Berlin Foxes,  10 Andrew Davis - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Berlin Foxes', '', 'Jacopo', 'Ghisolfi', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Berlin Foxes
+Found Person:
+Jacopo Ghisolfi - M
+Found Player:
+MXO - Touch Berlin Foxes,  None Jacopo Ghisolfi - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Berlin Foxes,  None Jacopo Ghisolfi - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Berlin Foxes', '', 'Manuel', 'Brosseit', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Berlin Foxes
+Found Person:
+Manuel Brosseit - M
+Found Player:
+MXO - Touch Berlin Foxes,  None Manuel Brosseit - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Berlin Foxes,  None Manuel Brosseit - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Hamburg', '21', 'Vaughan', 'Brown', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Hamburg
+Found Person:
+Vaughan Brown - U
+Found Player:
+MXO - Touch Hamburg,  21 Vaughan Brown - U
+GameStadistic skipped: there are no tries for player: MXO - Touch Hamburg,  21 Vaughan Brown - U
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Hamburg', '12', 'Ryan', 'Anderson', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Hamburg
+Found Person:
+Ryan Anderson - M
+Found Player:
+MXO - Touch Hamburg,  12 Ryan Anderson - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Hamburg,  12 Ryan Anderson - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Hamburg', '10', 'Tom', 'Anslow', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Hamburg
+Found Person:
+Tom Anslow - M
+Found Player:
+MXO - Touch Hamburg,  10 Tom Anslow - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Hamburg,  10 Tom Anslow - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Hamburg', '13', 'Kia', 'Lucksmith', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Hamburg
+Found Person:
+Kia Lucksmith - M
+Found Player:
+MXO - Touch Hamburg,  13 Kia Lucksmith - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Hamburg,  13 Kia Lucksmith - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Hamburg', '4', 'Olivier', 'Jacobs', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Hamburg
+Found Person:
+Olivier Jacobs - M
+Found Player:
+MXO - Touch Hamburg,  4 Olivier Jacobs - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Hamburg,  4 Olivier Jacobs - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Hamburg', '19', 'Lena', 'Schmind', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Hamburg
+Found Person:
+Lena Schmind - F
+Found Player:
+MXO - Touch Hamburg,  19 Lena Schmind - F
+GameStadistic skipped: there are no tries for player: MXO - Touch Hamburg,  19 Lena Schmind - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Hamburg', '', 'Natalie', 'Weiss', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Hamburg
+Found Person:
+Natalie Weiss - F
+Found Player:
+MXO - Touch Hamburg,  None Natalie Weiss - F
+GameStadistic skipped: there are no tries for player: MXO - Touch Hamburg,  None Natalie Weiss - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Hamburg', '', 'Christina', 'Puppel', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Hamburg
+Found Person:
+Christina Puppel - F
+Found Player:
+MXO - Touch Hamburg,  None Christina Puppel - F
+GameStadistic skipped: there are no tries for player: MXO - Touch Hamburg,  None Christina Puppel - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Hamburg', '', 'Tom', 'Pfalzer', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Hamburg
+Found Person:
+Tom Pfalzer - M
+Found Player:
+MXO - Touch Hamburg,  None Tom Pfalzer - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Hamburg,  None Tom Pfalzer - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Hamburg', '', 'Eric', 'Proust', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Hamburg
+Found Person:
+Eric Proust - M
+Found Player:
+MXO - Touch Hamburg,  None Eric Proust - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Hamburg,  None Eric Proust - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Touch Hamburg', '', 'Jasper', '', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Touch Hamburg
+Found Person:
+Jasper  - M
+Found Player:
+MXO - Touch Hamburg,  None Jasper  - M
+GameStadistic skipped: there are no tries for player: MXO - Touch Hamburg,  None Jasper  - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'The Islanders', '', 'Ruth', 'Brooks', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - The Islanders
+Found Person:
+Ruth Brooks - F
+Found Player:
+MXO - The Islanders,  None Ruth Brooks - F
+GameStadistic skipped: there are no tries for player: MXO - The Islanders,  None Ruth Brooks - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'The Islanders', '', 'Lauren', 'Lowe', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - The Islanders
+Found Person:
+Lauren Lowe - F
+Found Player:
+MXO - The Islanders,  None Lauren Lowe - F
+GameStadistic skipped: there are no tries for player: MXO - The Islanders,  None Lauren Lowe - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'The Islanders', '', 'Jess', 'Watling', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - The Islanders
+Found Person:
+Jess Watling - F
+Found Player:
+MXO - The Islanders,  None Jess Watling - F
+GameStadistic skipped: there are no tries for player: MXO - The Islanders,  None Jess Watling - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'The Islanders', '', 'Nicole', 'Goddard', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - The Islanders
+Found Person:
+Nicole Goddard - F
+Found Player:
+MXO - The Islanders,  None Nicole Goddard - F
+GameStadistic skipped: there are no tries for player: MXO - The Islanders,  None Nicole Goddard - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'The Islanders', '', 'Ren', 'Barons', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - The Islanders
+Found Person:
+Ren Barons - M
+Found Player:
+MXO - The Islanders,  None Ren Barons - M
+GameStadistic skipped: there are no tries for player: MXO - The Islanders,  None Ren Barons - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'The Islanders', '', 'Matt', 'Hanley', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - The Islanders
+Found Person:
+Matt Hanley - M
+Found Player:
+MXO - The Islanders,  None Matt Hanley - M
+GameStadistic skipped: there are no tries for player: MXO - The Islanders,  None Matt Hanley - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'The Islanders', '', 'Nick', 'Kearns', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - The Islanders
+Found Person:
+Nick Kearns - M
+Found Player:
+MXO - The Islanders,  None Nick Kearns - M
+GameStadistic skipped: there are no tries for player: MXO - The Islanders,  None Nick Kearns - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'The Islanders', '', 'Chris', 'Veal', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - The Islanders
+Found Person:
+Chris Veal - M
+Found Player:
+MXO - The Islanders,  None Chris Veal - M
+GameStadistic skipped: there are no tries for player: MXO - The Islanders,  None Chris Veal - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'The Islanders', '', 'Jeremy', 'Johnson', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - The Islanders
+Found Person:
+Jeremy Johnson - M
+Found Player:
+MXO - The Islanders,  None Jeremy Johnson - M
+GameStadistic skipped: there are no tries for player: MXO - The Islanders,  None Jeremy Johnson - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Tequila Unicorns', '15', 'Suzanne', 'Brownie', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Tequila Unicorns
+Found Person:
+Suzanne Brownie - F
+Found Player:
+MXO - Tequila Unicorns,  15 Suzanne Brownie - F
+GameStadistic skipped: there are no tries for player: MXO - Tequila Unicorns,  15 Suzanne Brownie - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Tequila Unicorns', '5', 'Jess', 'Lawman', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Tequila Unicorns
+Found Person:
+Jess Lawman - F
+Found Player:
+MXO - Tequila Unicorns,  5 Jess Lawman - F
+GameStadistic skipped: there are no tries for player: MXO - Tequila Unicorns,  5 Jess Lawman - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Tequila Unicorns', '5', 'Amy', 'Martin', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Tequila Unicorns
+Found Person:
+Amy Martin - F
+Found Player:
+MXO - Tequila Unicorns,  5 Amy Martin - F
+GameStadistic skipped: there are no tries for player: MXO - Tequila Unicorns,  5 Amy Martin - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Tequila Unicorns', '3', 'Gemma', 'Campbell', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Tequila Unicorns
+Found Person:
+Gemma Campbell - F
+Found Player:
+MXO - Tequila Unicorns,  3 Gemma Campbell - F
+GameStadistic skipped: there are no tries for player: MXO - Tequila Unicorns,  3 Gemma Campbell - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Tequila Unicorns', '18', 'Ross', 'Taylor', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Tequila Unicorns
+Found Person:
+Ross Taylor - F
+Found Player:
+MXO - Tequila Unicorns,  18 Ross Taylor - F
+GameStadistic skipped: there are no tries for player: MXO - Tequila Unicorns,  18 Ross Taylor - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Tequila Unicorns', '12', 'John', 'Dilion', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Tequila Unicorns
+Found Person:
+John Dilion - M
+Found Player:
+MXO - Tequila Unicorns,  12 John Dilion - M
+GameStadistic skipped: there are no tries for player: MXO - Tequila Unicorns,  12 John Dilion - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Tequila Unicorns', '', 'Kenny', 'Morton', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Tequila Unicorns
+Found Person:
+Kenny Morton - M
+Found Player:
+MXO - Tequila Unicorns,  None Kenny Morton - M
+GameStadistic skipped: there are no tries for player: MXO - Tequila Unicorns,  None Kenny Morton - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Tequila Unicorns', '', 'Adam', 'Savin', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Tequila Unicorns
+Found Person:
+Adam Savin - M
+Found Player:
+MXO - Tequila Unicorns,  None Adam Savin - M
+GameStadistic skipped: there are no tries for player: MXO - Tequila Unicorns,  None Adam Savin - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Tequila Unicorns', '', 'Chris', 'Brown', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Tequila Unicorns
+Found Person:
+Chris Brown - M
+Found Player:
+MXO - Tequila Unicorns,  None Chris Brown - M
+GameStadistic skipped: there are no tries for player: MXO - Tequila Unicorns,  None Chris Brown - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'Tequila Unicorns', '', 'Jon', 'Carter', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Tequila Unicorns
+Found Person:
+Jon Carter - M
+Found Player:
+MXO - Tequila Unicorns,  None Jon Carter - M
+GameStadistic skipped: there are no tries for player: MXO - Tequila Unicorns,  None Jon Carter - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'XXX Amsterdam', '', 'Masayo', 'Tateno', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - XXX Amsterdam
+Created Person:
+Masayo Tateno - F
+Created Player:
+MXO - XXX Amsterdam,  None Masayo Tateno - F
+GameStadistic skipped: there are no tries for player: MXO - XXX Amsterdam,  None Masayo Tateno - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'XXX Amsterdam', '', 'Elly', 'Peters', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - XXX Amsterdam
+Found Person:
+Elly Peters - F
+Created Player:
+MXO - XXX Amsterdam,  None Elly Peters - F
+GameStadistic skipped: there are no tries for player: MXO - XXX Amsterdam,  None Elly Peters - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'XXX Amsterdam', '', 'Gaby', 'Appleton', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - XXX Amsterdam
+Created Person:
+Gaby Appleton - F
+Created Player:
+MXO - XXX Amsterdam,  None Gaby Appleton - F
+GameStadistic skipped: there are no tries for player: MXO - XXX Amsterdam,  None Gaby Appleton - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'XXX Amsterdam', '', 'Neil', 'Appleton', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - XXX Amsterdam
+Created Person:
+Neil Appleton - M
+Created Player:
+MXO - XXX Amsterdam,  None Neil Appleton - M
+GameStadistic skipped: there are no tries for player: MXO - XXX Amsterdam,  None Neil Appleton - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'XXX Amsterdam', '', 'Duncan', 'Binger', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - XXX Amsterdam
+Found Person:
+Duncan Binger - M
+Created Player:
+MXO - XXX Amsterdam,  None Duncan Binger - M
+GameStadistic skipped: there are no tries for player: MXO - XXX Amsterdam,  None Duncan Binger - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'XXX Amsterdam', '', 'Duncan', 'Keith', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - XXX Amsterdam
+Created Person:
+Duncan Keith - M
+Created Player:
+MXO - XXX Amsterdam,  None Duncan Keith - M
+GameStadistic skipped: there are no tries for player: MXO - XXX Amsterdam,  None Duncan Keith - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'XXX Amsterdam', '', 'Andrew', 'Freund', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - XXX Amsterdam
+Created Person:
+Andrew Freund - M
+Created Player:
+MXO - XXX Amsterdam,  None Andrew Freund - M
+GameStadistic skipped: there are no tries for player: MXO - XXX Amsterdam,  None Andrew Freund - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', 'XXX Amsterdam', '', 'Leonardo', 'Vaccari', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - XXX Amsterdam
+Created Person:
+Leonardo Vaccari - M
+Created Player:
+MXO - XXX Amsterdam,  None Leonardo Vaccari - M
+GameStadistic skipped: there are no tries for player: MXO - XXX Amsterdam,  None Leonardo Vaccari - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', "Courant d'R", '11', 'Aube', 'Charras', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Courant d'R
+Found Person:
+Aube Charras - F
+Found Player:
+MXO - Courant d'R,  11 Aube Charras - F
+GameStadistic skipped: there are no tries for player: MXO - Courant d'R,  11 Aube Charras - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', "Courant d'R", '7', 'Katherine', 'Martin', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Courant d'R
+Created Person:
+Katherine Martin - F
+Created Player:
+MXO - Courant d'R,  7 Katherine Martin - F
+GameStadistic skipped: there are no tries for player: MXO - Courant d'R,  7 Katherine Martin - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', "Courant d'R", '21', 'Axelle', 'Schaal', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Courant d'R
+Found Person:
+Axelle Schaal - U
+Found Player:
+MXO - Courant d'R,  21 Axelle Schaal - U
+GameStadistic skipped: there are no tries for player: MXO - Courant d'R,  21 Axelle Schaal - U
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', "Courant d'R", '22', 'Raphaelle', 'Kullis', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Courant d'R
+Created Person:
+Raphaelle Kullis - F
+Created Player:
+MXO - Courant d'R,  22 Raphaelle Kullis - F
+GameStadistic skipped: there are no tries for player: MXO - Courant d'R,  22 Raphaelle Kullis - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', "Courant d'R", '', 'Isle', 'Way', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Courant d'R
+Created Person:
+Isle Way - F
+Created Player:
+MXO - Courant d'R,  None Isle Way - F
+GameStadistic skipped: there are no tries for player: MXO - Courant d'R,  None Isle Way - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', "Courant d'R", '', 'Manon', 'Amant', 'F', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Courant d'R
+Created Person:
+Manon Amant - F
+Created Player:
+MXO - Courant d'R,  None Manon Amant - F
+GameStadistic skipped: there are no tries for player: MXO - Courant d'R,  None Manon Amant - F
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', "Courant d'R", '33', 'Jean-Michel', 'Granet', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Courant d'R
+Created Person:
+Jean-Michel Granet - M
+Created Player:
+MXO - Courant d'R,  33 Jean-Michel Granet - M
+GameStadistic skipped: there are no tries for player: MXO - Courant d'R,  33 Jean-Michel Granet - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', "Courant d'R", '', 'Paul', 'Dejant', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Courant d'R
+Created Person:
+Paul Dejant - M
+Created Player:
+MXO - Courant d'R,  None Paul Dejant - M
+GameStadistic skipped: there are no tries for player: MXO - Courant d'R,  None Paul Dejant - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', "Courant d'R", '', 'Sunarith', 'Tea', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Courant d'R
+Created Person:
+Sunarith Tea - M
+Created Player:
+MXO - Courant d'R,  None Sunarith Tea - M
+GameStadistic skipped: there are no tries for player: MXO - Courant d'R,  None Sunarith Tea - M
+ 
+
+Row to read:
+['Capital Cup 2016', 'MXO', "Courant d'R", '', 'Olivier', 'Viezzi', 'M', '', '', '', '', '', '', '', '']
+
+Found Tournament:
+MXO - Capital Cup 2016
+Found Team:
+MXO - Courant d'R
+Created Person:
+Olivier Viezzi - M
+Created Player:
+MXO - Courant d'R,  None Olivier Viezzi - M
+GameStadistic skipped: there are no tries for player: MXO - Courant d'R,  None Olivier Viezzi - M
+ 
+
+Finished reading 2...[0=PHASE, 1=TOURNAMENT, 2=NTS_STADISTIC]
+
+Successfully read csv file: "./player/data_files/csv/CapitalCup2016-player-statistics.csv"
