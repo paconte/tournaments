@@ -142,14 +142,30 @@ class DjangoSimpleFetcher:
     @staticmethod
     def get_or_create_nts_statistic(game, player, scores):
         if scores and int(scores) > 0:
-            result = PlayerStadistic.objects.get_or_create(game=game, player=player, points=scores)
+            #result = PlayerStadistic.objects.get_or_create(game=game, player=player, points=scores)
+            try:
+                player = PlayerStadistic.objects.get(game=game, player=player)
+                player.points = scores
+                player.save()
+                return player, True
+            except PlayerStadistic.DoesNotExist:
+                result = PlayerStadistic.objects.get_or_create(game=game, player=player, points=scores)
             return result
         else:
             return None, False
 
     @staticmethod
     def get_or_create_fit_statistic(tournament, player, played, scores, mvp):
-        result = PlayerStadistic.objects.get_or_create(tournament=tournament, player=player, played=played, mvp=mvp)
+        try:
+            player = PlayerStadistic.objects.get(tournament=tournament, player=player)
+            player.played = played
+            player.points = scores
+            player.mvp = mvp
+            player.save()
+            return player, True
+        except PlayerStadistic.DoesNotExist:
+            result = PlayerStadistic.objects.get_or_create(
+                tournament=tournament, player=player, played=played, points=scores, mvp=mvp)
         return result
 
 
@@ -272,8 +288,8 @@ class DjangoCsvFetcher:
         player, created = DjangoSimpleFetcher.get_or_create_player(person, team, csv_stats.number, tournament)
         DjangoSimpleFetcher.print_fetch_result(player, created)
 
-        fit_stat, created = DjangoSimpleFetcher.get_or_create_fit_statistic(tournament, player, csv_stats.played,
-                                                                            csv_stats.scores, csv_stats.mvp)
+        fit_stat, created = DjangoSimpleFetcher.get_or_create_fit_statistic(
+                tournament, player, csv_stats.played, csv_stats.scores, csv_stats.mvp)
         DjangoSimpleFetcher.print_fetch_result(fit_stat, created)
 
     @staticmethod
