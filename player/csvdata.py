@@ -814,6 +814,7 @@ DATA_FILES = './player/data_files/'
 RAW_FILES = DATA_FILES + 'raw/'
 RAW_GAMES_FILES = RAW_FILES + 'games/'
 RAW_STATS_FILES = RAW_FILES + 'statistics/'
+RAW_STATS_FILES_EUROS = RAW_FILES + 'statistics/euros/'
 CSV_FILES = DATA_FILES + 'csv/'
 
 # CONSTANTS FILE NAMES
@@ -976,61 +977,61 @@ local_fit_stats_files = {
     'EUROS_2014':
         {
             MO: {
-                'england': RAW_STATS_FILES + 'EUROS_2014_MO_england_stats.html',
-                'wales': RAW_STATS_FILES + 'EUROS_2014_MO_wales_stats.html',
-                'scotland': RAW_STATS_FILES + 'EUROS_2014_MO_scotland_stats.html',
-                'ireland': RAW_STATS_FILES + 'EUROS_2014_MO_ireland_stats.html',
-                'france': RAW_STATS_FILES + 'EUROS_2014_MO_france_stats.html',
-                'luxembourg': RAW_STATS_FILES + 'EUROS_2014_MO_luxembourg_stats.html',
-                'belgium': RAW_STATS_FILES + 'EUROS_2014_MO_belgium_stats.html',
-                'hungary': RAW_STATS_FILES + 'EUROS_2014_MO_hungary_stats.html',
-                'italy': RAW_STATS_FILES + 'EUROS_2014_MO_italy_stats.html'
+                'england': RAW_STATS_FILES_EUROS + 'EUROS_2014_MO_england_stats.html',
+                'wales': RAW_STATS_FILES_EUROS + 'EUROS_2014_MO_wales_stats.html',
+                'scotland': RAW_STATS_FILES_EUROS + 'EUROS_2014_MO_scotland_stats.html',
+                'ireland': RAW_STATS_FILES_EUROS + 'EUROS_2014_MO_ireland_stats.html',
+                'france': RAW_STATS_FILES_EUROS + 'EUROS_2014_MO_france_stats.html',
+                'luxembourg': RAW_STATS_FILES_EUROS + 'EUROS_2014_MO_luxembourg_stats.html',
+                'belgium': RAW_STATS_FILES_EUROS + 'EUROS_2014_MO_belgium_stats.html',
+                'hungary': RAW_STATS_FILES_EUROS + 'EUROS_2014_MO_hungary_stats.html',
+                'italy': RAW_STATS_FILES_EUROS + 'EUROS_2014_MO_italy_stats.html'
             },
             WO: {
-                'england': RAW_STATS_FILES + 'EUROS_2014_WO_england_stats.html',
-                'wales': RAW_STATS_FILES + 'EUROS_2014_WO_wales_stats.html',
-                'scotland': RAW_STATS_FILES + 'EUROS_2014_WO_scotland_stats.html',
-                'spain': RAW_STATS_FILES + 'EUROS_2014_WO_spain_stats.html',
-                'france': RAW_STATS_FILES + 'EUROS_2014_WO_france_stats.html',
-                'belgium': RAW_STATS_FILES + 'EUROS_2014_WO_belgium_stats.html',
-                'ireland': RAW_STATS_FILES + 'EUROS_2014_WO_ireland_stats.html'
+                'england': RAW_STATS_FILES_EUROS + 'EUROS_2014_WO_england_stats.html',
+                'wales': RAW_STATS_FILES_EUROS + 'EUROS_2014_WO_wales_stats.html',
+                'scotland': RAW_STATS_FILES_EUROS + 'EUROS_2014_WO_scotland_stats.html',
+                'spain': RAW_STATS_FILES_EUROS + 'EUROS_2014_WO_spain_stats.html',
+                'france': RAW_STATS_FILES_EUROS + 'EUROS_2014_WO_france_stats.html',
+                'belgium': RAW_STATS_FILES_EUROS + 'EUROS_2014_WO_belgium_stats.html',
+                'ireland': RAW_STATS_FILES_EUROS + 'EUROS_2014_WO_ireland_stats.html'
             },
             MXO: {
-                'scotland': RAW_STATS_FILES + 'EUROS_2014_MXO_scotland_stats.html',
-                'england': RAW_STATS_FILES + 'EUROS_2014_MXO_england_stats.html',
-                'wales': RAW_STATS_FILES + 'EUROS_2014_MXO_wales_stats.html',
-                'jersey': RAW_STATS_FILES + 'EUROS_2014_MXO_jersey_stats.html',
-                'france': RAW_STATS_FILES + 'EUROS_2014_MXO_france_stats.html',
-                'netherlands': RAW_STATS_FILES + 'EUROS_2014_MXO_netherlands_stats.html',
-                'italy': RAW_STATS_FILES + 'EUROS_2014_MXO_italy_stats.html',
-                'guernsey': RAW_STATS_FILES + 'EUROS_2014_MXO_guernsey_stats.html',
-                'germany': RAW_STATS_FILES + 'EUROS_2014_MXO_germany_stats.html',
-                'switzerland': RAW_STATS_FILES + 'EUROS_2014_MXO_switzerland_stats.html',
-                'catalonia': RAW_STATS_FILES + 'EUROS_2014_MXO_catalonia_stats.html'
+                'scotland': RAW_STATS_FILES_EUROS + 'EUROS_2014_MXO_scotland_stats.html',
+                'england': RAW_STATS_FILES_EUROS + 'EUROS_2014_MXO_england_stats.html',
+                'wales': RAW_STATS_FILES_EUROS + 'EUROS_2014_MXO_wales_stats.html',
+                'jersey': RAW_STATS_FILES_EUROS + 'EUROS_2014_MXO_jersey_stats.html',
+                'france': RAW_STATS_FILES_EUROS + 'EUROS_2014_MXO_france_stats.html',
+                'netherlands': RAW_STATS_FILES_EUROS + 'EUROS_2014_MXO_netherlands_stats.html',
+                'italy': RAW_STATS_FILES_EUROS + 'EUROS_2014_MXO_italy_stats.html',
+                'guernsey': RAW_STATS_FILES_EUROS + 'EUROS_2014_MXO_guernsey_stats.html',
+                'germany': RAW_STATS_FILES_EUROS + 'EUROS_2014_MXO_germany_stats.html',
+                'switzerland': RAW_STATS_FILES_EUROS + 'EUROS_2014_MXO_switzerland_stats.html',
+                'catalonia': RAW_STATS_FILES_EUROS + 'EUROS_2014_MXO_catalonia_stats.html'
             },
             W27: {
-                'england': RAW_STATS_FILES + 'EUROS_2014_W27_england_stats.html',
-                'france': RAW_STATS_FILES + 'EUROS_2014_W27_france_stats.html',
-                'scotland': RAW_STATS_FILES + 'EUROS_2014_W27_scotland_stats.html',
-                'ireland': RAW_STATS_FILES + 'EUROS_2014_W27_ireland_stats.html',
-                'wales': RAW_STATS_FILES + 'EUROS_2014_W27_wales_stats.html'
+                'england': RAW_STATS_FILES_EUROS + 'EUROS_2014_W27_england_stats.html',
+                'france': RAW_STATS_FILES_EUROS + 'EUROS_2014_W27_france_stats.html',
+                'scotland': RAW_STATS_FILES_EUROS + 'EUROS_2014_W27_scotland_stats.html',
+                'ireland': RAW_STATS_FILES_EUROS + 'EUROS_2014_W27_ireland_stats.html',
+                'wales': RAW_STATS_FILES_EUROS + 'EUROS_2014_W27_wales_stats.html'
             },
             SMX: {
-                'england': RAW_STATS_FILES + 'EUROS_2014_SMX_england_stats.html',
-                'scotland': RAW_STATS_FILES + 'EUROS_2014_SMX_scotland_stats.html',
-                'ireland': RAW_STATS_FILES + 'EUROS_2014_SMX_ireland_stats.html',
-                'wales': RAW_STATS_FILES + 'EUROS_2014_SMX_wales_stats.html',
-                'france': RAW_STATS_FILES + 'EUROS_2014_SMX_france_stats.html'
+                'england': RAW_STATS_FILES_EUROS + 'EUROS_2014_SMX_england_stats.html',
+                'scotland': RAW_STATS_FILES_EUROS + 'EUROS_2014_SMX_scotland_stats.html',
+                'ireland': RAW_STATS_FILES_EUROS + 'EUROS_2014_SMX_ireland_stats.html',
+                'wales': RAW_STATS_FILES_EUROS + 'EUROS_2014_SMX_wales_stats.html',
+                'france': RAW_STATS_FILES_EUROS + 'EUROS_2014_SMX_france_stats.html'
             },
             M40: {
-                'wales': RAW_STATS_FILES + 'EUROS_2014_M40_wales_stats.html',
-                'ireland': RAW_STATS_FILES + 'EUROS_2014_M40_ireland_stats.html',
-                'england': RAW_STATS_FILES + 'EUROS_2014_M40_england_stats.html',
-                'france': RAW_STATS_FILES + 'EUROS_2014_M40_france_stats.html',
-                'scotland': RAW_STATS_FILES + 'EUROS_2014_M40_scotland_stats.html',
-                'italy': RAW_STATS_FILES + 'EUROS_2014_M40_italy_stats.html',
-                'spain': RAW_STATS_FILES + 'EUROS_2014_M40_spain_stats.html',
-                'belgium': RAW_STATS_FILES + 'EUROS_2014_M40_belgium_stats.html'
+                'wales': RAW_STATS_FILES_EUROS + 'EUROS_2014_M40_wales_stats.html',
+                'ireland': RAW_STATS_FILES_EUROS + 'EUROS_2014_M40_ireland_stats.html',
+                'england': RAW_STATS_FILES_EUROS + 'EUROS_2014_M40_england_stats.html',
+                'france': RAW_STATS_FILES_EUROS + 'EUROS_2014_M40_france_stats.html',
+                'scotland': RAW_STATS_FILES_EUROS + 'EUROS_2014_M40_scotland_stats.html',
+                'italy': RAW_STATS_FILES_EUROS + 'EUROS_2014_M40_italy_stats.html',
+                'spain': RAW_STATS_FILES_EUROS + 'EUROS_2014_M40_spain_stats.html',
+                'belgium': RAW_STATS_FILES_EUROS + 'EUROS_2014_M40_belgium_stats.html'
             }
         }
 }
