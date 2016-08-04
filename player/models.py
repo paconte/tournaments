@@ -138,7 +138,7 @@ class Player(models.Model):
     person = models.ForeignKey(Person)
     team = models.ForeignKey(Team)
     number = models.PositiveSmallIntegerField(null=True, blank=True)
-    tournaments_played = models.ManyToManyField(Tournament, null=True, blank=True)
+    tournaments_played = models.ManyToManyField(Tournament, blank=True)
 
     class Meta:
         ordering = ["person"]
