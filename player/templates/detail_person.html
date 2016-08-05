@@ -12,7 +12,8 @@
 <table class="table-condensed">
     <thead>
     <tbody>
-    {% for tournament, team in tournament_team_dict.items %}
+    {% for tournament, teams in tournament_team_dict.items %}
+    {% for team in teams %}
     <tr>
         <td class="col-sm-6">
             <a href="{% url 'detail_team_tournament' tournament.id team.id %}">{{tournament.name}}</a>
@@ -22,6 +23,7 @@
             <a href="{% url 'detail_team' team.id %}">{{team.name}}</a>
         </td>
     </tr>
+    {% endfor %}
     {% endfor %}
     </tbody>
     </thead>

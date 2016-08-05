@@ -108,10 +108,17 @@ class PersonView(DetailView):
         for player in players:
             team = player.team
             for tournament in player.tournaments_played.all():
-                tournament_team_dict[tournament] = team
+                try:
+                    teams = tournament_team_dict[tournament]
+                except KeyError:
+                    tournament_team_dict[tournament] = list()
+                    teams = tournament_team_dict[tournament]
+                teams.append(team)
+                tournament_team_dict[tournament] = teams
         games = []
-        for tournie, team in tournament_team_dict.items():
-            games.extend(Game.objects.filter(Q(tournament=tournie), Q(local=team) | Q(visitor=team)))
+        for tournie, teams in tournament_team_dict.items():
+            for team in teams:
+                games.extend(Game.objects.filter(Q(tournament=tournie), Q(local=team) | Q(visitor=team)))
 
         context = super(PersonView, self).get_context_data(**kwargs)
         context['person'] = self.object
