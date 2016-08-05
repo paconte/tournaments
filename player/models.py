@@ -541,8 +541,8 @@ class PlayerStadistic(models.Model):
         if self.is_game_stat():
             return '{} - {} - touchdowns: {}'.format(self.game, self.player, self.points)
         else:
-            return '{} - {} - touchdowns: {} - played: {} - mvp: {}'.format(self.tournament, self.player, self.points,
-                                                                            self.played, self.mvp)
+            return '{} - {} - touchdowns: {} - played: {} - mvp: {}'.format(
+                    self.tournament, self.player, self.points, self.played, self.mvp)
 
 
 class Contact(models.Model):
