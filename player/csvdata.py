@@ -1,5 +1,5 @@
 from time import strftime
-from player.models import MO, M30, M40, WO, W27, MXO, SMX
+from player.models import MO, M40, WO, W27, MXO, SMX
 
 
 def get_tournament_url(tournament):
@@ -31,6 +31,18 @@ def get_tournament_url(tournament):
         return remote_files_EUROS_2014_SMX
     elif tournament == EUROS_2014_M40:
         return remote_files_EUROS_2014_M40
+    elif tournament == EUROS_2016_MO:
+        return remote_files_EUROS_2016_MO
+    elif tournament == EUROS_2014_WO:
+        return remote_files_EUROS_2016_WO
+    elif tournament == EUROS_2016_MO:
+        return remote_files_EUROS_2016_WO
+    elif tournament == EUROS_2016_MXO:
+        return remote_files_EUROS_2016_MXO
+    elif tournament == EUROS_2016_W27:
+        return remote_files_EUROS_2016_W27
+    elif tournament == EUROS_2016_SMX:
+        return remote_files_EUROS_2016_SMX
     else:
         raise ValueError("Tournament not supported.")
 
@@ -76,6 +88,17 @@ def get_tournament_html_path(tournament):
         return local_files_EUROS_2014_W27
     elif tournament == EUROS_2014_M40:
         return local_files_EUROS_2014_M40
+    elif tournament == EUROS_2016_MO:
+        return local_files_EUROS_2016_MO
+    elif tournament == EUROS_2016_WO:
+        return local_files_EUROS_2016_WO
+    elif tournament == EUROS_2016_MXO:
+        return local_files_EUROS_2016_MXO
+    elif tournament == EUROS_2016_SMX:
+        return local_files_EUROS_2016_SMX
+    elif tournament == EUROS_2016_W27:
+        return local_files_EUROS_2016_W27
+
     else:
         raise ValueError("Tournament not supported.")
 
@@ -115,6 +138,16 @@ def get_csv_path(tournament, is_stats=False, is_test=True):
         filename = 'EUROS_2014_SMX_GAMES_FIT'
     elif tournament == EUROS_2014_M40:
         filename = 'EUROS_2014_M40_GAMES_FIT'
+    elif tournament == EUROS_2016_MO:
+        filename = 'EUROS_2016_MO_GAMES_FIT'
+    elif tournament == EUROS_2016_WO:
+        filename = 'EUROS_2016_WO_GAMES_FIT'
+    elif tournament == EUROS_2016_MXO:
+        filename = 'EUROS_2016_MXO_GAMES_FIT'
+    elif tournament == EUROS_2016_W27:
+        filename = 'EUROS_2016_W27_GAMES_FIT'
+    elif tournament == EUROS_2016_SMX:
+        filename = 'EUROS_2016_SMX_GAMES_FIT'
     else:
         raise ValueError('Illegal argument: %s', tournament)
 
@@ -137,24 +170,26 @@ def get_tournament_name(tournament):
         return 'NTL 2016'
     elif tournament in [EUROS_2014_MO, EUROS_2014_M40, EUROS_2014_WO, EUROS_2014_W27, EUROS_2014_MXO, EUROS_2014_SMX]:
         return 'Euros 2014'
+    elif tournament in [EUROS_2016_MO, EUROS_2016_WO, EUROS_2016_W27, EUROS_2016_MXO, EUROS_2016_SMX]:
+        return 'Euros 2016'
     else:
         raise ValueError("Tournament not supported.")
 
 
 def get_tournament_division(tournament):
-    if tournament in [WC_2015_MO_GAMES_FOX, EUROS_2014_MO, NTL_2016_MO_GAMES_FOX]:
+    if tournament in [WC_2015_MO_GAMES_FOX, EUROS_2014_MO, EUROS_2014_M40, EUROS_2016_MO, NTL_2016_MO_GAMES_FOX]:
         return 'MO'
     elif tournament == WC_2015_M30_GAMES_FOX:
         return 'M30'
     elif tournament == EUROS_2014_M40:
         return 'M40'
-    elif tournament in [WC_2015_WO_GAMES_FOX, NTL_2016_WO_GAMES_FOX, EUROS_2014_WO]:
+    elif tournament in [WC_2015_WO_GAMES_FOX, NTL_2016_WO_GAMES_FOX, EUROS_2014_WO, EUROS_2016_WO]:
         return 'WO'
-    elif tournament in [WC_2015_W27_GAMES_FOX, EUROS_2014_W27]:
+    elif tournament in [WC_2015_W27_GAMES_FOX, EUROS_2014_W27, EUROS_2016_W27]:
         return 'W27'
-    elif tournament in [WC_2015_MXO_GAMES_FOX, EUROS_2014_MXO]:
+    elif tournament in [WC_2015_MXO_GAMES_FOX, EUROS_2014_MXO, EUROS_2016_MXO]:
         return 'MXO'
-    elif tournament in [WC_2015_SMX_GAMES_FOX, EUROS_2014_SMX]:
+    elif tournament in [WC_2015_SMX_GAMES_FOX, EUROS_2014_SMX, EUROS_2016_SMX]:
         return 'SMX'
     else:
         raise ValueError("Tournament not supported.")
@@ -163,8 +198,8 @@ def get_tournament_division(tournament):
 def get_competition(tournament):
     if tournament in [EUROS_2014_WO, EUROS_2014_W27, EUROS_2014_MO, EUROS_2014_M40, EUROS_2014_MXO, EUROS_2014_SMX]:
         return EUROS_2014
-    #elif tournament in [WC_2015_MO_GAMES_FOX, WC_2015_WO_GAMES_FOX, WC_2015_W27_GAMES_FOX, WC_2015_MXO_GAMES_FOX]:
-    #    return 'WORLD_CUP_2015'
+    elif tournament in [EUROS_2016_WO, EUROS_2016_W27, EUROS_2016_MO, EUROS_2016_MXO, EUROS_2016_SMX]:
+        return EUROS_2016
     else:
         raise ValueError("Tournament not supported.")
 
@@ -173,7 +208,8 @@ def get_tournament_year(tournament):
     if tournament in [WC_2015_MO_GAMES_FOX, WC_2015_WO_GAMES_FOX, WC_2015_MXO_GAMES_FOX, WC_2015_SMX_GAMES_FOX,
                       WC_2015_W27_GAMES_FOX, WC_2015_M30_GAMES_FOX]:
         return 2015
-    elif tournament in [NTL_2016_MO_GAMES_FOX, NTL_2016_WO_GAMES_FOX]:
+    elif tournament in [NTL_2016_MO_GAMES_FOX, NTL_2016_WO_GAMES_FOX, EUROS_2016_MO, EUROS_2016_WO, EUROS_2016_MXO,
+                        EUROS_2016_W27, EUROS_2016_SMX]:
         return 2016
     elif tournament in [EUROS_2014_MO, EUROS_2014_WO, EUROS_2014_MXO, EUROS_2014_W27, EUROS_2014_SMX, EUROS_2014_M40]:
         return 2014
@@ -182,7 +218,8 @@ def get_tournament_year(tournament):
 
 
 class FitStatistic:
-    def __init__(self, tournament_name, division, team, player_number, first_name, last_name, gender, played, scores, mvp):
+    def __init__(self, tournament_name, division, team, player_number, first_name, last_name, gender, played, scores,
+                 mvp):
         self.tournament_name = tournament_name
         self.division = division
         self.team = team
@@ -906,6 +943,12 @@ remote_files_EUROS_2014_MXO = ['https://www.internationaltouch.org/events/euros/
 remote_files_EUROS_2014_SMX = ['https://www.internationaltouch.org/events/euros/2014/senior-mixed/']
 remote_files_EUROS_2014_W27 = ['https://www.internationaltouch.org/events/euros/2014/womens-27/']
 remote_files_EUROS_2014_M40 = ['https://www.internationaltouch.org/events/euros/2014/mens-40/']
+remote_files_EUROS_2016_MO = ['https://www.internationaltouch.org/events/euros/2016/mens-open/']
+remote_files_EUROS_2016_WO = ['https://www.internationaltouch.org/events/euros/2016/womens-open/']
+remote_files_EUROS_2016_MXO = ['https://www.internationaltouch.org/events/euros/2016/mixed-open/']
+remote_files_EUROS_2016_SMX = ['https://www.internationaltouch.org/events/euros/2016/senior-mixed/']
+remote_files_EUROS_2016_W27 = ['https://www.internationaltouch.org/events/euros/2016/womens-27/']
+
 
 local_files_WC_2015_MO_FX = [RAW_GAMES_FILES + 'WC2015_MO_FOX_POOLA.html',
                              RAW_GAMES_FILES + 'WC2015_MO_FOX_POOLB.html',
@@ -954,12 +997,18 @@ local_files_NTL_2016_M_FX = [RAW_GAMES_FILES + 'NTL2016_MO_FOX_POOLA.html',
 local_files_NTL_2016_WO_FX = [RAW_GAMES_FILES + 'NTL2016_WO_FOX_POOLA.html',
                               RAW_GAMES_FILES + 'NTL2016_WO_FOX_FINALS.html']
 
-local_files_EUROS_2014_MO = [RAW_GAMES_FILES + 'EUROS2016_MO.html']
-local_files_EUROS_2014_M40 = [RAW_GAMES_FILES + 'EUROS2016_M40.html']
-local_files_EUROS_2014_WO = [RAW_GAMES_FILES + 'EUROS2016_WO.html']
-local_files_EUROS_2014_W27 = [RAW_GAMES_FILES + 'EUROS2016_W27.html']
-local_files_EUROS_2014_MXO = [RAW_GAMES_FILES + 'EUROS2016_MXO.html']
-local_files_EUROS_2014_SMX = [RAW_GAMES_FILES + 'EUROS2016_SMX.html']
+local_files_EUROS_2014_MO = [RAW_GAMES_FILES + 'EUROS2014_MO.html']
+local_files_EUROS_2014_M40 = [RAW_GAMES_FILES + 'EUROS2014_M40.html']
+local_files_EUROS_2014_WO = [RAW_GAMES_FILES + 'EUROS2014_WO.html']
+local_files_EUROS_2014_W27 = [RAW_GAMES_FILES + 'EUROS2014_W27.html']
+local_files_EUROS_2014_MXO = [RAW_GAMES_FILES + 'EUROS2014_MXO.html']
+local_files_EUROS_2014_SMX = [RAW_GAMES_FILES + 'EUROS2014_SMX.html']
+local_files_EUROS_2016_MO = [RAW_GAMES_FILES + 'EUROS2016_MO.html']
+local_files_EUROS_2016_WO = [RAW_GAMES_FILES + 'EUROS2016_WO.html']
+local_files_EUROS_2016_W27 = [RAW_GAMES_FILES + 'EUROS2016_W27.html']
+local_files_EUROS_2016_MXO = [RAW_GAMES_FILES + 'EUROS2016_MXO.html']
+local_files_EUROS_2016_SMX = [RAW_GAMES_FILES + 'EUROS2016_SMX.html']
+
 
 # CONSTANTS ALGORITHMS
 WC2015_RE_GROUPS = '[Pool [A|B|C|D|E|F]|Division [1|2|3]'
@@ -970,8 +1019,9 @@ EUROS2014_RE_FINALS = '[Final|Bronze Final|9th/10th/11th|Semi Final 1|Semi Final
  WC_2015_W27_GAMES_FOX, WC_2015_M30_GAMES_FOX, WC_2015_SMX_GAMES_FOX,
  NTL_2016_MO_GAMES_FOX, NTL_2016_WO_GAMES_FOX,
  WC_2015_MO_GAMES_FIT, WC_2015_WO_GAMES_FIT, WC_2015_MXO_GAMES_FIT,
- EUROS_2014_MO, EUROS_2014_WO, EUROS_2014_MXO, EUROS_2014_W27, EUROS_2014_SMX, EUROS_2014_M40) = (
-0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)
+ EUROS_2014_MO, EUROS_2014_WO, EUROS_2014_MXO, EUROS_2014_W27, EUROS_2014_SMX, EUROS_2014_M40,
+ EUROS_2016_MO, EUROS_2016_WO, EUROS_2016_MXO, EUROS_2016_W27, EUROS_2016_SMX) = (
+    0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21)
 
 local_fit_stats_files = {
     'EUROS_2014':
@@ -1037,6 +1087,7 @@ local_fit_stats_files = {
 }
 
 EUROS_2014 = 'EUROS_2014'
+EUROS_2016 = 'EUROS_2016'
 remote_fit_stats_files = {
     EUROS_2014:
         {

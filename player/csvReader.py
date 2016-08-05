@@ -226,10 +226,12 @@ class DjangoCsvFetcher:
     def create_touch_csv_game(game):
         # if not isinstance(game, csvdata.CsvGame):
         #    assert 0, "Wrong game to read: " + game
-        type = "TOUCH"
-        if game.padel_team_names:
-            DjangoCsvFetcher.create_padel_persons
-            type = "PADEL"
+        try:
+            if game.padel_team_names:
+                DjangoCsvFetcher.create_padel_persons
+                type = "PADEL"
+        except AttributeError:
+            type = "TOUCH"
 
         tournament, created = DjangoSimpleFetcher.get_or_create_tournament(game.tournament_name, game.division, type)
         DjangoSimpleFetcher.print_fetch_result(tournament, created)
@@ -259,9 +261,13 @@ class DjangoCsvFetcher:
         # if created:
         #    add_team_to_tournament(tournament, visitor_team)
 
+        try:
+            padel_result = game.padel_result
+        except AttributeError:
+            padel_result = None
         game, created = DjangoSimpleFetcher.create_game(
                 tournament, phase, field, time, local_team, visitor_team,
-                game.local_score, game.visitor_score, game.padel_result)
+                game.local_score, game.visitor_score, padel_result)
         DjangoSimpleFetcher.print_fetch_result(game, created)
         # assert created, "The game already exists"
 

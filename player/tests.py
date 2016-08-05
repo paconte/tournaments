@@ -1,4 +1,3 @@
-import csv
 import os.path
 
 from django.test import TestCase
@@ -8,7 +7,6 @@ from player import csvWriter
 from player import csvdata
 from player import csvReader
 from player import models
-from player import games
 
 
 # Create your tests here.
@@ -61,16 +59,38 @@ class CsvFileTest(TestCase):
 
     def test_fit_euros_2014(self):
         self._test_fit_tournament_Euros_2014_MO()
-        #self._test_fit_tournament_Euros_2014_M40()
-        #self._test_fit_tournament_Euros_2014_WO()
-        #self._test_fit_tournament_Euros_2014_W27()
-        #self._test_fit_tournament_Euros_2014_MXO()
-        #self._test_fit_tournament_Euros_2014_SMX()
+        self._test_fit_tournament_Euros_2014_M40()
+        self._test_fit_tournament_Euros_2014_WO()
+        self._test_fit_tournament_Euros_2014_W27()
+        self._test_fit_tournament_Euros_2014_MXO()
+        self._test_fit_tournament_Euros_2014_SMX()
+
+    def test_fit_euros_2016(self):
+        #self._test_fit_tournament_euros_2016_MO()
+        #self._test_fit_tournament_euros_2016_WO()
+        #self._test_fit_tournament_euros_2016_W27()
+        self._test_fit_tournament_euros_2016_SMX()
 
     def test_padel_hamburg_2016(self):
         file = './player/data_files/csv/PADEL_HAMBURG_2016.csv'
         reader = csvReader.CsvReader(csvReader.CsvReader.PADEL_GAME)
         reader.read_file(file)
+
+    def _test_fit_tournament_euros_2016_MO(self):
+        tournament = csvdata.EUROS_2014_MO
+        self.csv_fit_tournament(tournament)
+
+    def _test_fit_tournament_euros_2016_WO(self):
+        tournament = csvdata.EUROS_2014_WO
+        self.csv_fit_tournament(tournament)
+
+    def _test_fit_tournament_euros_2016_W27(self):
+        tournament = csvdata.EUROS_2014_W27
+        self.csv_fit_tournament(tournament)
+
+    def _test_fit_tournament_euros_2016_SMX(self):
+        tournament = csvdata.EUROS_2014_SMX
+        self.csv_fit_tournament(tournament)
 
     def _test_fit_tournament_Euros_2014_MO(self):
         tournament = csvdata.EUROS_2014_MO
@@ -80,25 +100,30 @@ class CsvFileTest(TestCase):
     def _test_fit_tournament_Euros_2014_M40(self):
         tournament = csvdata.EUROS_2014_M40
         self.csv_fit_tournament(tournament)
+        self._test_fit_stats_Euros_2014(tournament)
 
     def _test_fit_tournament_Euros_2014_WO(self):
         tournament = csvdata.EUROS_2014_WO
         self.csv_fit_tournament(tournament)
+        self._test_fit_stats_Euros_2014(tournament)
 
     def _test_fit_tournament_Euros_2014_W27(self):
         tournament = csvdata.EUROS_2014_W27
         self.csv_fit_tournament(tournament)
+        self._test_fit_stats_Euros_2014(tournament)
 
     def _test_fit_tournament_Euros_2014_MXO(self):
         tournament = csvdata.EUROS_2014_MXO
         self.csv_fit_tournament(tournament)
+        self._test_fit_stats_Euros_2014(tournament)
 
     def _test_fit_tournament_Euros_2014_SMX(self):
         tournament = csvdata.EUROS_2014_SMX
         self.csv_fit_tournament(tournament)
+        self._test_fit_stats_Euros_2014(tournament)
 
     def _test_fit_stats_Euros_2014(self, tournament):
-        #csvWriter.FitGamesManager.download_stats_html()
+        csvWriter.FitGamesManager.download_stats_html()
         manager = csvWriter.FitGamesManager(tournament)
         stats = manager.get_csv_statistics()
 
