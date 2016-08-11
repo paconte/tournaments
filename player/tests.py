@@ -69,7 +69,8 @@ class CsvFileTest(TestCase):
         #self._test_fit_tournament_euros_2016_MO()
         #self._test_fit_tournament_euros_2016_WO()
         #self._test_fit_tournament_euros_2016_W27()
-        self._test_fit_tournament_euros_2016_SMX()
+        #self._test_fit_tournament_euros_2016_SMX()
+        self._test_fit_tournament_euros_2016_MXO()
 
     def test_padel_hamburg_2016(self):
         file = './player/data_files/csv/PADEL_HAMBURG_2016.csv'
@@ -77,19 +78,23 @@ class CsvFileTest(TestCase):
         reader.read_file(file)
 
     def _test_fit_tournament_euros_2016_MO(self):
-        tournament = csvdata.EUROS_2014_MO
+        tournament = csvdata.EUROS_2016_MO
         self.csv_fit_tournament(tournament)
 
     def _test_fit_tournament_euros_2016_WO(self):
-        tournament = csvdata.EUROS_2014_WO
+        tournament = csvdata.EUROS_2016_WO
         self.csv_fit_tournament(tournament)
 
     def _test_fit_tournament_euros_2016_W27(self):
-        tournament = csvdata.EUROS_2014_W27
+        tournament = csvdata.EUROS_2016_W27
+        self.csv_fit_tournament(tournament)
+
+    def _test_fit_tournament_euros_2016_MXO(self):
+        tournament = csvdata.EUROS_2016_MXO
         self.csv_fit_tournament(tournament)
 
     def _test_fit_tournament_euros_2016_SMX(self):
-        tournament = csvdata.EUROS_2014_SMX
+        tournament = csvdata.EUROS_2016_SMX
         self.csv_fit_tournament(tournament)
 
     def _test_fit_tournament_Euros_2014_MO(self):
