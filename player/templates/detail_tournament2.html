@@ -8,20 +8,26 @@
 </div>
 
 <div class="page-header">
-  <h1>Teams</h1>
+    <h1>Teams
+        <a class="ion-arrow-down-b" role="button" data-toggle="collapse" href="#teams-collapse" aria-expanded="false"
+           aria-controls="teams-collapse">
+        </a>
+    </h1>
 </div>
 
-<table class="table-condensed">
-	<tbody>
-     {% for row in teams_matrix %}
-	<tr>
-		{% for team in row %}
-		<td class="col-sm-2"><a href="{% url 'detail_team_tournament' tournament.id team.id %}">{{team.name}}</a></td>
-		{% endfor %}
-	</tr>
-	{% endfor %}
-	</tbody>
-</table>
+<div class="collapse in" id="teams-collapse">
+    <table class="table-condensed">
+        <tbody>
+        {% for row in teams_matrix %}
+        <tr>
+            {% for team in row %}
+            <td class="col-sm-2"><a href="{% url 'detail_team_tournament' tournament.id team.id %}">{{team.name}}</a></td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
 
 {% if liga_games %}
 <div class="page-header">
