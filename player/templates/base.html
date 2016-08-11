@@ -24,7 +24,7 @@
 
 <body>
 <!-- Fixed navbar -->
-<nav class="navbar  navbar-default navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -41,9 +41,13 @@
                 <li><a href="{% url 'about' %}">About</a></li>
             </ul>
             <form class="navbar-form navbar-right" action="{% url 'search' %}" method="get">
+                <div class="form-group has-feedback">
                 {% csrf_token %}
-                <input type="text" class="form-control" name="text" placeholder="Search..." >
+                <input type="text" class="form-control" name="text" style="width: 500px;">
+                <i class="form-control-feedback ion-android-search" style="font-size: 30px; color: rgb(170, 170, 170); margin-top: 3px;"></i>
+                </div>
             </form>
+
         </div>
     </div><!--/.nav-collapse -->
 </nav>
