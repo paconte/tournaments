@@ -33,9 +33,7 @@ def get_tournament_url(tournament):
         return remote_files_EUROS_2014_M40
     elif tournament == EUROS_2016_MO:
         return remote_files_EUROS_2016_MO
-    elif tournament == EUROS_2014_WO:
-        return remote_files_EUROS_2016_WO
-    elif tournament == EUROS_2016_MO:
+    elif tournament == EUROS_2016_WO:
         return remote_files_EUROS_2016_WO
     elif tournament == EUROS_2016_MXO:
         return remote_files_EUROS_2016_MXO
