@@ -2,6 +2,17 @@
 
 {% block content %}
 
+<script>
+    function arrowChange () {
+        var arrow = this.getAttribute('class');
+        if (arrow == 'ion-arrow-down-b'){
+            this.setAttribute('class', 'ion-arrow-left-b');
+        } else {
+            this.setAttribute('class', 'ion-arrow-down-b');
+        }
+    }
+</script>
+
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
   <h1>{{tournament.name}}</h1><h2>{{division}}</h2>
@@ -10,12 +21,12 @@
 <div class="page-header">
     <h1>Teams
         <a class="ion-arrow-down-b" role="button" data-toggle="collapse" href="#teams-collapse" aria-expanded="false"
-           aria-controls="teams-collapse">
+           aria-controls="teams-collapse" onclick="arrowChange.call(this)">
         </a>
     </h1>
 </div>
 
-<div class="collapse in" id="teams-collapse">
+<div class="collapse in jumbotron" id="teams-collapse">
     <table class="table-condensed">
         <tbody>
         {% for row in teams_matrix %}
@@ -106,9 +117,14 @@
 
 {% if pool_games %}
 <div class="page-header">
-  <h1>Pool Stage</h1>
+  <h1>Pool Stage
+      <a class="ion-arrow-down-b" role="button" data-toggle="collapse" href="#pools-collapse" aria-expanded="false"
+           aria-controls="pools-collapse" onclick="arrowChange.call(this)">
+      </a>
+  </h1>
 </div>
 
+<div class="collapse in" id="pools-collapse">
 {% for key, list in pool_games.items %}
 <div class="jumbotron">
 <div class="row">
@@ -177,14 +193,21 @@
 </div>
 </div>
 {% endfor %}
+</div>
 {% endif %}
 
 {% if division_games.items %}
 <div class="page-header">
-  <h1>Divisions</h1>
+  <h1>Divisions
+       <a class="ion-arrow-down-b" role="button" data-toggle="collapse" href="#divisions-collapse" aria-expanded="false"
+           aria-controls="divisions-collapse" onclick="arrowChange.call(this)">
+      </a>
+  </h1>
 </div>
 
+
 {% for key1, values1 in division_games.items %}
+<div class="collapse in" id="divisions-collapse">
 <div class="jumbotron">
 <div class="row">
 {% for key2, values2 in values1.items %}
@@ -299,13 +322,19 @@
 </div>
 </div>
 {% endfor %}
+</div>
 {% endif %}
 
 {% if phased_finals_games.items %}
 <div class="page-header">
-  <h1>Finals</h1>
+  <h1>Finals
+      <a class="ion-arrow-down-b" role="button" data-toggle="collapse" href="#finals-collapse" aria-expanded="false"
+           aria-controls="finals-collapse" onclick="arrowChange.call(this)">
+      </a>
+  </h1>
 </div>
 
+<div class="collapse in" id="finals-collapse">
 {% for key1, values1 in phased_finals_games.items %}
 <div class="jumbotron">
 {% for key2, values2 in values1.items %}
@@ -359,7 +388,7 @@
 {% endfor %}
 </div>
 {% endfor %}
-
+</div>
 {% endif %}
 
 {% endblock %}
