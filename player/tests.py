@@ -66,10 +66,10 @@ class CsvFileTest(TestCase):
         self._test_fit_tournament_Euros_2014_SMX()
 
     def test_fit_euros_2016(self):
-        #self._test_fit_tournament_euros_2016_MO()
-        #self._test_fit_tournament_euros_2016_WO()
-        #self._test_fit_tournament_euros_2016_W27()
-        #self._test_fit_tournament_euros_2016_SMX()
+        self._test_fit_tournament_euros_2016_MO()
+        self._test_fit_tournament_euros_2016_WO()
+        self._test_fit_tournament_euros_2016_W27()
+        self._test_fit_tournament_euros_2016_SMX()
         self._test_fit_tournament_euros_2016_MXO()
 
     def test_padel_hamburg_2016(self):
@@ -80,22 +80,27 @@ class CsvFileTest(TestCase):
     def _test_fit_tournament_euros_2016_MO(self):
         tournament = csvdata.EUROS_2016_MO
         self.csv_fit_tournament(tournament)
+        self.csv_fit_euros_2016_stats(tournament)
 
     def _test_fit_tournament_euros_2016_WO(self):
         tournament = csvdata.EUROS_2016_WO
         self.csv_fit_tournament(tournament)
+        self.csv_fit_euros_2016_stats(tournament)
 
     def _test_fit_tournament_euros_2016_W27(self):
         tournament = csvdata.EUROS_2016_W27
         self.csv_fit_tournament(tournament)
+        self.csv_fit_euros_2016_stats(tournament)
 
     def _test_fit_tournament_euros_2016_MXO(self):
         tournament = csvdata.EUROS_2016_MXO
         self.csv_fit_tournament(tournament)
+        self.csv_fit_euros_2016_stats(tournament)
 
     def _test_fit_tournament_euros_2016_SMX(self):
         tournament = csvdata.EUROS_2016_SMX
         self.csv_fit_tournament(tournament)
+        self.csv_fit_euros_2016_stats(tournament)
 
     def _test_fit_tournament_Euros_2014_MO(self):
         tournament = csvdata.EUROS_2014_MO
@@ -130,7 +135,7 @@ class CsvFileTest(TestCase):
     def _test_fit_stats_Euros_2014(self, tournament):
         csvWriter.FitGamesManager.download_stats_html()
         manager = csvWriter.FitGamesManager(tournament)
-        stats = manager.get_csv_statistics()
+        stats = manager.get_csv_stats()
 
         writer = csvWriter.CsvWriter(tournament, True, True)
         writer.delete_filename_path()
@@ -145,15 +150,28 @@ class CsvFileTest(TestCase):
         reader.read_file(filename)
         # management.call_command('flush', interactive=False, verbosity=0)
 
-    def csv_fit_tournament(self, tournament):
+    def csv_fit_tournament(self, tournament, download=False):
         manager = csvWriter.FitGamesManager(tournament)
-        manager.download_games_html()
+        if download:
+            manager.download_games_html()
 
         writer = csvWriter.CsvWriter(tournament, False, True)
         writer.delete_filename_path()
         writer.write_csv(manager.get_fit_games())
 
         reader = csvReader.CsvReader(csvReader.CsvReader.TOURNAMENT)
+        reader.read_file(writer.get_filename_path())
+
+    def csv_fit_euros_2016_stats(self, tournament):
+        manager = csvWriter.FitGamesManager(tournament)
+        manager.get_fit_games()
+        stats = manager.get_csv_stats_euros_2016(True)
+
+        writer = csvWriter.CsvWriter(tournament, True, True)
+        writer.delete_filename_path()
+        writer.write_csv(stats)
+
+        reader = csvReader.CsvReader(csvReader.CsvReader.NTS_STATISTIC)
         reader.read_file(writer.get_filename_path())
 
     def csv_fox_tournament(self, tournament, games_download=False, stats_download=False):
