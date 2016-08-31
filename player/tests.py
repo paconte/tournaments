@@ -162,10 +162,10 @@ class CsvFileTest(TestCase):
         reader = csvReader.CsvReader(csvReader.CsvReader.TOURNAMENT)
         reader.read_file(writer.get_filename_path())
 
-    def csv_fit_euros_2016_stats(self, tournament):
+    def csv_fit_euros_2016_stats(self, tournament, download=False):
         manager = csvWriter.FitGamesManager(tournament)
         manager.get_fit_games()
-        stats = manager.get_csv_stats_euros_2016(False)
+        stats = manager.get_csv_stats_euros_2016(download)
 
         writer = csvWriter.CsvWriter(tournament, True, True)
         writer.delete_filename_path()
