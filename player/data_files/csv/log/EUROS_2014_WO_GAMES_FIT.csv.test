@@ -1,0 +1,15 @@
+Read csv file: "./player/data_files/csv/EUROS_2014_WO_GAMES_FIT.csv.test"
+
+Detected 13 columns
+
+
+Starting reading 3 from ./player/data_files/csv/EUROS_2014_WO_GAMES_FIT.csv.test
+
+
+Row to read:
+['Euros 2014', 'WO', '08/07/14', '09:00', 'Field 3', 'Liga', 'Gold', '7', 'xx', 'Wales', '12', '3', 'Belgium']
+
+Found Tournament:
+WO - Euros 2014
+Created Team:
+WO - 08/07/14
