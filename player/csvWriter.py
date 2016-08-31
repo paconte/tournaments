@@ -286,7 +286,8 @@ class FitGamesManager:
             self.csv_stats.append(csv_stat)
 
     def get_game_statistic_file_to_save(self, game):
-        tup = (self.t_name, self.t_division, game.category, game.round, game.local, game.visitor, 'stats')
+        tup = (self.t_name, self.t_division, game.category, game.round, game.local, game.visitor,
+               game.date.replace('/', '')+'-'+game.time, 'stats')
         destination = '_'.join(tup) + '.html'
         destination = destination.replace(' ', '_')
         return csvdata.RAW_STATS_FILES_EUROS + destination
