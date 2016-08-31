@@ -165,7 +165,7 @@ class CsvFileTest(TestCase):
     def csv_fit_euros_2016_stats(self, tournament):
         manager = csvWriter.FitGamesManager(tournament)
         manager.get_fit_games()
-        stats = manager.get_csv_stats_euros_2016(True)
+        stats = manager.get_csv_stats_euros_2016(False)
 
         writer = csvWriter.CsvWriter(tournament, True, True)
         writer.delete_filename_path()
