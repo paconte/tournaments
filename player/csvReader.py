@@ -140,12 +140,13 @@ class DjangoSimpleFetcher:
         return result
 
     @staticmethod
-    def get_or_create_nts_statistic(game, player, scores):
+    def get_or_create_nts_statistic(game, player, scores, mvp=None):
         if scores and int(scores) > 0:
             #result = PlayerStadistic.objects.get_or_create(game=game, player=player, points=scores)
             try:
                 player = PlayerStadistic.objects.get(game=game, player=player)
                 player.points = scores
+                player.mvp = mvp
                 player.save()
                 return player, True
             except PlayerStadistic.DoesNotExist:
