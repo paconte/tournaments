@@ -68,8 +68,6 @@ class FitGamesManager:
             soup = BeautifulSoup(f, "lxml")
             raw_games = self._extract_fit_games(soup)
             raw_groups = self._extract_fit_pools(soup)
-            print(raw_groups)
-            #exit(0)
             raw_sorted_games = self._assign_fit_games_to_fit_pools(raw_games, raw_groups)
             self.save_stats_info(raw_sorted_games)
             self.fit_games = self.games_to_csv_array(raw_sorted_games)
@@ -266,7 +264,7 @@ class FitGamesManager:
                         csv_stat[14] = game.round
                         csv_stat[15] = game.nteams
                         self.csv_stats.append(csv_stat)
-                        local = False
+                    local = False
 
     def _extract_fit_statistic_single(self, soup, team):
         table_rows = soup.find(id="players").find_all('tr')
