@@ -396,7 +396,7 @@ def sort_tournament_list(tournament_list, tournament_type):
             result["Germany"].append(t)
         elif 'NTL' in t.name:
             result["Australia"].append(t)
-        elif 'Euros 2014' in t.name:
+        elif t.name in ['Euros 2014', 'Euros 2016']:
             result["Euros"].append(t)
         else:
             raise Exception('Tournament name %s not recognized.' % t.name)
