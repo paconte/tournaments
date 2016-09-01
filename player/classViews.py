@@ -63,11 +63,10 @@ class GameView(DetailView):
                     points = st.points
                     break
             # row = [number, local_players[i].person, points]
-            if local_players[i].person.get_full_name() in local_stats.keys():
-                local_stats[local_players[i].person.get_full_name()] = local_stats[local_players[
-                    i].person.get_full_name()] + points
+            if local_players[i].person in local_stats.keys():
+                local_stats[local_players[i].person] = local_stats[local_players[i].person] + points
             else:
-                local_stats[local_players[i].person.get_full_name()] = points
+                local_stats[local_players[i].person] = points
 
         n_rows = len(visitor_players)
         for i in range(n_rows):
@@ -79,19 +78,18 @@ class GameView(DetailView):
                     break
             # row = [number, visitor_players[i].person, points]
             # visitor_stats.append(row)
-            if visitor_players[i].person.get_full_name() in visitor_stats.keys():
-                visitor_stats[visitor_players[i].person.get_full_name()] = visitor_stats[visitor_players[
-                    i].person.get_full_name()] + points
+            if visitor_players[i].person in visitor_stats.keys():
+                visitor_stats[visitor_players[i].person] = visitor_stats[visitor_players[i].person] + points
             else:
-                visitor_stats[visitor_players[i].person.get_full_name()] = points
+                visitor_stats[visitor_players[i].person] = points
 
         local_stats2 = []
-        for k, v in local_stats.items():
-            local_stats2.append([k, v])
+        for person, v in local_stats.items():
+            local_stats2.append([person.get_full_name(), v, person.id])
 
         visitor_stats2 = []
-        for k, v in visitor_stats.items():
-            visitor_stats2.append([k, v])
+        for person, v in visitor_stats.items():
+            visitor_stats2.append([person.get_full_name(), v, person.id])
 
         return sorted(local_stats2, key=lambda line: line[1], reverse=True), sorted(visitor_stats2,
                                                                                     key=lambda line: line[1],
@@ -246,13 +244,13 @@ class TeamTournamentView(DetailView):
             for st in statistics:
                 if st.player == player:
                     points += st.points
-            if player.person.get_full_name() in stats.keys():
-                stats[player.person.get_full_name()] = stats[player.person.get_full_name()] + points
+            if player.person in stats.keys():
+                stats[player.person] = stats[player.person] + points
             else:
-                stats[player.person.get_full_name()] = points
+                stats[player.person] = points
 
-        for k, v in stats.items():
-            result.append([k, v])
+        for person, v in stats.items():
+            result.append([person.get_full_name(), v, person.id])
 
         return sorted(result, key=lambda line: line[1], reverse=True)
 
@@ -262,9 +260,10 @@ class TeamTournamentView(DetailView):
         for player in players:
             statistics.extend(PlayerStadistic.objects.filter(Q(player=player.id), Q(tournament=tournament_id)))
         for stat in statistics:
-            k = stat.player.person.get_full_name()
-            v = stat.points
-            result.append([k, v])
+            fullname = stat.player.person.get_full_name()
+            scores = stat.points
+            player_id = stat.player.person.id
+            result.append([fullname, scores, player_id])
         return sorted(result, key=lambda line: line[1], reverse=True)
 
 
