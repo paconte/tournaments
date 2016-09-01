@@ -98,13 +98,14 @@ class Tournament(models.Model):
 
     def __str__(self):
         if self.country and self.city:
-            result = '{:s} - {:s} ({:s}, {:s})'.format(self.division, self.name, self.city, self.country)
+            result = '{0} - {1} ({2}, {3})'.format(
+                self.division, self.name, smart_str(self.city), smart_str(self.country))
         elif self.country:
-            result = '{:s} - {:s} ({:s})'.format(self.division, self.name, self.country)
+            result = '{0} - {1} ({2})'.format(self.division, self.name, smart_str(self.country))
         elif self.city:
-            result = '{:s} - {:s} ({:s})'.format(self.division, self.name, self.city)
+            result = '{0} - {1} ({2})'.format(self.division, self.name, smart_str(self.city))
         else:
-            result = '{:s} - {:s}'.format(self.division, self.name)
+            result = '{0} - {1}'.format(self.division, self.name)
         return result
 
     def get_division_name(self):
