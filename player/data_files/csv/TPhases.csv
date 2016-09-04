@@ -5,8 +5,10 @@ Pool A;Gold;6
 Pool A;Gold;7
 Pool A;Gold;8
 Pool B;Gold;4
+Pool B;Gold;3
 Pool C;Gold;4
 Pool C;Gold;3
+Pool C;Gold;2
 Pool D;Gold;4
 Pool D;Gold;3
 Pool E;Gold;3
@@ -63,4 +65,5 @@ Liga;Gold;10
 Liga;Gold;9
 Liga;Gold;8
 Liga;Gold;7
+Liga;Gold;6
 Liga;Gold;5

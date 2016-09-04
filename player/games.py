@@ -25,10 +25,16 @@ class PadelResult:
         self.local_score = []
         self.visitor_score = []
         for x in range(0, len(scores)):
-            if x % 2 == 0:
-                self.local_score.append(int(scores[x]))
-            else:
-                self.visitor_score.append(int(scores[x]))
+            try:
+                score = int(scores[x])
+                if scores[x]=='' or score < 0 or score > 10:
+                    raise ValueError
+                if x % 2 == 0:
+                    self.local_score.append(score)
+                else:
+                    self.visitor_score.append(score)
+            except ValueError:
+                pass
 
     def get_local_score(self):
         sets = 0
