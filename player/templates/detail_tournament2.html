@@ -42,9 +42,14 @@
 
 {% if liga_games %}
 <div class="page-header">
-  <h1>Liga Stage</h1>
+  <h1>Liga Stage
+	   <a class="ion-arrow-down-b" role="button" data-toggle="collapse" href="#liga-collapse" aria-expanded="false"
+           aria-controls="liga-collapse" onclick="arrowChange.call(this)">
+      </a>
+  </h1>
 </div>
 
+<div class="collapse in" id="liga-collapse">
 {% for key, list in liga_games.items %}
 <div class="jumbotron">
 <div class="row">
@@ -113,6 +118,7 @@
 </div>
 </div>
 {% endfor %}
+</div>
 {% endif %}
 
 {% if pool_games %}

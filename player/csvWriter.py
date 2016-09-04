@@ -20,12 +20,13 @@ class FitGamesManager:
 
     def __init__(self, tournament):
         self.tournament = tournament
-        self._csv_stats = []
+        self.csv_stats = []
         self.fit_games = []
         self.t_name = csvdata.get_tournament_name(tournament)
         self.t_division = csvdata.get_tournament_division(tournament)
         self.url = csvdata.get_tournament_url(tournament)[0]
         self.raw = csvdata.get_tournament_html_path(tournament)[0]
+        self.games_stats_links = list()
 
     def download_games_html(self, force=False):
         _download_file(self.url, self.raw)
@@ -37,6 +38,16 @@ class FitGamesManager:
                 for team, url in values2.items():
                     _download_file(url, csvdata.local_fit_stats_files.get(competition).get(division).get(team))
 
+    def get_csv_stats_euros_2016(self, download=False):
+        url1 = "https://www.internationaltouch.org/"
+        for game, url2 in zip(self.fit_games, self.games_stats_links):
+            if url2:
+                dst = self.get_game_statistic_file_to_save(game)
+                if download:
+                    _download_file(url1 + url2, dst)
+                self._extract_fit_game_statistics(dst, game)
+        return self.csv_stats
+
     def games_to_csv_array(self, games):
         result = []
         for game in games:
@@ -45,26 +56,34 @@ class FitGamesManager:
             result.append(g)
         return result
 
-    def get_fit_games(self):
-        f = open(self.raw, 'r')
-        soup = BeautifulSoup(f, "lxml")
-        raw_games = self._extract_fit_games(soup)
-        raw_groups = self._extract_fit_pools(soup)
-        raw_sorted_games = self._assign_fit_games_to_fit_pools(raw_games, raw_groups)
-        self.fit_games = self.games_to_csv_array(raw_sorted_games)
-        return self.fit_games
+    def save_stats_info(self, games):
+        for game in games:
+            if not game[9]:
+                self.games_stats_links.append(None)
+            else:
+                self.games_stats_links.append(game[9])
 
-    def get_csv_statistics(self):
-        if not self._csv_stats:
+    def get_fit_games(self):
+        with open(self.raw, 'r') as f:
+            soup = BeautifulSoup(f, "lxml")
+            raw_games = self._extract_fit_games(soup)
+            raw_groups = self._extract_fit_pools(soup)
+            raw_sorted_games = self._assign_fit_games_to_fit_pools(raw_games, raw_groups)
+            self.save_stats_info(raw_sorted_games)
+            self.fit_games = self.games_to_csv_array(raw_sorted_games)
+            return self.fit_games
+
+    def get_csv_stats(self):
+        if not self.csv_stats:
             self._extract_fit_statistics()
-        return self._csv_stats
+        return self.csv_stats
 
     def _extract_fit_games(self, soup):
         games = []
         for row1 in soup.findAll('table', {"class": "round-table"}):
             game_date = row1.previous_sibling.previous_sibling.string
             for row2 in row1.findAll('tr'):
-                game = list(range(7))
+                game = list(range(8))
                 if row2.find('strong', {"class": "round"}):
                     current_round = row2.find('strong', {"class": "round"}).contents[0].strip()
                 if current_round in ['Semi Final 1', 'Semi Final 2']:
@@ -80,6 +99,9 @@ class FitGamesManager:
                     game[i] = score.contents[0]
                     i += 1
                     game[6] = row2.find('td', {"class": "away"}).find('span').contents[0]
+                stats_link = row2.find('a', {"title": "Match Statistics"})
+                if stats_link:
+                    game[7] = stats_link.get('href')
                 games.append(game)
         return games
 
@@ -113,11 +135,11 @@ class FitGamesManager:
             for row1 in row0.tbody.findAll(['tr', 'td']):
                 if row1.find('th', text=re.compile(csvdata.WC2015_RE_GROUPS)):
                     pool_name = row1.find('th', text=re.compile(csvdata.WC2015_RE_GROUPS)).get_text()
-                    if len(pool_name) < 4:  # e.g.: P is a match but not valid!!
+                    if len(pool_name) < 4 and pool_name != 'Cup':  # e.g.: P is a match but not valid!!
                         pool_name = GameRound.LIGA
-                    elif pool_name == 'Cup Pool':
+                    elif pool_name in ['Cup Pool', 'Cup']:
                         pool_name = 'Division 1'
-                    elif pool_name == 'Seeding Pool':
+                    elif pool_name in ['Seeding Pool', 'Bowl']:
                         pool_name = 'Division 2'
                 for row2 in row1.findAll('td', {"class": "team"}):
                     for row3 in row2.find('span').contents:
@@ -136,15 +158,8 @@ class FitGamesManager:
             if re.match(csvdata.WC2015_RE_FINALS, game[0]) or re.match(csvdata.EUROS2014_RE_FINALS, game[0]):
                 assigned_group = 'finals'
                 nteams = 2
-                #print('######################################')
-                #print(game)
             else:
                 possible_groups = self._find_fit_game_in_fit_groups(local, visitor, groups)
-                #print("#####################################")
-                #print(local)
-                #print(visitor)
-                #print(groups)
-                #print(possible_groups)
                 if len(possible_groups) > 1:
                     if ([local, visitor] not in multiple_choice_list) or ([visitor, local] not in multiple_choice_list):
                         assigned_group = self._find_pool_position(possible_groups, 1)
@@ -202,12 +217,54 @@ class FitGamesManager:
 
     def _extract_fit_statistics(self):
         if os.path.exists(csvdata.RAW_STATS_FILES) and os.path.isdir(csvdata.RAW_STATS_FILES):
-            self._csv_stats = []
+            self.csv_stats = []
             local_files = csvdata.get_fit_local_stats_files(self.tournament)
             for team, file_path in local_files.items():
-                        f = open(file_path, 'r')
-                        soup = BeautifulSoup(f)
+                        with open(file_path, 'r') as f:
+                            soup = BeautifulSoup(f)
                         self._extract_fit_statistic_single(soup, team)
+
+    def _extract_fit_game_statistics(self, file_path, game):
+        if os.path.exists(file_path):
+            with open(file_path) as f:
+                soup = BeautifulSoup(f)
+
+                tables = soup.findAll('table')
+                local = True
+                team_names = list()
+                h3 = soup.findAll('h3')
+                for t in h3:
+                    if t.get('class'):
+                        team_names.append(t.text)
+
+                for table in tables:
+                    table_rows = table.find_all('tr')
+                    for row in table_rows[1:]:
+                        columns = row.findAll('td')
+                        csv_stat = list(range(16))
+                        csv_stat[0] = game.tournament_name
+                        csv_stat[1] = game.division
+                        if local:
+                            csv_stat[2] = game.local
+                        else:
+                            csv_stat[2] = game.visitor
+                        csv_stat[3] = columns[0].text  # number
+                        full_name = columns[1].text
+                        name = extract_human_name(full_name)
+                        csv_stat[4] = name[0]  # first name
+                        csv_stat[5] = name[1]  # last name
+                        csv_stat[6] = get_player_gender(self.t_division)  # gender
+                        csv_stat[7] = columns[3].text.replace('-', '0')  # scores
+                        csv_stat[8] = columns[2].text.replace('-', '0')  # mvp
+                        csv_stat[9] = game.local
+                        csv_stat[10] = game.local_score
+                        csv_stat[11] = game.visitor_score
+                        csv_stat[12] = game.visitor
+                        csv_stat[13] = game.category
+                        csv_stat[14] = game.round
+                        csv_stat[15] = game.nteams
+                        self.csv_stats.append(csv_stat)
+                    local = False
 
     def _extract_fit_statistic_single(self, soup, team):
         table_rows = soup.find(id="players").find_all('tr')
@@ -226,7 +283,14 @@ class FitGamesManager:
             csv_stat[7] = columns[2].contents[0].replace('-', '0')  # played
             csv_stat[8] = columns[3].contents[0].replace('-', '0')  # scores
             csv_stat[9] = columns[4].contents[0].replace('-', '0')  # mvp
-            self._csv_stats.append(csv_stat)
+            self.csv_stats.append(csv_stat)
+
+    def get_game_statistic_file_to_save(self, game):
+        tup = (self.t_name, self.t_division, game.category, game.round, game.local, game.visitor,
+               game.date.replace('/', '')+'-'+game.time, 'stats')
+        destination = '_'.join(tup) + '.html'
+        destination = destination.replace(' ', '_')
+        return csvdata.RAW_STATS_FILES_EUROS + destination
 
 
 class FoxGamesManager:

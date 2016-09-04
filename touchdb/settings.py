@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
@@ -25,7 +24,6 @@ DEBUG = True
 TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -66,10 +64,10 @@ MANAGERS = (
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#    },
+    #    'default': {
+    #        'ENGINE': 'django.db.backends.sqlite3',
+    #        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    #    },
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'touchDB',
@@ -93,12 +91,10 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
-
 
 # LOGGING configuration
 
@@ -112,20 +108,20 @@ LOGGING = {
     },
     'handlers': {
         'default': {
-            'level':'DEBUG',
-            'class':'logging.handlers.RotatingFileHandler',
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
             'filename': 'logs/mylog.log',
-            'maxBytes': 1024*1024*5, # 5 MB
+            'maxBytes': 1024 * 1024 * 5,  # 5 MB
             'backupCount': 5,
-            'formatter':'standard',
+            'formatter': 'standard',
         },
         'request_handler': {
-            'level':'DEBUG',
-            'class':'logging.handlers.RotatingFileHandler',
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
             'filename': 'logs/django_request.log',
-            'maxBytes': 1024*1024*5, # 5 MB
+            'maxBytes': 1024 * 1024 * 5,  # 5 MB
             'backupCount': 5,
-            'formatter':'standard',
+            'formatter': 'standard',
         },
     },
     'loggers': {

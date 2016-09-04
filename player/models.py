@@ -2,6 +2,7 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils.translation import ugettext_lazy as _
+from django.utils.encoding import smart_str
 
 DATA_FILES = './data_files/'
 
@@ -64,11 +65,11 @@ class Person(models.Model):
         ordering = ['gender', 'last_name', 'first_name']
 
     def __str__(self):
-        return '{:s} {:s} - {:s}'.format(self.first_name, self.last_name, self.gender)
+        return '{0} {1} - {2}'.format(smart_str(self.first_name), smart_str(self.last_name), self.gender)
 
     def get_full_name(self):
         """Returns the person's full name."""
-        return '{:s} {:s}'.format(self.first_name, self.last_name)
+        return '{0} {1}'.format(smart_str(self.first_name), smart_str(self.last_name))
 
     def compare_name(self, other):
         """Returns True if both persons have the same full name otherwise False."""
@@ -97,13 +98,14 @@ class Tournament(models.Model):
 
     def __str__(self):
         if self.country and self.city:
-            result = '{:s} - {:s} ({:s}, {:s})'.format(self.division, self.name, self.city, self.country)
+            result = '{0} - {1} ({2}, {3})'.format(
+                self.division, self.name, smart_str(self.city), smart_str(self.country))
         elif self.country:
-            result = '{:s} - {:s} ({:s})'.format(self.division, self.name, self.country)
+            result = '{0} - {1} ({2})'.format(self.division, self.name, smart_str(self.country))
         elif self.city:
-            result = '{:s} - {:s} ({:s})'.format(self.division, self.name, self.city)
+            result = '{0} - {1} ({2})'.format(self.division, self.name, smart_str(self.city))
         else:
-            result = '{:s} - {:s}'.format(self.division, self.name)
+            result = '{0} - {1}'.format(self.division, self.name)
         return result
 
     def get_division_name(self):

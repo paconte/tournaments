@@ -236,8 +236,8 @@ class FitStatistic:
 
 class CsvNTSStatistic:
     def __init__(self, row, tname=None, division=None, team=None, number=None, first_name=None, last_name=None,
-                 gender=None, tries=None, local=None, local_score=None, visitor_score=None, visitor=None, category=None,
-                 round=None, team_numbers=None):
+                 gender=None, tries=None, mvp=None, local=None, local_score=None, visitor_score=None, visitor=None,
+                 category=None, round=None, team_numbers=None):
         if row:
             self._tournament_name = row[PL_ST_TOURNAMENT_INDEX]
             self._division = row[PL_ST_DIVISION_INDEX]
@@ -247,6 +247,7 @@ class CsvNTSStatistic:
             self._last_name = row[PL_ST_LAST_NAME_INDEX]
             self._gender = row[PL_ST_GENDER_INDEX]
             self._tries = row[PL_ST_PLAYER_TRIES_INDEX]
+            self._mvp = row[PL_ST_PLAYER_MVP_INDEX]
             self._local = row[PL_ST_LOCAL_TEAM_INDEX]
             self._local_score = row[PL_ST_LOCAL_TEAM_SCORE_INDEX]
             self._visitor_score = row[PL_ST_VISITOR_TEAM_SCORE_INDEX]
@@ -263,6 +264,7 @@ class CsvNTSStatistic:
             self._last_name = last_name
             self._gender = gender
             self._tries = tries
+            self._mvp = mvp
             self._local = local
             self._local_score = local_score
             self._visitor_score = visitor_score
@@ -334,6 +336,14 @@ class CsvNTSStatistic:
     @tries.setter
     def tries(self, tries):
         self._tries = tries
+
+    @property
+    def mvp(self):
+        return self.mvp
+
+    @mvp.setter
+    def mvp(self, mvp):
+        self._mvp = mvp
 
     @property
     def local(self):
@@ -793,13 +803,14 @@ PL_ST_FIRST_NAME_INDEX = 4
 PL_ST_LAST_NAME_INDEX = 5
 PL_ST_GENDER_INDEX = 6
 PL_ST_PLAYER_TRIES_INDEX = 7
-PL_ST_LOCAL_TEAM_INDEX = 8
-PL_ST_LOCAL_TEAM_SCORE_INDEX = 9
-PL_ST_VISITOR_TEAM_SCORE_INDEX = 10
-PL_ST_VISITOR_TEAM_INDEX = 11
-PL_ST_GAME_CATEGORY_INDEX = 12
-PL_ST_GAME_ROUND_INDEX = 13
-PL_ST_PHASE_TEAMS_INDEX = 14
+PL_ST_PLAYER_MVP_INDEX = 8
+PL_ST_LOCAL_TEAM_INDEX = 9
+PL_ST_LOCAL_TEAM_SCORE_INDEX = 10
+PL_ST_VISITOR_TEAM_SCORE_INDEX = 11
+PL_ST_VISITOR_TEAM_INDEX = 12
+PL_ST_GAME_CATEGORY_INDEX = 13
+PL_ST_GAME_ROUND_INDEX = 14
+PL_ST_PHASE_TEAMS_INDEX = 15
 
 # FOX GAMES INDEXES
 FOX_GAME_STATISTIC_LINK_LINK = 10
@@ -1001,11 +1012,11 @@ local_files_EUROS_2014_WO = [RAW_GAMES_FILES + 'EUROS2014_WO.html']
 local_files_EUROS_2014_W27 = [RAW_GAMES_FILES + 'EUROS2014_W27.html']
 local_files_EUROS_2014_MXO = [RAW_GAMES_FILES + 'EUROS2014_MXO.html']
 local_files_EUROS_2014_SMX = [RAW_GAMES_FILES + 'EUROS2014_SMX.html']
-local_files_EUROS_2016_MO = [RAW_GAMES_FILES + 'EUROS2016_MO.html']
-local_files_EUROS_2016_WO = [RAW_GAMES_FILES + 'EUROS2016_WO.html']
-local_files_EUROS_2016_W27 = [RAW_GAMES_FILES + 'EUROS2016_W27.html']
-local_files_EUROS_2016_MXO = [RAW_GAMES_FILES + 'EUROS2016_MXO.html']
-local_files_EUROS_2016_SMX = [RAW_GAMES_FILES + 'EUROS2016_SMX.html']
+local_files_EUROS_2016_MO = [RAW_GAMES_FILES + 'euros/EUROS2016_MO.html']
+local_files_EUROS_2016_WO = [RAW_GAMES_FILES + 'euros/EUROS2016_WO.html']
+local_files_EUROS_2016_W27 = [RAW_GAMES_FILES + 'euros/EUROS2016_W27.html']
+local_files_EUROS_2016_MXO = [RAW_GAMES_FILES + 'euros/EUROS2016_MXO.html']
+local_files_EUROS_2016_SMX = [RAW_GAMES_FILES + 'euros/EUROS2016_SMX.html']
 
 
 # CONSTANTS ALGORITHMS
