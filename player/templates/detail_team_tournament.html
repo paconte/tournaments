@@ -4,6 +4,7 @@
 
 <div class="jumbotron">
     <h1>{{ team.name }}</h1>
+    <h2>{{ tournament.name }} - {{ tournament.get_division_name }}</h2>
 </div>
 
 <div class="row">
@@ -16,14 +17,14 @@
             <thead>
             <tr>
                 <td><b>Player</b></td>
-                <td><b>TD</b></td>
+                <td class="text-center col-md-1"><b>Tries</b></td>
             </tr>
             </thead>
             <tbody>
             {% for row in players %}
             <tr>
                 <td><a href="{% url 'detail_person' row.2 %}">{{row.0}}</a></td>
-                <td class="col-md-1">{{row.1}}</td>
+                <td class="text-center col-md-1">{{row.1}}</td>
             </tr>
             {% endfor %}
             </tbody>
@@ -45,13 +46,13 @@
             {% for game in values %}
             <tr>
                 <td class="col-sm-5">
-                    <a href="{% url 'detail_team_tournament' tournament_id game.local.id %}">{{game.local.name}}</a>
+                    <a href="{% url 'detail_team_tournament' tournament.id game.local.id %}">{{game.local.name}}</a>
                 </td>
                 <td class="success text-center">{{game.local_score}}</td>
                 <td class="text-center">v</td>
                 <td class="success text-center">{{game.visitor_score}}</td>
                 <td class="col-sm-5 text-right">
-                    <a href="{% url 'detail_team_tournament' tournament_id game.visitor.id %}">{{game.visitor.name}}</a>
+                    <a href="{% url 'detail_team_tournament' tournament.id game.visitor.id %}">{{game.visitor.name}}</a>
                 </td>
                 <td class="text-center"><a class="ion-android-add-circle" href="{% url 'detail_game' game.id %}"/></td>
             </tr>

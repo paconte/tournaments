@@ -2,48 +2,64 @@
 
 {% block content %}
 
+<div class="row">
+    <div class="col-xs-18 col-sm-8 col-md-12">
+        <div class="jumbotron">
+            <span class="text-center">
+                <h2><a href="{% url 'detail_tournament' game.tournament.id %}">{{game.tournament.name}} - {{game.tournament.get_division_name}}</a></h2>
+            </span>
+        </div>
+    </div>
+</div>
+
 {% if statistics %}
 <div class="row">
-  <div class="col-xs-9 col-sm-4 col-md-6">
+    <div class="col-xs-9 col-sm-4 col-md-6">
     <div class="jumbotron">
-      <span class="text-center"><h2>{{game.local}}</h2></span>
+      <span class="text-center">
+          <h2><a href="{% url 'detail_team_tournament' game.tournament.id game.local.id %}">{{game.local.name}}</a></h2>
+      </span>
       <span class="text-center"><h2>{{game.local_score}}</h2></span>
     </div>
     <table class="table table-bordered table-striped table-condensed">
       <thead>
       <tr>
         <td><b>Player</b></td>
-        <td><b>TD</b></td>
+        <td><b>Tries</b></td>
       </tr>
       </thead>
       <tbody>
       {% for row in local_stats %}
       <tr>
         <td><a href="{% url 'detail_person' row.2 %}">{{row.0}}</a></td>
-        <td>{{row.1}}</td>
+        <td class="text-center col-md-1">{{row.1}}</td>
       </tr>
       {% endfor %}
       </tbody>
     </table>
   </div>
-  <div class="col-xs-9 col-md-6">
+    <div class="col-xs-9 col-sm-4 col-md-6">
     <div class="jumbotron">
-      <span class="text-center"><h2>{{game.visitor}}</h2></span>
+      <span class="text-center">
+          <h2>
+          <a href="{% url 'detail_team_tournament' game.tournament.id game.visitor.id %}">{{game.visitor.name}}</a>
+          </h2>
+      </span>
       <span class="text-center"><h2>{{game.visitor_score}}</h2></span>
     </div>
     <table class="table table-bordered table-striped table-condensed">
       <thead>
       <tr>
         <td><b>Player</b></td>
-        <td><b>TD</b></td>
+        <td><b>Tries</b></td>
       </tr>
       </thead>
       <tbody>
 
       {% for row in visitor_stats %}
       <tr>
-        <td><a href="{% url 'detail_person' row.2 %}">{{row.0}}</a></td>
-        <td>{{row.1}}</td>
+          <td><a href="{% url 'detail_person' row.2 %}">{{row.0}}</a></td>
+          <td class="text-center col-md-1">{{row.1}}</td>
       </tr>
       {% endfor %}
       </tbody>

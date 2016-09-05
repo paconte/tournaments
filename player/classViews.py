@@ -148,18 +148,18 @@ class TeamTournamentView(DetailView):
 
     def get_context_data(self, **kwargs):
         tournament_id = self.kwargs.get('tournament_id')
+        tournament = Tournament.objects.get(id=tournament_id)
+
         players = Player.objects.filter(team=self.object.id,
                                         tournaments_played__id=tournament_id).distinct()
         games = Game.objects.filter(Q(tournament=tournament_id),
                                     Q(local=self.object.id) | Q(visitor=self.object.id))
 
         context = super(TeamTournamentView, self).get_context_data(**kwargs)
-        context['tournament_id'] = tournament_id
+        context['tournament'] = tournament
         context['team'] = self.object
         context['games'] = self.sort_games_by_phases(games)
         context['players'] = self.get_player_statistics(players, games, tournament_id)
-        #context['players'] = self._get_player_stats_nts(players, games)
-
         return context
 
     def sort_games_by_phases(self, games):
@@ -303,7 +303,6 @@ class TournamentView(DetailView):
         context['finals_games'] = finals_games
         context['phased_finals_games'] = fixtures.get_phased_finals({})
         context['teams_matrix'] = st_utils.get_teams_matrix(teams, 4)
-        context['division'] = self.object.get_division_name()
         #add_data_for_tournaments_menu(context)
 
         return context
