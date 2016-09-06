@@ -77,6 +77,11 @@ class CsvFileTest(TestCase):
         reader = csvReader.CsvReader(csvReader.CsvReader.PADEL_GAME)
         reader.read_file(file)
 
+    def test_padel_results_2016(self):
+        file = './player/data_files/csv/Padel_Tournament_Results.csv'
+        reader = csvReader.CsvReader(csvReader.CsvReader.PADEL_GAME)
+        reader.read_file(file)
+
     def _test_fit_tournament_euros_2016_MO(self):
         tournament = csvdata.EUROS_2016_MO
         self.csv_fit_tournament(tournament)
