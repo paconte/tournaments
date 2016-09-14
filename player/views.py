@@ -26,7 +26,6 @@ tournament_type = "TOUCH"
 #tournament_type = "PADEL"
 
 
-# Create your views here.
 def index(request):
     """
     Prepare and displays the main view of the web application.
