@@ -72,6 +72,14 @@ class CsvFileTest(TestCase):
         self._test_fit_tournament_euros_2016_SMX()
         self._test_fit_tournament_euros_2016_MXO()
 
+    def test_nts_2016(self):
+        file_path = "./player/data_files/csv/TGames_NTS_2016_MXO.csv"
+        reader = csvReader.CsvReader(csvReader.CsvReader.TOURNAMENT)
+        reader.read_file(file_path)
+        file_path = "./player/data_files/csv/NTS-2016-player-statistics.csv"
+        reader = csvReader.CsvReader(csvReader.CsvReader.NTS_STATISTIC)
+        reader.read_file(file_path)
+
     def test_padel_hamburg_2016(self):
         file = './player/data_files/csv/PADEL_HAMBURG_2016.csv'
         reader = csvReader.CsvReader(csvReader.CsvReader.PADEL_GAME)
