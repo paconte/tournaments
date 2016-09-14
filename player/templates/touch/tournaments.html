@@ -1,4 +1,4 @@
-{% extends "index.html" %}
+{% extends "base.html" %}
 
 {% block content %}
 <div class="container">
@@ -56,21 +56,6 @@
             {% endif %}
         </div>
     </div>
-
-    <!--
-    <div class="row">
-        <div class="col-md-6">
-            <h2>Germany</h2>
-            {% if germany %}
-            <div class="list-group">
-                {% for t in germany %}
-                <a href="{% url 'detail_tournament' t.id %}" class="list-group-item">{{ t.name }} - {{t.division}}</a>
-                {% endfor %}
-            </div>
-            {% endif %}
-        </div>
-    </div>
-    -->
 
 </div>
 {% endblock %}
