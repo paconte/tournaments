@@ -400,11 +400,11 @@ def sort_tournament_list(tournament_list, tournament_type):
             result["Euros"].append(t)
         else:
             raise Exception('Tournament name %s not recognized.' % t.name)
-    result["England"] = sorted(result.get("England"), key=lambda tournament: tournament.name+tournament.division)
+    result["England"] = sorted(result.get("England"), key=lambda tournament: tournament.date, reverse=True)
     result["World_Cup"] = sorted(result.get("World_Cup"), key=lambda tournament: tournament.name+tournament.division)
     result["Australia"] = sorted(result.get("Australia"), key=lambda tournament: tournament.name+tournament.division)
-    result["Germany"] = sorted(result.get("Germany"), key=lambda tournament: tournament.name+tournament.division)
-    result["Euros"] = sorted(result.get("Euros"), key=lambda tournament: tournament.name+tournament.division)
+    result["Germany"] = sorted(result.get("Germany"), key=lambda tournament: tournament.name+tournament.division, reverse=True)
+    result["Euros"] = sorted(result.get("Euros"), key=lambda tournament: tournament.name+tournament.division, reverse=True)
     return result
 
 
