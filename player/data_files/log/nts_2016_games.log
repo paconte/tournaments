@@ -1,0 +1,3279 @@
+Read csv file: "./player/data_files/csv/TGames_NTS_2016_MXO.csv"
+
+Detected 13 columns
+
+
+Starting reading 1 from ./player/data_files/csv/TGames_NTS_2016_MXO.csv
+
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '10:00', 'Field 1', 'Pool A', 'Gold', '4', 'xx', 'Bareback Riders', '1', '6', 'London Scorpions']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Bareback Riders
+Tournament NTS 1 2016 already has the team Bareback Riders
+b'Pool A'
+Found GameRound:
+Pool A 4 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - London Scorpions
+Tournament NTS 1 2016 already has the team London Scorpions
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Pool A 4 Gold - MXO - Bareback Riders 1 - 6 MXO - London Scorpions
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '10:00', 'Field 2', 'Pool A', 'Gold', '4', 'xx', 'Canterbury Cougars', '2', '3', 'Thames Valley Vikings']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Canterbury Cougars
+Tournament NTS 1 2016 already has the team Canterbury Cougars
+b'Pool A'
+Found GameRound:
+Pool A 4 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Thames Valley Vikings
+Tournament NTS 1 2016 already has the team Thames Valley Vikings
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Pool A 4 Gold - MXO - Canterbury Cougars 2 - 3 MXO - Thames Valley Vikings
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '10:00', 'Field 3', 'Pool B', 'Gold', '4', 'xx', 'Tumeke Sports', '5', '1', 'CSSC Phantoms']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Tumeke Sports
+Tournament NTS 1 2016 already has the team Tumeke Sports
+b'Pool B'
+Found GameRound:
+Pool B 4 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - CSSC Phantoms
+Tournament NTS 1 2016 already has the team CSSC Phantoms
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Pool B 4 Gold - MXO - Tumeke Sports 5 - 1 MXO - CSSC Phantoms
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '10:00', 'Field 4', 'Pool B', 'Gold', '4', 'xx', 'Oxford Touch', '3', '5', 'London Galaxy']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Oxford Touch
+Tournament NTS 1 2016 already has the team Oxford Touch
+b'Pool B'
+Found GameRound:
+Pool B 4 Gold
+Found GameField:
+Field 4
+Found Team:
+MXO - London Galaxy
+Tournament NTS 1 2016 already has the team London Galaxy
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Pool B 4 Gold - MXO - Oxford Touch 3 - 5 MXO - London Galaxy
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '10:30', 'Field 1', 'Pool C', 'Gold', '4', 'xx', 'Hot Custard', '7', '1', 'Nottingham Hoods']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Hot Custard
+Tournament NTS 1 2016 already has the team Hot Custard
+b'Pool C'
+Found GameRound:
+Pool C 4 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Nottingham Hoods
+Tournament NTS 1 2016 already has the team Nottingham Hoods
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Pool C 4 Gold - MXO - Hot Custard 7 - 1 MXO - Nottingham Hoods
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '10:30', 'Field 2', 'Pool C', 'Gold', '4', 'xx', 'Cambridge Bees', '3', '3', 'Galaxy Knights']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Cambridge Bees
+Tournament NTS 1 2016 already has the team Cambridge Bees
+b'Pool C'
+Found GameRound:
+Pool C 4 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Galaxy Knights
+Tournament NTS 1 2016 already has the team Galaxy Knights
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Pool C 4 Gold - MXO - Cambridge Bees 3 - 3 MXO - Galaxy Knights
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '10:30', 'Field 3', 'Pool D', 'Gold', '4', 'xx', 'Cambridge Hornets', '5', '4', 'Manchester Chargers']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Cambridge Hornets
+Tournament NTS 1 2016 already has the team Cambridge Hornets
+b'Pool D'
+Found GameRound:
+Pool D 4 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - Manchester Chargers
+Tournament NTS 1 2016 already has the team Manchester Chargers
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Pool D 4 Gold - MXO - Cambridge Hornets 5 - 4 MXO - Manchester Chargers
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '10:30', 'Field 4', 'Pool D', 'Gold', '4', 'xx', 'Bristol Fijians', '1', '8', 'Wigan Touch Warriors']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Bristol Fijians
+Tournament NTS 1 2016 already has the team Bristol Fijians
+b'Pool D'
+Found GameRound:
+Pool D 4 Gold
+Found GameField:
+Field 4
+Found Team:
+MXO - Wigan Touch Warriors
+Tournament NTS 1 2016 already has the team Wigan Touch Warriors
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Pool D 4 Gold - MXO - Bristol Fijians 1 - 8 MXO - Wigan Touch Warriors
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '11:00', 'Field 1', 'Pool B', 'Gold', '4', 'xx', 'Tumeke Sports', '2', '1', 'London Galaxy']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Tumeke Sports
+Tournament NTS 1 2016 already has the team Tumeke Sports
+b'Pool B'
+Found GameRound:
+Pool B 4 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - London Galaxy
+Tournament NTS 1 2016 already has the team London Galaxy
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Pool B 4 Gold - MXO - Tumeke Sports 2 - 1 MXO - London Galaxy
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '11:00', 'Field 2', 'Pool B', 'Gold', '4', 'xx', 'CSSC Phantoms', '3', '2', 'Oxford Touch']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - CSSC Phantoms
+Tournament NTS 1 2016 already has the team CSSC Phantoms
+b'Pool B'
+Found GameRound:
+Pool B 4 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Oxford Touch
+Tournament NTS 1 2016 already has the team Oxford Touch
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Pool B 4 Gold - MXO - CSSC Phantoms 3 - 2 MXO - Oxford Touch
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '11:00', 'Field 3', 'Pool A', 'Gold', '4', 'xx', 'Bareback Riders', '5', '2', 'Canterbury Cougars']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Bareback Riders
+Tournament NTS 1 2016 already has the team Bareback Riders
+b'Pool A'
+Found GameRound:
+Pool A 4 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - Canterbury Cougars
+Tournament NTS 1 2016 already has the team Canterbury Cougars
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Pool A 4 Gold - MXO - Bareback Riders 5 - 2 MXO - Canterbury Cougars
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '11:00', 'Field 4', 'Pool A', 'Gold', '4', 'xx', 'Thames Valley Vikings', '1', '6', 'London Scorpions']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Thames Valley Vikings
+Tournament NTS 1 2016 already has the team Thames Valley Vikings
+b'Pool A'
+Found GameRound:
+Pool A 4 Gold
+Found GameField:
+Field 4
+Found Team:
+MXO - London Scorpions
+Tournament NTS 1 2016 already has the team London Scorpions
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Pool A 4 Gold - MXO - Thames Valley Vikings 1 - 6 MXO - London Scorpions
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '11:30', 'Field 1', 'Pool D', 'Gold', '4', 'xx', 'Cambridge Hornets', '4', '4', 'Wigan Touch Warriors']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Cambridge Hornets
+Tournament NTS 1 2016 already has the team Cambridge Hornets
+b'Pool D'
+Found GameRound:
+Pool D 4 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Wigan Touch Warriors
+Tournament NTS 1 2016 already has the team Wigan Touch Warriors
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Pool D 4 Gold - MXO - Cambridge Hornets 4 - 4 MXO - Wigan Touch Warriors
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '11:30', 'Field 2', 'Pool D', 'Gold', '4', 'xx', 'Manchester Chargers', '3', '5', 'Bristol Fijians']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Manchester Chargers
+Tournament NTS 1 2016 already has the team Manchester Chargers
+b'Pool D'
+Found GameRound:
+Pool D 4 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Bristol Fijians
+Tournament NTS 1 2016 already has the team Bristol Fijians
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Pool D 4 Gold - MXO - Manchester Chargers 3 - 5 MXO - Bristol Fijians
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '11:30', 'Field 3', 'Pool C', 'Gold', '4', 'xx', 'Hot Custard', '5', '0', 'Cambridge Bees']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Hot Custard
+Tournament NTS 1 2016 already has the team Hot Custard
+b'Pool C'
+Found GameRound:
+Pool C 4 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - Cambridge Bees
+Tournament NTS 1 2016 already has the team Cambridge Bees
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Pool C 4 Gold - MXO - Hot Custard 5 - 0 MXO - Cambridge Bees
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '11:30', 'Field 4', 'Pool C', 'Gold', '4', 'xx', 'Galaxy Knights', '1', '6', 'Nottingham Hoods']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Galaxy Knights
+Tournament NTS 1 2016 already has the team Galaxy Knights
+b'Pool C'
+Found GameRound:
+Pool C 4 Gold
+Found GameField:
+Field 4
+Found Team:
+MXO - Nottingham Hoods
+Tournament NTS 1 2016 already has the team Nottingham Hoods
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Pool C 4 Gold - MXO - Galaxy Knights 1 - 6 MXO - Nottingham Hoods
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '12:00', 'Field 1', 'Pool A', 'Gold', '4', 'xx', 'Bareback Riders', '1', '3', 'Thames Valley Vikings']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Bareback Riders
+Tournament NTS 1 2016 already has the team Bareback Riders
+b'Pool A'
+Found GameRound:
+Pool A 4 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Thames Valley Vikings
+Tournament NTS 1 2016 already has the team Thames Valley Vikings
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Pool A 4 Gold - MXO - Bareback Riders 1 - 3 MXO - Thames Valley Vikings
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '12:00', 'Field 2', 'Pool A', 'Gold', '4', 'xx', 'London Scorpions', '4', '3', 'Canterbury Cougars']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - London Scorpions
+Tournament NTS 1 2016 already has the team London Scorpions
+b'Pool A'
+Found GameRound:
+Pool A 4 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Canterbury Cougars
+Tournament NTS 1 2016 already has the team Canterbury Cougars
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Pool A 4 Gold - MXO - London Scorpions 4 - 3 MXO - Canterbury Cougars
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '12:00', 'Field 3', 'Pool B', 'Gold', '4', 'xx', 'Tumeke Sports', '4', '0', 'Oxford Touch']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Tumeke Sports
+Tournament NTS 1 2016 already has the team Tumeke Sports
+b'Pool B'
+Found GameRound:
+Pool B 4 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - Oxford Touch
+Tournament NTS 1 2016 already has the team Oxford Touch
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Pool B 4 Gold - MXO - Tumeke Sports 4 - 0 MXO - Oxford Touch
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '12:00', 'Field 4', 'Pool B', 'Gold', '4', 'xx', 'London Galaxy', '2', '2', 'CSSC Phantoms']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - London Galaxy
+Tournament NTS 1 2016 already has the team London Galaxy
+b'Pool B'
+Found GameRound:
+Pool B 4 Gold
+Found GameField:
+Field 4
+Found Team:
+MXO - CSSC Phantoms
+Tournament NTS 1 2016 already has the team CSSC Phantoms
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Pool B 4 Gold - MXO - London Galaxy 2 - 2 MXO - CSSC Phantoms
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '12:30', 'Field 1', 'Pool C', 'Gold', '4', 'xx', 'Hot Custard', '7', '2', 'Galaxy Knights']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Hot Custard
+Tournament NTS 1 2016 already has the team Hot Custard
+b'Pool C'
+Found GameRound:
+Pool C 4 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Galaxy Knights
+Tournament NTS 1 2016 already has the team Galaxy Knights
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Pool C 4 Gold - MXO - Hot Custard 7 - 2 MXO - Galaxy Knights
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '12:30', 'Field 2', 'Pool C', 'Gold', '4', 'xx', 'Nottingham Hoods', '4', '1', 'Cambridge Bees']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Nottingham Hoods
+Tournament NTS 1 2016 already has the team Nottingham Hoods
+b'Pool C'
+Found GameRound:
+Pool C 4 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Cambridge Bees
+Tournament NTS 1 2016 already has the team Cambridge Bees
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Pool C 4 Gold - MXO - Nottingham Hoods 4 - 1 MXO - Cambridge Bees
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '12:30', 'Field 3', 'Pool D', 'Gold', '4', 'xx', 'Cambridge Hornets', '4', '2', 'Bristol Fijians']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Cambridge Hornets
+Tournament NTS 1 2016 already has the team Cambridge Hornets
+b'Pool D'
+Found GameRound:
+Pool D 4 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - Bristol Fijians
+Tournament NTS 1 2016 already has the team Bristol Fijians
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Pool D 4 Gold - MXO - Cambridge Hornets 4 - 2 MXO - Bristol Fijians
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '12:30', 'Field 4', 'Pool D', 'Gold', '4', 'xx', 'Wigan Touch Warriors', '9', '0', 'Manchester Chargers']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Wigan Touch Warriors
+Tournament NTS 1 2016 already has the team Wigan Touch Warriors
+b'Pool D'
+Found GameRound:
+Pool D 4 Gold
+Found GameField:
+Field 4
+Found Team:
+MXO - Manchester Chargers
+Tournament NTS 1 2016 already has the team Manchester Chargers
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Pool D 4 Gold - MXO - Wigan Touch Warriors 9 - 0 MXO - Manchester Chargers
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '13:30', 'Field 1', '¼', 'Bronze', '2', 'xx', 'Bareback Riders', '7', '2', 'Oxford Touch']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Bareback Riders
+Tournament NTS 1 2016 already has the team Bareback Riders
+b'1/4'
+Found GameRound:
+1/4 2 Bronze
+Found GameField:
+Field 1
+Found Team:
+MXO - Oxford Touch
+Tournament NTS 1 2016 already has the team Oxford Touch
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - 1/4 2 Bronze - MXO - Bareback Riders 7 - 2 MXO - Oxford Touch
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '13:30', 'Field 2', '¼', 'Bronze', '2', 'xx', 'CSSC Phantoms', '4', '1', 'Canterbury Cougars']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - CSSC Phantoms
+Tournament NTS 1 2016 already has the team CSSC Phantoms
+b'1/4'
+Found GameRound:
+1/4 2 Bronze
+Found GameField:
+Field 2
+Found Team:
+MXO - Canterbury Cougars
+Tournament NTS 1 2016 already has the team Canterbury Cougars
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - 1/4 2 Bronze - MXO - CSSC Phantoms 4 - 1 MXO - Canterbury Cougars
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '13:30', 'Field 3', '¼', 'Bronze', '2', 'xx', 'Cambridge Bees', '5', '4', 'Manchester Chargers']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Cambridge Bees
+Tournament NTS 1 2016 already has the team Cambridge Bees
+b'1/4'
+Found GameRound:
+1/4 2 Bronze
+Found GameField:
+Field 3
+Found Team:
+MXO - Manchester Chargers
+Tournament NTS 1 2016 already has the team Manchester Chargers
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - 1/4 2 Bronze - MXO - Cambridge Bees 5 - 4 MXO - Manchester Chargers
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '13:30', 'Field 4', '¼', 'Bronze', '2', 'xx', 'Bristol Fijians', '6', '3', 'Galaxy Knights']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Bristol Fijians
+Tournament NTS 1 2016 already has the team Bristol Fijians
+b'1/4'
+Found GameRound:
+1/4 2 Bronze
+Found GameField:
+Field 4
+Found Team:
+MXO - Galaxy Knights
+Tournament NTS 1 2016 already has the team Galaxy Knights
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - 1/4 2 Bronze - MXO - Bristol Fijians 6 - 3 MXO - Galaxy Knights
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '14:10', 'Field 1', '¼', 'Gold', '2', 'xx', 'London Scorpions', '3', '2', 'London Galaxy']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - London Scorpions
+Tournament NTS 1 2016 already has the team London Scorpions
+b'1/4'
+Found GameRound:
+1/4 2 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - London Galaxy
+Tournament NTS 1 2016 already has the team London Galaxy
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - 1/4 2 Gold - MXO - London Scorpions 3 - 2 MXO - London Galaxy
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '14:10', 'Field 2', '¼', 'Gold', '2', 'xx', 'Tumeke Sports', '4', '0', 'Thames Valley Vikings']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Tumeke Sports
+Tournament NTS 1 2016 already has the team Tumeke Sports
+b'1/4'
+Found GameRound:
+1/4 2 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Thames Valley Vikings
+Tournament NTS 1 2016 already has the team Thames Valley Vikings
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - 1/4 2 Gold - MXO - Tumeke Sports 4 - 0 MXO - Thames Valley Vikings
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '14:10', 'Field 3', '¼', 'Gold', '2', 'xx', 'Hot Custard', '6', '0', 'Cambridge Hornets']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Hot Custard
+Tournament NTS 1 2016 already has the team Hot Custard
+b'1/4'
+Found GameRound:
+1/4 2 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - Cambridge Hornets
+Tournament NTS 1 2016 already has the team Cambridge Hornets
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - 1/4 2 Gold - MXO - Hot Custard 6 - 0 MXO - Cambridge Hornets
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '14:10', 'Field 4', '¼', 'Gold', '2', 'xx', 'Wigan Touch Warriors', '6', '1', 'Nottingham Hoods']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Wigan Touch Warriors
+Tournament NTS 1 2016 already has the team Wigan Touch Warriors
+b'1/4'
+Found GameRound:
+1/4 2 Gold
+Found GameField:
+Field 4
+Found Team:
+MXO - Nottingham Hoods
+Tournament NTS 1 2016 already has the team Nottingham Hoods
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - 1/4 2 Gold - MXO - Wigan Touch Warriors 6 - 1 MXO - Nottingham Hoods
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '14:50', 'Field 1', 'Semifinal', 'Bronze', '2', 'xx', 'Bareback Riders', '4', '3', 'Bristol Fijians']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Bareback Riders
+Tournament NTS 1 2016 already has the team Bareback Riders
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Bronze
+Found GameField:
+Field 1
+Found Team:
+MXO - Bristol Fijians
+Tournament NTS 1 2016 already has the team Bristol Fijians
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Semifinal 2 Bronze - MXO - Bareback Riders 4 - 3 MXO - Bristol Fijians
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '14:50', 'Field 2', 'Semifinal', 'Bronze', '2', 'xx', 'CSSC Phantoms', '6', '1', 'Cambridge Bees']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - CSSC Phantoms
+Tournament NTS 1 2016 already has the team CSSC Phantoms
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Bronze
+Found GameField:
+Field 2
+Found Team:
+MXO - Cambridge Bees
+Tournament NTS 1 2016 already has the team Cambridge Bees
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Semifinal 2 Bronze - MXO - CSSC Phantoms 6 - 1 MXO - Cambridge Bees
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '14:50', 'Field 3', 'Semifinal', 'Wood', '2', 'xx', 'Oxford Touch', '6', '1', 'Galaxy Knights']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Oxford Touch
+Tournament NTS 1 2016 already has the team Oxford Touch
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Wood
+Found GameField:
+Field 3
+Found Team:
+MXO - Galaxy Knights
+Tournament NTS 1 2016 already has the team Galaxy Knights
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Semifinal 2 Wood - MXO - Oxford Touch 6 - 1 MXO - Galaxy Knights
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '14:50', 'Field 4', 'Semifinal', 'Wood', '2', 'xx', 'Canterbury Cougars', '4', '3', 'Manchester Chargers']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Canterbury Cougars
+Tournament NTS 1 2016 already has the team Canterbury Cougars
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Wood
+Found GameField:
+Field 4
+Found Team:
+MXO - Manchester Chargers
+Tournament NTS 1 2016 already has the team Manchester Chargers
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Semifinal 2 Wood - MXO - Canterbury Cougars 4 - 3 MXO - Manchester Chargers
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '15:30', 'Field 1', 'Semifinal', 'Gold', '2', 'xx', 'London Scorpions', '1', '2', 'Wigan Touch Warriors']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - London Scorpions
+Tournament NTS 1 2016 already has the team London Scorpions
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Wigan Touch Warriors
+Tournament NTS 1 2016 already has the team Wigan Touch Warriors
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Semifinal 2 Gold - MXO - London Scorpions 1 - 2 MXO - Wigan Touch Warriors
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '15:30', 'Field 2', 'Semifinal', 'Gold', '2', 'xx', 'Tumeke Sports', '2', '1', 'Hot Custard']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Tumeke Sports
+Tournament NTS 1 2016 already has the team Tumeke Sports
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Hot Custard
+Tournament NTS 1 2016 already has the team Hot Custard
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Semifinal 2 Gold - MXO - Tumeke Sports 2 - 1 MXO - Hot Custard
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '15:30', 'Field 3', 'Semifinal', 'Silver', '2', 'xx', 'London Galaxy', '5', '4', 'Nottingham Hoods']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - London Galaxy
+Tournament NTS 1 2016 already has the team London Galaxy
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Silver
+Found GameField:
+Field 3
+Found Team:
+MXO - Nottingham Hoods
+Tournament NTS 1 2016 already has the team Nottingham Hoods
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Semifinal 2 Silver - MXO - London Galaxy 5 - 4 MXO - Nottingham Hoods
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '15:30', 'Field 4', 'Semifinal', 'Silver', '2', 'xx', 'Thames Valley Vikings', '1', '3', 'Cambridge Hornets']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Thames Valley Vikings
+Tournament NTS 1 2016 already has the team Thames Valley Vikings
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Silver
+Found GameField:
+Field 4
+Found Team:
+MXO - Cambridge Hornets
+Tournament NTS 1 2016 already has the team Cambridge Hornets
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Semifinal 2 Silver - MXO - Thames Valley Vikings 1 - 3 MXO - Cambridge Hornets
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '16:10', 'Field 1', 'Final', 'Bronze', '2', 'xx', 'Bareback Riders', '3', '4', 'CSSC Phantoms']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Bareback Riders
+Tournament NTS 1 2016 already has the team Bareback Riders
+b'Final'
+Found GameRound:
+Final 2 Bronze
+Found GameField:
+Field 1
+Found Team:
+MXO - CSSC Phantoms
+Tournament NTS 1 2016 already has the team CSSC Phantoms
+Created Game:
+MXO - NTS 1 2016 (Nottingham, England) - Final 2 Bronze - MXO - Bareback Riders 3 - 4 MXO - CSSC Phantoms
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '16:10', 'Field 2', 'Final', 'Wood', '2', 'xx', 'Oxford Touch', '2', '4', 'Canterbury Cougars']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Oxford Touch
+Tournament NTS 1 2016 already has the team Oxford Touch
+b'Final'
+Found GameRound:
+Final 2 Wood
+Found GameField:
+Field 2
+Found Team:
+MXO - Canterbury Cougars
+Tournament NTS 1 2016 already has the team Canterbury Cougars
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Final 2 Wood - MXO - Oxford Touch 2 - 4 MXO - Canterbury Cougars
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '16:50', 'Field 1', 'Final', 'Silver', '2', 'xx', 'London Galaxy', '4', '6', 'Cambridge Hornets']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - London Galaxy
+Tournament NTS 1 2016 already has the team London Galaxy
+b'Final'
+Found GameRound:
+Final 2 Silver
+Found GameField:
+Field 1
+Found Team:
+MXO - Cambridge Hornets
+Tournament NTS 1 2016 already has the team Cambridge Hornets
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Final 2 Silver - MXO - London Galaxy 4 - 6 MXO - Cambridge Hornets
+
+Row to read:
+['NTS 1 2016', 'MXO', '04/16/16', '17:30', 'Field 1', 'Final', 'Gold', '2', 'xx', 'Wigan Touch Warriors', '5', '4', 'Tumeke Sports']
+
+Found Tournament:
+MXO - NTS 1 2016 (Nottingham, England)
+Found Team:
+MXO - Wigan Touch Warriors
+Tournament NTS 1 2016 already has the team Wigan Touch Warriors
+b'Final'
+Found GameRound:
+Final 2 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Tumeke Sports
+Tournament NTS 1 2016 already has the team Tumeke Sports
+Found Game:
+MXO - NTS 1 2016 (Nottingham, England) - Final 2 Gold - MXO - Wigan Touch Warriors 5 - 4 MXO - Tumeke Sports
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '10:00', 'Field 1', 'Pool A', 'Gold', '4', 'xx', 'Wigan Touch Warriors', '5', '3', 'Cambridge Bees']
+
+Created Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Wigan Touch Warriors
+Added team Wigan Touch Warriors into tournament NTS 2 2016
+b'Pool A'
+Found GameRound:
+Pool A 4 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Cambridge Bees
+Added team Cambridge Bees into tournament NTS 2 2016
+Created Game:
+MXO - NTS 2 2016 - Pool A 4 Gold - MXO - Wigan Touch Warriors 5 - 3 MXO - Cambridge Bees
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '10:00', 'Field 2', 'Pool A', 'Gold', '4', 'xx', 'Galaxy Knights', '2', '9', 'Cambridge Hornets']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Galaxy Knights
+Added team Galaxy Knights into tournament NTS 2 2016
+b'Pool A'
+Found GameRound:
+Pool A 4 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Cambridge Hornets
+Added team Cambridge Hornets into tournament NTS 2 2016
+Created Game:
+MXO - NTS 2 2016 - Pool A 4 Gold - MXO - Galaxy Knights 2 - 9 MXO - Cambridge Hornets
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '10:00', 'Field 3', 'Pool B', 'Gold', '4', 'xx', 'London Scorpions', '2', '3', 'Bareback Riders']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - London Scorpions
+Added team London Scorpions into tournament NTS 2 2016
+b'Pool B'
+Found GameRound:
+Pool B 4 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - Bareback Riders
+Added team Bareback Riders into tournament NTS 2 2016
+Created Game:
+MXO - NTS 2 2016 - Pool B 4 Gold - MXO - London Scorpions 2 - 3 MXO - Bareback Riders
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '10:00', 'Field 4', 'Pool B', 'Gold', '4', 'xx', 'Oxford Touch', '6', '5', 'Nottingham Hoods']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Oxford Touch
+Added team Oxford Touch into tournament NTS 2 2016
+b'Pool B'
+Found GameRound:
+Pool B 4 Gold
+Found GameField:
+Field 4
+Found Team:
+MXO - Nottingham Hoods
+Added team Nottingham Hoods into tournament NTS 2 2016
+Created Game:
+MXO - NTS 2 2016 - Pool B 4 Gold - MXO - Oxford Touch 6 - 5 MXO - Nottingham Hoods
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '10:30', 'Field 1', 'Pool C', 'Gold', '4', 'xx', 'Tumeke Sports', '4', '2', 'CSSC Phantoms']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Tumeke Sports
+Added team Tumeke Sports into tournament NTS 2 2016
+b'Pool C'
+Found GameRound:
+Pool C 4 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - CSSC Phantoms
+Added team CSSC Phantoms into tournament NTS 2 2016
+Created Game:
+MXO - NTS 2 2016 - Pool C 4 Gold - MXO - Tumeke Sports 4 - 2 MXO - CSSC Phantoms
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '10:30', 'Field 2', 'Pool C', 'Gold', '4', 'xx', 'Manchester Chargers', '1', '6', 'London Galaxy']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Manchester Chargers
+Added team Manchester Chargers into tournament NTS 2 2016
+b'Pool C'
+Found GameRound:
+Pool C 4 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - London Galaxy
+Added team London Galaxy into tournament NTS 2 2016
+Created Game:
+MXO - NTS 2 2016 - Pool C 4 Gold - MXO - Manchester Chargers 1 - 6 MXO - London Galaxy
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '10:30', 'Field 3', 'Pool D', 'Gold', '4', 'xx', 'Hot Custard', '4', '1', 'Bristol Fijians']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Hot Custard
+Added team Hot Custard into tournament NTS 2 2016
+b'Pool D'
+Found GameRound:
+Pool D 4 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - Bristol Fijians
+Added team Bristol Fijians into tournament NTS 2 2016
+Created Game:
+MXO - NTS 2 2016 - Pool D 4 Gold - MXO - Hot Custard 4 - 1 MXO - Bristol Fijians
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '10:30', 'Field 4', 'Pool D', 'Gold', '4', 'xx', 'Canterbury Cougars', '3', '4', 'Thames Valley Vikings']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Canterbury Cougars
+Added team Canterbury Cougars into tournament NTS 2 2016
+b'Pool D'
+Found GameRound:
+Pool D 4 Gold
+Found GameField:
+Field 4
+Found Team:
+MXO - Thames Valley Vikings
+Added team Thames Valley Vikings into tournament NTS 2 2016
+Created Game:
+MXO - NTS 2 2016 - Pool D 4 Gold - MXO - Canterbury Cougars 3 - 4 MXO - Thames Valley Vikings
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '11:00', 'Field 1', 'Pool B', 'Gold', '4', 'xx', 'London Scorpions', '6', '2', 'Nottingham Hoods']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - London Scorpions
+Tournament NTS 2 2016 already has the team London Scorpions
+b'Pool B'
+Found GameRound:
+Pool B 4 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Nottingham Hoods
+Tournament NTS 2 2016 already has the team Nottingham Hoods
+Created Game:
+MXO - NTS 2 2016 - Pool B 4 Gold - MXO - London Scorpions 6 - 2 MXO - Nottingham Hoods
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '11:00', 'Field 2', 'Pool B', 'Gold', '4', 'xx', 'Bareback Riders', '6', '1', 'Oxford Touch']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Bareback Riders
+Tournament NTS 2 2016 already has the team Bareback Riders
+b'Pool B'
+Found GameRound:
+Pool B 4 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Oxford Touch
+Tournament NTS 2 2016 already has the team Oxford Touch
+Created Game:
+MXO - NTS 2 2016 - Pool B 4 Gold - MXO - Bareback Riders 6 - 1 MXO - Oxford Touch
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '11:00', 'Field 3', 'Pool A', 'Gold', '4', 'xx', 'Wigan Touch Warriors', '11', '1', 'Galaxy Knights']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Wigan Touch Warriors
+Tournament NTS 2 2016 already has the team Wigan Touch Warriors
+b'Pool A'
+Found GameRound:
+Pool A 4 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - Galaxy Knights
+Tournament NTS 2 2016 already has the team Galaxy Knights
+Created Game:
+MXO - NTS 2 2016 - Pool A 4 Gold - MXO - Wigan Touch Warriors 11 - 1 MXO - Galaxy Knights
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '11:00', 'Field 4', 'Pool A', 'Gold', '4', 'xx', 'Cambridge Hornets', '6', '4', 'Cambridge Bees']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Cambridge Hornets
+Tournament NTS 2 2016 already has the team Cambridge Hornets
+b'Pool A'
+Found GameRound:
+Pool A 4 Gold
+Found GameField:
+Field 4
+Found Team:
+MXO - Cambridge Bees
+Tournament NTS 2 2016 already has the team Cambridge Bees
+Created Game:
+MXO - NTS 2 2016 - Pool A 4 Gold - MXO - Cambridge Hornets 6 - 4 MXO - Cambridge Bees
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '11:30', 'Field 1', 'Pool D', 'Gold', '4', 'xx', 'Hot Custard', '5', '0', 'Thames Valley Vikings']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Hot Custard
+Tournament NTS 2 2016 already has the team Hot Custard
+b'Pool D'
+Found GameRound:
+Pool D 4 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Thames Valley Vikings
+Tournament NTS 2 2016 already has the team Thames Valley Vikings
+Created Game:
+MXO - NTS 2 2016 - Pool D 4 Gold - MXO - Hot Custard 5 - 0 MXO - Thames Valley Vikings
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '11:30', 'Field 2', 'Pool D', 'Gold', '4', 'xx', 'Bristol Fijians', '5', '4', 'Canterbury Cougars']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Bristol Fijians
+Tournament NTS 2 2016 already has the team Bristol Fijians
+b'Pool D'
+Found GameRound:
+Pool D 4 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Canterbury Cougars
+Tournament NTS 2 2016 already has the team Canterbury Cougars
+Created Game:
+MXO - NTS 2 2016 - Pool D 4 Gold - MXO - Bristol Fijians 5 - 4 MXO - Canterbury Cougars
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '11:30', 'Field 3', 'Pool C', 'Gold', '4', 'xx', 'Tumeke Sports', '6', '2', 'Manchester Chargers']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Tumeke Sports
+Tournament NTS 2 2016 already has the team Tumeke Sports
+b'Pool C'
+Found GameRound:
+Pool C 4 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - Manchester Chargers
+Tournament NTS 2 2016 already has the team Manchester Chargers
+Created Game:
+MXO - NTS 2 2016 - Pool C 4 Gold - MXO - Tumeke Sports 6 - 2 MXO - Manchester Chargers
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '11:30', 'Field 4', 'Pool C', 'Gold', '4', 'xx', 'London Galaxy', '8', '1', 'CSSC Phantoms']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - London Galaxy
+Tournament NTS 2 2016 already has the team London Galaxy
+b'Pool C'
+Found GameRound:
+Pool C 4 Gold
+Found GameField:
+Field 4
+Found Team:
+MXO - CSSC Phantoms
+Tournament NTS 2 2016 already has the team CSSC Phantoms
+Created Game:
+MXO - NTS 2 2016 - Pool C 4 Gold - MXO - London Galaxy 8 - 1 MXO - CSSC Phantoms
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '12:00', 'Field 1', 'Pool A', 'Gold', '4', 'xx', 'Wigan Touch Warriors', '2', '2', 'Cambridge Hornets']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Wigan Touch Warriors
+Tournament NTS 2 2016 already has the team Wigan Touch Warriors
+b'Pool A'
+Found GameRound:
+Pool A 4 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Cambridge Hornets
+Tournament NTS 2 2016 already has the team Cambridge Hornets
+Created Game:
+MXO - NTS 2 2016 - Pool A 4 Gold - MXO - Wigan Touch Warriors 2 - 2 MXO - Cambridge Hornets
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '12:00', 'Field 2', 'Pool A', 'Gold', '4', 'xx', 'Cambridge Bees', '5', '1', 'Galaxy Knights']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Cambridge Bees
+Tournament NTS 2 2016 already has the team Cambridge Bees
+b'Pool A'
+Found GameRound:
+Pool A 4 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Galaxy Knights
+Tournament NTS 2 2016 already has the team Galaxy Knights
+Created Game:
+MXO - NTS 2 2016 - Pool A 4 Gold - MXO - Cambridge Bees 5 - 1 MXO - Galaxy Knights
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '12:00', 'Field 3', 'Pool B', 'Gold', '4', 'xx', 'London Scorpions', '6', '5', 'Oxford Touch']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - London Scorpions
+Tournament NTS 2 2016 already has the team London Scorpions
+b'Pool B'
+Found GameRound:
+Pool B 4 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - Oxford Touch
+Tournament NTS 2 2016 already has the team Oxford Touch
+Created Game:
+MXO - NTS 2 2016 - Pool B 4 Gold - MXO - London Scorpions 6 - 5 MXO - Oxford Touch
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '12:00', 'Field 4', 'Pool B', 'Gold', '4', 'xx', 'Nottingham Hoods', '0', '6', 'Bareback Riders']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Nottingham Hoods
+Tournament NTS 2 2016 already has the team Nottingham Hoods
+b'Pool B'
+Found GameRound:
+Pool B 4 Gold
+Found GameField:
+Field 4
+Found Team:
+MXO - Bareback Riders
+Tournament NTS 2 2016 already has the team Bareback Riders
+Created Game:
+MXO - NTS 2 2016 - Pool B 4 Gold - MXO - Nottingham Hoods 0 - 6 MXO - Bareback Riders
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '12:30', 'Field 1', 'Pool C', 'Gold', '4', 'xx', 'Tumeke Sports', '4', '1', 'London Galaxy']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Tumeke Sports
+Tournament NTS 2 2016 already has the team Tumeke Sports
+b'Pool C'
+Found GameRound:
+Pool C 4 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - London Galaxy
+Tournament NTS 2 2016 already has the team London Galaxy
+Created Game:
+MXO - NTS 2 2016 - Pool C 4 Gold - MXO - Tumeke Sports 4 - 1 MXO - London Galaxy
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '12:30', 'Field 2', 'Pool C', 'Gold', '4', 'xx', 'CSSC Phantoms', '4', '3', 'Manchester Chargers']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - CSSC Phantoms
+Tournament NTS 2 2016 already has the team CSSC Phantoms
+b'Pool C'
+Found GameRound:
+Pool C 4 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Manchester Chargers
+Tournament NTS 2 2016 already has the team Manchester Chargers
+Created Game:
+MXO - NTS 2 2016 - Pool C 4 Gold - MXO - CSSC Phantoms 4 - 3 MXO - Manchester Chargers
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '12:30', 'Field 3', 'Pool D', 'Gold', '4', 'xx', 'Hot Custard', '8', '1', 'Canterbury Cougars']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Hot Custard
+Tournament NTS 2 2016 already has the team Hot Custard
+b'Pool D'
+Found GameRound:
+Pool D 4 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - Canterbury Cougars
+Tournament NTS 2 2016 already has the team Canterbury Cougars
+Created Game:
+MXO - NTS 2 2016 - Pool D 4 Gold - MXO - Hot Custard 8 - 1 MXO - Canterbury Cougars
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '12:30', 'Field 4', 'Pool D', 'Gold', '4', 'xx', 'Thames Valley Vikings', '1', '4', 'Bristol Fijians']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Thames Valley Vikings
+Tournament NTS 2 2016 already has the team Thames Valley Vikings
+b'Pool D'
+Found GameRound:
+Pool D 4 Gold
+Found GameField:
+Field 4
+Found Team:
+MXO - Bristol Fijians
+Tournament NTS 2 2016 already has the team Bristol Fijians
+Created Game:
+MXO - NTS 2 2016 - Pool D 4 Gold - MXO - Thames Valley Vikings 1 - 4 MXO - Bristol Fijians
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '13:30', 'Field 1', '¼', 'Bronze', '2', 'xx', 'Cambridge Bees', '3', '4', 'Nottingham Hoods']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Cambridge Bees
+Tournament NTS 2 2016 already has the team Cambridge Bees
+b'1/4'
+Found GameRound:
+1/4 2 Bronze
+Found GameField:
+Field 1
+Found Team:
+MXO - Nottingham Hoods
+Tournament NTS 2 2016 already has the team Nottingham Hoods
+Created Game:
+MXO - NTS 2 2016 - 1/4 2 Bronze - MXO - Cambridge Bees 3 - 4 MXO - Nottingham Hoods
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '13:30', 'Field 2', '¼', 'Bronze', '2', 'xx', 'Oxford Touch', '5', '3', 'Galaxy Knights']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Oxford Touch
+Tournament NTS 2 2016 already has the team Oxford Touch
+b'1/4'
+Found GameRound:
+1/4 2 Bronze
+Found GameField:
+Field 2
+Found Team:
+MXO - Galaxy Knights
+Tournament NTS 2 2016 already has the team Galaxy Knights
+Created Game:
+MXO - NTS 2 2016 - 1/4 2 Bronze - MXO - Oxford Touch 5 - 3 MXO - Galaxy Knights
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '13:30', 'Field 3', '¼', 'Bronze', '2', 'xx', 'CSSC Phantoms', '5', '4', 'Canterbury Cougars']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - CSSC Phantoms
+Tournament NTS 2 2016 already has the team CSSC Phantoms
+b'1/4'
+Found GameRound:
+1/4 2 Bronze
+Found GameField:
+Field 3
+Found Team:
+MXO - Canterbury Cougars
+Tournament NTS 2 2016 already has the team Canterbury Cougars
+Created Game:
+MXO - NTS 2 2016 - 1/4 2 Bronze - MXO - CSSC Phantoms 5 - 4 MXO - Canterbury Cougars
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '13:30', 'Field 4', '¼', 'Bronze', '2', 'xx', 'Thames Valley Vikings', '3', '5', 'Manchester Chargers']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Thames Valley Vikings
+Tournament NTS 2 2016 already has the team Thames Valley Vikings
+b'1/4'
+Found GameRound:
+1/4 2 Bronze
+Found GameField:
+Field 4
+Found Team:
+MXO - Manchester Chargers
+Tournament NTS 2 2016 already has the team Manchester Chargers
+Created Game:
+MXO - NTS 2 2016 - 1/4 2 Bronze - MXO - Thames Valley Vikings 3 - 5 MXO - Manchester Chargers
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '14:10', 'Field 1', '¼', 'Gold', '2', 'xx', 'Wigan Touch Warriors', '5', '4', 'London Scorpions']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Wigan Touch Warriors
+Tournament NTS 2 2016 already has the team Wigan Touch Warriors
+b'1/4'
+Found GameRound:
+1/4 2 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - London Scorpions
+Tournament NTS 2 2016 already has the team London Scorpions
+Created Game:
+MXO - NTS 2 2016 - 1/4 2 Gold - MXO - Wigan Touch Warriors 5 - 4 MXO - London Scorpions
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '14:10', 'Field 2', '¼', 'Gold', '2', 'xx', 'Bareback Riders', '3', '0', 'Cambridge Hornets']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Bareback Riders
+Tournament NTS 2 2016 already has the team Bareback Riders
+b'1/4'
+Found GameRound:
+1/4 2 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Cambridge Hornets
+Tournament NTS 2 2016 already has the team Cambridge Hornets
+Created Game:
+MXO - NTS 2 2016 - 1/4 2 Gold - MXO - Bareback Riders 3 - 0 MXO - Cambridge Hornets
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '14:10', 'Field 3', '¼', 'Gold', '2', 'xx', 'Tumeke Sports', '4', '2', 'Bristol Fijians']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Tumeke Sports
+Tournament NTS 2 2016 already has the team Tumeke Sports
+b'1/4'
+Found GameRound:
+1/4 2 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - Bristol Fijians
+Tournament NTS 2 2016 already has the team Bristol Fijians
+Created Game:
+MXO - NTS 2 2016 - 1/4 2 Gold - MXO - Tumeke Sports 4 - 2 MXO - Bristol Fijians
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '14:10', 'Field 4', '¼', 'Gold', '2', 'xx', 'Hot Custard', '5', '3', 'London Galaxy']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Hot Custard
+Tournament NTS 2 2016 already has the team Hot Custard
+b'1/4'
+Found GameRound:
+1/4 2 Gold
+Found GameField:
+Field 4
+Found Team:
+MXO - London Galaxy
+Tournament NTS 2 2016 already has the team London Galaxy
+Created Game:
+MXO - NTS 2 2016 - 1/4 2 Gold - MXO - Hot Custard 5 - 3 MXO - London Galaxy
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '14:50', 'Field 1', 'Semifinal', 'Bronze', '2', 'xx', 'Nottingham Hoods', '4', '2', 'Manchester Chargers']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Nottingham Hoods
+Tournament NTS 2 2016 already has the team Nottingham Hoods
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Bronze
+Found GameField:
+Field 1
+Found Team:
+MXO - Manchester Chargers
+Tournament NTS 2 2016 already has the team Manchester Chargers
+Created Game:
+MXO - NTS 2 2016 - Semifinal 2 Bronze - MXO - Nottingham Hoods 4 - 2 MXO - Manchester Chargers
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '14:50', 'Field 2', 'Semifinal', 'Bronze', '2', 'xx', 'Oxford Touch', '2', '5', 'CSSC Phantoms']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Oxford Touch
+Tournament NTS 2 2016 already has the team Oxford Touch
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Bronze
+Found GameField:
+Field 2
+Found Team:
+MXO - CSSC Phantoms
+Tournament NTS 2 2016 already has the team CSSC Phantoms
+Created Game:
+MXO - NTS 2 2016 - Semifinal 2 Bronze - MXO - Oxford Touch 2 - 5 MXO - CSSC Phantoms
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '14:50', 'Field 3', 'Semifinal', 'Wood', '2', 'xx', 'Cambridge Bees', '1', '2', 'Thames Valley Vikings']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Cambridge Bees
+Tournament NTS 2 2016 already has the team Cambridge Bees
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Wood
+Found GameField:
+Field 3
+Found Team:
+MXO - Thames Valley Vikings
+Tournament NTS 2 2016 already has the team Thames Valley Vikings
+Created Game:
+MXO - NTS 2 2016 - Semifinal 2 Wood - MXO - Cambridge Bees 1 - 2 MXO - Thames Valley Vikings
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '14:50', 'Field 4', 'Semifinal', 'Wood', '2', 'xx', 'Galaxy Knights', '1', '9', 'Canterbury Cougars']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Galaxy Knights
+Tournament NTS 2 2016 already has the team Galaxy Knights
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Wood
+Found GameField:
+Field 4
+Found Team:
+MXO - Canterbury Cougars
+Tournament NTS 2 2016 already has the team Canterbury Cougars
+Created Game:
+MXO - NTS 2 2016 - Semifinal 2 Wood - MXO - Galaxy Knights 1 - 9 MXO - Canterbury Cougars
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '15:30', 'Field 1', 'Semifinal', 'Gold', '2', 'xx', 'Wigan Touch Warriors', '7', '6', 'Hot Custard']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Wigan Touch Warriors
+Tournament NTS 2 2016 already has the team Wigan Touch Warriors
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Hot Custard
+Tournament NTS 2 2016 already has the team Hot Custard
+Created Game:
+MXO - NTS 2 2016 - Semifinal 2 Gold - MXO - Wigan Touch Warriors 7 - 6 MXO - Hot Custard
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '15:30', 'Field 2', 'Semifinal', 'Gold', '2', 'xx', 'Bareback Riders', '3', '4', 'Tumeke Sports']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Bareback Riders
+Tournament NTS 2 2016 already has the team Bareback Riders
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Tumeke Sports
+Tournament NTS 2 2016 already has the team Tumeke Sports
+Created Game:
+MXO - NTS 2 2016 - Semifinal 2 Gold - MXO - Bareback Riders 3 - 4 MXO - Tumeke Sports
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '15:30', 'Field 3', 'Semifinal', 'Silver', '2', 'xx', 'London Scorpions', '6', '4', 'London Galaxy']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - London Scorpions
+Tournament NTS 2 2016 already has the team London Scorpions
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Silver
+Found GameField:
+Field 3
+Found Team:
+MXO - London Galaxy
+Tournament NTS 2 2016 already has the team London Galaxy
+Created Game:
+MXO - NTS 2 2016 - Semifinal 2 Silver - MXO - London Scorpions 6 - 4 MXO - London Galaxy
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '15:30', 'Field 4', 'Semifinal', 'Silver', '2', 'xx', 'Cambridge Hornets', '5', '3', 'Bristol Fijians']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Cambridge Hornets
+Tournament NTS 2 2016 already has the team Cambridge Hornets
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Silver
+Found GameField:
+Field 4
+Found Team:
+MXO - Bristol Fijians
+Tournament NTS 2 2016 already has the team Bristol Fijians
+Created Game:
+MXO - NTS 2 2016 - Semifinal 2 Silver - MXO - Cambridge Hornets 5 - 3 MXO - Bristol Fijians
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '16:10', 'Field 1', 'Final', 'Bronze', '2', 'xx', 'Nottingham Hoods', '2', '4', 'CSSC Phantoms']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Nottingham Hoods
+Tournament NTS 2 2016 already has the team Nottingham Hoods
+b'Final'
+Found GameRound:
+Final 2 Bronze
+Found GameField:
+Field 1
+Found Team:
+MXO - CSSC Phantoms
+Tournament NTS 2 2016 already has the team CSSC Phantoms
+Created Game:
+MXO - NTS 2 2016 - Final 2 Bronze - MXO - Nottingham Hoods 2 - 4 MXO - CSSC Phantoms
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '16:10', 'Field 2', 'Final', 'Wood', '2', 'xx', 'Thames Valley Vikings', '4', '3', 'Canterbury Cougars']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Thames Valley Vikings
+Tournament NTS 2 2016 already has the team Thames Valley Vikings
+b'Final'
+Found GameRound:
+Final 2 Wood
+Found GameField:
+Field 2
+Found Team:
+MXO - Canterbury Cougars
+Tournament NTS 2 2016 already has the team Canterbury Cougars
+Created Game:
+MXO - NTS 2 2016 - Final 2 Wood - MXO - Thames Valley Vikings 4 - 3 MXO - Canterbury Cougars
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '16:50', 'Field 1', 'Final', 'Silver', '2', 'xx', 'London Scorpions', '6', '4', 'Cambridge Hornets']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - London Scorpions
+Tournament NTS 2 2016 already has the team London Scorpions
+b'Final'
+Found GameRound:
+Final 2 Silver
+Found GameField:
+Field 1
+Found Team:
+MXO - Cambridge Hornets
+Tournament NTS 2 2016 already has the team Cambridge Hornets
+Created Game:
+MXO - NTS 2 2016 - Final 2 Silver - MXO - London Scorpions 6 - 4 MXO - Cambridge Hornets
+
+Row to read:
+['NTS 2 2016', 'MXO', '04/30/16', '17:30', 'Field 1', 'Final', 'Gold', '2', 'xx', 'Wigan Touch Warriors', '6', '3', 'Tumeke Sports']
+
+Found Tournament:
+MXO - NTS 2 2016
+Found Team:
+MXO - Wigan Touch Warriors
+Tournament NTS 2 2016 already has the team Wigan Touch Warriors
+b'Final'
+Found GameRound:
+Final 2 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Tumeke Sports
+Tournament NTS 2 2016 already has the team Tumeke Sports
+Created Game:
+MXO - NTS 2 2016 - Final 2 Gold - MXO - Wigan Touch Warriors 6 - 3 MXO - Tumeke Sports
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '10:00', 'Field 1', 'Pool A', 'Gold', '4', 'xx', 'Wigan Touch Warriors', '8', '3', 'Manchester Chargers']
+
+Created Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Wigan Touch Warriors
+Added team Wigan Touch Warriors into tournament NTS 3 2016
+b'Pool A'
+Found GameRound:
+Pool A 4 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Manchester Chargers
+Added team Manchester Chargers into tournament NTS 3 2016
+Created Game:
+MXO - NTS 3 2016 - Pool A 4 Gold - MXO - Wigan Touch Warriors 8 - 3 MXO - Manchester Chargers
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '10:00', 'Field 2', 'Pool A', 'Gold', '4', 'xx', 'Galaxy Knights', '2', '6', 'Bristol Fijians']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Galaxy Knights
+Added team Galaxy Knights into tournament NTS 3 2016
+b'Pool A'
+Found GameRound:
+Pool A 4 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Bristol Fijians
+Added team Bristol Fijians into tournament NTS 3 2016
+Created Game:
+MXO - NTS 3 2016 - Pool A 4 Gold - MXO - Galaxy Knights 2 - 6 MXO - Bristol Fijians
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '10:00', 'Field 3', 'Pool B', 'Gold', '4', 'xx', 'Bareback Riders', '4', '3', 'Nottingham Hoods']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Bareback Riders
+Added team Bareback Riders into tournament NTS 3 2016
+b'Pool B'
+Found GameRound:
+Pool B 4 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - Nottingham Hoods
+Added team Nottingham Hoods into tournament NTS 3 2016
+Created Game:
+MXO - NTS 3 2016 - Pool B 4 Gold - MXO - Bareback Riders 4 - 3 MXO - Nottingham Hoods
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '10:00', 'Field 4', 'Pool B', 'Gold', '4', 'xx', 'Thames Valley Vikings', '4', '5', 'Cambridge Hornets']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Thames Valley Vikings
+Added team Thames Valley Vikings into tournament NTS 3 2016
+b'Pool B'
+Found GameRound:
+Pool B 4 Gold
+Found GameField:
+Field 4
+Found Team:
+MXO - Cambridge Hornets
+Added team Cambridge Hornets into tournament NTS 3 2016
+Created Game:
+MXO - NTS 3 2016 - Pool B 4 Gold - MXO - Thames Valley Vikings 4 - 5 MXO - Cambridge Hornets
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '10:30', 'Field 1', 'Pool C', 'Gold', '4', 'xx', 'Tumeke Sports', '6', '3', 'Oxford Touch']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Tumeke Sports
+Added team Tumeke Sports into tournament NTS 3 2016
+b'Pool C'
+Found GameRound:
+Pool C 4 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Oxford Touch
+Added team Oxford Touch into tournament NTS 3 2016
+Created Game:
+MXO - NTS 3 2016 - Pool C 4 Gold - MXO - Tumeke Sports 6 - 3 MXO - Oxford Touch
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '10:30', 'Field 2', 'Pool C', 'Gold', '4', 'xx', 'Canterbury Cougars', '6', '7', 'London Scorpions']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Canterbury Cougars
+Added team Canterbury Cougars into tournament NTS 3 2016
+b'Pool C'
+Found GameRound:
+Pool C 4 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - London Scorpions
+Added team London Scorpions into tournament NTS 3 2016
+Created Game:
+MXO - NTS 3 2016 - Pool C 4 Gold - MXO - Canterbury Cougars 6 - 7 MXO - London Scorpions
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '10:30', 'Field 3', 'Pool D', 'Gold', '4', 'xx', 'Hot Custard', '7', '1', 'CSSC Phantoms']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Hot Custard
+Added team Hot Custard into tournament NTS 3 2016
+b'Pool D'
+Found GameRound:
+Pool D 4 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - CSSC Phantoms
+Added team CSSC Phantoms into tournament NTS 3 2016
+Created Game:
+MXO - NTS 3 2016 - Pool D 4 Gold - MXO - Hot Custard 7 - 1 MXO - CSSC Phantoms
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '10:30', 'Field 4', 'Pool D', 'Gold', '4', 'xx', 'Cambridge Bees', '2', '7', 'London Galaxy']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Cambridge Bees
+Added team Cambridge Bees into tournament NTS 3 2016
+b'Pool D'
+Found GameRound:
+Pool D 4 Gold
+Found GameField:
+Field 4
+Found Team:
+MXO - London Galaxy
+Added team London Galaxy into tournament NTS 3 2016
+Created Game:
+MXO - NTS 3 2016 - Pool D 4 Gold - MXO - Cambridge Bees 2 - 7 MXO - London Galaxy
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '11:00', 'Field 1', 'Pool B', 'Gold', '4', 'xx', 'Bareback Riders', '4', '6', 'Cambridge Hornets']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Bareback Riders
+Tournament NTS 3 2016 already has the team Bareback Riders
+b'Pool B'
+Found GameRound:
+Pool B 4 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Cambridge Hornets
+Tournament NTS 3 2016 already has the team Cambridge Hornets
+Created Game:
+MXO - NTS 3 2016 - Pool B 4 Gold - MXO - Bareback Riders 4 - 6 MXO - Cambridge Hornets
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '11:00', 'Field 2', 'Pool B', 'Gold', '4', 'xx', 'Nottingham Hoods', '2', '7', 'Thames Valley Vikings']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Nottingham Hoods
+Tournament NTS 3 2016 already has the team Nottingham Hoods
+b'Pool B'
+Found GameRound:
+Pool B 4 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Thames Valley Vikings
+Tournament NTS 3 2016 already has the team Thames Valley Vikings
+Created Game:
+MXO - NTS 3 2016 - Pool B 4 Gold - MXO - Nottingham Hoods 2 - 7 MXO - Thames Valley Vikings
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '11:00', 'Field 3', 'Pool A', 'Gold', '4', 'xx', 'Wigan Touch Warriors', '7', '1', 'Galaxy Knights']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Wigan Touch Warriors
+Tournament NTS 3 2016 already has the team Wigan Touch Warriors
+b'Pool A'
+Found GameRound:
+Pool A 4 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - Galaxy Knights
+Tournament NTS 3 2016 already has the team Galaxy Knights
+Created Game:
+MXO - NTS 3 2016 - Pool A 4 Gold - MXO - Wigan Touch Warriors 7 - 1 MXO - Galaxy Knights
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '11:00', 'Field 4', 'Pool A', 'Gold', '4', 'xx', 'Bristol Fijians', '5', '2', 'Manchester Chargers']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Bristol Fijians
+Tournament NTS 3 2016 already has the team Bristol Fijians
+b'Pool A'
+Found GameRound:
+Pool A 4 Gold
+Found GameField:
+Field 4
+Found Team:
+MXO - Manchester Chargers
+Tournament NTS 3 2016 already has the team Manchester Chargers
+Created Game:
+MXO - NTS 3 2016 - Pool A 4 Gold - MXO - Bristol Fijians 5 - 2 MXO - Manchester Chargers
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '11:30', 'Field 1', 'Pool D', 'Gold', '4', 'xx', 'Hot Custard', '3', '3', 'London Galaxy']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Hot Custard
+Tournament NTS 3 2016 already has the team Hot Custard
+b'Pool D'
+Found GameRound:
+Pool D 4 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - London Galaxy
+Tournament NTS 3 2016 already has the team London Galaxy
+Created Game:
+MXO - NTS 3 2016 - Pool D 4 Gold - MXO - Hot Custard 3 - 3 MXO - London Galaxy
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '11:30', 'Field 2', 'Pool D', 'Gold', '4', 'xx', 'CSSC Phantoms', '6', '2', 'Cambridge Bees']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - CSSC Phantoms
+Tournament NTS 3 2016 already has the team CSSC Phantoms
+b'Pool D'
+Found GameRound:
+Pool D 4 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Cambridge Bees
+Tournament NTS 3 2016 already has the team Cambridge Bees
+Created Game:
+MXO - NTS 3 2016 - Pool D 4 Gold - MXO - CSSC Phantoms 6 - 2 MXO - Cambridge Bees
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '11:30', 'Field 3', 'Pool C', 'Gold', '4', 'xx', 'Tumeke Sports', '3', '3', 'Canterbury Cougars']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Tumeke Sports
+Tournament NTS 3 2016 already has the team Tumeke Sports
+b'Pool C'
+Found GameRound:
+Pool C 4 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - Canterbury Cougars
+Tournament NTS 3 2016 already has the team Canterbury Cougars
+Created Game:
+MXO - NTS 3 2016 - Pool C 4 Gold - MXO - Tumeke Sports 3 - 3 MXO - Canterbury Cougars
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '11:30', 'Field 4', 'Pool C', 'Gold', '4', 'xx', 'London Scorpions', '9', '2', 'Oxford Touch']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - London Scorpions
+Tournament NTS 3 2016 already has the team London Scorpions
+b'Pool C'
+Found GameRound:
+Pool C 4 Gold
+Found GameField:
+Field 4
+Found Team:
+MXO - Oxford Touch
+Tournament NTS 3 2016 already has the team Oxford Touch
+Created Game:
+MXO - NTS 3 2016 - Pool C 4 Gold - MXO - London Scorpions 9 - 2 MXO - Oxford Touch
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '12:00', 'Field 1', 'Pool A', 'Gold', '4', 'xx', 'Wigan Touch Warriors', '3', '1', 'Bristol Fijians']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Wigan Touch Warriors
+Tournament NTS 3 2016 already has the team Wigan Touch Warriors
+b'Pool A'
+Found GameRound:
+Pool A 4 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Bristol Fijians
+Tournament NTS 3 2016 already has the team Bristol Fijians
+Created Game:
+MXO - NTS 3 2016 - Pool A 4 Gold - MXO - Wigan Touch Warriors 3 - 1 MXO - Bristol Fijians
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '12:00', 'Field 2', 'Pool A', 'Gold', '4', 'xx', 'Manchester Chargers', '3', '0', 'Galaxy Knights']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Manchester Chargers
+Tournament NTS 3 2016 already has the team Manchester Chargers
+b'Pool A'
+Found GameRound:
+Pool A 4 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Galaxy Knights
+Tournament NTS 3 2016 already has the team Galaxy Knights
+Created Game:
+MXO - NTS 3 2016 - Pool A 4 Gold - MXO - Manchester Chargers 3 - 0 MXO - Galaxy Knights
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '12:00', 'Field 3', 'Pool B', 'Gold', '4', 'xx', 'Bareback Riders', '6', '3', 'Thames Valley Vikings']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Bareback Riders
+Tournament NTS 3 2016 already has the team Bareback Riders
+b'Pool B'
+Found GameRound:
+Pool B 4 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - Thames Valley Vikings
+Tournament NTS 3 2016 already has the team Thames Valley Vikings
+Created Game:
+MXO - NTS 3 2016 - Pool B 4 Gold - MXO - Bareback Riders 6 - 3 MXO - Thames Valley Vikings
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '12:00', 'Field 4', 'Pool B', 'Gold', '4', 'xx', 'Cambridge Hornets', '6', '5', 'Nottingham Hoods']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Cambridge Hornets
+Tournament NTS 3 2016 already has the team Cambridge Hornets
+b'Pool B'
+Found GameRound:
+Pool B 4 Gold
+Found GameField:
+Field 4
+Found Team:
+MXO - Nottingham Hoods
+Tournament NTS 3 2016 already has the team Nottingham Hoods
+Created Game:
+MXO - NTS 3 2016 - Pool B 4 Gold - MXO - Cambridge Hornets 6 - 5 MXO - Nottingham Hoods
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '12:30', 'Field 1', 'Pool C', 'Gold', '4', 'xx', 'Tumeke Sports', '4', '4', 'London Scorpions']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Tumeke Sports
+Tournament NTS 3 2016 already has the team Tumeke Sports
+b'Pool C'
+Found GameRound:
+Pool C 4 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - London Scorpions
+Tournament NTS 3 2016 already has the team London Scorpions
+Created Game:
+MXO - NTS 3 2016 - Pool C 4 Gold - MXO - Tumeke Sports 4 - 4 MXO - London Scorpions
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '12:30', 'Field 2', 'Pool C', 'Gold', '4', 'xx', 'Oxford Touch', '1', '5', 'Canterbury Cougars']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Oxford Touch
+Tournament NTS 3 2016 already has the team Oxford Touch
+b'Pool C'
+Found GameRound:
+Pool C 4 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Canterbury Cougars
+Tournament NTS 3 2016 already has the team Canterbury Cougars
+Created Game:
+MXO - NTS 3 2016 - Pool C 4 Gold - MXO - Oxford Touch 1 - 5 MXO - Canterbury Cougars
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '12:30', 'Field 3', 'Pool D', 'Gold', '4', 'xx', 'Hot Custard', '9', '2', 'Cambridge Bees']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Hot Custard
+Tournament NTS 3 2016 already has the team Hot Custard
+b'Pool D'
+Found GameRound:
+Pool D 4 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - Cambridge Bees
+Tournament NTS 3 2016 already has the team Cambridge Bees
+Created Game:
+MXO - NTS 3 2016 - Pool D 4 Gold - MXO - Hot Custard 9 - 2 MXO - Cambridge Bees
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '12:30', 'Field 4', 'Pool D', 'Gold', '4', 'xx', 'London Galaxy', '5', '0', 'CSSC Phantoms']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - London Galaxy
+Tournament NTS 3 2016 already has the team London Galaxy
+b'Pool D'
+Found GameRound:
+Pool D 4 Gold
+Found GameField:
+Field 4
+Found Team:
+MXO - CSSC Phantoms
+Tournament NTS 3 2016 already has the team CSSC Phantoms
+Created Game:
+MXO - NTS 3 2016 - Pool D 4 Gold - MXO - London Galaxy 5 - 0 MXO - CSSC Phantoms
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '13:30', 'Field 1', '¼', 'Bronze', '2', 'xx', 'Manchester Chargers', '4', '3', 'Nottingham Hoods']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Manchester Chargers
+Tournament NTS 3 2016 already has the team Manchester Chargers
+b'1/4'
+Found GameRound:
+1/4 2 Bronze
+Found GameField:
+Field 1
+Found Team:
+MXO - Nottingham Hoods
+Tournament NTS 3 2016 already has the team Nottingham Hoods
+Created Game:
+MXO - NTS 3 2016 - 1/4 2 Bronze - MXO - Manchester Chargers 4 - 3 MXO - Nottingham Hoods
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '13:30', 'Field 2', '¼', 'Bronze', '2', 'xx', 'Thames Valley Vikings', '3', '2', 'Galaxy Knights']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Thames Valley Vikings
+Tournament NTS 3 2016 already has the team Thames Valley Vikings
+b'1/4'
+Found GameRound:
+1/4 2 Bronze
+Found GameField:
+Field 2
+Found Team:
+MXO - Galaxy Knights
+Tournament NTS 3 2016 already has the team Galaxy Knights
+Created Game:
+MXO - NTS 3 2016 - 1/4 2 Bronze - MXO - Thames Valley Vikings 3 - 2 MXO - Galaxy Knights
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '13:30', 'Field 3', '¼', 'Bronze', '2', 'xx', 'Canterbury Cougars', '5', '1', 'Cambridge Bees']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Canterbury Cougars
+Tournament NTS 3 2016 already has the team Canterbury Cougars
+b'1/4'
+Found GameRound:
+1/4 2 Bronze
+Found GameField:
+Field 3
+Found Team:
+MXO - Cambridge Bees
+Tournament NTS 3 2016 already has the team Cambridge Bees
+Created Game:
+MXO - NTS 3 2016 - 1/4 2 Bronze - MXO - Canterbury Cougars 5 - 1 MXO - Cambridge Bees
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '13:30', 'Field 4', '¼', 'Bronze', '2', 'xx', 'CSSC Phantoms', '6', '2', 'Oxford Touch']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - CSSC Phantoms
+Tournament NTS 3 2016 already has the team CSSC Phantoms
+b'1/4'
+Found GameRound:
+1/4 2 Bronze
+Found GameField:
+Field 4
+Found Team:
+MXO - Oxford Touch
+Tournament NTS 3 2016 already has the team Oxford Touch
+Created Game:
+MXO - NTS 3 2016 - 1/4 2 Bronze - MXO - CSSC Phantoms 6 - 2 MXO - Oxford Touch
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '14:10', 'Field 1', '¼', 'Gold', '2', 'xx', 'Wigan Touch Warriors', '6', '3', 'Bareback Riders']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Wigan Touch Warriors
+Tournament NTS 3 2016 already has the team Wigan Touch Warriors
+b'1/4'
+Found GameRound:
+1/4 2 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Bareback Riders
+Tournament NTS 3 2016 already has the team Bareback Riders
+Created Game:
+MXO - NTS 3 2016 - 1/4 2 Gold - MXO - Wigan Touch Warriors 6 - 3 MXO - Bareback Riders
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '14:10', 'Field 2', '¼', 'Gold', '2', 'xx', 'Cambridge Hornets', '3', '4', 'Bristol Fijians']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Cambridge Hornets
+Tournament NTS 3 2016 already has the team Cambridge Hornets
+b'1/4'
+Found GameRound:
+1/4 2 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Bristol Fijians
+Tournament NTS 3 2016 already has the team Bristol Fijians
+Created Game:
+MXO - NTS 3 2016 - 1/4 2 Gold - MXO - Cambridge Hornets 3 - 4 MXO - Bristol Fijians
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '14:10', 'Field 3', '¼', 'Gold', '2', 'xx', 'London Scorpions', '6', '5', 'London Galaxy']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - London Scorpions
+Tournament NTS 3 2016 already has the team London Scorpions
+b'1/4'
+Found GameRound:
+1/4 2 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - London Galaxy
+Tournament NTS 3 2016 already has the team London Galaxy
+Created Game:
+MXO - NTS 3 2016 - 1/4 2 Gold - MXO - London Scorpions 6 - 5 MXO - London Galaxy
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '14:10', 'Field 4', '¼', 'Gold', '2', 'xx', 'Hot Custard', '5', '4', 'Tumeke Sports']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Hot Custard
+Tournament NTS 3 2016 already has the team Hot Custard
+b'1/4'
+Found GameRound:
+1/4 2 Gold
+Found GameField:
+Field 4
+Found Team:
+MXO - Tumeke Sports
+Tournament NTS 3 2016 already has the team Tumeke Sports
+Created Game:
+MXO - NTS 3 2016 - 1/4 2 Gold - MXO - Hot Custard 5 - 4 MXO - Tumeke Sports
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '14:50', 'Field 1', 'Semifinal', 'Bronze', '2', 'xx', 'Manchester Chargers', '6', '4', 'CSSC Phantoms']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Manchester Chargers
+Tournament NTS 3 2016 already has the team Manchester Chargers
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Bronze
+Found GameField:
+Field 1
+Found Team:
+MXO - CSSC Phantoms
+Tournament NTS 3 2016 already has the team CSSC Phantoms
+Created Game:
+MXO - NTS 3 2016 - Semifinal 2 Bronze - MXO - Manchester Chargers 6 - 4 MXO - CSSC Phantoms
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '14:50', 'Field 2', 'Semifinal', 'Bronze', '2', 'xx', 'Thames Valley Vikings', '2', '0', 'Canterbury Cougars']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Thames Valley Vikings
+Tournament NTS 3 2016 already has the team Thames Valley Vikings
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Bronze
+Found GameField:
+Field 2
+Found Team:
+MXO - Canterbury Cougars
+Tournament NTS 3 2016 already has the team Canterbury Cougars
+Created Game:
+MXO - NTS 3 2016 - Semifinal 2 Bronze - MXO - Thames Valley Vikings 2 - 0 MXO - Canterbury Cougars
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '14:50', 'Field 3', 'Semifinal', 'Wood', '2', 'xx', 'Nottingham Hoods', '2', '4', 'Oxford Touch']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Nottingham Hoods
+Tournament NTS 3 2016 already has the team Nottingham Hoods
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Wood
+Found GameField:
+Field 3
+Found Team:
+MXO - Oxford Touch
+Tournament NTS 3 2016 already has the team Oxford Touch
+Created Game:
+MXO - NTS 3 2016 - Semifinal 2 Wood - MXO - Nottingham Hoods 2 - 4 MXO - Oxford Touch
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '14:50', 'Field 4', 'Semifinal', 'Wood', '2', 'xx', 'Galaxy Knights', '6', '3', 'Cambridge Bees']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Galaxy Knights
+Tournament NTS 3 2016 already has the team Galaxy Knights
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Wood
+Found GameField:
+Field 4
+Found Team:
+MXO - Cambridge Bees
+Tournament NTS 3 2016 already has the team Cambridge Bees
+Created Game:
+MXO - NTS 3 2016 - Semifinal 2 Wood - MXO - Galaxy Knights 6 - 3 MXO - Cambridge Bees
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '15:30', 'Field 1', 'Semifinal', 'Gold', '2', 'xx', 'Wigan Touch Warriors', '6', '2', 'Hot Custard']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Wigan Touch Warriors
+Tournament NTS 3 2016 already has the team Wigan Touch Warriors
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Hot Custard
+Tournament NTS 3 2016 already has the team Hot Custard
+Created Game:
+MXO - NTS 3 2016 - Semifinal 2 Gold - MXO - Wigan Touch Warriors 6 - 2 MXO - Hot Custard
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '15:30', 'Field 2', 'Semifinal', 'Gold', '2', 'xx', 'Bristol Fijians', '2', '7', 'London Scorpions']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Bristol Fijians
+Tournament NTS 3 2016 already has the team Bristol Fijians
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - London Scorpions
+Tournament NTS 3 2016 already has the team London Scorpions
+Created Game:
+MXO - NTS 3 2016 - Semifinal 2 Gold - MXO - Bristol Fijians 2 - 7 MXO - London Scorpions
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '15:30', 'Field 3', 'Semifinal', 'Silver', '2', 'xx', 'Bareback Riders', '2', '8', 'Tumeke Sports']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Bareback Riders
+Tournament NTS 3 2016 already has the team Bareback Riders
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Silver
+Found GameField:
+Field 3
+Found Team:
+MXO - Tumeke Sports
+Tournament NTS 3 2016 already has the team Tumeke Sports
+Created Game:
+MXO - NTS 3 2016 - Semifinal 2 Silver - MXO - Bareback Riders 2 - 8 MXO - Tumeke Sports
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '15:30', 'Field 4', 'Semifinal', 'Silver', '2', 'xx', 'Cambridge Hornets', '4', '5', 'London Galaxy']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Cambridge Hornets
+Tournament NTS 3 2016 already has the team Cambridge Hornets
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Silver
+Found GameField:
+Field 4
+Found Team:
+MXO - London Galaxy
+Tournament NTS 3 2016 already has the team London Galaxy
+Created Game:
+MXO - NTS 3 2016 - Semifinal 2 Silver - MXO - Cambridge Hornets 4 - 5 MXO - London Galaxy
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '16:10', 'Field 1', 'Final', 'Bronze', '2', 'xx', 'Manchester Chargers', '5', '4', 'Thames Valley Vikings']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Manchester Chargers
+Tournament NTS 3 2016 already has the team Manchester Chargers
+b'Final'
+Found GameRound:
+Final 2 Bronze
+Found GameField:
+Field 1
+Found Team:
+MXO - Thames Valley Vikings
+Tournament NTS 3 2016 already has the team Thames Valley Vikings
+Created Game:
+MXO - NTS 3 2016 - Final 2 Bronze - MXO - Manchester Chargers 5 - 4 MXO - Thames Valley Vikings
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '16:10', 'Field 2', 'Final', 'Wood', '2', 'xx', 'Oxford Touch', '4', '3', 'Galaxy Knights']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Oxford Touch
+Tournament NTS 3 2016 already has the team Oxford Touch
+b'Final'
+Found GameRound:
+Final 2 Wood
+Found GameField:
+Field 2
+Found Team:
+MXO - Galaxy Knights
+Tournament NTS 3 2016 already has the team Galaxy Knights
+Created Game:
+MXO - NTS 3 2016 - Final 2 Wood - MXO - Oxford Touch 4 - 3 MXO - Galaxy Knights
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '16:50', 'Field 1', 'Final', 'Silver', '2', 'xx', 'Tumeke Sports', '5', '3', 'London Galaxy']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Tumeke Sports
+Tournament NTS 3 2016 already has the team Tumeke Sports
+b'Final'
+Found GameRound:
+Final 2 Silver
+Found GameField:
+Field 1
+Found Team:
+MXO - London Galaxy
+Tournament NTS 3 2016 already has the team London Galaxy
+Created Game:
+MXO - NTS 3 2016 - Final 2 Silver - MXO - Tumeke Sports 5 - 3 MXO - London Galaxy
+
+Row to read:
+['NTS 3 2016', 'MXO', '05/28/16', '17:30', 'Field 1', 'Final', 'Gold', '2', 'xx', 'Wigan Touch Warriors', '7', '6', 'London Scorpions']
+
+Found Tournament:
+MXO - NTS 3 2016
+Found Team:
+MXO - Wigan Touch Warriors
+Tournament NTS 3 2016 already has the team Wigan Touch Warriors
+b'Final'
+Found GameRound:
+Final 2 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - London Scorpions
+Tournament NTS 3 2016 already has the team London Scorpions
+Created Game:
+MXO - NTS 3 2016 - Final 2 Gold - MXO - Wigan Touch Warriors 7 - 6 MXO - London Scorpions
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '10:00', 'Field 1', 'Pool A', 'Gold', '4', 'xx', 'Wigan Touch Warriors', '6', '1', 'Cambridge Hornets']
+
+Created Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Wigan Touch Warriors
+Added team Wigan Touch Warriors into tournament NTS 4 Finals 2016
+b'Pool A'
+Found GameRound:
+Pool A 4 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Cambridge Hornets
+Added team Cambridge Hornets into tournament NTS 4 Finals 2016
+Created Game:
+MXO - NTS 4 Finals 2016 - Pool A 4 Gold - MXO - Wigan Touch Warriors 6 - 1 MXO - Cambridge Hornets
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '10:00', 'Field 2', 'Pool A', 'Gold', '4', 'xx', 'Bristol Fijians', '3', '5', 'Hot Custard']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Bristol Fijians
+Added team Bristol Fijians into tournament NTS 4 Finals 2016
+b'Pool A'
+Found GameRound:
+Pool A 4 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Hot Custard
+Added team Hot Custard into tournament NTS 4 Finals 2016
+Created Game:
+MXO - NTS 4 Finals 2016 - Pool A 4 Gold - MXO - Bristol Fijians 3 - 5 MXO - Hot Custard
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '10:00', 'Field 3', 'Pool B', 'Gold', '4', 'xx', 'Tumeke Sports', '5', '4', 'Bareback Riders']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Tumeke Sports
+Added team Tumeke Sports into tournament NTS 4 Finals 2016
+b'Pool B'
+Found GameRound:
+Pool B 4 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - Bareback Riders
+Added team Bareback Riders into tournament NTS 4 Finals 2016
+Created Game:
+MXO - NTS 4 Finals 2016 - Pool B 4 Gold - MXO - Tumeke Sports 5 - 4 MXO - Bareback Riders
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '10:00', 'Field 4', 'Pool B', 'Gold', '4', 'xx', 'London Galaxy', '2', '2', 'London Scorpions']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - London Galaxy
+Added team London Galaxy into tournament NTS 4 Finals 2016
+b'Pool B'
+Found GameRound:
+Pool B 4 Gold
+Found GameField:
+Field 4
+Found Team:
+MXO - London Scorpions
+Added team London Scorpions into tournament NTS 4 Finals 2016
+Created Game:
+MXO - NTS 4 Finals 2016 - Pool B 4 Gold - MXO - London Galaxy 2 - 2 MXO - London Scorpions
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '10:30', 'Field 1', 'Pool C', 'Gold', '4', 'xx', 'CSSC Phantoms', '4', '3', 'Oxford Touch']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - CSSC Phantoms
+Added team CSSC Phantoms into tournament NTS 4 Finals 2016
+b'Pool C'
+Found GameRound:
+Pool C 4 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Oxford Touch
+Added team Oxford Touch into tournament NTS 4 Finals 2016
+Created Game:
+MXO - NTS 4 Finals 2016 - Pool C 4 Gold - MXO - CSSC Phantoms 4 - 3 MXO - Oxford Touch
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '10:30', 'Field 2', 'Pool C', 'Gold', '4', 'xx', 'Galaxy Knights', '0', '4', 'Manchester Chargers']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Galaxy Knights
+Added team Galaxy Knights into tournament NTS 4 Finals 2016
+b'Pool C'
+Found GameRound:
+Pool C 4 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Manchester Chargers
+Added team Manchester Chargers into tournament NTS 4 Finals 2016
+Created Game:
+MXO - NTS 4 Finals 2016 - Pool C 4 Gold - MXO - Galaxy Knights 0 - 4 MXO - Manchester Chargers
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '10:30', 'Field 3', 'Pool D', 'Gold', '4', 'xx', 'Thames Valley Vikings', '2', '3', 'Canterbury Cougars']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Thames Valley Vikings
+Added team Thames Valley Vikings into tournament NTS 4 Finals 2016
+b'Pool D'
+Found GameRound:
+Pool D 4 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - Canterbury Cougars
+Added team Canterbury Cougars into tournament NTS 4 Finals 2016
+Created Game:
+MXO - NTS 4 Finals 2016 - Pool D 4 Gold - MXO - Thames Valley Vikings 2 - 3 MXO - Canterbury Cougars
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '10:30', 'Field 4', 'Pool D', 'Gold', '4', 'xx', 'Cambridge Bees', '2', '8', 'Nottingham Hoods']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Cambridge Bees
+Added team Cambridge Bees into tournament NTS 4 Finals 2016
+b'Pool D'
+Found GameRound:
+Pool D 4 Gold
+Found GameField:
+Field 4
+Found Team:
+MXO - Nottingham Hoods
+Added team Nottingham Hoods into tournament NTS 4 Finals 2016
+Created Game:
+MXO - NTS 4 Finals 2016 - Pool D 4 Gold - MXO - Cambridge Bees 2 - 8 MXO - Nottingham Hoods
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '11:00', 'Field 1', 'Pool B', 'Gold', '4', 'xx', 'Tumeke Sports', '5', '6', 'London Scorpions']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Tumeke Sports
+Tournament NTS 4 Finals 2016 already has the team Tumeke Sports
+b'Pool B'
+Found GameRound:
+Pool B 4 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - London Scorpions
+Tournament NTS 4 Finals 2016 already has the team London Scorpions
+Created Game:
+MXO - NTS 4 Finals 2016 - Pool B 4 Gold - MXO - Tumeke Sports 5 - 6 MXO - London Scorpions
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '11:00', 'Field 2', 'Pool B', 'Gold', '4', 'xx', 'Bareback Riders', '4', '5', 'London Galaxy']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Bareback Riders
+Tournament NTS 4 Finals 2016 already has the team Bareback Riders
+b'Pool B'
+Found GameRound:
+Pool B 4 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - London Galaxy
+Tournament NTS 4 Finals 2016 already has the team London Galaxy
+Created Game:
+MXO - NTS 4 Finals 2016 - Pool B 4 Gold - MXO - Bareback Riders 4 - 5 MXO - London Galaxy
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '11:00', 'Field 3', 'Pool A', 'Gold', '4', 'xx', 'Wigan Touch Warriors', '5', '5', 'Bristol Fijians']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Wigan Touch Warriors
+Tournament NTS 4 Finals 2016 already has the team Wigan Touch Warriors
+b'Pool A'
+Found GameRound:
+Pool A 4 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - Bristol Fijians
+Tournament NTS 4 Finals 2016 already has the team Bristol Fijians
+Created Game:
+MXO - NTS 4 Finals 2016 - Pool A 4 Gold - MXO - Wigan Touch Warriors 5 - 5 MXO - Bristol Fijians
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '11:00', 'Field 4', 'Pool A', 'Gold', '4', 'xx', 'Hot Custard', '7', '2', 'Cambridge Hornets']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Hot Custard
+Tournament NTS 4 Finals 2016 already has the team Hot Custard
+b'Pool A'
+Found GameRound:
+Pool A 4 Gold
+Found GameField:
+Field 4
+Found Team:
+MXO - Cambridge Hornets
+Tournament NTS 4 Finals 2016 already has the team Cambridge Hornets
+Created Game:
+MXO - NTS 4 Finals 2016 - Pool A 4 Gold - MXO - Hot Custard 7 - 2 MXO - Cambridge Hornets
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '11:30', 'Field 1', 'Pool D', 'Gold', '4', 'xx', 'Thames Valley Vikings', '7', '1', 'Nottingham Hoods']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Thames Valley Vikings
+Tournament NTS 4 Finals 2016 already has the team Thames Valley Vikings
+b'Pool D'
+Found GameRound:
+Pool D 4 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Nottingham Hoods
+Tournament NTS 4 Finals 2016 already has the team Nottingham Hoods
+Created Game:
+MXO - NTS 4 Finals 2016 - Pool D 4 Gold - MXO - Thames Valley Vikings 7 - 1 MXO - Nottingham Hoods
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '11:30', 'Field 2', 'Pool D', 'Gold', '4', 'xx', 'Canterbury Cougars', '3', '0', 'Cambridge Bees']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Canterbury Cougars
+Tournament NTS 4 Finals 2016 already has the team Canterbury Cougars
+b'Pool D'
+Found GameRound:
+Pool D 4 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Cambridge Bees
+Tournament NTS 4 Finals 2016 already has the team Cambridge Bees
+Created Game:
+MXO - NTS 4 Finals 2016 - Pool D 4 Gold - MXO - Canterbury Cougars 3 - 0 MXO - Cambridge Bees
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '11:30', 'Field 3', 'Pool C', 'Gold', '4', 'xx', 'CSSC Phantoms', '6', '2', 'Galaxy Knights']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - CSSC Phantoms
+Tournament NTS 4 Finals 2016 already has the team CSSC Phantoms
+b'Pool C'
+Found GameRound:
+Pool C 4 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - Galaxy Knights
+Tournament NTS 4 Finals 2016 already has the team Galaxy Knights
+Created Game:
+MXO - NTS 4 Finals 2016 - Pool C 4 Gold - MXO - CSSC Phantoms 6 - 2 MXO - Galaxy Knights
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '11:30', 'Field 4', 'Pool C', 'Gold', '4', 'xx', 'Manchester Chargers', '7', '1', 'Oxford Touch']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Manchester Chargers
+Tournament NTS 4 Finals 2016 already has the team Manchester Chargers
+b'Pool C'
+Found GameRound:
+Pool C 4 Gold
+Found GameField:
+Field 4
+Found Team:
+MXO - Oxford Touch
+Tournament NTS 4 Finals 2016 already has the team Oxford Touch
+Created Game:
+MXO - NTS 4 Finals 2016 - Pool C 4 Gold - MXO - Manchester Chargers 7 - 1 MXO - Oxford Touch
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '12:00', 'Field 1', 'Pool A', 'Gold', '4', 'xx', 'Wigan Touch Warriors', '4', '3', 'Hot Custard']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Wigan Touch Warriors
+Tournament NTS 4 Finals 2016 already has the team Wigan Touch Warriors
+b'Pool A'
+Found GameRound:
+Pool A 4 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Hot Custard
+Tournament NTS 4 Finals 2016 already has the team Hot Custard
+Created Game:
+MXO - NTS 4 Finals 2016 - Pool A 4 Gold - MXO - Wigan Touch Warriors 4 - 3 MXO - Hot Custard
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '12:00', 'Field 2', 'Pool A', 'Gold', '4', 'xx', 'Cambridge Hornets', '2', '5', 'Bristol Fijians']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Cambridge Hornets
+Tournament NTS 4 Finals 2016 already has the team Cambridge Hornets
+b'Pool A'
+Found GameRound:
+Pool A 4 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Bristol Fijians
+Tournament NTS 4 Finals 2016 already has the team Bristol Fijians
+Created Game:
+MXO - NTS 4 Finals 2016 - Pool A 4 Gold - MXO - Cambridge Hornets 2 - 5 MXO - Bristol Fijians
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '12:00', 'Field 3', 'Pool B', 'Gold', '4', 'xx', 'Tumeke Sports', '5', '2', 'London Galaxy']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Tumeke Sports
+Tournament NTS 4 Finals 2016 already has the team Tumeke Sports
+b'Pool B'
+Found GameRound:
+Pool B 4 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - London Galaxy
+Tournament NTS 4 Finals 2016 already has the team London Galaxy
+Created Game:
+MXO - NTS 4 Finals 2016 - Pool B 4 Gold - MXO - Tumeke Sports 5 - 2 MXO - London Galaxy
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '12:00', 'Field 4', 'Pool B', 'Gold', '4', 'xx', 'London Scorpions', '3', '1', 'Bareback Riders']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - London Scorpions
+Tournament NTS 4 Finals 2016 already has the team London Scorpions
+b'Pool B'
+Found GameRound:
+Pool B 4 Gold
+Found GameField:
+Field 4
+Found Team:
+MXO - Bareback Riders
+Tournament NTS 4 Finals 2016 already has the team Bareback Riders
+Created Game:
+MXO - NTS 4 Finals 2016 - Pool B 4 Gold - MXO - London Scorpions 3 - 1 MXO - Bareback Riders
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '12:30', 'Field 1', 'Pool C', 'Gold', '4', 'xx', 'CSSC Phantoms', '5', '7', 'Manchester Chargers']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - CSSC Phantoms
+Tournament NTS 4 Finals 2016 already has the team CSSC Phantoms
+b'Pool C'
+Found GameRound:
+Pool C 4 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Manchester Chargers
+Tournament NTS 4 Finals 2016 already has the team Manchester Chargers
+Created Game:
+MXO - NTS 4 Finals 2016 - Pool C 4 Gold - MXO - CSSC Phantoms 5 - 7 MXO - Manchester Chargers
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '12:30', 'Field 2', 'Pool C', 'Gold', '4', 'xx', 'Oxford Touch', '6', '3', 'Galaxy Knights']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Oxford Touch
+Tournament NTS 4 Finals 2016 already has the team Oxford Touch
+b'Pool C'
+Found GameRound:
+Pool C 4 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Galaxy Knights
+Tournament NTS 4 Finals 2016 already has the team Galaxy Knights
+Created Game:
+MXO - NTS 4 Finals 2016 - Pool C 4 Gold - MXO - Oxford Touch 6 - 3 MXO - Galaxy Knights
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '12:30', 'Field 3', 'Pool D', 'Gold', '4', 'xx', 'Thames Valley Vikings', '7', '0', 'Cambridge Bees']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Thames Valley Vikings
+Tournament NTS 4 Finals 2016 already has the team Thames Valley Vikings
+b'Pool D'
+Found GameRound:
+Pool D 4 Gold
+Found GameField:
+Field 3
+Found Team:
+MXO - Cambridge Bees
+Tournament NTS 4 Finals 2016 already has the team Cambridge Bees
+Created Game:
+MXO - NTS 4 Finals 2016 - Pool D 4 Gold - MXO - Thames Valley Vikings 7 - 0 MXO - Cambridge Bees
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '12:30', 'Field 4', 'Pool D', 'Gold', '4', 'xx', 'Nottingham Hoods', '5', '4', 'Canterbury Cougars']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Nottingham Hoods
+Tournament NTS 4 Finals 2016 already has the team Nottingham Hoods
+b'Pool D'
+Found GameRound:
+Pool D 4 Gold
+Found GameField:
+Field 4
+Found Team:
+MXO - Canterbury Cougars
+Tournament NTS 4 Finals 2016 already has the team Canterbury Cougars
+Created Game:
+MXO - NTS 4 Finals 2016 - Pool D 4 Gold - MXO - Nottingham Hoods 5 - 4 MXO - Canterbury Cougars
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '13:30', 'Field 2', 'Semifinal', 'Bronze', '2', 'xx', 'Manchester Chargers', '8', '7', 'Canterbury Cougars']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Manchester Chargers
+Tournament NTS 4 Finals 2016 already has the team Manchester Chargers
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Bronze
+Found GameField:
+Field 2
+Found Team:
+MXO - Canterbury Cougars
+Tournament NTS 4 Finals 2016 already has the team Canterbury Cougars
+Created Game:
+MXO - NTS 4 Finals 2016 - Semifinal 2 Bronze - MXO - Manchester Chargers 8 - 7 MXO - Canterbury Cougars
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '13:30', 'Field 3', 'Semifinal', 'Bronze', '2', 'xx', 'Thames Valley Vikings', '7', '5', 'CSSC Phantoms']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Thames Valley Vikings
+Tournament NTS 4 Finals 2016 already has the team Thames Valley Vikings
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Bronze
+Found GameField:
+Field 3
+Found Team:
+MXO - CSSC Phantoms
+Tournament NTS 4 Finals 2016 already has the team CSSC Phantoms
+Created Game:
+MXO - NTS 4 Finals 2016 - Semifinal 2 Bronze - MXO - Thames Valley Vikings 7 - 5 MXO - CSSC Phantoms
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '13:30', 'Field 4', 'Semifinal', 'Wood', '2', 'xx', 'Oxford Touch', '9', '2', 'Cambridge Bees']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Oxford Touch
+Tournament NTS 4 Finals 2016 already has the team Oxford Touch
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Wood
+Found GameField:
+Field 4
+Found Team:
+MXO - Cambridge Bees
+Tournament NTS 4 Finals 2016 already has the team Cambridge Bees
+Created Game:
+MXO - NTS 4 Finals 2016 - Semifinal 2 Wood - MXO - Oxford Touch 9 - 2 MXO - Cambridge Bees
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '14:20', 'Field 2', 'Semifinal', 'Silver', '2', 'xx', 'Bristol Fijians', '4', '8', 'Bareback Riders']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Bristol Fijians
+Tournament NTS 4 Finals 2016 already has the team Bristol Fijians
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Silver
+Found GameField:
+Field 2
+Found Team:
+MXO - Bareback Riders
+Tournament NTS 4 Finals 2016 already has the team Bareback Riders
+Created Game:
+MXO - NTS 4 Finals 2016 - Semifinal 2 Silver - MXO - Bristol Fijians 4 - 8 MXO - Bareback Riders
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '14:20', 'Field 3', 'Semifinal', 'Silver', '2', 'xx', 'London Galaxy', '7', '4', 'Cambridge Hornets']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - London Galaxy
+Tournament NTS 4 Finals 2016 already has the team London Galaxy
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Silver
+Found GameField:
+Field 3
+Found Team:
+MXO - Cambridge Hornets
+Tournament NTS 4 Finals 2016 already has the team Cambridge Hornets
+Created Game:
+MXO - NTS 4 Finals 2016 - Semifinal 2 Silver - MXO - London Galaxy 7 - 4 MXO - Cambridge Hornets
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '14:20', 'Field 4', 'Semifinal', 'Wood', '2', 'xx', 'Nottingham Hoods', '10', '4', 'Galaxy Knights']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Nottingham Hoods
+Tournament NTS 4 Finals 2016 already has the team Nottingham Hoods
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Wood
+Found GameField:
+Field 4
+Found Team:
+MXO - Galaxy Knights
+Tournament NTS 4 Finals 2016 already has the team Galaxy Knights
+Created Game:
+MXO - NTS 4 Finals 2016 - Semifinal 2 Wood - MXO - Nottingham Hoods 10 - 4 MXO - Galaxy Knights
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '15:10', 'Field 1', 'Semifinal', 'Gold', '2', 'xx', 'Wigan Touch Warriors', '7', '6', 'Tumeke Sports']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Wigan Touch Warriors
+Tournament NTS 4 Finals 2016 already has the team Wigan Touch Warriors
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Tumeke Sports
+Tournament NTS 4 Finals 2016 already has the team Tumeke Sports
+Created Game:
+MXO - NTS 4 Finals 2016 - Semifinal 2 Gold - MXO - Wigan Touch Warriors 7 - 6 MXO - Tumeke Sports
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '15:10', 'Field 2', 'Semifinal', 'Gold', '2', 'xx', 'London Scorpions', '1', '3', 'Hot Custard']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - London Scorpions
+Tournament NTS 4 Finals 2016 already has the team London Scorpions
+b'Semifinal'
+Found GameRound:
+Semifinal 2 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - Hot Custard
+Tournament NTS 4 Finals 2016 already has the team Hot Custard
+Created Game:
+MXO - NTS 4 Finals 2016 - Semifinal 2 Gold - MXO - London Scorpions 1 - 3 MXO - Hot Custard
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '16:00', 'Field 1', 'Final', 'Wood', '2', 'xx', 'Oxford Touch', '5', '6', 'Nottingham Hoods']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Oxford Touch
+Tournament NTS 4 Finals 2016 already has the team Oxford Touch
+b'Final'
+Found GameRound:
+Final 2 Wood
+Found GameField:
+Field 1
+Found Team:
+MXO - Nottingham Hoods
+Tournament NTS 4 Finals 2016 already has the team Nottingham Hoods
+Created Game:
+MXO - NTS 4 Finals 2016 - Final 2 Wood - MXO - Oxford Touch 5 - 6 MXO - Nottingham Hoods
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '16:00', 'Field 3', 'Third position', 'Wood', '2', 'xx', 'Cambridge Bees', '5', '8', 'Galaxy Knights']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Cambridge Bees
+Tournament NTS 4 Finals 2016 already has the team Cambridge Bees
+b'Third position'
+Found GameRound:
+Third position 2 Wood
+Found GameField:
+Field 3
+Found Team:
+MXO - Galaxy Knights
+Tournament NTS 4 Finals 2016 already has the team Galaxy Knights
+Created Game:
+MXO - NTS 4 Finals 2016 - Third position 2 Wood - MXO - Cambridge Bees 5 - 8 MXO - Galaxy Knights
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '16:50', 'Field 1', 'Final', 'Bronze', '2', 'xx', 'Manchester Chargers', '4', '6', 'Thames Valley Vikings']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Manchester Chargers
+Tournament NTS 4 Finals 2016 already has the team Manchester Chargers
+b'Final'
+Found GameRound:
+Final 2 Bronze
+Found GameField:
+Field 1
+Found Team:
+MXO - Thames Valley Vikings
+Tournament NTS 4 Finals 2016 already has the team Thames Valley Vikings
+Created Game:
+MXO - NTS 4 Finals 2016 - Final 2 Bronze - MXO - Manchester Chargers 4 - 6 MXO - Thames Valley Vikings
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '16:50', 'Field 2', 'Third position', 'Silver', '2', 'xx', 'Bristol Fijians', '8', '4', 'Cambridge Hornets']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Bristol Fijians
+Tournament NTS 4 Finals 2016 already has the team Bristol Fijians
+b'Third position'
+Found GameRound:
+Third position 2 Silver
+Found GameField:
+Field 2
+Found Team:
+MXO - Cambridge Hornets
+Tournament NTS 4 Finals 2016 already has the team Cambridge Hornets
+Created Game:
+MXO - NTS 4 Finals 2016 - Third position 2 Silver - MXO - Bristol Fijians 8 - 4 MXO - Cambridge Hornets
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '16:50', 'Field 3', 'Third position', 'Bronze', '2', 'xx', 'Canterbury Cougars', '6', '5', 'CSSC Phantoms']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Canterbury Cougars
+Tournament NTS 4 Finals 2016 already has the team Canterbury Cougars
+b'Third position'
+Found GameRound:
+Third position 2 Bronze
+Found GameField:
+Field 3
+Found Team:
+MXO - CSSC Phantoms
+Tournament NTS 4 Finals 2016 already has the team CSSC Phantoms
+Created Game:
+MXO - NTS 4 Finals 2016 - Third position 2 Bronze - MXO - Canterbury Cougars 6 - 5 MXO - CSSC Phantoms
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '17:40', 'Field 1', 'Final', 'Silver', '2', 'xx', 'Bareback Riders', '4', '5', 'London Galaxy']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Bareback Riders
+Tournament NTS 4 Finals 2016 already has the team Bareback Riders
+b'Final'
+Found GameRound:
+Final 2 Silver
+Found GameField:
+Field 1
+Found Team:
+MXO - London Galaxy
+Tournament NTS 4 Finals 2016 already has the team London Galaxy
+Created Game:
+MXO - NTS 4 Finals 2016 - Final 2 Silver - MXO - Bareback Riders 4 - 5 MXO - London Galaxy
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '17:40', 'Field 2', 'Third position', 'Gold', '2', 'xx', 'Tumeke Sports', '-1', '-1', 'London Scorpions']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Tumeke Sports
+Tournament NTS 4 Finals 2016 already has the team Tumeke Sports
+b'Third position'
+Found GameRound:
+Third position 2 Gold
+Found GameField:
+Field 2
+Found Team:
+MXO - London Scorpions
+Tournament NTS 4 Finals 2016 already has the team London Scorpions
+Created Game:
+MXO - NTS 4 Finals 2016 - Third position 2 Gold - MXO - Tumeke Sports -1 - -1 MXO - London Scorpions
+
+Row to read:
+['NTS 4 Finals 2016', 'MXO', '07/23/16', '18:30', 'Field 1', 'Final', 'Gold', '2', 'xx', 'Wigan Touch Warriors', '5', '3', 'Hot Custard']
+
+Found Tournament:
+MXO - NTS 4 Finals 2016
+Found Team:
+MXO - Wigan Touch Warriors
+Tournament NTS 4 Finals 2016 already has the team Wigan Touch Warriors
+b'Final'
+Found GameRound:
+Final 2 Gold
+Found GameField:
+Field 1
+Found Team:
+MXO - Hot Custard
+Tournament NTS 4 Finals 2016 already has the team Hot Custard
+Created Game:
+MXO - NTS 4 Finals 2016 - Final 2 Gold - MXO - Wigan Touch Warriors 5 - 3 MXO - Hot Custard
+
+Finished reading 1...[0=PHASE, 1=TOURNAMENT, 2=NTS_STADISTIC]
+
+Successfully read csv file: "./player/data_files/csv/TGames_NTS_2016_MXO.csv"
