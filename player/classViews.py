@@ -117,11 +117,12 @@ class PersonView(DetailView):
         for tournie, teams in tournament_team_dict.items():
             for team in teams:
                 games.extend(Game.objects.filter(Q(tournament=tournie), Q(local=team) | Q(visitor=team)))
+        games = sorted(games, key=lambda game: game.tournament)
 
         context = super(PersonView, self).get_context_data(**kwargs)
         context['person'] = self.object
         context['games'] = games
-        context['tournament_team_dict'] = tournament_team_dict
+        context['tournament_team_dict'] = OrderedDict(sorted(tournament_team_dict.items()))
 
         return context
 
@@ -132,12 +133,19 @@ class TeamView(DetailView):
 
     def get_context_data(self, **kwargs):
         games = Game.objects.filter(Q(local=self.object.id) | Q(visitor=self.object.id)).order_by('tournament')
-        played_tournaments = Tournament.objects.filter(teams__id=self.object.id).order_by('-name')
+        played_tournaments = Tournament.objects.filter(teams__id=self.object.id).order_by('-date', '-name')
+        players = Player.objects.filter(team=self.object)
+
+        persons = set()
+        for player in players:
+            persons.add(player.person)
+        persons = sorted(list(persons))
 
         context = super(TeamView, self).get_context_data(**kwargs)
         context['team'] = self.object
         context['played_tournaments'] = played_tournaments
         context['games'] = games
+        context['persons'] = persons
 
         return context
 
