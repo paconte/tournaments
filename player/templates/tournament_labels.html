@@ -1,0 +1,8 @@
+{% if t.division == "MO" %}<span class="label label-danger">{{t.division}}</span>
+{% elif t.division == "WO" %}<span class="label label-extra">{{t.division}}</span>
+{% elif t.division == "MXO" %}<span class="label label-primary">{{t.division}}</span>
+{% elif t.division == "SMX" %}<span class="label label-info">{{t.division}}</span>
+{% elif t.division == "M30" %}<span class="label label-warning">{{t.division}}</span>
+{% elif t.division == "W27" %}<span class="label label-success">{{t.division}}</span>
+{% elif t.division == "M40" %}<span class="label label-default">{{t.division}}</span>
+{% endif %}
