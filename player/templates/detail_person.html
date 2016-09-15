@@ -13,11 +13,13 @@
 <table class="table-condensed">
     <thead>
     <tbody>
-    {% for tournament, teams in tournament_team_dict.items %}
+    {% for t, teams in tournament_team_dict.items %}
     {% for team in teams %}
     <tr>
         <td class="col-sm-6">
-            <a href="{% url 'detail_team_tournament' tournament.id team.id %}">{{tournament.name}}</a>
+            <a href="{% url 'detail_team_tournament' t.id team.id %}">{{t.name}}</a>
+            {% include "tournament_labels.html" %}
+
         </td>
         <td class="col-sm-1">-</td>
         <td class="col-sm-5">
@@ -39,7 +41,7 @@
     <tbody>
     {% for game in games %}
     <tr>
-        <td class="col-sm-3"><a href="{% url 'detail_tournament' game.tournament.id %}">{{game.tournament.name}}</a></td>
+        <td class="col-sm-3"><a href="{% url 'detail_tournament' game.tournament.id %}">{{game.tournament.name}} - {{game.tournament.division}}</a></td>
         <td class="col-sm-3"><a href="{% url 'detail_team_tournament' game.tournament.id game.local.id %}">{{game.local.name}}</a></td>
         <td class="col-sm-0 success text-center">{{game.local_score}}</td>
         <td class="text-center">v</td>
