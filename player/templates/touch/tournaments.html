@@ -1,15 +1,32 @@
 {% extends "base.html" %}
 
 {% block content %}
+
 <div class="container">
 
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-2"><a href="#">Tournaments <span class="badge">34</span></a></div>
+            <div class="col-md-2"><a href="#">Teams <span class="badge">216</span></a></div>
+            <div class="col-md-2"><a href="#">Games <span class="badge">1413</span></a></div>
+            <div class="col-md-2"><a href="#">Players <span class="badge">2576</span></a></div>
+            <div class="col-md-2"><a href="#">Player Stats <span class="badge">7503</span></a></div>
+        </div>
+    </div>
+
+</div>
+
+<div class="container" id="tournaments">
+
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-3">
             <h2>World Cup</h2>
             {% if world_cup %}
             <div class="list-group">
                 {% for t in world_cup %}
-                <a href="{% url 'detail_tournament' t.id %}" class="list-group-item">{{ t.name }} - {{t.division}}</a>
+                <a href="{% url 'detail_tournament' t.id %}" class="list-group-item">{{ t.name }}
+                    {% include "tournament_labels.html" %}
+                </a>
                 {% endfor %}
             </div>
             {% endif %}
@@ -17,40 +34,46 @@
             {% if australia %}
             <div class="list-group">
                 {% for t in australia %}
-                <a href="{% url 'detail_tournament' t.id %}" class="list-group-item">{{ t.name }} - {{t.division}}</a>
+                <a href="{% url 'detail_tournament' t.id %}" class="list-group-item">{{ t.name }}
+                    {% include "tournament_labels.html" %}
+                </a>
                 {% endfor %}
             </div>
             {% endif %}
         </div>
-        <div class="col-md-6">
+        <div class="col-md-3">
             <h2>Euros</h2>
             {% if euros %}
             <div class="list-group">
                 {% for t in euros %}
-                <a href="{% url 'detail_tournament' t.id %}" class="list-group-item">{{ t.name }} - {{t.division}}</a>
+                <a href="{% url 'detail_tournament' t.id %}" class="list-group-item">{{ t.name }}
+                    {% include "tournament_labels.html" %}
+                </a>
                 {% endfor %}
             </div>
             {% endif %}
         </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-3">
+            <h2>England</h2>
+            {% if england %}
+            <div class="list-group">
+                {% for t in england %}
+                <a href="{% url 'detail_tournament' t.id %}" class="list-group-item">{{ t.name }}
+                    {% include "tournament_labels.html" %}
+                </a>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        <div class="col-md-3">
              <h2>Germany</h2>
             {% if germany %}
             <div class="list-group">
                 {% for t in germany %}
-                <a href="{% url 'detail_tournament' t.id %}" class="list-group-item">{{ t.name }} - {{t.division}}</a>
-                {% endfor %}
-            </div>
-            {% endif %}
-        </div>
-        <div class="col-md-6">
-            <h2>England - NTS</h2>
-            {% if england %}
-            <div class="list-group">
-                {% for t in england %}
-                <a href="{% url 'detail_tournament' t.id %}" class="list-group-item">{{ t.name }} - {{t.division}}</a>
+                <a href="{% url 'detail_tournament' t.id %}" class="list-group-item">{{ t.name }}
+                    {% include "tournament_labels.html" %}
+                </a>
+
                 {% endfor %}
             </div>
             {% endif %}
@@ -58,4 +81,5 @@
     </div>
 
 </div>
+
 {% endblock %}
