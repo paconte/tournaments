@@ -392,7 +392,7 @@ def sort_tournament_list(tournament_list, tournament_type):
             result["England"].append(t)
         elif 'World Cup' in t.name:
             result["World_Cup"].append(t)
-        elif 'Capital Cup' in t.name or 'German Championship' in t.name:
+        elif 'Capital Cup' in t.name or 'Championship 2016' == t.name:
             result["Germany"].append(t)
         elif 'NTL' in t.name:
             result["Australia"].append(t)
