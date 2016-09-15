@@ -30,17 +30,17 @@
         <div class="page-header"><h1>Players</h1></div>
         <table class="table-condensed">
             <tbody>
-            {% for element in team.players.all %}
+            {% for person in persons %}
             <tr>
-                {% if element.gender == "F" %}
+                {% if person.gender == "F" %}
                 <td class="col-sm-2 ion-woman"/>
-                {% elif element.gender == "M" %}
+                {% elif person.gender == "M" %}
                 <td class="col-sm-2 ion-man"/>
                 {% else %}
                 <td class="col-sm-2"/>
                 {% endif%}
                 <td class="col-sm-10">
-                    <a href="{% url 'detail_person' element.id %}">{{element.first_name}} {{element.last_name}}</a>
+                    <a href="{% url 'detail_person' person.id %}">{{person.first_name}} {{person.last_name}}</a>
                 </td>
             </tr>
             {% endfor %}
