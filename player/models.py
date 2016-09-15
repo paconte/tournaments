@@ -96,6 +96,9 @@ class Tournament(models.Model):
     teams = models.ManyToManyField(Team)
     division = models.CharField(max_length=3, choices=TOUCH_DIVISION_CHOICES)
 
+    class Meta:
+        ordering = ['name']
+
     def __str__(self):
         if self.country and self.city:
             result = '{0} - {1} ({2}, {3})'.format(
