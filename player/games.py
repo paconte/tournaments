@@ -27,7 +27,7 @@ class PadelResult:
         for x in range(0, len(scores)):
             try:
                 score = int(scores[x])
-                if scores[x]=='' or score < 0 or score > 10:
+                if scores[x] == '' or score < 0 or score > 10:
                     raise ValueError
                 if x % 2 == 0:
                     self.local_score.append(score)
@@ -78,6 +78,8 @@ class PadelResult:
             if score and not isinstance(int(score), int):
                 raise ValueError("Scores argument must be list of integers.")
 
+    def __str__(self):
+        return str(self.scores)
 
 class PadelTeamNames:
     def __init__(self, csv):
