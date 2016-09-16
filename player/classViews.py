@@ -12,6 +12,7 @@ from player.models import Team
 from player.models import Person
 from player.service import Fixtures
 from player.service import StructuresUtils
+from player.games import PadelResult
 
 import logging
 
@@ -305,6 +306,7 @@ class TournamentView(DetailView):
         context = super(TournamentView, self).get_context_data(**kwargs)
         context['tournament'] = self.object
         context['games'] = games
+        context['padel_results'] = self.get_padel_results(games)
         context['liga_games'] = fixtures.sorted_ligas
         context['pool_games'] = pool_games
         context['division_games'] = division_games
@@ -314,3 +316,12 @@ class TournamentView(DetailView):
         #add_data_for_tournaments_menu(context)
 
         return context
+
+    def get_padel_results(self, games):
+        result = None
+        if games and games[0].result_padel:
+            result = dict()
+            for game in games:
+                result[game.id] = PadelResult(game.result_padel.get_list_scores())
+        return result
+
