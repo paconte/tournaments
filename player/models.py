@@ -451,8 +451,6 @@ class GameField(models.Model):
 
 
 class PadelResult(models.Model):
-    scores = []
-
     local1 = models.SmallIntegerField(null=True, blank=True)
     local2 = models.SmallIntegerField(null=True, blank=True)
     local3 = models.SmallIntegerField(null=True, blank=True)
@@ -499,6 +497,19 @@ class PadelResult(models.Model):
             result.visitor10 = scores[19]
         except IndexError:
             pass
+        return result
+
+    def get_list_scores(self):
+        result = []
+        scores = [self.local1, self.visitor1, self.local2, self.visitor2, self.local3, self.visitor3,
+                  self.local4, self.visitor4, self.local5, self.visitor5, self.local6, self.visitor6,
+                  self.local7, self.visitor7, self.local8, self.visitor8, self.local9, self.visitor9,
+                  self.local10, self.visitor10]
+
+        for score in scores:
+            if score is not None:
+                result.append(score)
+
         return result
 
 
