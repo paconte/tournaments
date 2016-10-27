@@ -16,6 +16,6 @@ sys.path.append(workspace)
 sys.path.append(project)
 sys.path.append('/home/django')
 sys.path.append('/home/django/django-tournament.git/player')
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "player.settings.settings_apache")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "player.settings.prod")
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()

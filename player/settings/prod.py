@@ -1,4 +1,4 @@
-# DEBUG configuration
+from .dev import *
 
 DEBUG = False
 TEMPLATE_DEBUG = False
