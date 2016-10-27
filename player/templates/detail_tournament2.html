@@ -167,67 +167,60 @@
     </table>
   </div>
 
-  <div class="col-md-8">
-    <table class="table table-striped table-condensed table-bordered">
-      <thead>
-	<tr class="success">
-	  <th colspan="8">{{key}} - Games</th>
-	</tr>
-	<tbody>
-	  {% if games %}
-	    {% for game in games %}
-              {% if game.phase.round == key %}
-	        <tr>
-		  {% if game.time %}<td class="text-center">{{game.time|date:"H:i"}}</td>{% endif %}
-		  {% if game.field %}<td class="col-sm-2 text-center">{{game.field}}</td>{% endif %}
-<!--
-		  <td class="col-sm-5">
-		    <a href="{% url 'detail_team_tournament' tournament.id game.local.id %}">
-		      {{game.local.name}}</a></td>
-		  <td class="success text-center">{{game.local_score}}</td>
-		  <td class="text-center">v</td>
-		  <td class="success text-center">{{game.visitor_score}}</td>
-		  <td class="col-sm-5 text-right">
-		    <a href="{% url 'detail_team_tournament' tournament.id game.visitor.id %}">
-		      {{game.visitor.name}}</a>
-		  </td>
-		  <td class="text-center">
-		    <a class="ion-android-add-circle" href="{% url 'detail_game' game.id %}"/>
-		  </td>
-		</tr>
--->		
-	        <tr>
-		  <td class="col-sm-5">
-		    <a href="{% url 'detail_team_tournament' tournament.id game.local.id %}">
-		      {{game.local.name}}</a>
-		  </td>
-		  </td>
-                  {% for score in game.result_padel.local_scores %}
-                  <td class="success text-center">{{score}}</td>
-		  {% endfor %}
-                  <td class="success text-center">({{game.local_score}})</td>
-                </tr>
-	        <tr>
-		  <td class="col-sm-5">
-		    <a href="{% url 'detail_team_tournament' tournament.id game.visitor.id %}">
-		      {{game.visitor.name}}</a>
-		  </td>
-		  </td>
-                  {% for score in game.result_padel.visitor_scores %}
-                  <td class="success text-center">{{score}}</td>
-		  {% endfor %}
-                  <td class="success text-center">({{game.visitor_score}})</td>
-                </tr>
-                <tr><td></td></tr>
-              {% endif %}
-	    {% endfor %}
-	  {% else %}
-	  <td>No games are available.</td>
-	  {% endif %}
-	</tbody>
-      </thead>
-    </table>
-  </div>
+	<div class="col-md-8">
+		<table class="table table-striped table-condensed table-bordered">
+			<thead>
+			<tr class="success">
+				<th colspan="8">{{key}} - Games</th>
+			</tr>
+			<tbody>
+			{% if games %}
+			{% for game in games %}
+			{% if game.phase.round == key %}
+
+			{% if not game.result_padel %}
+			<tr>
+				{% if game.time %}
+				<td class="text-center">{{game.time|date:"H:i"}}</td>
+				{% endif %}
+				{% if game.field %}
+				<td class="col-sm-2 text-center">{{game.field}}</td>
+				{% endif %}
+				<td class="col-sm-5"><a href="{% url 'detail_team_tournament' tournament.id game.local.id %}">{{game.local.name}}</a></td>
+				<td class="success text-center">{{game.local_score}}</td>
+				<td class="text-center">v</td>
+                <td class="success text-center">{{game.visitor_score}}</td>
+				<td class="col-sm-5 text-right"><a href="{% url 'detail_team_tournament' tournament.id game.visitor.id %}">{{game.visitor.name}}</a></td>
+				<td class="text-center"><a class="ion-android-add-circle" href="{% url 'detail_game' game.id %}"/></td>
+			</tr>
+			{% else %}
+			<tr>
+				<td class="col-sm-5"><a href="{% url 'detail_team_tournament' tournament.id game.local.id %}">{{game.local.name}}</a></td>
+				{% for score in game.result_padel.local_scores %}
+				<td class="success text-center">{{score}}</td>
+				{% endfor %}
+				<td class="success text-center">({{game.local_score}})</td>
+			</tr>
+			<tr>
+				<td class="col-sm-5"><a href="{% url 'detail_team_tournament' tournament.id game.visitor.id %}">{{game.visitor.name}}</a></td>
+				{% for score in game.result_padel.visitor_scores %}
+				<td class="success text-center">{{score}}</td>
+				{% endfor %}
+				<td class="success text-center">({{game.visitor_score}})</td>
+			</tr>
+			<tr><td></td></tr>
+			{% endif %}
+
+			{% endif %}
+			{% endfor %}
+			{% else %}
+			<td>No games are available.</td>
+			{% endif %}
+			</tbody>
+			</thead>
+		</table>
+	</div>
+
 </div>
 </div>
 {% endfor %}
