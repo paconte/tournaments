@@ -1,5 +1,3 @@
-from touchdb.settings import *
-
 # DEBUG configuration
 
 DEBUG = False
