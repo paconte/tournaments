@@ -451,6 +451,7 @@ class GameField(models.Model):
 
 
 class PadelResult(models.Model):
+
     local1 = models.SmallIntegerField(null=True, blank=True)
     local2 = models.SmallIntegerField(null=True, blank=True)
     local3 = models.SmallIntegerField(null=True, blank=True)
@@ -499,18 +500,33 @@ class PadelResult(models.Model):
             pass
         return result
 
-    def get_list_scores(self):
-        result = []
+    def _get_local_scores(self):
+        return self._get_scores_lists()[0]
+
+    def _get_visitor_scores(self):
+        return self._get_scores_lists()[1]
+    
+    def _get_scores_lists(self):
+        local = list()
+        visitor = list()
         scores = [self.local1, self.visitor1, self.local2, self.visitor2, self.local3, self.visitor3,
                   self.local4, self.visitor4, self.local5, self.visitor5, self.local6, self.visitor6,
                   self.local7, self.visitor7, self.local8, self.visitor8, self.local9, self.visitor9,
                   self.local10, self.visitor10]
 
-        for score in scores:
-            if score is not None:
-                result.append(score)
+        for i in range(len(scores)):
+            if scores[i] is not None:
+                if i % 2 == 0:
+                    local.append(scores[i])                
+                else:
+                    visitor.append(scores[i])
+            else:
+                break
 
-        return result
+        return local, visitor
+
+    local_scores  = property(_get_local_scores)
+    visitor_scores = property(_get_visitor_scores)
 
 
 class Game(models.Model):
