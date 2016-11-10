@@ -6,6 +6,7 @@ Pool A;Gold;7
 Pool A;Gold;8
 Pool B;Gold;4
 Pool B;Gold;3
+Pool B;Gold;2
 Pool C;Gold;4
 Pool C;Gold;3
 Pool C;Gold;2
@@ -40,6 +41,7 @@ Third position;Wood;2
 ;;
 Eighthfinals;Gold;2
 ¼;Gold;2
+¼;Gold;3
 Semifinal;Gold;2
 Final;Gold;2
 ;;
