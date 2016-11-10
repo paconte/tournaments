@@ -229,7 +229,7 @@ class DjangoCsvFetcher:
         #    assert 0, "Wrong game to read: " + game
         try:
             if game.padel_team_names:
-                DjangoCsvFetcher.create_padel_persons
+                DjangoCsvFetcher.create_padel_persons(game)
                 type = "PADEL"
         except AttributeError:
             type = "TOUCH"
