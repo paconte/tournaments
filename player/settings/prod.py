@@ -1,13 +1,3 @@
-"""
-Django settings for restdjango project.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/1.6/topics/settings/
-
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.6/ref/settings/
-"""
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -18,15 +8,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'a%#zm8z^&=+ela1rq&0*pg2d+)!8b*q92b76e46-@04&78rx96'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG configuration
+DEBUG = False
+TEMPLATE_DEBUG = False
 
-TEMPLATE_DEBUG = True
-
-ALLOWED_HOSTS = []
+# HOSTS
+ALLOWED_HOSTS = ['62.75.188.101', 'www.rollball.net', 'rollball.net']
 
 # Application definition
-
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -36,7 +25,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'player'
 )
-
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -45,24 +33,19 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+ROOT_URLCONF = 'player.urls'
+WSGI_APPLICATION = 'player.settings.wsgi.application'
 
-ROOT_URLCONF = 'touchdb.urls'
-
-WSGI_APPLICATION = 'touchdb.wsgi.application'
 
 # App Admins and Managers:
-
 ADMINS = (
     ('Francisco Revilla', 'paconte@gmail.com'),
 )
-
 MANAGERS = (
     ('Francisco Revilla', 'paconte@gmail.com'),
 )
 
 # Database
-# https://docs.djangoproject.com/en/1.6/ref/settings/#databases
-
 DATABASES = {
     #    'default': {
     #        'ENGINE': 'django.db.backends.sqlite3',
@@ -80,60 +63,52 @@ DATABASES = {
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.6/howto/static-files/
-
 STATIC_URL = '/static/'
 
 # LOGGING configuration
-
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': True,
     'formatters': {
         'standard': {
             'format': '%(asctime)s {%(filename)s:%(lineno)d} [%(levelname)s] %(name)s: %(message)s'
-        },
-    },
+                    },
+            },
     'handlers': {
         'default': {
-            'level': 'DEBUG',
-            'class': 'logging.handlers.RotatingFileHandler',
-            'filename': 'logs/mylog.log',
-            'maxBytes': 1024 * 1024 * 5,  # 5 MB
+            'level':'DEBUG',
+            'class':'logging.handlers.RotatingFileHandler',
+            'filename': '/home/django/logs/mylog.log',
+            'maxBytes': 1024*1024*5, # 5 MB
             'backupCount': 5,
-            'formatter': 'standard',
-        },
+            'formatter':'standard',
+                    },
         'request_handler': {
-            'level': 'DEBUG',
-            'class': 'logging.handlers.RotatingFileHandler',
-            'filename': 'logs/django_request.log',
-            'maxBytes': 1024 * 1024 * 5,  # 5 MB
+            'level':'DEBUG',
+            'class':'logging.handlers.RotatingFileHandler',
+            'filename': '/home/django/logs/django_request.log',
+            'maxBytes': 1024*1024*5, # 5 MB
             'backupCount': 5,
-            'formatter': 'standard',
-        },
-    },
+            'formatter':'standard',
+                    },
+            },
     'loggers': {
         '': {
             'handlers': ['default'],
             'level': 'DEBUG',
             'propagate': True
-        },
+                    },
         'django.request': {
             'handlers': ['request_handler'],
             'level': 'DEBUG',
             'propagate': False
-        },
+                    },
+            }
     }
-}

@@ -303,14 +303,6 @@ class TournamentView(DetailView):
         finals_games = fixtures.get_phased_finals({})
         st_utils = StructuresUtils()
 
-        for game in games:
-            for score in game.result_padel.local_scores:
-                print(score)
-            print('#######')
-            for score in game.result_padel.visitor_scores:
-                print(score)
-            print('********')
-            
         context = super(TournamentView, self).get_context_data(**kwargs)
         context['tournament'] = self.object
         context['games'] = games
