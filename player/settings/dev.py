@@ -21,8 +21,6 @@ SECRET_KEY = 'a%#zm8z^&=+ela1rq&0*pg2d+)!8b*q92b76e46-@04&78rx96'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
-
 ALLOWED_HOSTS = []
 
 # Application definition
@@ -50,6 +48,25 @@ ROOT_URLCONF = 'player.urls'
 
 WSGI_APPLICATION = 'player.wsgi.application'
 
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.i18n',
+            ],
+            'builtins': [
+            ],
+        },
+    },
+]
+
 # App Admins and Managers:
 
 ADMINS = (
@@ -70,7 +87,7 @@ DATABASES = {
     #    },
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'touchDB',
+        'NAME': 'padelDB',
         'USER': 'tournamentDB',
         'PASSWORD': 'DBtournament',
         'HOST': 'localhost',  # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
