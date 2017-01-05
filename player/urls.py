@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 
 from player import views
 from player.classViews import GameView
@@ -8,8 +8,7 @@ from player.classViews import TeamTournamentView
 from player.classViews import TournamentView
 
 
-urlpatterns = patterns(
-    '',
+urlpatterns = [
     url(r'^$', views.tournaments, name='tournaments'),
     url(r'^add_tournament', views.add_tournament, name='add_tournament'),
     url(r'^about', views.about, name='about'),
@@ -20,4 +19,4 @@ urlpatterns = patterns(
     url(r'^person/(?P<pk>\d+)/$', PersonView.as_view(), name='detail_person'),
     url(r'^(?P<tournament_id>\d+)/team/(?P<pk>\d+)/$', TeamTournamentView.as_view(), name='detail_team_tournament'),
     url(r'^(?P<pk>\d+)/$', TournamentView.as_view(), name='detail_tournament'),
-)
+]
