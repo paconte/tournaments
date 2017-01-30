@@ -1,7 +1,5 @@
 from django.db.models import Q
 from django.http import HttpResponse
-from django.shortcuts import get_object_or_404
-from django.shortcuts import render
 from django.template import RequestContext, loader
 
 from player.forms import ContactForm
@@ -9,23 +7,13 @@ from player.forms import SearchForm
 from player.forms import TournamentSearchForm
 from player.forms import PersonSearchForm
 from player.forms import TeamSearchForm
-from player.models import Game
-from player.models import GameRound
 from player.models import Person
-from player.models import Player
-from player.models import PlayerStadistic
 from player.models import Team
 from player.models import Tournament
-from player.service import Fixtures
-from player.service import StructuresUtils
-from player.service import TeamsMatrix
-
 from player.service import sort_tournament_list
 
 tournament_type = "TOUCH"
-
-
-# tournament_type = "PADEL"
+#tournament_type = "PADEL"
 
 
 def index(request):
