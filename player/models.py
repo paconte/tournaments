@@ -75,6 +75,15 @@ class Person(models.Model):
         """Returns True if both persons have the same full name otherwise False."""
         return self.get_full_name() == other.get_full_name()
 
+    def __lt__(self, other):
+        if self.gender != other.gender:
+            if self.gender == self.FEMALE or other.gender == self.UNKNOWN:
+                return True
+            else:
+                return False
+        else:
+            return self.last_name <= other.last_name
+
 
 class Team(models.Model):
     name = models.CharField(max_length=40)
