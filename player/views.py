@@ -12,8 +12,9 @@ from player.models import Team
 from player.models import Tournament
 from player.service import sort_tournament_list
 
-tournament_type = "TOUCH"
-#tournament_type = "PADEL"
+from django.conf import settings
+
+tournament_type = settings.TOURNAMENT_TYPE
 
 
 def index(request):
