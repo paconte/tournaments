@@ -6,7 +6,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'a%#zm8z^&=+ela1rq&0*pg2d+)!8b*q92b76e46-@04&78rx96'
+SECRET_KEY = os.environ.get('DJANGO_TOUCHDB_SECRET_KEY')
 
 # DEBUG configuration
 DEBUG = False
@@ -47,15 +47,11 @@ MANAGERS = (
 
 # Database
 DATABASES = {
-    #    'default': {
-    #        'ENGINE': 'django.db.backends.sqlite3',
-    #        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    #    },
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'touchDB',
-        'USER': 'tournamentDB',
-        'PASSWORD': 'DBtournament',
+        'USER': os.environ.get('POSTGRES_USER'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
         'HOST': 'localhost',  # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '5432',  # Set to empty string for default.
     }
