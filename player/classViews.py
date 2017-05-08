@@ -322,5 +322,6 @@ class TournamentView(DetailView):
         context['phased_finals_games'] = fixtures.get_phased_finals({})
         context['teams_matrix'] = st_utils.get_teams_matrix(teams, 4)
         context['players'] = players
+        context['type'] = settings.TOURNAMENT_TYPE
 
         return context
