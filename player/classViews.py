@@ -12,7 +12,10 @@ from player.models import Team
 from player.models import Person
 from player.service import Fixtures
 from player.service import StructuresUtils
-from player.games import PadelResult
+
+from django.conf import settings
+
+tournament_type = settings.TOURNAMENT_TYPE
 
 import logging
 
@@ -297,6 +300,12 @@ class TournamentView(DetailView):
         games = Game.objects.filter(tournament=self.object.id)
         teams = Team.objects.filter(tournament__id=self.object.id).exclude(name__in=exclude_teams)
 
+        # Padel needs the team players for the tournament view
+        players = dict()
+        if settings.TOURNAMENT_TYPE == 'PADEL':
+            for team in teams:
+                players[team.id] = Player.objects.filter(team__id=team.id)
+
         fixtures = Fixtures(games)
         pool_games = fixtures.sorted_pools
         division_games = fixtures.sorted_divisions
@@ -312,5 +321,6 @@ class TournamentView(DetailView):
         context['finals_games'] = finals_games
         context['phased_finals_games'] = fixtures.get_phased_finals({})
         context['teams_matrix'] = st_utils.get_teams_matrix(teams, 4)
+        context['players'] = players
 
         return context
