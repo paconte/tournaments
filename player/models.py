@@ -71,6 +71,10 @@ class Person(models.Model):
         """Returns the person's full name."""
         return '{0} {1}'.format(smart_str(self.first_name), smart_str(self.last_name))
 
+    def get_full_name_reverse(self):
+        """Returns the person's full name."""
+        return '{0}, {1}'.format(smart_str(self.last_name), smart_str(self.first_name))
+
     def compare_name(self, other):
         """Returns True if both persons have the same full name otherwise False."""
         return self.get_full_name() == other.get_full_name()
