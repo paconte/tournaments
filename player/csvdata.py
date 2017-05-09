@@ -774,6 +774,28 @@ class FoxGame(CsvGame):
         return RAW_STATS_FILES + destination
 
 
+def create_person(row):
+    from player.models import Person
+    born = None
+    nationality = None
+    if row[0] is None or len(row[0]) == 0 or row[1] is None or len(row[1]) == 0 or row[4] is None or len(row[4]) == 0:
+        raise ValueError("Invalid value at row: ", row)
+
+    if row[2]:
+        born = strftime("%y/%m/%d", row[2])
+    if row[3]:
+        nationality = row[3]
+
+    person = Person(
+        first_name=row[0],
+        last_name=row[1],
+        born=born,
+        nationality=nationality,
+        gender=row[4])
+
+    return person
+
+
 # PHASES_INDEXES
 PH_PHASE_ROUND_INDEX = 0
 PH_CATEGORY_INDEX = 1

@@ -52,10 +52,23 @@ class DjangoSimpleFetcher:
         return result
 
     @staticmethod
-    def get_or_create_person(first_name, last_name, gender=None):
+    def get_or_create_person(first_name, last_name, gender=None, nationality=None, born=None):
         try:
             result = Person.objects.get(first_name=first_name, last_name=last_name)
-            result = result, False
+            update = False
+            if gender and result.gender is None:
+                result.gender = gender
+                Person.objects.get(first_name=first_name, last_name=last_name).update(gender=gender)
+                update = True
+            if nationality and result.nationality is None:
+                result.nationality = nationality
+                Person.objects.get(first_name=first_name, last_name=last_name).update(nationality=nationality)
+                update = True
+            if born and result.born is None:
+                result.born = born
+                Person.objects.get(first_name=first_name, last_name=last_name).update(born=born)
+                update = True
+            result = result, update
         except MultipleObjectsReturned:
             if gender:
                 result = Person.objects.get(first_name=first_name, last_name=last_name, gender=gender)
@@ -411,10 +424,10 @@ def printCF(obj, created):
 
 
 class CsvReader:
-    (PHASE, TOURNAMENT, NTS_STATISTIC, FIT_STATISTIC, PADEL_GAME) = (0, 1, 2, 3, 4)
+    (PHASE, TOURNAMENT, NTS_STATISTIC, FIT_STATISTIC, PADEL_GAME, PERSON) = (0, 1, 2, 3, 4, 5)
 
     def __init__(self, type):
-        if type in [self.PHASE, self.TOURNAMENT, self.NTS_STATISTIC, self.FIT_STATISTIC, self.PADEL_GAME]:
+        if type in [self.PHASE, self.TOURNAMENT, self.NTS_STATISTIC, self.FIT_STATISTIC, self.PADEL_GAME, self.PERSON]:
             self._fexit = '####'
             self._exit_text = '\n Force exit #### :)\n'
             self._type = type
@@ -445,11 +458,14 @@ class CsvReader:
             result = csvdata.FitStatistic.from_array(row)
         elif self._type == self.PADEL_GAME:
             result = games.Game.padel_from_csv_list(row)
+        elif self._type == self.PERSON:
+            result = csvdata.create_person(row)
         else:
             assert 0, "Wrong object to read: " + self._type
         return result
 
     def create_django_object(self, csv_object):
+        from player import models
         if self._type == self.PHASE and isinstance(csv_object, csvdata.CsvPhase):
             phase, created = DjangoSimpleFetcher.get_or_create_game_phase(
                     csv_object.category, csv_object.round, csv_object.teams, True)
@@ -462,6 +478,10 @@ class CsvReader:
             DjangoCsvFetcher.create_csv_fit_statistic(csv_object)
         elif self._type == self.PADEL_GAME and isinstance(csv_object, games.Game):
             DjangoCsvFetcher.create_padel_csv_game(csv_object)
+        elif self._type == self.PERSON and isinstance(csv_object, models.Person):
+            print(csv_object)
+            DjangoSimpleFetcher.get_or_create_person(
+                csv_object.first_name, csv_object.last_name, csv_object.gender, csv_object.nationality, csv_object.born)
         else:
             assert 0, "Wrong object to read: " + self._type
 

@@ -7,7 +7,7 @@ class Command(BaseCommand):
     help = 'Add csv data to the database.'
 
     def add_arguments(self, parser):
-        parser.add_argument('type', choices=['games', 'phases', 'stats_game', 'stats_tournament', 'padel'])
+        parser.add_argument('type', choices=['games', 'phases', 'stats_game', 'stats_tournament', 'padel', 'person'])
         parser.add_argument('file_path', nargs='+')
 
     def handle(self, *args, **options):
@@ -30,6 +30,9 @@ class Command(BaseCommand):
             reader.read_file(file_path)
         elif csv_type == 'phases':
             reader = csvReader.CsvReader(csvReader.CsvReader.PHASE)
+            reader.read_file(file_path)
+        elif csv_type == 'person':
+            reader = csvReader.CsvReader(csvReader.CsvReader.PERSON)
             reader.read_file(file_path)
         else:
             raise Exception('Argument %s not supported.' % csv_type)
