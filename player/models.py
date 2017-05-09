@@ -88,6 +88,9 @@ class Person(models.Model):
         else:
             return self.last_name <= other.last_name
 
+    def get_png_flag(self):
+        return 'images/flags/16/Germany.png'
+
 
 class Team(models.Model):
     name = models.CharField(max_length=40)
@@ -540,7 +543,15 @@ class PadelResult(models.Model):
 
         return local, visitor
 
-    local_scores  = property(_get_local_scores)
+    def get_result_pairs(self):
+        result = list()
+        for index in range(len(self.local_scores)):
+            x = self.local_scores[index]
+            y = self.visitor_scores[index]
+            result.append(str(x) + '-' + str(y))
+        return result
+
+    local_scores = property(_get_local_scores)
     visitor_scores = property(_get_visitor_scores)
 
 

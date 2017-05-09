@@ -14,3 +14,8 @@ def get_item_tuple_first(dictionary, key):
 @register.filter
 def get_item_tuple_second(dictionary, key):
     return dictionary.get(key)[1].person.get_full_name_reverse()
+
+
+@register.filter
+def get_item_tuple_second_nationality(dictionary, key):
+    return dictionary.get(key)[1].person.get_png_flag()

@@ -14,8 +14,16 @@
 </script>
 
 <!-- Main well for a primary marketing message or call to action -->
-<div class="well">
-  <h1>{{tournament.name}}</h1><h2>{{tournament.get_division_name}}</h2>
+<div class="row well well-sm">
+	<div class="col-xs-4 col-sm-4 col-md-4 col-md-offset-0">
+		<h4 style="text-align:center">Men GPS-1000</h4>
+	</div>
+	<div class="col-xs-12 col-sm-4 col-md-4">
+		<h4 style="font-weight: bold; text-align:center">{{tournament.city}}</h4>
+	</div>
+	<div class="col-xs-12 col-sm-4 col-md-4">
+		<h4 style="text-align:center">{{tournament.date}}</h4>
+	</div>
 </div>
 
 <div class="page-header">
@@ -35,10 +43,10 @@
 			<td class="col-sm-2">
 				{% if type == 'PADEL' %}
 				<a href="{% url 'detail_team_tournament' tournament.id team.id %}">
-					<img class="flag-pic-small" float="left" src="{% static 'images/flags/16/Germany.png' %}"/>
+					<img class="flag-pic-small" float="left" src="{% static players|get_item_tuple_second_nationality:team.id %}"/>
 					{{ players|get_item_tuple_first:team.id }}
 					<br>
-					<img class="flag-pic-small" float="left" src="{% static 'images/flags/16/Germany.png' %}"/>
+					<img class="flag-pic-small" float="left" src="{% static players|get_item_tuple_second_nationality:team.id %}"/>
 					{{ players|get_item_tuple_second:team.id }}
 				</a>
 				{% else %}
@@ -144,10 +152,10 @@
 
 <div class="collapse in" id="pools-collapse">
 {% for key, list in pool_games.items %}
-<div class="well">
-<div class="row">
-  <div class="col-md-4">
-    <table class="table table-striped table-condensed">
+	<div class="well">
+		<div class="row">
+			<div class="col-md-12">
+				<table class="table table-striped table-condensed">
       <thead>
 	<tr class="success">
 	  <th>{{key}}</th>
@@ -177,64 +185,76 @@
 	</tbody>
       </thead>
     </table>
-  </div>
-
-	<div class="col-md-8">
-		<table class="table table-striped table-condensed table-bordered">
-			<thead>
-			<tr class="success">
-				<th colspan="8">{{key}} - Games</th>
-			</tr>
-			<tbody>
-			{% if games %}
-			{% for game in games %}
-			{% if game.phase.round == key %}
-
-			{% if not game.result_padel %}
-			<tr>
-				{% if game.time %}
-				<td class="text-center">{{game.time|date:"H:i"}}</td>
-				{% endif %}
-				{% if game.field %}
-				<td class="col-sm-2 text-center">{{game.field}}</td>
-				{% endif %}
-				<td class="col-sm-5"><a href="{% url 'detail_team_tournament' tournament.id game.local.id %}">{{game.local.name}}</a></td>
-				<td class="success text-center">{{game.local_score}}</td>
-				<td class="text-center">v</td>
-                <td class="success text-center">{{game.visitor_score}}</td>
-				<td class="col-sm-5 text-right"><a href="{% url 'detail_team_tournament' tournament.id game.visitor.id %}">{{game.visitor.name}}</a></td>
-				<td class="text-center"><a class="ion-android-add-circle" href="{% url 'detail_game' game.id %}"/></td>
-			</tr>
-			{% else %}
-			<tr>
-				<td class="col-sm-5"><a href="{% url 'detail_team_tournament' tournament.id game.local.id %}">{{game.local.name}}</a></td>
-				{% for score in game.result_padel.local_scores %}
-				<td class="success text-center">{{score}}</td>
-				{% endfor %}
-				<td class="success text-center">({{game.local_score}})</td>
-			</tr>
-			<tr>
-				<td class="col-sm-5"><a href="{% url 'detail_team_tournament' tournament.id game.visitor.id %}">{{game.visitor.name}}</a></td>
-				{% for score in game.result_padel.visitor_scores %}
-				<td class="success text-center">{{score}}</td>
-				{% endfor %}
-				<td class="success text-center">({{game.visitor_score}})</td>
-			</tr>
-			<tr><td></td></tr>
-			{% endif %}
-
-			{% endif %}
-			{% endfor %}
-			{% else %}
-			<td>No games are available.</td>
-			{% endif %}
-			</tbody>
-			</thead>
-		</table>
+			</div>
+			<div class="col-md-12">
+				<table class="table table-striped table-condensed table-bordered">
+					<thead>
+					<tr class="success">
+						<th colspan="8">{{key}} - Games</th>
+					</tr>
+					<tbody>
+				    {% if games %}
+					    {% for game in games %}
+					        {% if game.phase.round == key %}
+					            {% if not game.result_padel %}
+					            <tr>
+				                    {% if game.time %}
+				                    <td class="text-center">{{game.time|date:"H:i"}}</td>
+				                    {% endif %}
+				                    {% if game.field %}
+				                    <td class="col-sm-2 text-center">{{game.field}}</td>
+				                    {% endif %}
+				                    <td class="col-sm-5"><a href="{% url 'detail_team_tournament' tournament.id game.local.id %}">{{game.local.name}}</a></td>
+				                    <td class="success text-center">{{game.local_score}}</td>
+				                    <td class="text-center">v</td>
+                                    <td class="success text-center">{{game.visitor_score}}</td>
+				                    <td class="col-sm-5 text-right"><a href="{% url 'detail_team_tournament' tournament.id game.visitor.id %}">{{game.visitor.name}}</a></td>
+				                    <td class="text-center"><a class="ion-android-add-circle" href="{% url 'detail_game' game.id %}"/></td>
+			                    </tr>
+					            {% else %}
+					            <tr>
+				                    <td class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+										<a href="{% url 'detail_team_tournament' tournament.id game.local.id %}">
+											<img class="flag-pic-small" float="left" src="{% static players|get_item_tuple_second_nationality:game.local.id %}"/>
+											{{ players|get_item_tuple_first:game.local.id }}
+											<br>
+											<img class="flag-pic-small" float="left" src="{% static players|get_item_tuple_second_nationality:game.local.id %}"/>
+											{{ players|get_item_tuple_second:game.local.id }}
+										</a>
+									</td>
+				                    {% if game.result_padel.get_result_pairs|length == 2 %}
+									    {% for score in game.result_padel.get_result_pairs %}
+									    <td class="col-xs-1 col-sm-1 col-md-1 success text-center">{{score}}</td>
+				                        {% endfor %}
+									    <td class="col-xs-1 col-sm-1 col-md-1 success text-center"></td>
+									{% elif game.result_padel.get_result_pairs|length == 3 %}
+									    {% for score in game.result_padel.get_result_pairs %}
+									    <td class="col-xs-1 col-sm-1 col-md-1 success text-center">{{score}}</td>
+				                        {% endfor %}
+									{% endif %}
+									<td class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+										<a href="{% url 'detail_team_tournament' tournament.id game.visitor.id %}">
+											<img class="flag-pic-small" float="left" src="{% static players|get_item_tuple_second_nationality:game.visitor.id %}"/>
+											{{ players|get_item_tuple_first:game.visitor.id }}
+											<br>
+											<img class="flag-pic-small" float="left" src="{% static players|get_item_tuple_second_nationality:game.visitor.id %}"/>
+											{{ players|get_item_tuple_second:game.visitor.id }}
+										</a>
+									</td>
+			                    </tr>
+					            <tr><td></td></tr>
+					            {% endif %}
+					        {% endif %}
+					     {% endfor %}
+					{% else %}
+					<td>No games are available.</td>
+					{% endif %}
+				    </tbody>
+					</thead>
+				</table>
+			</div>
+		</div>
 	</div>
-
-</div>
-</div>
 {% endfor %}
 </div>
 {% endif %}
