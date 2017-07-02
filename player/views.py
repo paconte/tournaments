@@ -29,7 +29,7 @@ def index(request):
     tournament_list = _get_tournament_list()
     sort_tournament = sort_tournament_list(tournament_list, tournament_type)
     template = loader.get_template('index.html')
-    context = RequestContext(request, _get_tournaments_context(sort_tournament))
+    context = _get_tournaments_context(sort_tournament)
     return HttpResponse(template.render(context))
 
 
@@ -58,8 +58,8 @@ def contact(request):
     Args:
         request: django HttpRequest class
     Returns:
-        A django HttpResponse class. This view displays a form, in case the form is successfully 
-        fulfilled and sent, the same view is displayed with a success message and an empty form. 
+        A django HttpResponse class. This view displays a form, in case the form is successfully
+        fulfilled and sent, the same view is displayed with a success message and an empty form.
         Otherwise the form will be again rendered with error messages.
     """
 
@@ -112,7 +112,7 @@ def tournaments(request):
     tournament_list = _get_tournament_list()
     sort_tournament = sort_tournament_list(tournament_list, tournament_type)
     template = _get_tournaments_template()
-    context = RequestContext(request, _get_tournaments_context(sort_tournament))
+    context = _get_tournaments_context(sort_tournament)
     return HttpResponse(template.render(context))
 
 
