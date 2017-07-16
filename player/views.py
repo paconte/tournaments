@@ -222,7 +222,7 @@ def _get_tournaments_template():
     if tournament_type == "TOUCH":
         template = 'touch/tournaments.html'
     elif tournament_type == "PADEL":
-        template = 'padel/tournaments.html'
+        template = 'padel/landing-padel.html'
     else:
         raise AttributeError('tournament type is not supported')
     return loader.get_template(template)
